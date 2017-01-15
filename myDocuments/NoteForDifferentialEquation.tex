@@ -1,0 +1,73 @@
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+\documentclass[8pt, a4paper]{article}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+\usepackage{listings} %for python code.
+\usepackage{graphicx} %package for graph.
+\usepackage{float} %Thin border around figure.
+\floatstyle{boxed} 
+\restylefloat{figure}
+\usepackage{wrapfig}
+\usepackage{sidecap}
+\usepackage{caption} 
+\usepackage{tcolorbox}
+% color
+\usepackage{xcolor}
+\usepackage{boxedminipage} %Box text
+\usepackage{framed} 
+\definecolor{light_gray}{gray}{0.95}
+\definecolor{dark_gray}{gray}{0.45}
+% header note
+\usepackage{fancyhdr}
+% % Path for image
+% \graphicspath{./figures/}
+
+\title{Lecture Note for Differential Equation}
+\author{KD KIM}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Modeling : Natural population growth}
+\subsection{Recitation 1}
+A certain African government is trying to come up with a good policy regarding
+the hunting of oryx in a specific game preserve.
+They are using the following model:
+the oryx population has a positive natural growth rate of $k$ $years^{-1}$, 
+and there is assumed a constant harvesting rate of a $oryxes/year$.
+\newline
+\begin{enumerate}
+\item Write down a differential equation modeling the oryx population. [First
+  step: choose symbols and units.]
+\item Discuss this model using the language of signals and systems.
+ 
+\item Suppose $a = 0$: no hunters. What is the doubling time (in terms of $k$)?
+What is the relation between the population now and the population after $k-1$
+years?
+
+\item Find the general solution of the equation you found in (1).
+  Check that the proposed solution satisfies the ODE.
+\item  There is a constant solution. Find it.
+  Does the way the solutions depend upon $k$ and a make sense?
+  That is, do the units come out right?
+  Does the solution behave right when a is large or small? When $k$ is large or small?
+  Sketch the graphs of some solutions.
+\item Notice that for initial values less than the equlibrium,
+  the solutions stop having meaning in terms of the real-world situation they are modeling
+  when they become negative.
+  In these cases, predict the time te at which oryxes will be extirpated from this area.
+  For example, suppose that $x(0) = x_0$ is less than the equilibrium population.
+  For this initial condition what is te? Check units.
+\item Would you recommend that the government base a policy on this idea, for any value of a?
+
+\end{enumerate}
+
+\end{document}

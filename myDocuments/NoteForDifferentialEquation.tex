@@ -17,7 +17,8 @@
 \restylefloat{figure}
 \usepackage{wrapfig}
 \usepackage{sidecap}
-\usepackage{caption} 
+\usepackage{caption}
+\usepackage{color}
 \usepackage{tcolorbox}
 % color
 \usepackage{xcolor}
@@ -35,39 +36,185 @@
 \date{\today}
 \begin{document}
 \maketitle
+\clearpage
 
-\section{Modeling : Natural population growth}
-\subsection{Recitation 1}
-A certain African government is trying to come up with a good policy regarding
-the hunting of oryx in a specific game preserve.
-They are using the following model:
-the oryx population has a positive natural growth rate of $k$ $years^{-1}$, 
-and there is assumed a constant harvesting rate of a $oryxes/year$.
-\newline
-\begin{enumerate}
-\item Write down a differential equation modeling the oryx population. [First
-  step: choose symbols and units.]
-\item Discuss this model using the language of signals and systems.
- 
-\item Suppose $a = 0$: no hunters. What is the doubling time (in terms of $k$)?
-What is the relation between the population now and the population after $k-1$
-years?
+\section{Unit 1}
 
-\item Find the general solution of the equation you found in (1).
-  Check that the proposed solution satisfies the ODE.
-\item  There is a constant solution. Find it.
-  Does the way the solutions depend upon $k$ and a make sense?
-  That is, do the units come out right?
-  Does the solution behave right when a is large or small? When $k$ is large or small?
-  Sketch the graphs of some solutions.
-\item Notice that for initial values less than the equlibrium,
-  the solutions stop having meaning in terms of the real-world situation they are modeling
-  when they become negative.
-  In these cases, predict the time te at which oryxes will be extirpated from this area.
-  For example, suppose that $x(0) = x_0$ is less than the equilibrium population.
-  For this initial condition what is te? Check units.
-\item Would you recommend that the government base a policy on this idea, for any value of a?
+\subsection{1 Introduction to differential equations and modeling}
 
-\end{enumerate}
+\subsubsection{Differential equations: notation and terminology}
+
+\paragraph{A secret Function} $y(t)$, \\
+\subparagraph{It satisfies the differential equation}
+\begin{equation*}
+  \dot{y} = 3y,
+\end{equation*}
+which could model population growth in some biological system, like the growth of yeast cells.
+Note that \emph{\color{blue} $\dot{y}$} is common notation for the derivative with respect to time;
+$\dot{y}$, $y'$, and $\frac{dy}{dt}$ all mean the same thing here.\\
+$y = e^{3t}$ is a solution to the differential equation above because substituting it into the DE gives
+$3e^{3t}=3e^{3t}$. But it's not the function I was thinking of! Some other solutions are
+$y = 7e^{3t}$, $y = -5e^{3t}$, $y = 0$, etc. From calculus we know that the family of functions
+\begin{equation*}
+  y = ce^{3t}
+\end{equation*}
+is the \emph{\color{blue} general solution}.
+\begin{itemize}
+\item for each $c$, the function $y=ce^{3t}$ is a solution, and
+\item there are no other solutions besides these.
+\end{itemize}
+So there is a 1-parameter family of solutions to this DE.
+The constant $c$ is a \emph{\color{blue} parameter}.
+\subparagraph{The function satisfies the initial condition $y(0)=5$.}
+\begin{align*}
+  y(0) &= ce^{0} \\
+  5 &= c  
+\end{align*}
+\emph{The solution} satisfying the initial condition $y(0) = 5$ is
+\begin{equation*}
+  y(t) = 5e^{3t}
+\end{equation*}
+
+\subparagraph{Definition 1.1} An \emph{\color{blue} initial value problem}
+is a differential equation together with initial conditions.\\
+
+\emph{\color{orange} Important} Checking a solution to a DE is usually easier
+than finding the solution in the first place, so it is often worth doing.
+Just plug in the function to both sides, and also check that it satisfies the initial condition.\\
+
+In the solution to the DE, only one initial condition was needed,
+since only one parameter $c$ needed to be recovered.
+\clearpage
+
+\subsubsection{Modeling population growth}
+\paragraph{Cell division}
+Here we will see how the differential equation for our secret function appears when modeling a natural phenomenon – the population growth of a colony of cells.\\
+
+In this example we'll model the number of yeast cells in a batch of dough.
+As we work through this example, pay careful attention to the assumptions we make, and how the \emph{\color{blue} initial condition} plays a role in the resulting differential equation.
+\subparagraph{\color{blue} The system}
+For our system, we assume we have a colony of yeast cells in a batch of bread dough.
+The first step is to identify the variables, the units, and give them names.
+\begin{align*}
+  y\qquad &\text{number of cells}\\
+  t\qquad &\text{time measured in seconds}
+\end{align*}
+
+We also need to set some initial condition, $y_0$, the number of cells that we begin with at $t=0$.
+In this system, this might be the number of yeast cells in a yeast packet.
+\subparagraph{\color{blue} A differential model}
+If $y$ denotes the number of yeast cells, what can we say about the derivative $\dot{y}$?
+The derivative represents the rate at which the number of cells is growing.
+How should it depend on the number of cells?
+In nature, cells given plenty of space and food tend to divide through mitosis regularly.
+If we assume that each cell is dividing independently of all other cells, then doubling the number of cells should double the rate at which new cells are born.
+In fact, multiplying the number of cells by any scalar factor should do the same to the derivative.
+So this directly implies that the growth rate of cells is proportional to the number of cells:
+
+\begin{equation*}
+  \dot{y} \propto y.  
+\end{equation*}
+
+We can make this into a true equation by simply inserting a proportionality constant $a$, such that
+
+\begin{equation*}
+  \dot{y} = ay. 
+\end{equation*}
+
+We say that $1/a$ is a ``characteristic'' timescale for our problem, setting the rate at which the cells divide. A solution to the above differential equation is
+
+\begin{equation*}
+  y = y_0e^{at},
+\end{equation*}
+where $y_0$ is the number of yeast cells we started with at $t=0$.
+In our case, we assume that $y_0$ is the number of yeast cells in a packet, which is about $180$ billion yeast cells.
+\clearpage
+
+\paragraph{Classification of differential equations:}
+There are two kinds:
+\begin{itemize}
+\item An \emph{\color{blue} ordinary differential equation (ODE)}  involves derivatives of a function of \emph{only one} variable.
+\item A \emph{\color{blue} partial differential equation (PDE)} involves \emph{partial derivatives} of a \emph{multivariable} function.
+\end{itemize}
+
+Here we will study ordinary differential equations. In \textit{Fourier Series and PDEs}, we will study partial differential equations. When we consider ODEs, we will often regard the independent variable to be time.\\
+
+Notation for higher derivatives of a function $y(t)$:
+\begin{align*}
+  \text{first derivative: } \qquad  &\dot{y}\qquad y'\qquad \frac{dy}{dt}\\
+  \text{second derivative: } \qquad  &\ddot{y}\qquad y''\qquad \frac{d^2y}{dt^2}\\
+  \text{third derivative: } \qquad  &y^{(3)}\qquad \qquad \frac{d^3y}{dt^3}\\
+                                    &\centerdot \\
+                                    &\centerdot \\
+                                    &\centerdot \\
+  n^{th} \text{derivative: } \qquad &y^{(n)}\qquad \qquad \frac{d^ny}{dt^n}                              
+\end{align*}
+
+\emph{\color{orange} Warning: } The dot notation $\dot{y}$ should only be used to refer to a time derivative. If for example $y$ is a function of a spacial variable $y=y(x)$, we will only use the notation $y'$ to denote the derivative with respect to $x$.\\
+
+\subparagraph{Definition 1.2} The \emph{\color{blue} order} of a DE is the highest $n$ such that the $n^{th}$ derivative of the function appears.
+
+
+\clearpage
+
+\subsubsection{Modeling a bank acount with withdrawls}
+\subsubsection{Newtons second law and differential equations}
+
+\subsection{Recitation 1: An Oryx population model}
+
+\subsection{2 Solving first order linear DEs}
+\subsubsection{Standard linear form}
+\subsubsection{Modeling temperature conduction}
+\subsubsection{Solving homogeneous first order linear DEs}
+\subsubsection{Solving inhomogeneous first order linear DEs}
+\subsubsection{Linear combinations and the superposition principle}
+\subsubsection{Existence and uniqueness of solutions}
+
+\subsection{Recitation 2: first order linear differential equations}
+
+\subsection{Homework1: Part A}
+
+\subsection{Homework1: Part B}
+
+\section{Unit 2}
+\clearpage
+
+\subsection{3 Complex numbers}
+\subsubsection{Operations with complex numbers}
+\subsubsection{Geometry of complex numbers}
+\subsubsection{Polar form}
+\subsubsection{Euler's formula}
+\subsubsection{Worked example}
+
+\subsection{Recitation 3}
+
+\subsection{4 Complex exponential}
+\subsubsection{Definition, notation, and proof}
+\subsubsection{Using complex exponential in integrals}
+\subsubsection{Finding roots of polynomials}
+\subsubsection{Roots unity}
+\subsubsection{Examples}
+
+\subsection{Recitation 4}
+
+\subsection{5 Homogeneous 2nd Order Linear DEs}
+\subsubsection{Harmonic Oscillator}
+\subsubsection{Damped Harmonic Oscillator}
+\subsubsection{Solving the homogeneous case: Characteristic polynomial}
+\subsubsection{Distinct real roots}
+\subsubsection{Distinct complex roots}
+
+\subsection{Recitation 5}
+
+\subsection{Homework2: Part A}
+
+\subsection{Homework2: Part B}
+
+
+
+
+
+
+
 
 \end{document}

@@ -1,0 +1,229 @@
+\section{Introduction to differential equations and modeling}
+\subsection{A secret Function}
+\begin{ex}
+  Can you guess my secret function $y(t)$?
+\end{ex}
+\paragraph{Clue} It satisfies the differential equation \\
+\begin{equation*}
+  \dot{y} = 3y,
+\end{equation*}
+which could model population growth in some biological system, like the growth of yeast cells.
+Note that \emph{\color{blue} $\dot{y}$} is common notation for the derivative with respect to time;
+$\dot{y}$, $y'$, and $\frac{dy}{dt}$ all mean the same thing here.\\
+$y = e^{3t}$ is a solution to the differential equation above because substituting it into the DE gives
+$3e^{3t}=3e^{3t}$. But it's not the function I was thinking of! Some other solutions are
+$y = 7e^{3t}$, $y = -5e^{3t}$, $y = 0$, etc. From calculus we know that the family of functions
+\begin{equation*}
+  y = ce^{3t}
+\end{equation*}
+is the \emph{\color{blue} general solution}.
+\begin{itemize}
+\item for each $c$, the function $y=ce^{3t}$ is a solution, and
+\item there are no other solutions besides these.
+\end{itemize}
+So there is a 1-parameter family of solutions to this DE.
+The constant $c$ is a \emph{\color{blue} parameter}.
+
+\paragraph{Clue 2:} The function satisfies the \emph{\color{blue} initial condition} $y(0)=5$.
+\begin{align*}
+  y(0) &= ce^{0} \\
+  5 &= c  
+\end{align*}
+\emph{The solution} satisfying the initial condition $y(0) = 5$ is
+\begin{equation*}
+  y(t) = 5e^{3t}
+\end{equation*}
+\begin{mydef}
+  An \emph{\color{blue} initial value problem}
+  is a differential equation together with initial conditions.
+\end{mydef}
+
+\emph{\color{orange} Important} Checking a solution to a DE is usually easier
+than finding the solution in the first place, so it is often worth doing.
+Just plug in the function to both sides, and also check that it satisfies the initial condition.\\
+
+In the solution to the DE, only one initial condition was needed,
+since only one parameter $c$ needed to be recovered.
+\clearpage
+
+\subsection{Cell division}
+Here we will see how the differential equation for our secret function appears when modeling a natural phenomenon - the population growth of a colony of cells.\\
+
+In this example we'll model the number of yeast cells in a batch of dough.
+As we work through this example, pay careful attention to the assumptions we make, and how the \emph{\color{blue} initial condition} plays a role in the resulting differential equation.
+
+\subsubsection{\color{blue} The system}
+For our system, we assume we have a colony of yeast cells in a batch of bread dough.
+The first step is to identify the variables, the units, and give them names.
+\begin{align*}
+  y\qquad &\text{number of cells}\\
+  t\qquad &\text{time measured in seconds}
+\end{align*}
+We also need to set some initial condition, $y_0$, the number of cells that we begin with at $t=0$.
+In this system, this might be the number of yeast cells in a yeast packet.
+\subsubsection{\color{blue} A differential model}
+If $y$ denotes the number of yeast cells, what can we say about the derivative $\dot{y}$?
+The derivative represents the rate at which the number of cells is growing.
+How should it depend on the number of cells?
+In nature, cells given plenty of space and food tend to divide through mitosis regularly.
+If we assume that each cell is dividing independently of all other cells, then doubling the number of cells should double the rate at which new cells are born.
+In fact, multiplying the number of cells by any scalar factor should do the same to the derivative.
+So this directly implies that the growth rate of cells is proportional to the number of cells:
+
+\begin{equation*}
+  \dot{y} \propto y.  
+\end{equation*}
+We can make this into a true equation by simply inserting a proportionality constant $a$, such that
+\begin{equation*}
+  \dot{y} = ay. 
+\end{equation*}
+We say that $1/a$ is a ``characteristic'' timescale for our problem, setting the rate at which the cells divide. A solution to the above differential equation is
+\begin{equation*}
+  y = y_0e^{at},
+\end{equation*}
+where $y_0$ is the number of yeast cells we started with at $t=0$.
+In our case, we assume that $y_0$ is the number of yeast cells in a packet, which is about $180$ billion yeast cells.
+\clearpage
+
+\subsection{Classification of differential equations:}
+There are two kinds:
+\begin{itemize}
+\item An \emph{\color{blue} ordinary differential equation (ODE)}  involves derivatives of a function of \emph{only one} variable.
+\item A \emph{\color{blue} partial differential equation (PDE)} involves \emph{partial derivatives} of a \emph{multivariable} function.
+\end{itemize}
+
+Here we will study ordinary differential equations. In \textit{Fourier Series and PDEs}, we will study partial differential equations. When we consider ODEs, we will often regard the independent variable to be time.\\
+
+Notation for higher derivatives of a function $y(t)$:
+\begin{align*}
+  \text{first derivative: } \qquad  &\dot{y}\qquad y'\qquad \frac{dy}{dt}\\
+  \text{second derivative: } \qquad  &\ddot{y}\qquad y''\qquad \frac{d^2y}{dt^2}\\
+  \text{third derivative: } \qquad  &y^{(3)}\qquad \qquad \frac{d^3y}{dt^3}\\
+                                    &\centerdot \\
+                                    &\centerdot \\
+                                    &\centerdot \\
+  n^{th} \text{derivative: } \qquad &y^{(n)}\qquad \qquad \frac{d^ny}{dt^n}                              
+\end{align*}
+
+\emph{\color{orange} Warning: } The dot notation $\dot{y}$ should only be used to refer to a time derivative. If for example $y$ is a function of a spacial variable $y=y(x)$, we will only use the notation $y'$ to denote the derivative with respect to $x$.\\
+
+\begin{mydef}
+  The \emph{\color{blue} order} of a DE is the highest $n$ such that the $n^{th}$ derivative of the function appears.
+\end{mydef}
+\begin{ex}
+  is 
+\end{ex}
+\begin{align*}
+  \displaystyle  \displaystyle 9375 \cos (t^5) \, \ddot{y}^4 + 982 (y + t^3)^7 \,
+  \dot{y} - 387 y^{(3)} y^{(4)} + 2t y^{(5)} \\
+  \displaystyle {}=- 30987\sqrt {y}+ 4087 \sin (t/y) + 7092 \ln (1- t^7) + 3786 e^{y^8 - t^3} + 18.031 \,
+\end{align*}
+an ODE or a PDE?
+\begin{mybox}{gray}{Answer}
+  There is only only one dependent variable $y$ and independent variable $y$, So ODE.  
+\end{mybox}
+\clearpage
+
+\begin{problem}
+  Order of differential equation 
+\end{problem}
+What is the order of the differential equation in the above example?
+\begin{mybox}{gray}{Answer}
+  The highest $n$ is such that $n^{th}$ derivative of $y$ is $y^{(5)}$. 
+\end{mybox}
+
+\subsection{More terminology}
+\begin{enumerate}
+\item A \emph{\color{blue} homogeneous linear ODE} is a differential equation such as
+  \begin{equation*}
+    e^ t \,  {\color{blue}{\ddot{y}}}  + 5 \,  {\color{blue}{\dot{y}}}  + t^9 \,  {\color{blue}{y}}  = 0
+  \end{equation*}
+  in which each summand is a function of $t$ times one of $\color{blue}{\ddot{y}}$,
+  $\color{blue}{\dot{y}}$, $\color{blue}{\dot{y}}$, $\centerdot$ $\centerdot$  $\centerdot$
+  \textbf{Most general} $n^{th}$ \textbf{order homogeneous linear ODE:}
+  \begin{equation*}
+    p_ n(t) \,  {\color{blue}{y^{(n)}}}  + p_{n-1}(t) \,  {\color{blue}{y^{(n-1)}}}  \dotsc + p_1(t) \,  {\color{blue}{\dot{y}}}
+    + p_0(t) \,  {\color{blue}{y}}  = 0
+  \end{equation*}
+  for some function $p_n(t), \cdots, p_0(t)$ called the {\color{blue}{coefficient}}.
+\item An \emph{\color{blue} inhomogeneous linear ODE} is the same except that it has also
+  \emph{\color{orange} one term that is a function of $t$ only} . \\
+  For example,
+  \begin{equation*}
+    e^ t \,  {\color{blue}{\ddot{y}}}  + 5 \,  {\color{blue}{\dot{y}}}  + t^9 \,
+    {\color{blue}{y}}  = {\color{orange}{7 \sin t}}
+  \end{equation*}
+  is a second-order inhomogeneous linear ODE.\\
+  \textbf{Most general $n^{th}$ order inhomogeneous linear ODE:}
+  \begin{equation*}
+    p_ n(t) \,  {\color{blue}{y^{(n)}}}  + p_{n-1}(t) \,  {\color{blue}{y^{(n-1)}}}  \dotsb + p_1(t) \,
+    {\color{blue}{\dot{y}}}  + p_0(t) \,  {\color{blue}{y}}  = {\color{orange}{q(t)}}
+  \end{equation*}
+  for some functions $p_n(t), \cdots , p_0(t), {\color{orange}, q(t)}$. \\
+\item A \textbf{\color{blue} linear ODE} is an ODE that can be rearranged into either of the two types above.
+\item Either of the two forms above can be reduced further by dividing the entire DE by $p_n(t)$,
+  the coefficient of the highest derivative $y^{(n)}$ becomes 1.
+  A differential equation written in either of the two forms above but with leading coefficient $1$ is said to be in standard linear form .
+  \begin{align*}
+    &{\color{blue}{y^{(n)}}}  + p_{n-1}(t) \,  {\color{blue}{y^{(n-1)}}}  \dotsb + p_1(t) \,
+    {\color{blue}{\dot{y}}}  + p_0(t) \,  {\color{blue}{y}}  = 0\\
+    &{\color{blue}{y^{(n)}}}  + p_{n-1}(t) \,  {\color{blue}{y^{(n-1)}}}  \dotsb + p_1(t) \,
+    {\color{blue}{\dot{y}}}  + p_0(t) \,  {\color{blue}{y}}  = {\color{orange}{q(t)}}
+  \end{align*}
+\end{enumerate}
+
+\begin{remark}
+  We insist that solutions $y(t)$ are defined on an entire open interval $I$, as opposed to disjoint intervals.
+  We will always assume the functions $p_n(t), p_{n−1}(t), \cdots, p_0(t), q(t)$ are well behaved,
+  for example continuous, on $I$.
+  (We'll look at more complicated functions in our class Transfer Functions and the Laplace Transform.)
+\end{remark}
+
+\begin{mybox}{gray}{What is open interval?}
+  An \textbf{\color{blue} open interval} is a connected set of real numbers without endpoints.
+  The notation $(a, b)$ denotes the open interval of all points $x$ such that $a < x < b$.
+  It is conventional to allow one or both end points to be infinite:
+  $(a, b)$, $(- \infty, b)$, $(a, \infty)$.
+  The open interval $(-\infty, \infty)$ denotes the entire real line,
+  which is often denoted by $\mathbb{R}$.
+\end{mybox}
+
+\begin{remark}
+  If you already know that an ODE is linear, there is an easy test to decide if it is homogeneous or not:
+  Plug in the constant function $y=0$.
+\end{remark}
+\begin{itemize}
+\item if $y = 0$ is a solution, the ODE is homogeneous.
+\item if $y = 0$ is not a solution, the ODE is inhomogeneous. 
+\end{itemize}
+
+\begin{remark}
+  The cell division example gives us a homogeneous equation.
+  If you start with no yeast cells, the population stays at $0$.
+\end{remark}
+For an ODE to be {\color{blue}nonlinear}, the functions $y, \dot{y},\cdots $ must enter the equation in a more complicated way: raised to powers, multiplied by each other, or with nonlinear functions applied to them.
+
+\begin{problem}
+  Liner vs. nonlinear concept check
+\end{problem}
+Which of the following ODEs are linear?
+\begin{enumerate}
+\item $\ddot{y} -7ty \dot{y} = 0$
+\item $\ddot{y} = e^t (y+t^2)$
+\item $\dot{y} - y^2 = 0$
+\item $\dot{y}^2 - t y = \sin t$
+\item $\dot{y} = \cos (y+t)$
+\end{enumerate}
+
+\begin{mybox}{gray}{Answer}
+  $\ddot{y} -7ty \dot{y} = 0$, $7ty \dot{y}$ multiplied by each other.\\
+  $\ddot{y} = e^t (y+t^2)$ is standard linear form. \\
+  $\dot{y} - y^2 = 0$, $y^2$ is raised powers.\\
+  $\dot{y}^2 - t y = \sin t$, $\dot{y}^2$ is raised powers. \\
+  $\dot{y} = \cos (y+t)$, $\cos (y+t)$ with nonlinear function applied.   
+\end{mybox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "NoteForDifferentialEquation"
+%%% End:

@@ -4,10 +4,15 @@
 %%% End:
 
 \documentclass[8pt, a4paper]{article}
-
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
+% for numbering definition
+\usepackage{amsthm}
+\newtheorem{mydef}{Definition}[section]
+\newtheorem{ex}{Example}[section]
+\newtheorem{problem}{Problem}[section]
+
 \usepackage{mathtools}
 \usepackage{cancel}
 \usepackage{listings} %for python code.
@@ -18,14 +23,25 @@
 \usepackage{wrapfig}
 \usepackage{sidecap}
 \usepackage{caption}
-\usepackage{color}
-\usepackage{tcolorbox}
 % color
+\usepackage{color}
 \usepackage{xcolor}
-\usepackage{boxedminipage} %Box text
-\usepackage{framed} 
-\definecolor{light_gray}{gray}{0.95}
-\definecolor{dark_gray}{gray}{0.45}
+% colored round text box
+\usepackage{tcolorbox}
+\usepackage{blindtext}
+% new tcolorbox environment
+% #1: tcolorbox options
+% #2: color
+% #3: box title
+\newtcolorbox{mybox}[3][]
+{
+  colframe = #2!25,
+  colback  = #2!10,
+  coltitle = #2!20!black,  
+  title    = #3,
+  #1,
+}
+
 % header note
 \usepackage{fancyhdr}
 % % Path for image
@@ -36,16 +52,15 @@
 \date{\today}
 \begin{document}
 \maketitle
+\tableofcontents
 \clearpage
 
-\section{Unit 1}
-
-\subsection{1 Introduction to differential equations and modeling}
-
-\subsubsection{Differential equations: notation and terminology}
-
-\paragraph{A secret Function} $y(t)$, \\
-\subparagraph{It satisfies the differential equation}
+\section{Introduction to differential equations and modeling}
+\subsection{A secret Function}
+\begin{ex}
+  Can you guess my secret function $y(t)$?
+\end{ex}
+\paragraph{Clue} It satisfies the differential equation \\
 \begin{equation*}
   \dot{y} = 3y,
 \end{equation*}
@@ -65,7 +80,8 @@ is the \emph{\color{blue} general solution}.
 \end{itemize}
 So there is a 1-parameter family of solutions to this DE.
 The constant $c$ is a \emph{\color{blue} parameter}.
-\subparagraph{The function satisfies the initial condition $y(0)=5$.}
+
+\paragraph{Clue 2:} The function satisfies the \emph{\color{blue} initial condition} $y(0)=5$.
 \begin{align*}
   y(0) &= ce^{0} \\
   5 &= c  
@@ -74,9 +90,10 @@ The constant $c$ is a \emph{\color{blue} parameter}.
 \begin{equation*}
   y(t) = 5e^{3t}
 \end{equation*}
-
-\subparagraph{Definition 1.1} An \emph{\color{blue} initial value problem}
-is a differential equation together with initial conditions.\\
+\begin{mydef}
+  An \emph{\color{blue} initial value problem}
+  is a differential equation together with initial conditions.
+\end{mydef}
 
 \emph{\color{orange} Important} Checking a solution to a DE is usually easier
 than finding the solution in the first place, so it is often worth doing.
@@ -86,23 +103,22 @@ In the solution to the DE, only one initial condition was needed,
 since only one parameter $c$ needed to be recovered.
 \clearpage
 
-\subsubsection{Modeling population growth}
-\paragraph{Cell division}
-Here we will see how the differential equation for our secret function appears when modeling a natural phenomenon – the population growth of a colony of cells.\\
+\subsection{Cell division}
+Here we will see how the differential equation for our secret function appears when modeling a natural phenomenon - the population growth of a colony of cells.\\
 
 In this example we'll model the number of yeast cells in a batch of dough.
 As we work through this example, pay careful attention to the assumptions we make, and how the \emph{\color{blue} initial condition} plays a role in the resulting differential equation.
-\subparagraph{\color{blue} The system}
+
+\subsubsection{\color{blue} The system}
 For our system, we assume we have a colony of yeast cells in a batch of bread dough.
 The first step is to identify the variables, the units, and give them names.
 \begin{align*}
   y\qquad &\text{number of cells}\\
   t\qquad &\text{time measured in seconds}
 \end{align*}
-
 We also need to set some initial condition, $y_0$, the number of cells that we begin with at $t=0$.
 In this system, this might be the number of yeast cells in a yeast packet.
-\subparagraph{\color{blue} A differential model}
+\subsubsection{\color{blue} A differential model}
 If $y$ denotes the number of yeast cells, what can we say about the derivative $\dot{y}$?
 The derivative represents the rate at which the number of cells is growing.
 How should it depend on the number of cells?
@@ -114,15 +130,11 @@ So this directly implies that the growth rate of cells is proportional to the nu
 \begin{equation*}
   \dot{y} \propto y.  
 \end{equation*}
-
 We can make this into a true equation by simply inserting a proportionality constant $a$, such that
-
 \begin{equation*}
   \dot{y} = ay. 
 \end{equation*}
-
 We say that $1/a$ is a ``characteristic'' timescale for our problem, setting the rate at which the cells divide. A solution to the above differential equation is
-
 \begin{equation*}
   y = y_0e^{at},
 \end{equation*}
@@ -130,7 +142,7 @@ where $y_0$ is the number of yeast cells we started with at $t=0$.
 In our case, we assume that $y_0$ is the number of yeast cells in a packet, which is about $180$ billion yeast cells.
 \clearpage
 
-\paragraph{Classification of differential equations:}
+\subsection{Classification of differential equations:}
 There are two kinds:
 \begin{itemize}
 \item An \emph{\color{blue} ordinary differential equation (ODE)}  involves derivatives of a function of \emph{only one} variable.
@@ -152,7 +164,34 @@ Notation for higher derivatives of a function $y(t)$:
 
 \emph{\color{orange} Warning: } The dot notation $\dot{y}$ should only be used to refer to a time derivative. If for example $y$ is a function of a spacial variable $y=y(x)$, we will only use the notation $y'$ to denote the derivative with respect to $x$.\\
 
-\subparagraph{Definition 1.2} The \emph{\color{blue} order} of a DE is the highest $n$ such that the $n^{th}$ derivative of the function appears.
+\begin{mydef}
+  The \emph{\color{blue} order} of a DE is the highest $n$ such that the $n^{th}$ derivative of the function appears.
+\end{mydef}
+\begin{ex}
+  is 
+\end{ex}
+\begin{align*}
+  \displaystyle  \displaystyle 9375 \cos (t^5) \, \ddot{y}^4 + 982 (y + t^3)^7 \,
+  \dot{y} - 387 y^{(3)} y^{(4)} + 2t y^{(5)} \\
+  \displaystyle {}=- 30987\sqrt {y}+ 4087 \sin (t/y) + 7092 \ln (1- t^7) + 3786 e^{y^8 - t^3} + 18.031 \,
+\end{align*}
+an ODE or a PDE?
+\begin{mybox}{gray}{Answer}
+  There is only only one dependent variable $y$ and independent variable $y$, So ODE.  
+\end{mybox}
+\clearpage
+
+\begin{problem}
+  Order of differential equation 
+\end{problem}
+What is the order of the differential equation in the above example?
+\begin{mybox}{gray}{Answer}
+  The highest $n$ is such that $n^{th}$ derivative of $y$ is $y^{(5)}$. 
+\end{mybox}
+
+
+
+
 
 
 \clearpage
@@ -218,3 +257,8 @@ Notation for higher derivatives of a function $y(t)$:
 
 
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

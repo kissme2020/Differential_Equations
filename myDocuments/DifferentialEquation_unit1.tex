@@ -131,6 +131,7 @@ What is the order of the differential equation in the above example?
 \begin{mybox}{gray}{Answer}
   The highest $n$ is such that $n^{th}$ derivative of $y$ is $y^{(5)}$. 
 \end{mybox}
+\clearpage
 
 \subsection{More terminology}
 \begin{enumerate}
@@ -222,6 +223,189 @@ Which of the following ODEs are linear?
   $\dot{y}^2 - t y = \sin t$, $\dot{y}^2$ is raised powers. \\
   $\dot{y} = \cos (y+t)$, $\cos (y+t)$ with nonlinear function applied.   
 \end{mybox}
+\clearpage
+
+\subsection{Natural growth and decay equations}
+We've been introduced to a few basic forms of differential equations so far.
+The first equation we saw was a basic growth equation,
+\begin{equation*}
+  \dot{y} = ay, 
+\end{equation*}
+which, when $a$ is a positive constant, governs systems like bank accounts and cell populations.
+If we put a negative sign in front of $a$ we get the decay equation
+\begin{equation*}
+  \dot{y} = -ay, 
+\end{equation*}
+which can be used to describe things like radioactive decay of materials.
+\begin{problem}
+  Classification of ODEs concept check
+\end{problem}
+How would you classify the differential equations $\dot{y} = ay$ and
+$\dot{y} = −ay$ just discussed?
+\begin{mybox}{gray}{Answer}
+  $\dot{y} = −ay$ rearranged
+  \begin{align*}
+    \dot{y} - ay = 0, \\
+    \dot{y} + ay = 0\\
+  \end{align*}
+  $\dot{y}$ first order, only one term of $y$ linear and homogeneous ODE.   
+\end{mybox}
+\clearpage
+
+\subsection{Introduction to modeling}
+There are two kinds of modeling.
+We're not going to talk about the kind that involves fancy clothes and photographs.
+The other kind, mathematical modeling , is converting a real-world problem into mathematical equations.\\
+Guideline: 
+\begin{enumerate}
+\item Identify relevant quantities, both known and unknown, and give them symbols. Find the units for each.
+\item Identify the independent variable(s).
+  The other quantities will be functions of them, or constants. Often \textbf{time} is the only independent variable.
+\item Write down equations expressing how the functions change in response to small changes in the independent variable(s).
+  Also write down any “laws of nature" relating the variables.
+  As a check, make sure that all summands in an equation have the same units.
+\end{enumerate}
+Often simplifying assumptions need to be made;
+the challenge is to simplify the equations so that they can be solved but so that they still describe the real-world system well.\\
+(Once we have the language of input signals and system response, we'll refine these guidelines.)
+\subsubsection{Model of a savings account}
+\begin{ex}
+  I have a savings account earning interest compounded daily,
+  and I make frequent deposits or withdrawals into the account.
+  Find an ODE with initial condition to model the balance.
+\end{ex}
+\textbf{\color{blue} Simplifying assumptions:}
+\begin{itemize}
+\item Daily compounding is almost the same as continuous compounding, so let's assume that interest is paid continuously instead of at the end of each day.
+\item Similarly, let's assume that my deposits/withdrawals are frequent enough that they can be approximated by a continuous money flow at a certain rate, the {\color{blue}net deposit rate}
+  (which is negative when I am withdrawing).
+\end{itemize}
+\textbf{\color{blue} Variables and functions(with unis): } Define the following:
+\begin{align*}
+  &P \qquad \text{the initial amount that the account starts with (\textit{dollars})} \\ 
+  &t \qquad \text{time from the start \textit{years}} \\
+  &x \qquad \text{balance \textit{dollars}} \\
+  &I \qquad \text{Interest rate}  (year^{-1}; \text{for example} 4\%/year = 0.04yesr^{-1}) \\
+  &q \qquad \text{the net deposit rate} (dollars/yes).
+\end{align*}
+Here $t$ is the independent variable, $P$ is a constant, and $x$, $I$, $q$ are functions of $t$. \\
+\textbf{\color{blue} Equations:} Now we want to decide how the balance changes as time changes.
+We'll estimate the change in the balance $\Delta x$ as time increases from some time $t$
+to a time $t+ \Delta t$. We can approximate the interest earned per dollar to be:
+\begin{equation*}
+  \displaystyle \text{interest earned {\color{orange}per dollar }}  \approx I(t) \Delta t 
+\end{equation*}
+The balance in the account at time $t$ is $x(t)$.
+Therefore, the total interest earned from time $t$ to $t + \Delta t$  is approximately
+\begin{equation*}
+  \displaystyle \text{net amount deposited into the account} \approx q(t) \Delta t 
+\end{equation*}
+Putting it all together, the change in balance is
+\begin{align*}
+  \displaystyle &\Delta x = \qquad \approx I(t) x(t) \Delta t + q(t) \Delta t \\
+  \displaystyle &\Longrightarrow \frac{\Delta x}{\Delta t} \approx I(t) x(t) + q(t).
+\end{align*}
+The smaller $\Delta t$ is, the better the approximation becomes, and in the limit as $\Delta t \to 0$
+\begin{equation*}
+  \displaystyle  \lim \limits _{\Delta t\rightarrow 0}\frac{\Delta x}{\Delta t}=\frac{dx}{dt}.
+\end{equation*}
+This yields the {\color{orange} differential equation}
+\begin{equation*}
+  \displaystyle  \frac{dx}{dt}=I(t)x(t)+q(t).
+\end{equation*}
+Note that the units in each of the three terms are $dollars/year$.
+Also, there is the initial condition $x(0)=P$.
+Thus we have an ODE with initial condition:
+\begin{equation*}
+  \displaystyle \dot{x} = I(t)x + q(t), \qquad x(o) = P
+\end{equation*}
+
+\begin{remark}
+  The notation we chose suggested that the interest rate $I$ depended only on time.
+  However, I could have depended on $x$ as well.
+  This would not change the modeling process.
+  If I does not depend on $x$, we obtain a linear differential equation.
+  If it does, the equation is nonlinear.
+\end{remark}
+\clearpage
+
+\subsection{Application: mixing salt water solution} 
+Now suppose we want to set up an experiment on ocean fish.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-WaterTank}
+  \caption{Image of Water Tank}
+  \label{fig:Figure}
+\end{figure}
+These fish typically live in saltwater that contains a salt concentration of 34 grams per liter.
+To make their environment, we're going to start with a tank that contains fresh water, with the volume going by $v$ of $t$.
+We're going to hook up a pipe that allows a continuous flow of a concentrated salt solution
+to enter the tank.
+And then we'll also have a pipe that allows for drainage from the tank. \\
+So let's give some numbers to these quantities so we can solve this problem.
+\begin{align*}
+  \text{Given : } &\qquad 800L (\text{ flash water}) \\
+  \text{flow in : } &\qquad 5 Liter/min , \text{concentration } 75 g/L \\
+  \text{flow out : } &\qquad 3 Liter/min 
+\end{align*}
+we're going to assume that the fluid inside the tank is instantaneously well mixed.
+The Goal is model the change in salt concentration over time.
+\emph{Guidelines :}
+\begin{enumerate}
+\item Identify relevant quantities.
+  \begin{align*}
+    t &\qquad \text{Time in minutes} (min) \\    
+    v &\qquad \text{total liters fluid in tank} (L/min) \\
+    x &\qquad \text{Total number of salt in the tank} (g/L) \\
+  \end{align*}
+  The concentration is
+  \begin{equation*}
+    \displaystyle concentration = \frac{x(t)}{v(t)}. 
+  \end{equation*}
+\item Identify the independent variable.\\
+  The independent variable is time in minutes$t$.
+\item Write down equations. \\
+  The concentration $\displaystyle \frac{x(t)}{v(t)}$, both numerator and denominator are change
+  over time, which makes this quantity really complicated to model.
+  Instead, it turns out it's much easier to just think about modeling $x$ of $t$ alone
+  and then dividing by an expression for $v$ of $t$.
+  \begin{equation*}
+    \displaystyle \frac{dx}{dt} = \text{Rate in} - \text{Rate out}
+  \end{equation*}
+  The rate of salt enter in is
+  \begin{equation*}
+    \displaystyle \text{Rate in } = (75 \frac{g}{L}) \cdot (5 \frac{L}{min}) = 375 \frac{g}{min},
+  \end{equation*}
+  and the rate of salt out is
+  \begin{equation}
+    \label{eq:1}
+    \displaystyle \text{Rate out} = \text{concentration of existing fluid in} \cdot 3 \frac{L}{min} 
+  \end{equation}
+  What is the concentration of existing fluid in is?
+  This is where we use the assumption that the fluid inside the tank is instantaneously well mixed.
+  We said that concentration is $\displaystyle \frac{x(t)}{v(t)}$.
+  And since we're ignoring complicated mixing dynamics, we're going to assume that this is true everywhere
+  instantaneously in the tank.
+  Specifically, it's true where the fluid is exiting the tank.
+  And so we can say that the concentration of {\color{orange}the exiting fluid} is
+  $\displaystyle \frac{x(t)}{v(t)}$ grams per liter.
+  But we can also write down an expression for $v$ of $t$.
+  \begin{equation*}
+    \displaystyle v(t) = 800 L + (5 \frac{L}{min} - 3 \frac{L}{min}) \cdot t\\
+     = 800 + 2t [L] \\
+  \end{equation*}
+  We substitute this into \ref{eq:1} is 
+  \begin{equation*}
+    \displaystyle \text{Rate out} = \frac{x(t)}{800 + 2t} \cdot 3 \frac{L}{min}.  
+  \end{equation*}
+  So our DEs is
+  \begin{align*}
+    \displaystyle \frac{dx}{dt} &= \text{Rate in} - \text{Rate out} \\
+    \displaystyle \frac{dx}{dt} &= 375 - \frac{3x}{800 + 2t}, 
+  \end{align*}
+  is fist linear inhomogeneous DEs. 
+\end{enumerate}
+
 
 %%% Local Variables:
 %%% mode: latex

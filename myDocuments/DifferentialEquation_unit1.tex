@@ -329,13 +329,13 @@ Thus we have an ODE with initial condition:
 \end{remark}
 \clearpage
 
-\subsection{Application: mixing salt water solution} 
+\subsubsection{Application: mixing salt water solution} 
 Now suppose we want to set up an experiment on ocean fish.
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.5\textwidth]{image-WaterTank}
   \caption{Image of Water Tank}
-  \label{fig:Figure}
+  \label{fig:tank}
 \end{figure}
 These fish typically live in saltwater that contains a salt concentration of 34 grams per liter.
 To make their environment, we're going to start with a tank that contains fresh water, with the volume going by $v$ of $t$.
@@ -349,7 +349,7 @@ So let's give some numbers to these quantities so we can solve this problem.
   \text{flow out : } &\qquad 3 Liter/min 
 \end{align*}
 we're going to assume that the fluid inside the tank is instantaneously well mixed.
-The Goal is model the change in salt concentration over time.
+The Goal is model the change in salt concentration over time.\\
 \emph{Guidelines :}
 \begin{enumerate}
 \item Identify relevant quantities.
@@ -405,8 +405,365 @@ The Goal is model the change in salt concentration over time.
   \end{align*}
   is fist linear inhomogeneous DEs. 
 \end{enumerate}
+\clearpage
 
+\subsubsection{Systems and signals}
+Let's get back to the savings account model:
+\begin{equation*}
+  \displaystyle \dot(x) = I(t)x + q(t). 
+\end{equation*}
+Maybe for financial planning I am interested in testing different saving strategies (different functions q) to see what balances $x$ they result in.
+To help with this, rewrite the ODE as
+\begin{equation*}
+  \underset {{\color{orange}{\text {controlled by bank}}} }{\dot{x} - I(t) x} =
+  \underset {{\color{blue}{\text {controlled by me}}} }{q(t).}
+\end{equation*}
+In the “systems and signals" language of engineering, $q$ is called the \textbf{input signal},
+the bank is the system , and $x$ is the \textbf{output signal}.
+These terms do not have a mathematical meaning dictated by the DE alone;
+their interpretation is guided by the system being modeled. But the general picture is this:
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{images_ISR}
+  \caption{Systems and Signals}
+  \label{fig:SIR}
+\end{figure}
+We'll see many examples that model phenomena using this input/system response language.
+\begin{itemize}
+\item The \textbf{system} may be a mechanical system such as an automobile suspension or an electrical circuit, or an economic market.  It is impacted by some external signal.
+  We are interested in understanding how the system responds to the external stimulus.
+\item The \textbf{\color{blue} input signal} is the external stimulus.
+  It usually does not appear in as simple a way in the DE as it does in the example above.
+  But it does always determine the right hand side of the DE (when written in standard linear form).
+\item The \textbf{\color{orange} system response} (also called \textbf{\color{orange} output signal} ) is the measurable behavior of the system that we are interested in.
+  It is always the unknown function that we write a differential equation for.
+\end{itemize}
+\clearpage
 
+\subsubsection{Newtonian mechanics}
+One of the most important sources for differential equations comes from Newton's second law
+\begin{equation*}
+  \displaystyle  F \qquad = \qquad ma. 
+\end{equation*}
+That is, force equals mass times acceleration. This is a differential equation! For now we restrict our attention to 1-dimensional systems.
+The acceleration $a$ is the second time derivative of position $x$, which is ${\color{blue} \ddot{x}}$. Thus we can rewrite the equation as
+\begin{equation*}
+  \displaystyle F \qquad = \qquad m{\color{blue} \ddot{x}}
+\end{equation*}
+What is creating that force?
+The force depends on the system we are modeling.
+We will start with a very simple toy model that will serve as the basis for almost every other model we will encounter in this course.
+\begin{ex}
+  Model a spring attached to a wall, with a mass on the other end sitting on a cart that moves without friction.
+  We pull the cart back and release it. How does the mass on the cart behave?
+\end{ex}
+
+\textbf{\color{orange} Solution: } To begin the modeling process, let's \textbf{\color{blue}draw a diagram}.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_hanging-mass}
+  \caption{Hanging Mass}
+\end{figure}
+Next, let's \textbf{\color{blue} label the elements of interest} in the diagram.
+We have the mass $m$, and the strength of the spring $k$, which appears in Hooke's law.\\
+
+The variable of interest is the position of the mass.
+What do we mean by the position of the mass?
+The most natural way to record the position of the mass is to consider the displacement of the mass ${\color{blue} x}$ away from the position when the spring is relaxed ${\color{blue}x}=0$.
+We also have to decide on the sign, so we choose $x > 0$ when the spring is stretched,
+which is sensible given our picture.
+\clearpage
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_hanging-mass-displacement}
+  \caption{Hanging Mass Displacement}
+\end{figure}
+Let's try to put this into the \textbf{input/ system response} paradigm we've just introduced.
+The system response is the displacement of the mass. This is what we are interested in.\\
+
+What is the input signal?
+You could imagine that there are other forces acting on the mass, like there is a sail on the mass,
+and wind is blowing on the sail creating an input signal.
+But we are going to start by considering the case where the input signal is $0$.
+Note that pulling the cart back and releasing it specifies the initial state of the system,
+that is, it gives the initial conditions.\\
+
+Now we are ready to \textbf{\color{blue} write down the differential equation}.
+The equation is governed by Newton's second law
+\begin{equation*}
+  \displaystyle F = m {\color{blue} \ddot{x}}
+\end{equation*}
+We need to identify the forces acting on the mass.
+There is the force due to the spring.
+For the moment, we assume that air resistance is negligible, and there is no friction on the cart.\\
+
+What is the spring force?
+When the displacement is positive, the spring is stretched, the force is negative.
+When the displacement is negative, the spring is compressed, the force is positive.
+Thus this force is modeled linearly by Hooke's law
+\begin{equation*}
+  \displaystyle F \quad = \quad -{\color{orange}k} {\color{blue}x}
+\end{equation*}
+which is a function of the displacement ${\color{blue} x}$ away from the neutral position ${\color{blue} x} = 0$.
+Note that this linear model is only valid for relatively small displacements.
+If we stretch the spring too far, the spring force won't obey this linear law anymore.\\
+
+The position at time $t = 0$ is $x(0) = x_0$ for some positive displacement $x_0 > 0$.
+From the problem statement, we assume that we release the cart with zero initial velocity, $\dot{x}(0) = 0$.\\
+
+Putting this all together, we get
+\begin{equation*}
+  \displaystyle -{\color{orange}k} {\color{blue}x} = m {\color{blue} \ddot{x}}
+\end{equation*}
+with initial conditions
+\begin{equation*}
+  x(0) = 0, \qquad \dot{x}(0) = 0
+\end{equation*}
+The last step is to \textbf{write this in standard linear form}.
+We obtain the following differential equation
+\begin{align*}
+  &\displaystyle m {\color{blue} \ddot{x}} + {\color{orange}k} {\color{blue}x} = 0\\
+  &\displaystyle x(0) = 0, \qquad \dot{x}(0) = 0
+\end{align*}
+\begin{ex}
+  Now let's consider the same mass/spring system as above where we've add a sail to the mass.
+\end{ex}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_hanging-mass-labels}
+  \caption{Hanging Mass add Sail}
+\end{figure}
+The mass now experiences an additional external force from the wind.
+How does this change the model?\\
+\textbf{\color{orange} Solution: } The model is exactly the same.
+The only difference is that the input signal is no longer zero, rather it is now the external force due to the wind on the sail.
+This external force $\displaystyle F_{\text {wind}}(t)$ depends on time in some complicated way that we will not try to write down. The differential equation for this system is
+\begin{equation*}
+  \displaystyle m {\color{blue} \ddot{x}} + {\color{orange}k} {\color{blue}x}
+  =  F_{\text {wind}}(t)
+\end{equation*}
+with initial conditions
+\begin{equation*}
+  x(0) = 0, \qquad \dot{x}(0) = 0
+\end{equation*}
+
+\begin{problem}
+  How would you classify the differential equation $\displaystyle m\ddot x + k x = F_{\text {wind}}(t)$
+  modeling a mass/spring system with a sail just discussed? 
+\end{problem}
+\begin{mybox}{gray}{Answer}
+  The highest term of only dependent variable is $\ddot x$ second order. \\
+  Following standard form of  $\ddot y + p(t)y = q(t)$, so inhomogeneous.\\
+  There is no complex term of $x$ means linear.\\
+  The answers is linear \footnote{Even if $m$ and $k$ depend on $t$, the differential equation is still linear.
+    On the other hand, if $m$ and $k$ depend on $x$, the equation is nonlinear.}
+  second order inhomogeneous DEs.\\
+\end{mybox}
+
+\subsubsection{ 5 step modeling process}
+In the example on the previous page, we outlined a 5 step modeling process that we make explicit here.
+\begin{enumerate}
+\item Draw a diagram of the system.
+\item Identify and give symbols for the parameters and variables of the system.
+\item Decide on the input signal and the system response. Identify any initial conditions.
+\item Write down a differential equation relating the input signal and the system response.
+\item Rewrite the equation in standard linear form with initial conditions.
+\end{enumerate}
+\clearpage
+
+\subsection{Recitation 1, Modeling Natural population growth}
+A certain African government is trying to come up with a good policy regarding
+the hunting of oryx in a specific game preserve.
+They are using the following model: the oryx population has a positive natural growth rate of
+$k years^{−1}$, and there is assumed a constant harvesting rate of $a oryxes/year$.
+\subsubsection{Modeling the oryx population}
+\begin{problem}
+  Modeling the population
+\end{problem}
+Write down a differential equation modeling the oryx population.\\
+(Express your answers in terms of $k$, $a$ and $x$.)
+\begin{mybox}{gray}{Answers}
+  \begin{enumerate}
+  \item Identify relevant quantities\\
+    \begin{align*}
+      \displaystyle x &\qquad \text{population of oryxes} &\quad  \text{oryxes} \\
+      \displaystyle a &\qquad \text{a constant harvesting rate} &\quad  \frac{oryxes}{years} \\
+      \displaystyle k &\qquad \text{a positive natural growth rate} &\quad  years^{-1}\\
+    \end{align*}
+  \item Identify the independent variables\\
+    The $t$ is independent variables of time in year 
+  \item Write down equation\\
+    Natural growth of the oryx population is
+    \begin{equation*}
+      \displaystyle \text{the oryx population} = k(\frac{1}{years}) x(oryxes) \Delta t(years). 
+    \end{equation*}
+    Amount of harvesting oryx is
+    \begin{equation*}
+      \displaystyle \text{harvesting oryx} = a(\frac{oryxes}{years}) \Delta t(years).
+    \end{equation*}
+    The population change of oryxes is
+    \begin{align*}
+      &\displaystyle \Delta x \approx kx \Delta t - a \Delta t \\
+      &\displaystyle \Rightarrow \frac{\Delta x}{\Delta t} = kx - a\\
+      &\displaystyle \lim \limits _{\Delta t\rightarrow 0}\frac{\Delta x}{\Delta t} = kx - a\\
+      &\displaystyle \frac{dx}{dt} = kx - a
+    \end{align*}
+  \end{enumerate}
+\end{mybox}
+\clearpage
+\begin{problem}
+  Signals and systems
+\end{problem}
+Discuss this model using the language of signals and systems.\\
+What is the input to the system?\\
+What is the system response? \\
+(Express your answers in terms of $k$, $a$ and $x$.)
+\begin{mybox}{gray}{Answers}
+  \begin{equation*}
+    \displaystyle
+    \underset {{\color{orange}{\text {controlled by natural}}} }{\dot{x} - kx} =
+    \underset {{\color{blue}{\text {controlled by government}}} }{-a.}
+  \end{equation*}
+  \begin{itemize}
+  \item The system input is $-a$
+  \item The system response is $x$
+  \end{itemize}
+\end{mybox}
+
+\begin{problem}
+  No hunters?
+\end{problem}
+Suppose $a = 0$ (no hunters).
+What is the doubling time, the time it takes for the population to double, in terms of $k$?
+\begin{mybox}{gray}{Answer}
+  The secret function $x$ satisfies $\dot x = kx$ is
+  \begin{equation*}
+    x = ce^{kt}, 
+  \end{equation*}
+  the constant $c$ can be any real number.\\
+  At the time is $0$, the population of oryxes is $c$. The double population is $2c$, 
+  \begin{equation*}
+    \begin{aligned}
+      &2c = ce^{kt} \\
+      &2 = e^{kt} \\
+      &\ln 2 = \ln {e^{kt}}\\
+      &\ln 2 = kt\\
+      &t = \frac{\ln 2}{k}
+    \end{aligned}
+  \end{equation*}
+  The doubling time $\displaystyle t = \frac{\ln 2}{k}$.  
+\end{mybox}
+By what multiplicative factor has the population increased after $k^{-1}$ years?
+\begin{mybox}{gray}{Answer}
+  After $k^{-1}$ years, $\displaystyle x(t + \frac{1}{k})$
+  \begin{equation*}
+    \begin{aligned}[t]
+      \displaystyle \frac{x(t + \frac{1}{k})}{x(t)} &= \frac{ce^{k(t + k^{-1})}}{ce^{kt}} \\
+      \displaystyle &= \frac{c(e^{kt}e)}{e^{kt}} \\
+      \displaystyle &= e
+    \end{aligned}
+  \end{equation*}
+\end{mybox}
+\clearpage
+
+\subsubsection{General solution}
+\begin{problem}
+  General solution
+\end{problem}
+Find the general solution of the equation you found in the first question. Check that the proposed solution satisfies the ODE.\\
+
+(Express your answer in terms of $k$, $a$, $t$ and the initial oryx population $x0$.)
+\begin{mybox}{gray}{Answer}
+  The initial condition is $x(0) = x_0$,
+  if my solution is $ x = ce^{kt} - a$, then
+  \begin{equation*}
+    \begin{aligned}[b]
+      &\displaystyle \dot{x} = kx - a \\
+      &\displaystyle kce^{kt} = kx - a \\
+      &\displaystyle ce^{kt} = x - \frac{a}{k}  \\
+      &\displaystyle x = ce^{kt} + \frac{a}{k} 
+    \end{aligned}
+  \end{equation*}
+  Apply initial condition $x(0) = x_0$,
+  \begin{equation*}
+    \begin{aligned}[b]
+      &\displaystyle x_0 = ce^{k\cdot 0} + \frac{a}{k} \\
+      &\displaystyle x_0 = c + \frac{a}{k} \\
+      &\displaystyle c  = x_0 - \frac{a}{k} \\
+    \end{aligned}
+  \end{equation*}
+  So, the general solution is $\displaystyle (x_0 - \frac{a}{k})\cdot e^{kt} + \frac{a}{k}$. \\ 
+  Check it by plug in DEs,
+  \begin{equation*}
+    \begin{aligned}[b]
+      &\displaystyle ((x_0 - \frac{a}{k})\cdot e^{kt} + \frac{a}{k})'
+      = k((x_0 - \frac{a}{k})\cdot e^{kt} + \frac{a}{k})) - a.\\
+      &\displaystyle k*(x_0 + \frac{a}{k})e^{kt} = k*(x_0 + \frac{a}{k})e^{kt}
+    \end{aligned}
+  \end{equation*}
+\end{mybox}
+
+\begin{problem}
+  Constant solution
+\end{problem}
+There is a constant solution. Find it.\\
+What are the units of the expression you entered above? Do the units make sense?
+\begin{mybox}{gray}{Answer}
+  A constant solution means $\dot x = 0$.
+  \begin{equation*}
+    \begin{aligned}
+      kx - a = 0 \\
+      kx = a\\
+      x = \frac{a}{k}
+    \end{aligned}
+  \end{equation*}
+  The unit of k and a is $years^{-1}$ and $\displaystyle \frac{oryxes}{years}$.
+  So, $\displaystyle \frac{a}{k} = \frac{oryxes}{years} \cdot years = oryxes$.
+  It make sense that $x$ is a populations of oryxes.   
+\end{mybox}
+
+\begin{problem}
+  Solution behavior
+\end{problem}
+Does the solution behave right when the harvesting rate $a$ is large or small? When $k$ is large or small?\\
+Sketch the graphs for the case $k = .2$ and $a = 20$.
+Sketch the constant solution, one solution whose initial population starts above the value of the constant solution, and one whose initial value is less than the value of the constant solution.
+
+\begin{mybox}{gray}{Answer}
+  The graph is \href{run:../source_code/recitation1.py}{recitation1.py}
+\end{mybox}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_population-sketch}
+  \caption{Sketch of Oryxes Population}
+\end{figure}
+
+\begin{problem}
+  The real-world situation is   
+\end{problem}
+Notice that for initial values less than the equilibrium,
+the solutions stop having meaning in terms of the real-world situation they are modeling when they become negative.
+In these cases, predict the time $t_e$ at which oryxes will be extirpated from this area.
+For example, suppose that $x(0) =x_0$ is less than the equilibrium population.
+For this initial condition, what is te? Check units.\\
+(Express your answer in terms of $k$, $a$ and $x0$.)
+\begin{mybox}{gray}{Answer}
+  $t_e$ means $x = 0$, 
+  \begin{equation*}
+    \begin{aligned}[b]
+      &\displaystyle (x_0 - \frac{a}{k})\cdot e^{kt} + \frac{a}{k} = 0 \\
+      &\displaystyle (x_0 - \frac{a}{k})\cdot e^{kt} = -\frac{a}{k} \\
+      &\displaystyle e^{kt} = \frac{-\frac{a}{k}}{x_0 - \frac{a}{k}} \\
+      &\displaystyle e^{kt} = \frac{-a}{x_0 a - a} \\
+      &\displaystyle \ln {e^{kt}} = \ln { \frac{-a}{x_0 a - a} } \\
+      &\displaystyle k\cdot t =  \ln { \frac{-a}{x_0 a - a} }\\
+      &\displaystyle t = \frac{1}{k} \ln { \frac{-a}{x_0 a - a} }
+    \end{aligned}
+  \end{equation*}
+  The $\displaystyle t_e = \frac{1}{k} \ln { \frac{-a}{x_0 a - a} }$.  
+  
+\end{mybox}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

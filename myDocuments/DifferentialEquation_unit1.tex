@@ -38,7 +38,7 @@ The constant $c$ is a \emph{\color{blue} parameter}.
   is a differential equation together with initial conditions.
 \end{mydef}
 
-\emph{\color{orange} Important} Checking a solution to a DE is usually easier
+\Important Checking a solution to a DE is usually easier
 than finding the solution in the first place, so it is often worth doing.
 Just plug in the function to both sides, and also check that it satisfies the initial condition.\\
 
@@ -105,7 +105,7 @@ Notation for higher derivatives of a function $y(t)$:
   n^{th} \text{derivative: } \qquad &y^{(n)}\qquad \qquad \frac{d^ny}{dt^n}                              
 \end{align*}
 
-\emph{\color{orange} Warning: } The dot notation $\dot{y}$ should only be used to refer to a time derivative. If for example $y$ is a function of a spacial variable $y=y(x)$, we will only use the notation $y'$ to denote the derivative with respect to $x$.\\
+\Warning The dot notation $\dot{y}$ should only be used to refer to a time derivative. If for example $y$ is a function of a spacial variable $y=y(x)$, we will only use the notation $y'$ to denote the derivative with respect to $x$.\\
 
 \begin{mydef}
   The \emph{\color{blue} order} of a DE is the highest $n$ such that the $n^{th}$ derivative of the function appears.
@@ -143,7 +143,7 @@ What is the order of the differential equation in the above example?
   $\color{blue}{\dot{y}}$, $\color{blue}{\dot{y}}$, $\centerdot$ $\centerdot$  $\centerdot$
   \textbf{Most general} $n^{th}$ \textbf{order homogeneous linear ODE:}
   \begin{equation*}
-    p_ n(t) \,  {\color{blue}{y^{(n)}}}  + p_{n-1}(t) \,  {\color{blue}{y^{(n-1)}}}  \dotsc + p_1(t) \,  {\color{blue}{\dot{y}}}
+    p_ n(t) \,  {\color{blue}{y^{(n)}}}  + p_{n - 1}(t) \,  {\color{blue}{y^{(n-1)}}}  \dotsc + p_1(t) \,  {\color{blue}{\dot{y}}}
     + p_0(t) \,  {\color{blue}{y}}  = 0
   \end{equation*}
   for some function $p_n(t), \cdots, p_0(t)$ called the {\color{blue}{coefficient}}.
@@ -175,7 +175,7 @@ What is the order of the differential equation in the above example?
 
 \begin{remark}
   We insist that solutions $y(t)$ are defined on an entire open interval $I$, as opposed to disjoint intervals.
-  We will always assume the functions $p_n(t), p_{n−1}(t), \cdots, p_0(t), q(t)$ are well behaved,
+  We will always assume the functions $p_n(t), p_{n-1}(t), \cdots, p_0(t), q(t)$ are well behaved,
   for example continuous, on $I$.
   (We'll look at more complicated functions in our class Transfer Functions and the Laplace Transform.)
 \end{remark}
@@ -241,9 +241,9 @@ which can be used to describe things like radioactive decay of materials.
   Classification of ODEs concept check
 \end{problem}
 How would you classify the differential equations $\dot{y} = ay$ and
-$\dot{y} = −ay$ just discussed?
+$\dot{y} = - ay$ just discussed?
 \begin{mybox}{gray}{Answer}
-  $\dot{y} = −ay$ rearranged
+  $\dot{y} = - ay$ rearranged
   \begin{align*}
     \dot{y} - ay = 0, \\
     \dot{y} + ay = 0\\
@@ -262,7 +262,7 @@ Guideline:
 \item Identify the independent variable(s).
   The other quantities will be functions of them, or constants. Often \textbf{time} is the only independent variable.
 \item Write down equations expressing how the functions change in response to small changes in the independent variable(s).
-  Also write down any “laws of nature" relating the variables.
+  Also write down any laws of nature" relating the variables.
   As a check, make sure that all summands in an equation have the same units.
 \end{enumerate}
 Often simplifying assumptions need to be made;
@@ -418,7 +418,7 @@ To help with this, rewrite the ODE as
   \underset {{\color{orange}{\text {controlled by bank}}} }{\dot{x} - I(t) x} =
   \underset {{\color{blue}{\text {controlled by me}}} }{q(t).}
 \end{equation*}
-In the “systems and signals" language of engineering, $q$ is called the \textbf{input signal},
+In the systems and signals" language of engineering, $q$ is called the \textbf{input signal},
 the bank is the system , and $x$ is the \textbf{output signal}.
 These terms do not have a mathematical meaning dictated by the DE alone;
 their interpretation is guided by the system being modeled. But the general picture is this:
@@ -458,7 +458,8 @@ We will start with a very simple toy model that will serve as the basis for almo
   We pull the cart back and release it. How does the mass on the cart behave?
 \end{ex}
 
-\textbf{\color{orange} Solution: } To begin the modeling process, let's \textbf{\color{blue}draw a diagram}.
+\Solution\\
+To begin the modeling process, let's \textbf{\color{blue}draw a diagram}.
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.5\textwidth]{images_hanging-mass}
@@ -536,7 +537,8 @@ We obtain the following differential equation
 \end{figure}
 The mass now experiences an additional external force from the wind.
 How does this change the model?\\
-\textbf{\color{orange} Solution: } The model is exactly the same.
+\Solution\\
+The model is exactly the same.
 The only difference is that the input signal is no longer zero, rather it is now the external force due to the wind on the sail.
 This external force $\displaystyle F_{\text {wind}}(t)$ depends on time in some complicated way that we will not try to write down. The differential equation for this system is
 \begin{equation*}
@@ -576,7 +578,7 @@ In the example on the previous page, we outlined a 5 step modeling process that 
 A certain African government is trying to come up with a good policy regarding
 the hunting of oryx in a specific game preserve.
 They are using the following model: the oryx population has a positive natural growth rate of
-$k years^{−1}$, and there is assumed a constant harvesting rate of $a oryxes/year$.
+$k years^{-1}$, and there is assumed a constant harvesting rate of $a oryxes/year$.
 \subsubsection{Modeling the oryx population}
 \begin{problem}
   Modeling the population
@@ -765,7 +767,109 @@ For this initial condition, what is te? Check units.\\
 \end{mybox}
 \clearpage
 
-\subsubsection{Solving first-order linear ODEs}
+\subsection{Solving first-order linear ODEs}
+\subsubsection{Separation of variables for first order ODEs}
+{\color{blue}Separation of variables} is a technique that reduces the problem of solving
+certain first-order ODEs to evaluating two integrals.\\
+
+Separation of variables works when we can write the equation in the form
+\begin{equation*}
+  \displaystyle \frac{dy}{dt} = g(t)f(y)
+\end{equation*}
+Here's an example.
+\begin{ex}
+  Solve $\displaystyle \dot y -2ty = 0$.
+\end{ex}
+\Solution\\
+\begin{enumerate}
+\item Isolate the derivative and express in the form $\displaystyle \dot y = h(t, y)$:
+  \begin{equation*}
+    \displaystyle \dot y = 2ty. 
+  \end{equation*}
+\item Write as
+  \begin{equation*}
+    \displaystyle \frac{dy}{dt} = g(t)f(y) = 2ty, \qquad (g(t) = 2t, \quad f(y) = y). 
+  \end{equation*}
+\item Separation: Put the terms involving $y$ on the left and terms involving $t$ on the right.
+  \begin{equation*}
+    \displaystyle \frac{f(y)}{dy} = g(t)dt \Longleftrightarrow \frac{dy}{y} = 2t dt
+  \end{equation*}
+  \Warning We divided by $y$, so at some point we will have to check
+  $y = 0$ as a potential solution.
+\item Integrate.
+  \begin{equation*}
+    \begin{aligned}[b]
+      \displaystyle \int \frac{dy}{y} = & \int 2t dt \\
+      \displaystyle \ln |y| + C_1 = & t^2 + C_2 \\
+      \displaystyle \ln |y| = & t^2 + C_2 - C_1 \\
+      \displaystyle \ln |y| = & t^2 + C \\
+    \end{aligned}
+  \end{equation*}
+  \Note The method reduces to evaluating two integrals separately, one in $y$ and one in $t$.
+  Observe that we combined the two constants $C_1$ and $C_2$ of integration into one constant $C$.
+  We will combine the two constants to form $C = C_2 − C_1$ immediately from now on.
+\item Solve for $y$.
+  \begin{equation*}
+    \begin{aligned}[b]
+      |y| \quad = \quad &e^{t^2 + C} \\
+      y \quad = \quad & \pm e^{t^2 + C}
+    \end{aligned}
+  \end{equation*}
+  As $C$ runs over all real numbers, the coefficient $\pm e^C$ runs over all nonzero real numbers.
+  Thus the solutions we have found so far are
+  \begin{equation*}
+    \displaystyle y = ce^{t^2}, \qquad c \neq 0. 
+  \end{equation*}
+\item Because we divided by $y$, there is possibly an exceptional solution $y =0$.
+  Checking directly, it turns out that it is indeed a solution.
+  It can be considered as the function $ce^{t2}$ for $c = 0$.\\
+
+  \Conclusion The general solution to $\displaystyle \dot{y} - 2ty = 0$ is
+  \begin{equation*}
+    \displaystyle y = ce^{t^2}, \qquad \text{where c is any real number}.
+  \end{equation*}
+\item (Optional) Double check your solution. Plugging in
+  $\displaystyle y = ce^{t^2}$ to
+  $\displaystyle \dot{y} - 2ty = 0$
+  gives $\displaystyle ce^{t2}(2t) - 2tce^{t^2} = 0$, which is true, as it should be.
+\end{enumerate}
+
+\textbf{\color{blue} Separation of variables, the systematic procedure:} \\
+\begin{enumerate}
+\item Check that the DE is a first-order ODE . (If not, give up and try another method.)
+  Suppose that the function to be solved for is $y = y(t)$.
+\item Rewrite $\dot y$ as $\displaystyle \frac{dy}{dt}$.
+\item Express $\displaystyle \frac{dy}{dt}$ as a function of $t$ and $y$ only.
+  \begin{equation*}
+    \displaystyle \frac{dy}{dt} = h(t, y). 
+  \end{equation*}
+\item If you are lucky, you can write $h(t,y)$ as a product of two functions,
+  one of which is purely a function of $t$; and the other purely a function of $y$:
+  \begin{equation*}
+    \displaystyle h(t, y) = g(t)f(y)
+  \end{equation*}
+\item Separate the $y$'s and $t$'s.
+  Specifically, try to multiply and/or divide (and in particular move the dt to the right side) so that the equation ends up as an equality of differentials of the form
+  \begin{equation*}
+    \displaystyle \frac{dy}{f(y)} = g(t)dt. 
+  \end{equation*}
+  \Note If there are factors involving both variables, such as $y + t$,
+  then it is impossible to separate variables; in this case, give up and try a different method.\\
+  \Warning Dividing by $f(y)$ invalidates the calculation if $f(y) = 0$,
+  so at the end, check what happens if $f(y) = 0$; this may add to the list of solutions.
+  \item Integrate both sides to get an equation of the form
+    \begin{equation*}
+      \displaystyle F(y) = G(t) + C. 
+    \end{equation*}
+    These are implicit equations for the solutions, in terms of a parameter $C$.
+  \item If possible (and if desired), solve for $y$ in terms of $t$.
+  \item Check for extra solutions coming from dividing by zero (see the warning in Step 5).
+    The solutions in the previous step and this step comprise the general solution.
+  \item (Optional, but recommended) Check your work by verifying that the general solution actually
+    satisfies the original DE.
+\end{enumerate}
+
+   
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

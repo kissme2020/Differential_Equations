@@ -1,8 +1,8 @@
 \section{Introduction to differential equations and modeling}
 \subsection{A secret Function}
-\begin{ex}
+\begin{example}
   Can you guess my secret function $y(t)$?
-\end{ex}
+\end{example}
 \paragraph{Clue} It satisfies the differential equation \\
 \begin{equation*}
   \dot{y} = 3y,
@@ -110,9 +110,9 @@ Notation for higher derivatives of a function $y(t)$:
 \begin{mydef}
   The \emph{\color{blue} order} of a DE is the highest $n$ such that the $n^{th}$ derivative of the function appears.
 \end{mydef}
-\begin{ex}
+\begin{exercise}
   is 
-\end{ex}
+\end{exercise}
 \begin{align*}
   \displaystyle  \displaystyle 9375 \cos (t^5) \, \ddot{y}^4 + 982 (y + t^3)^7 \,
   \dot{y} - 387 y^{(3)} y^{(4)} + 2t y^{(5)} \\
@@ -124,9 +124,9 @@ an ODE or a PDE?
 \end{mybox}
 \clearpage
 
-\begin{problem}
+\begin{exercise}
   Order of differential equation 
-\end{problem}
+\end{exercise}
 What is the order of the differential equation in the above example?
 \begin{mybox}{gray}{Answer}
   The highest $n$ is such that $n^{th}$ derivative of $y$ is $y^{(5)}$. 
@@ -204,9 +204,9 @@ What is the order of the differential equation in the above example?
 \end{remark}
 For an ODE to be {\color{blue}nonlinear}, the functions $y, \dot{y},\cdots $ must enter the equation in a more complicated way: raised to powers, multiplied by each other, or with nonlinear functions applied to them.
 
-\begin{problem}
+\begin{exercise}
   Liner vs. nonlinear concept check
-\end{problem}
+\end{exercise}
 Which of the following ODEs are linear?
 \begin{enumerate}
 \item $\ddot{y} -7ty \dot{y} = 0$
@@ -237,9 +237,9 @@ If we put a negative sign in front of $a$ we get the decay equation
   \dot{y} = -ay, 
 \end{equation*}
 which can be used to describe things like radioactive decay of materials.
-\begin{problem}
+\begin{exercise}
   Classification of ODEs concept check
-\end{problem}
+\end{exercise}
 How would you classify the differential equations $\dot{y} = ay$ and
 $\dot{y} = - ay$ just discussed?
 \begin{mybox}{gray}{Answer}
@@ -269,11 +269,11 @@ Often simplifying assumptions need to be made;
 the challenge is to simplify the equations so that they can be solved but so that they still describe the real-world system well.\\
 (Once we have the language of input signals and system response, we'll refine these guidelines.)
 \subsubsection{Model of a savings account}
-\begin{ex}
+\begin{example}
   I have a savings account earning interest compounded daily,
   and I make frequent deposits or withdrawals into the account.
   Find an ODE with initial condition to model the balance.
-\end{ex}
+\end{example}
 \textbf{\color{blue} Simplifying assumptions:}
 \begin{itemize}
 \item Daily compounding is almost the same as continuous compounding, so let's assume that interest is paid continuously instead of at the end of each day.
@@ -453,10 +453,10 @@ The acceleration $a$ is the second time derivative of position $x$, which is ${\
 What is creating that force?
 The force depends on the system we are modeling.
 We will start with a very simple toy model that will serve as the basis for almost every other model we will encounter in this course.
-\begin{ex}
+\begin{example}
   Model a spring attached to a wall, with a mass on the other end sitting on a cart that moves without friction.
   We pull the cart back and release it. How does the mass on the cart behave?
-\end{ex}
+\end{example}
 
 \Solution\\
 To begin the modeling process, let's \textbf{\color{blue}draw a diagram}.
@@ -526,9 +526,9 @@ We obtain the following differential equation
   &\displaystyle m {\color{blue} \ddot{x}} + {\color{orange}k} {\color{blue}x} = 0\\
   &\displaystyle x(0) = 0, \qquad \dot{x}(0) = 0
 \end{align*}
-\begin{ex}
+\begin{example}
   Now let's consider the same mass/spring system as above where we've add a sail to the mass.
-\end{ex}
+\end{example}
 
 \begin{figure}[ht!]
   \centering
@@ -550,10 +550,10 @@ with initial conditions
   x(0) = 0, \qquad \dot{x}(0) = 0
 \end{equation*}
 
-\begin{problem}
+\begin{exercise}
   How would you classify the differential equation $\displaystyle m\ddot x + k x = F_{\text {wind}}(t)$
   modeling a mass/spring system with a sail just discussed? 
-\end{problem}
+\end{exercise}
 \begin{mybox}{gray}{Answer}
   The highest term of only dependent variable is $\ddot x$ second order. \\
   Following standard form of  $\ddot y + p(t)y = q(t)$, so inhomogeneous.\\
@@ -777,9 +777,9 @@ Separation of variables works when we can write the equation in the form
   \displaystyle \frac{dy}{dt} = g(t)f(y)
 \end{equation*}
 Here's an example.
-\begin{ex}
+\begin{example}
   Solve $\displaystyle \dot y -2ty = 0$.
-\end{ex}
+\end{example}
 \Solution\\
 \begin{enumerate}
 \item Isolate the derivative and express in the form $\displaystyle \dot y = h(t, y)$:
@@ -869,7 +869,408 @@ Here's an example.
     satisfies the original DE.
 \end{enumerate}
 
-   
+\begin{mybox}{gray}{A justification of separation of variables}
+  In the argument above, the step where we multiply by $dt$ seems informal.
+  To justify this step, we check that it works in reverse. If
+  \begin{equation*}
+    \displaystyle \frac{d}{dt} H(y) = \frac{1}{f(y)} \qquad \frac{d}{dt} G(t) = g(t)
+  \end{equation*}
+  and the function $y = y(t)$ is implicitly defined by
+  \begin{equation*}
+    \displaystyle H(y) = G(t) + C.
+  \end{equation*}
+  Implicitly differentiate this to see that we get the differential equation we started with.
+  \begin{eqnarray*}
+    \displaystyle \frac{d}{dt} H(y) &\displaystyle =&   \displaystyle \frac{d}{dt}\left( G(t) + C\right)\\
+    \displaystyle \frac{dH}{dy} \frac{dy}{dt}  &\displaystyle =&   \displaystyle \frac{dG}{dt} \\
+    \displaystyle \frac{1}{f(y)} \frac{dy}{dt}  &\displaystyle =&  \displaystyle g(t) \\
+    \displaystyle \dot y &\displaystyle =&  \displaystyle f(y) g(t)
+  \end{eqnarray*}
+  The technique of multiplying by differentials allows us to work backwards to the formula for the solution. \\
+  What about the exceptional solution? When $f(y_0) = 0,$ then $y(t) = y_0$ and $\dot y = f(y_0)g(t) = 0$
+  holds true.
+\end{mybox}
+\clearpage
+
+\subsubsection{First order linear differential equations}
+The common form of the first order linear DEs. 
+\begin{equation*}
+  a(x) y' + b(x) y = c(x)
+\end{equation*}
+It is linear because in $y$ and $\dot y$, the variables $y$ and $\dot y$.
+The standard form of the first order linear DEs.
+\begin{eqnarray*}
+  y' + \frac{b(x)}{a(x)} y &=& \frac{c(x)}{a(x)} \\
+  y' + p(x) y &=& q(x) 
+\end{eqnarray*}
+\textbf{\color{blue} Standard linear form}\\
+Every \textbf{first-order linear} ODE can be written in \textbf{\color{blue}standard linear} form as follows:
+\begin{equation*}
+  {\color{blue} \dot  y} + p(t) {\color{blue} y} = {\color{orange} q(t)},  
+\end{equation*}
+where $p(t)$ and $q(t)$ can be any functions of $t$.\\
+When the right hand side $q(t)$ is zero, we call the equation {\color{blue}homogeneous}.
+An equation that is not homogeneous is {\color{blue}inhomogeneous}.
+\begin{align*}
+  \text{\textit{Homogeneous: }} &{\color{blue} \dot  y} + p(t) {\color{blue} y} \quad = \quad 0 \\
+  \text{\textit{Inhomogeneous: }} &{\color{blue} \dot  y} + p(t) {\color{blue} y} \quad =
+                                    \quad {\color{orange} q(t)}
+\end{align*}
+
+\textbf{Model that use first order linear ODEs}\\
+First-order linear equations are common in modeling. Here are some examples.
+\begin{itemize}
+\item Temperature conduction
+\item Concentration diffusion
+\item Radioactive decay
+\item Bank account interest
+\item Simple population growth
+\end{itemize}
+In this lecture we will focus in on the first example, and use a model for conduction called Newton Cooling.
+
+\begin{problem}
+  Practice putting in standard form
+\end{problem}
+\begin{equation*}
+  x^2 (y' -x e^x) + (\ln x) y = 0. 
+\end{equation*}
+\begin{mybox}{gray}{Answer}
+  \begin{eqnarray*}
+    x^2 (y' -x e^x) + (\ln x) y &=& 0 \\
+    x^2y' - x^3 e^x + (\ln x) y &=& 0 \\ 
+    x^2y' +  \ln x y &=& x^3 e^x \\
+    y' +  \frac{\ln x}{x^2} y &=& x e^x
+  \end{eqnarray*}
+\end{mybox}
+\clearpage
+
+\subsubsection{Modeling conduction and diffusion}
+
+So imagine a tank of some liquid. Water will do as well as anything.
+And on the inside, suspended somehow, is a chamber.
+A metal cube will do. And let's suppose that its walls are partly insulated
+-- not so much that no heat can get through.
+There is no such thing as perfect insulation anyway, except maybe a perfect vacuum.
+Now inside-- so here on the outside is liquid.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-conduetion_model}
+  \caption{Model of Conduction}
+\end{figure}
+
+On the inside, what I'm interested in is the temperature of this thing.
+I'll call that $T$.
+Now that's different from the temperature of the external water bath.
+So I'll call that $T_e$. $T$ for temperature, measured in Celsius, let's say for the sake of definiteness.
+But this is the external temperature, so I'll indicate that with an $_e$.\\
+
+What is the model? In other words, how do I set up a differential equation to model this situation?
+It's based on a physical law, which I think you've had simple examples
+like this- the so-called \textit{Newton's law of cooling}.
+\begin{equation*}
+  \frac{dT}{dt} \quad = \quad k (T_e - T), \quad \text{where } k > 0 
+\end{equation*}
+Now, why do I write it that way$(T_e - T)$?
+Well, I write it that way because I want this constant to be {\color{orange} positive- a positive constant}.
+In general, any constants or parameters which have some physical significance, one always
+wants to arrange the equation so that they are positive numbers, the way people normally think of these things.
+This $k$ is called the conductivity.\\
+
+The conductivity of what?
+Well, I don't know- of the system, of the situation, the conductivity of the wall.
+Or if the metal were just by itself, it would- at any rate, it's a constant.
+It's thought of as a constant. And why positive?
+Well, because if the external temperature is bigger than the internal temperature,
+I expect $T$ to rise- the internal temperature to rise. That means $\frac{dT}{dt}$,
+its slope, should be positive.
+\begin{equation*}
+  \frac{dT}{dt} > 0 \text{,  if } T_e > T \text{ and } k > 0
+\end{equation*}
+So in other words, if $T_e$ is bigger than $T$,
+I expect this number to be positive. And that tells you that $k$ must be a positive constant.
+If I had turned it the other way, expressed the difference in the reverse order, $k$ would then have to be negative in order that this turn out to be positive in that situation I described.\\
+
+It will probably have an initial condition.
+So it could be the temperature at the starting time should be some given number,
+\begin{equation*}
+  T(0) = T_0. 
+\end{equation*}
+But the condition could be given another way.
+One could ask, what's the temperature as time goes to infinity, for example?
+There are different ways of giving that initial condition.
+That's the conduction model.\\
+
+What would the diffusion model be?
+The diffusion model, mathematically, would be word for word the same.
+The only difference is that now, what I imagine is I'll draw the picture the same way.
+Except now I'm going to label the inside, not with a $T$, but with a $C$- $C$ for \textit{concentration}.
+It's in an external water bath, let's say.
+So there is an external concentration.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image_diffusion-model}
+  \caption{Model of Diffusion}
+\end{figure}
+
+And what I'm talking about is some chemical- let's say salt will do as well as anything.
+\begin{eqnarray*}
+  C &=& \text{salt concentration inside} \\
+  C_e &=& \text{salt concentration outside}
+\end{eqnarray*}
+Now, I imagine some mechanism. So this is a salt solution.
+That's a salt solution.
+And I imagine some mechanism by which the salt can diffuse - so diffusion model now - diffuse from here into there, or possibly out the other way.
+And that's usually done by vaguely referring to that the outside is a semi-permeable membrane- semi-permeable so that the salt will have a little hard time getting through, but permeable so that it won't be blocked completely.
+So there's a membrane. You write the "semi-permeable"- membrane outside- outside the inside.\\
+\clearpage
+
+Now what's the equation?
+Well, the equation is the same, except it's called the diffusion equation.
+I don't think Newton got his name on this.
+The diffusion equation says that the rate at which the salt diffuses across the membrane, which
+is the same - up to a constant- as the rate at which the concentration inside changes, is some constant,
+usually called $k_1$, still.
+\begin{equation*}
+  \frac{dC}{dt} = k_1 (C_e - C) \quad \text{where } k > 0 
+\end{equation*}
+
+\begin{example}
+  My minestrone soup is in an insulating thermos. Model its temperature as a function of time.
+\end{example}
+
+\textbf{Simplifying assumption: }
+\begin{itemize}
+\item The insulating ability of the thermos does not change with time.
+\item The rate of cooling depends only on the \\textbf{difference} between the soup temperature and the external temperature.
+\end{itemize}
+
+\begin{enumerate}
+\item {\color{blue} Draw a picture:}
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image-insulating_thermos}
+    \caption{Draw of Insulating Thermos}
+  \end{figure}
+\item {\color{blue} Identify variables and parameters(with units):}
+  \begin{align*}
+    t \qquad &\text{time }(minutes)\\
+    x \qquad &\text{external temperature } (C)\\
+    y \qquad &\text{soup temperature } (C)\\
+    k \qquad &\text{conduction of thermos (to be determined by equation)}
+  \end{align*}
+  Here $t$ is the independent variable, and $x$ and $y$ are functions of $t$.
+  The conduction $k$ is a parameter of the system determined by the conductivity of the thermos.
+\item {\color{blue} Identify input, response, and any initial conditions:}
+  \begin{itemize}
+  \item The \textbf{system} is the thermos full of soup.
+  \item The \textbf{\color{blue} input} is $x$, the temperature outside of the thermos.
+  \item The \textbf{\color{orange} response} is $y$, the temperature of soup inside of the thermos.
+  \item We are not given initial conditions in this problem.
+  \end{itemize}
+\item {\color{blue} Write differential equation:}
+  \begin{equation*}
+    \dot y = k(x -y)
+  \end{equation*}
+  This is \textbf{\color{orange}Newton's law of cooling} : the rate of cooling of an object
+  is proportional to the difference between its temperature and the external temperature.
+  It's very important to get the sign right.
+  When the temperature outside the thermos is smaller than the temperature of the soup,
+  the soup is cooling.
+  We set up the equation this way so that the conductivity constant k is positive.
+  \begin{eqnarray*}
+    \dot y \quad &<& \quad 0  \\
+    x - y \quad &<& \quad 0  \\
+    k \quad &>& \quad 0 
+  \end{eqnarray*}
+  The units of $k$ must be $minutes^{-1}$ for the units of $\dot y$,
+  which is Celsius per minute, to agree with the right hand side,
+  which has units of $k$ times units of Celsius.\\
+
+  Smaller $k$ means better insulation, because smaller $k$ leads to smaller rate of change of temperature.
+  The case $k = 0$ is perfect insulation; the temperature inside the thermos doesn't change at all.
+\item {\color{blue} Put into standard linear form: }This ODE canbe rearranged into standard form:
+  \begin{equation*}
+    {\color{blue}\dot y} + k {\color{blue} y} = k{\color{orange} x}
+  \end{equation*}
+  It is a first-order inhomogeneous linear ODE!
+  \Note Notice that the factor of $k$ is essential in the differential equation for the units to work out.
+  In standard linear form
+  \begin{eqnarray*}
+    p(t) \quad &=& \quad k \\
+    q(t) \quad &=& \quad kx(t)
+  \end{eqnarray*}
+  Note that the right hand side $q(t) = kx(t)$ is not the input.
+  The input signal is ${\color{orange} x(t)}$. The system response is ${\color{blue} y(t)}$.
+\end{enumerate}
+\clearpage
+
+\subsubsection{Solving homogeneous first-order linear ODEs}
+Homogeneous first-order linear ODEs can always be solved by separation of variables:
+\begin{eqnarray*}
+  \dot y + p(t)y \quad &=& \quad 0\\
+  \frac{dy}{dt} + p(t)y \quad &=& \quad 0\\
+  \frac{dy}{dt} \quad &=& \quad -p(t)y\\
+  \frac{dy}{y} \quad &=& \quad -p(t)dt  
+\end{eqnarray*}
+Choose any antiderivative $P(t)$ of $p(t)$. Then
+\begin{eqnarray*}
+  \ln |y| \quad &=& \quad -P(t) + C \\
+  |y| \quad &=& \quad e^{-P(t) + C} \\
+  y \quad &=& \quad \pm e^{-P(t) + C} \\
+  y \quad &=& \quad \pm e^{-P(t)}e^{C} \\
+  y \quad &=& \quad \pm e^{C}e^{-P(t)} \\
+  y \quad &=& \quad ce^{-P(t)} \\
+\end{eqnarray*}
+where $c$ is any number (we brought back the solution $y = 0$ corresponding to $c = 0$).\\
+
+\Note If you choose a different antiderivative,
+it will have the form $P(t) + d$ for some constant $d$, and then the new $\displaystyle e^{−P(t)}$ is
+just a constant $\displaystyle e^{−d}$ times the old one,
+so the set of all scalar multiples of the function $\displaystyle e^{−P(t)}$ is the same as before.\\
+\Conclusion \\
+\textbf{General solution to first-order homogeneous linear ODE}. Let $p(t)$ be a continuous
+function on an open interval $I$.
+This ensures that $p(t)$ has an antiderivative $P(t)$.
+The general solution to $\dot y + p(t)y = 0$ is
+\begin{equation*}
+  y = ce^{-P(t)}
+\end{equation*}
+
+where $c$ is any real number. The parameter $c$ can be determined from an initial condition.
+
+\begin{problem}
+  Homogeneous solution concept check
+\end{problem}
+Suppose that $\displaystyle x_h$ is a solution to the differential equation
+$\dot x + p(t)x = 0$ and that $\displaystyle x_h(a) < 0$ at some time $t=a$.
+What does this tell us about the solution function $\displaystyle x_h$?
+\begin{mybox}{gray}{Answer}
+  The solution has the form $\displaystyle x_h=ce^{−P(t)}$ for some constant $c$
+  and some antiderivative $P(t)$ of $p(t)$.
+  The value of $\displaystyle e^{−P(t)}$ is positive,
+  but $\displaystyle x_h(a) < 0$, so $c$ must be negative, and then
+  $\displaystyle x_h = ce^{−P(t)} < 0$ for all $t$.  
+\end{mybox}
+
+\begin{problem}
+  Soup temperature
+\end{problem}
+The temperature $y$ of minestrone soup in an insulating thermos can be modeled by the equation
+\begin{equation*}
+  \dot y + ky = kx, 
+\end{equation*}
+where $x$ is the external temperature.\\
+The soup starts at $100$ degrees Celsius at the moment $(t = 0)$ it is placed in a large
+refrigerated room with temperature $0$ degrees Celsius.
+Find the solution $y$ describing the temperature of the soup.\\
+(Enter your solution in terms of $k$ and $t$.)
+\begin{mybox}{gray}{Answer}
+  The equation
+  \begin{equation*}
+    \dot y + ky = 0 
+  \end{equation*}
+  is homogeneous equation.\\
+  
+  The general solution of homogeneous equation is $\displaystyle ce^{-P(t)}$, 
+  \begin{equation*}
+    y = ce^{-kt}.
+  \end{equation*}
+  The initial condition is $y(0) = 100$,
+  \begin{eqnarray*}
+    100 &=& ce^{k \cdot 0}\\
+    100 &=& ce^0\\
+    c &=& 100
+  \end{eqnarray*}
+  Therefore the $y$ is
+  \begin{equation*}
+    y = 100e^{-kt}
+  \end{equation*}  
+\end{mybox}
+\clearpage
+
+\subsubsection{Solving inhomogeneous equations: variation of parameters}
+{\color{blue} Variation of parameters} is a method for solving inhomogeneous linear ODEs.
+Recall a first-order inhomogeneous linear ODE in standard linear form:
+\begin{equation*}
+  {\color{blue}{\dot{y}}}  + p(t) {\color{blue}{y}}  = {\color{orange}{q(t)}} .
+\end{equation*}
+Let's see how variation of parameters works in the following example.
+\begin{example}
+  Solve $t\dot{y} + 2y = t^5$ on the interval $(0, \infty)$.
+\end{example}
+
+\Solution \\
+\textbf{Step1.} The associated homogeneous equation is $t\dot{y} + 2y = 0$,
+or equivalently, $\dot{y} + 2ty = 0$. Solve by separation of variables:
+\begin{eqnarray*}
+  \frac{dy}{dt} \quad &=& \quad -\frac{2}{t}y\\
+  \frac{dy}{y} \quad &=& \quad -\frac{2}{t}dt\\
+  \ln{|y|} \quad &=& \quad -2 \ln{t} + C \qquad (\text{since} t > 0)\\
+  \displaystyle e^{\ln{|y|}} \quad &=& \quad e^{-2 \ln{t} + C} \\
+  \displaystyle e^{\ln{|y|}} \quad &=& \quad e^{\ln{t^{-2}} + C} \\
+  y \quad &=& \quad ct^{-2}
+\end{eqnarray*}
+(Here, we have recovered the $y = 0$ solution by allowing $c = 0$.)\\
+Choose one nonzero solution, say $\displaystyle y_h= t^{−2}$.\\
+\textbf{Step2.}Substitute $y = ut^{−2}$ into the inhomogeneous equation: the left side is
+\begin{align*}
+  \displaystyle  \displaystyle t \dot{y} + 2y \displaystyle &=
+  \displaystyle  t(\dot{u} t^{-2} + u\, (-2t^{-3})) + 2 u t^{-2}\\
+  \displaystyle &= \displaystyle  t^{-1} \dot{u}.
+\end{align*}
+
+\Note Observe the cancellation of two terms after the substitution.
+If you do not observe such a cancellation, you know you have made an computational error.
+The reason behind this cancellation will be explained shortly. \\
+
+Using the result of our substitution, the inhomogeneous equation becomes
+\begin{equation*}
+  \displaystyle  t^{-1} \dot{u} \quad \displaystyle =
+  \quad \displaystyle t^5
+\end{equation*}
+
+\textbf{Step3.}Solve for $u$.
+\begin{eqnarray*}
+  \dot{u} \qquad &=& \qquad t^6 \\
+  u \qquad &=& \qquad \frac{t^7}{7} + c.  
+\end{eqnarray*}
+\textbf{Step4.} The general solution to the inhomogeneous equation is
+\begin{equation*}
+  y = u t^{-2} = \left(\frac{t^7}{7} + c \right) t^{-2} = \frac{t^5}{7} + c t^{-2}.
+\end{equation*}
+(If you want, check by direct substitution that this really is a solution.)\\
+
+\textbf{\color{blue} Variation of parameters general procedure}
+\begin{enumerate}
+\item Find a nonzero solution, say $y_h$, of the associated homogeneous ODE
+  \begin{equation*}
+    {\color{blue}{\dot{y_ h}}}  + p(t){\color{blue}{y_ h}}  = 0.
+  \end{equation*}
+\item Substitute $y = uy_h$ into the inhomogeneous equation,
+  ${\color{blue}{\dot{y}}}  + p(t) {\color{blue}{y}}  = {\color{orange}{q(t)}}$ to find an equation
+  for the unknown function $u = u(t)$.
+  \begin{eqnarray*}
+    \displaystyle  \displaystyle \frac{d}{dt}(uy_ h) +puy_ h &\displaystyle =& \displaystyle  q\\
+    \displaystyle \iff \dot u y_ h + u\dot y_ h + puy_ h &\displaystyle =& \displaystyle  q\\
+    \displaystyle \iff \dot u y_ h + u \underbrace{(\dot y_ h + py_ h)}_{=0}
+                                                             &\displaystyle =& \displaystyle  q\\
+    \displaystyle \iff \dot u y_ h &\displaystyle =& \displaystyle  q
+  \end{eqnarray*}
+  Note that the term in parentheses is zero because
+  $y_h$ is a solution to the homogeneous differential equation.
+\item Solve $\displaystyle \dot{u} \displaystyle = \displaystyle \frac{q}{y_h}$
+  for $u(t)$ by integration.
+\item Once the general $u(t)$ is found, don't forget to multiply it
+  by the homogeneous solution $y_h(t)$ to find $y = u(t)y_h(t)$,
+  the general solution to the inhomogeneous equation.
+  The idea is that the functions of the form $cy_h$ are solutions to the homogeneous equation;
+  maybe we can get solutions to the inhomogeneous equation by allowing the parameter $c$ to vary, i.e.,
+  if we replace it by a non-constant function $u(t)$.
+\end{enumerate}
+
+
+
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

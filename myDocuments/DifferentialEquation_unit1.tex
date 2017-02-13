@@ -1212,7 +1212,7 @@ or equivalently, $\dot{y} + 2ty = 0$. Solve by separation of variables:
 \end{eqnarray*}
 (Here, we have recovered the $y = 0$ solution by allowing $c = 0$.)\\
 Choose one nonzero solution, say $\displaystyle y_h= t^{−2}$.\\
-\textbf{Step2.}Substitute $y = ut^{−2}$ into the inhomogeneous equation: the left side is
+\textbf{Step2.} Substitute $y = ut^{−2}$ into the inhomogeneous equation: the left side is
 \begin{align*}
   \displaystyle  \displaystyle t \dot{y} + 2y \displaystyle &=
   \displaystyle  t(\dot{u} t^{-2} + u\, (-2t^{-3})) + 2 u t^{-2}\\
@@ -1229,7 +1229,7 @@ Using the result of our substitution, the inhomogeneous equation becomes
   \quad \displaystyle t^5
 \end{equation*}
 
-\textbf{Step3.}Solve for $u$.
+\textbf{Step3.} Solve for $u$.
 \begin{eqnarray*}
   \dot{u} \qquad &=& \qquad t^6 \\
   u \qquad &=& \qquad \frac{t^7}{7} + c.  
@@ -1268,8 +1268,134 @@ Using the result of our substitution, the inhomogeneous equation becomes
   if we replace it by a non-constant function $u(t)$.
 \end{enumerate}
 
+\begin{example}
+  Initial value problem using variation of parameters
+\end{example}
+Solve Linear ODE
+\begin{equation*}
+  \dot{y} + ty = t; \qquad y(0) = 3.
+\end{equation*}
+\begin{enumerate}
+\item Find homogeneous ODEs $y_h$. by separation of variation. 
+  \begin{eqnarray*}
+    \dot{y} + ty &=& 0 \\
+    \dot{y} &=& -ty \\
+    \frac{dy}{y} &=& -t \\
+    \int \frac{1}{y} dy &=& \int -t dt \\
+    \ln |y| &=& \frac{-t^2}{2} + \cancelto{0}{c}\\
+    y &=& e^{\frac{-t^2}{2}} 
+  \end{eqnarray*}
+  The $\displaystyle y_h \displaystyle = \displaystyle e^{\frac{-t^2}{2}}$.
+\item Substitute $\displaystyle y \displaystyle =
+  \displaystyle ue^{\frac{-t^2}{2}}$ into the inhomogeneous equation
+  \begin{eqnarray*}
+    \dot{u} e^{\frac{-t^2}{2}} \underbrace{-tue^{\frac{-t^2}{2}} + tue^{\frac{-t^2}{2}}}_{\text{cancel homogeneous}}
+    &=& t\\
+    \dot{u} e^{\frac{-t^2}{2}} &=& t\\
+    \dot{u} &=& te^{\frac{t^2}{2}}
+  \end{eqnarray*}
+\item Solve $\dot{u} = te^{\frac{t^2}{2}}$ for $u(t)$ by integration.
+  \begin{equation*}
+    \int \dot{u} dt = \int te^{\frac{t^2}{2}} dt
+  \end{equation*}
+  Let $\frac{t^2}{2}$ as $v$,
+  \begin{equation*}
+    v = \frac{t^2}{2} \qquad dv = tdt,  \Rightarrow \frac{1}{t} dv = dt
+  \end{equation*}
+  by substitute\footnote{
+    Note : Integration by Parts($(fg)' = f'g + fg'$, integration both side
+    \begin{eqnarray*}
+      \int (fg)' dx &=& \int f'gdx + \int fg'dx\\
+      fg &=&  \int f'gdx + \int fg'dx \\
+      \int fg' dx &=& fg - \int f'gdx 
+    \end{eqnarray*}
+    Using these substitutions gives us the formula that most people think of as
+    the integration by parts formula $\int udv = uv - \int vdu$. For example $\int xe^{6x} dx$ is
+    \begin{equation*}
+      u = x \qquad dv = e^{6x}dx
+    \end{equation*}
+    \begin{equation*}
+      du = dx \qquad v = \int e^{6x} dx  = \frac{1}{6} e^{6x}
+    \end{equation*}
+    The integral is then,
+    \begin{eqnarray*}
+      \int xe^{6x}dx &=& \frac{x}{6} e^{6x} - \int \frac{1}{6} e^{6x}dx \\
+      &=& \frac{x}{6} e^{6x}  -\frac{1}{36}e^{6x} + c
+    \end{eqnarray*}    
+  }
+  \begin{eqnarray*}
+    \int \dot{u} dt &=& \int te^{\frac{t^2}{2}} dt \\
+    \int \dot{u} dt &=& \int e^v dv \\
+    u &=& e^v + c \quad \text{where, } v = \frac{t^2}{2}\\
+    u &=& e^{\frac{t^2}{2}} + c
+  \end{eqnarray*}
+\item Multiply it by the homogeneous solution $y_h(t)$ to find $y = u(t)y_h(t)$
+  \begin{eqnarray*}
+    y &=& (e^{\frac{t^2}{2}} + c)e^{\frac{-t^2}{2}}\\
+    y &=& 1 + ce^{\frac{-t^2}{2}}
+  \end{eqnarray*}
+\item Find constant $c$ using initial condition $y(0) = 3$ ,
+  \begin{eqnarray*}
+    y(0) &=& 1 + ce^{\frac{0^2}{2}}\\
+    3 &=& 1 + c \\
+    c &=& 2 
+  \end{eqnarray*}
+\item Our inhomogeneous solution is
+  \begin{equation*}
+        y = 1 + 2e^{\frac{-t^2}{2}}\\
+  \end{equation*}
+\end{enumerate}
+
+\begin{exercise}
+  Soup example revisited
+\end{exercise}
+Suppose in the minestrone soup example,
+\begin{equation*}
+  \dot{y} + ky = kx 
+\end{equation*}
+the external temperature is constant $T$.
+Solve the initial value problem with $y(0) = 80$.\\
+(Enter you answer in terms of the external temperature $T$,
+the conduction constant $k$, and time $t$.)
+\begin{mybox}{gray}{Answer}
+  The $y_h = e^{-kt} + c$ and let $c = 0$,
+  The $u(t)y_h(t) = ue^{-kt}$, and substitutions it into inhomogeneous equation
+  \begin{eqnarray*}
+    \dot{u}e^{-kt} -kue^{-kt} + kue^{-kt} &=& kT\\
+    \dot{u} &=& Te^{kt} \\
+    \int \dot{u} dt &=& \int kTe^{kt} dt \\
+    u &=& kT(\frac{1}{k}e^{kt} + c) \\
+    u &=& Te^{kt} + C
+  \end{eqnarray*}
+  Multiply it by the homogeneous solution
+  \begin{equation*}
+    y(t) = ue^{-kt} = (Te^{kt} + C)e^{-kt} = T + Ce^{-kt}.
+  \end{equation*}
+  Find constant $C$ using initial condition
+  \begin{eqnarray*}
+    y(0)  &=& T + Ce^{0}\\
+    80 &=& T + C\\
+    C &=& 80 - T     
+  \end{eqnarray*}
+  The specific solution is
+  \begin{equation*}
+    y(t) = T + (80 - T)Ce^{-kt}.
+  \end{equation*}
+
+  Note that:
+  \begin{itemize}
+  \item A particular solution to the inhomogeneous ODE is $y_p=T$.
+    This is the solution in which the soup temperature is already in equilibrium with the exterior temperature.
+  \item The general solution to the \textbf{homogeneous} ODE is $y_h=ce^{−kt}$.
+  \item The general solution to the inhomogeneous ODE is
+    $y = T+ ce^{−kt}$. As $t \rightarrow \infty$,
+    the soup temperature approaches $T$ no matter what the initial temperature. This makes sense.    
+  \end{itemize}
+\end{mybox}
+\clearpage
 
 
+  
 
 %%% Local Variables:
 %%% mode: latex

@@ -1,0 +1,245 @@
+\section{Sinusoidal Functions}
+\subsection{Solutions to the spring-mass-dashpot system}
+\begin{exercise}
+  Review: spring-mass-dashpot system with distinct complex roots
+\end{exercise}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{image-spring_mass_dashpot}
+  \caption{Spring Mass Dashpot System}
+\end{figure}
+
+Recall that the position of the mass in a spring-mass-dashpot system without external force can be modelled
+by the second order linear homogeneous ODE.
+\begin{equation*}
+  m {\color{blue}{\ddot{x}}}  + b {\color{blue}{\dot{x}}}  + k {\color{blue}{x}}  =0.
+\end{equation*}
+
+Let the damping constant be small enough so that $b^2 < 4mk$ and the characteristic polynomial has
+$2$ distinct complex roots.\\
+Find the two characteristic roots $r_1$ and $r_2$ of this system in terms of the mass $m$,
+the spring constant $k$, and the damping constant $b$.\\
+(Enter your answer so that $r_1$ is the root with positive imaginary part, and $r_2$ is the root
+with negative imaginary part.)
+
+\begin{mybox}{gray}{Answer}
+  The root of characteristic equation is
+  \begin{equation*}
+    mr^2 + br + k = 0 
+  \end{equation*}
+  in condition of $b^2 < 4mk$, the two distinct imaginary root of is
+  \begin{equation*}
+    \displaystyle \frac{-b \pm \sqrt{b^2 - 4mk}}{2m} \displaystyle =
+    \displaystyle \frac{-b \pm \sqrt{(-1)(4mk -b^2)}}{2m} \displaystyle =
+    \displaystyle \frac{-b \pm i\sqrt{4mk -b^2}}{2m}
+  \end{equation*}
+\end{mybox}
+
+\begin{exercise}
+  Review: basis of solutions
+\end{exercise}
+Consider the same spring-mass-dashpot system as above.
+Let the two distinct characteristic roots be $ -s\pm i\omega _ d$
+($s$ and $\omega d$ can be expressed in terms of $m$, $k$, and $b$).
+\begin{mybox}{gray}{Answer}
+  The exponential solutions is
+  \begin{equation*}
+    \displaystyle e^{\frac{-b + i\sqrt{4mk -b^2}}{2m}} ; \quad
+    \displaystyle e^{\frac{-b - i\sqrt{4mk -b^2}}{2m}}
+  \end{equation*}
+  as a basis of the collection of all solutions.
+  $b^2 - 4mk < 0$,  then the real and imaginary parts of either of the exponential solutions
+  \begin{eqnarray*}
+    \displaystyle \mathrm{Re\, }\left(e^{\frac{-b+\sqrt {b^2-4mk}}{2m}t}\right)
+    & \displaystyle =& \displaystyle e^{-\frac{b}{2m}t}\cos \left(\frac{\sqrt {4mk-b^2}}{2m}t\right)\\
+    \displaystyle \mathrm{Re\, }\left(e^{\frac{-b+\sqrt {b^2-4mk}}{2m}t}\right)
+    & \displaystyle =& \displaystyle e^{-\frac{b}{2m}t}\sin \left(\frac{\sqrt {4mk-b^2}}{2m}t\right)
+  \end{eqnarray*}
+  form another basis of the solutions.
+\end{mybox}
+\clearpage
+
+\subsection{Real solutions to spring-mass-dashpot system}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-spring_mass_dashpot}
+  \caption{Spring Mass Dashpot System}
+\end{figure}
+
+In the last lecture, we modeled the spring-mass-dashpot system with
+no external force by the second order linear homogenous DE
+\begin{equation*}
+  m {\color{blue}{\ddot{x}}}  + b {\color{blue}{\dot{x}}}  + k{\color{blue}{x}}  =0 \qquad m>0, \, \, b,\, k\, \geq 0.
+\end{equation*}
+When there are two distinct characteristic complex roots, that is,
+when the discriminant $\, b^2-4km<0,\,$
+the real basis that you found in the previous problem gives the general real solution:
+\begin{equation*}
+  \displaystyle  e^{(-b/2m)t} \left( c_1\cos \left(\omega _ d t\right)+c_2 \sin \left(\omega _ d t\right)\right)
+  \qquad c_1,\, c_2 \in \mathbb {R},
+\end{equation*}
+where $\,  \displaystyle \omega _ d\, =\, \sqrt {\frac{k}{m}-\frac{b^2}{4m^2}}\,$
+is called the \textbf{{\color{blue} damped frequency}} of the system.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-damped_frequency}
+  \caption{Damped Frequency}
+\end{figure}
+It is useful to contrast the solutions of the general spring-mass-dashpot system with
+the solutions to the system with no dashpot (damping), i.e. $\, b=0 (<4mk).\,$.
+If the system has no damping, the DE reduces to
+\begin{equation*}
+  m {\color{blue}{\ddot{x}}}  + k {\color{blue}{x}}  =0\qquad m>0, \, \, k\, \geq 0,
+\end{equation*}
+and the general real solution reduces to
+\begin{equation*}
+  \displaystyle  c_1 \cos \left(\omega _ n\right)+c_2\sin \left(\omega _ n\right)
+  \qquad c_1,\, c_2 \in \mathbb {R},
+\end{equation*}
+where $\,  \displaystyle \omega _ n\, =\, \sqrt {\frac{k}{m}}\,$
+is called the \textbf{{\color{blue} natural frequency}} of system.
+We will continue to call the value of $\omega _ n$ the natural frequency
+of system even if damping is present ($b > 0$).
+\begin{question}
+  What do these general solutions look like? 
+\end{question}
+Both of these general solutions involve linear combinations of $\cos (\omega t)$ and
+$\sin (\omega t)$ for some angular frequency $\omega$ that is the same for both
+the sine and cosine functions. What so the graph of such linear combinations looks like?\\
+To make graph these solutions easy, we will first rewrite the linear combination
+$\, a\cos (\theta )+b\sin (\theta )\,$ in \textit{polar form}.
+\clearpage
+
+\subsection{From rectangular to polar form}
+\begin{equation*}
+  \displaystyle \frac{1}{1 + (\frac{w}{k})^2}
+  \left( \cos \omega t + \frac{w}{k} \sin \omega t \right)
+\end{equation*}
+Convert $\cos \omega t + \frac{w}{k} \sin \omega t$ into other form.
+Using\\
+\begin{SCfigure}[][h] % position of SCfigure here 
+  \begin{minipage}{.5\textwidth}
+    \begin{equation*}
+        a \cos \theta + b \sin \theta = C \cos \left( \theta - \phi \right)
+    \end{equation*}
+  \end{minipage}%
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{image-cosine_triangle}
+  \end{minipage}
+\end{SCfigure}
+
+Apply it to $\cos \omega t + \frac{w}{k} \sin \omega t$\\
+\begin{SCfigure}[][h] 
+  \begin{minipage}{.6\textwidth}
+    \begin{equation*}
+      \displaystyle \frac{1}{1 + (\frac{w}{k})^2} \sqrt{1 + (\frac{w}{k})}
+       \cos (\omega t - \phi) \quad \text{ where, } \phi = \arctan \frac{w}{k}. 
+    \end{equation*}
+  \end{minipage}%
+  \begin{minipage}{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{image-cosine_triangle_2}
+  \end{minipage}
+\end{SCfigure}
+
+There are two ways of expressing any \textbf{\color{blue} sinusoidal function},
+in rectangular form and in \textbf{\color{orange}polar form}. They are related as follows:
+\begin{equation*}
+  \displaystyle  \underbrace{{\color{orange}{A}}
+    \cos (\theta -{\color{orange}{\phi }} )}_{{\color{orange}{\text {polar form}}} }
+  \qquad {\color{blue}{a}} ,\,
+  {\color{blue}{b}} ,\,  {\color{orange}{\phi }}  \in \mathbb {R}, \  \  \
+  {\color{orange}{A}} \geq 0 \in \mathbb {R},
+\end{equation*}
+where $A$ and $\phi$ in terms of $a$ and $b$ are given implicitly by the following diagram:
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-rectangular_form}
+  \caption{Rectangular Form}
+\end{figure}
+\clearpage
+
+That is,
+\begin{align*}
+  &A \quad = \quad \sqrt{a^2 + b^2} \\
+  &\phi \quad : \quad
+    \text {Angle between the positive horizontal axis and the ray to the point }\, (a, b).
+\end{align*} \footnote{
+  \begin{align*}
+    A \cos (\theta - \phi) &= A \left(\cos\theta \cos(-\phi) - \sin \theta \sin(-\phi) \right) \\
+    &= A \left(\cos\theta \cos \phi + \sin \theta \sin \phi \right) \\
+    &= (A cos \phi) \cos \theta + (A \sin \phi) \sin \theta
+  \end{align*}
+  Compare two form
+  \begin{equation*}
+    a \cos \theta + b \sin \theta \quad \text{with} \quad
+    (A \cos \phi) \cos \theta + (A \sin \phi) \sin \theta
+  \end{equation*}
+  \begin{eqnarray*}
+    a &=& A \cos \phi\\
+    b &=& A \sin \phi \\
+  \end{eqnarray*}
+  How can we use these to find values for $A$ and $\phi$?
+  \begin{align*}
+    a^2 + b^2 &= A^2 (\cos \phi)^2 + A^2(\sin \phi)^2 \\
+              &= A^2(\cos^2 \phi + \sin^2 \phi) \\
+              &= A^2
+  \end{align*}
+  So, $\displaystyle A \displaystyle = \displaystyle \sqrt{a^2 + b^2}$ and
+  $\phi$ is
+  \begin{eqnarray*}
+    \displaystyle \frac{A \sin \phi}{A \cos \phi}
+    &\displaystyle = & \displaystyle \frac{b}{a}\\
+    \tan \phi &=& \frac{b}{a}                                                                     
+  \end{eqnarray*}
+}
+
+Note that $\, (A,\phi )\,$ are polar coordinates of the point with rectangular coordinates
+$\, (a,b).\,$ We will use the convention $\, A\geq 0.\, \,$
+As usual for polar coordinate, the angle $\, \phi \,$ is well-defined
+only up to addition of integer multiples of $2\pi$. \\
+
+It is amazing that the sum of two sinusoids is another sinusoid!
+And while graphing the sinusoid in rectangular form is a mystery,
+graphing the polar form is easy. We will do this shortly. 
+\clearpage
+
+\subsubsection{Worked Example}
+In practice, the argument of the cosine and sine terms is often a function rather than a constant angle.
+In this course, we usually have
+\begin{equation*}
+  \theta = \omega t \qquad \text{for some } \omega > 0
+\end{equation*}
+
+\begin{example}
+  Convert $\,  -\cos (5t) - \sqrt {3} \sin (5t)$ to polar form.
+\end{example}
+\Solution \\
+Given: $\, a=-1,\, b=-\sqrt {3},\, \theta (t)=\omega t\,$ where $\omega = 5$.\\
+Want: $\, A,\, \phi .\,$ These are polar coordinates of the point with rectangular coordinates(a,b). 
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-example_polar_rectangular}
+  \caption{Diagram of  rectangular form}
+\end{figure}
+
+Using the diagram above,
+\begin{eqnarray*}
+  \displaystyle A \quad & \displaystyle = & \displaystyle \sqrt{(-1)^2 + (\sqrt{3})^2} = 2\\
+  \displaystyle \phi \quad & \displaystyle = & \displaystyle - \frac{2 \pi}{3}. 
+\end{eqnarray*}
+
+Therefore, the answer is
+\begin{equation*}
+  \displaystyle A \cos (\omega t - \phi) \displaystyle = \displaystyle 2 \cos (5t + \frac{2 \pi}{3} )
+\end{equation*}
+
+Note that $4 \pi / 3$(or $-\frac{2\pi }{3}+2\pi n$) also works since $\phi$ is
+well-defined up to addition of $2 pi$. 
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "NoteForDifferentialEquation"
+%%% End:

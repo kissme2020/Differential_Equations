@@ -165,36 +165,7 @@ That is,
   &A \quad = \quad \sqrt{a^2 + b^2} \\
   &\phi \quad : \quad
     \text {Angle between the positive horizontal axis and the ray to the point }\, (a, b).
-\end{align*} \footnote{
-  \begin{align*}
-    A \cos (\theta - \phi) &= A \left(\cos\theta \cos(-\phi) - \sin \theta \sin(-\phi) \right) \\
-    &= A \left(\cos\theta \cos \phi + \sin \theta \sin \phi \right) \\
-    &= (A cos \phi) \cos \theta + (A \sin \phi) \sin \theta
-  \end{align*}
-  Compare two form
-  \begin{equation*}
-    a \cos \theta + b \sin \theta \quad \text{with} \quad
-    (A \cos \phi) \cos \theta + (A \sin \phi) \sin \theta
-  \end{equation*}
-  \begin{eqnarray*}
-    a &=& A \cos \phi\\
-    b &=& A \sin \phi \\
-  \end{eqnarray*}
-  How can we use these to find values for $A$ and $\phi$?
-  \begin{align*}
-    a^2 + b^2 &= A^2 (\cos \phi)^2 + A^2(\sin \phi)^2 \\
-              &= A^2(\cos^2 \phi + \sin^2 \phi) \\
-              &= A^2
-  \end{align*}
-  So, $\displaystyle A \displaystyle = \displaystyle \sqrt{a^2 + b^2}$ and
-  $\phi$ is
-  \begin{eqnarray*}
-    \displaystyle \frac{A \sin \phi}{A \cos \phi}
-    &\displaystyle = & \displaystyle \frac{b}{a}\\
-    \tan \phi &=& \frac{b}{a}                                                                     
-  \end{eqnarray*}
-}
-
+\end{align*} 
 Note that $\, (A,\phi )\,$ are polar coordinates of the point with rectangular coordinates
 $\, (a,b).\,$ We will use the convention $\, A\geq 0.\, \,$
 As usual for polar coordinate, the angle $\, \phi \,$ is well-defined
@@ -205,7 +176,7 @@ And while graphing the sinusoid in rectangular form is a mystery,
 graphing the polar form is easy. We will do this shortly. 
 \clearpage
 
-\subsubsection{Worked Example}
+\subsection{Worked Example}
 In practice, the argument of the cosine and sine terms is often a function rather than a constant angle.
 In this course, we usually have
 \begin{equation*}
@@ -236,7 +207,127 @@ Therefore, the answer is
 \end{equation*}
 
 Note that $4 \pi / 3$(or $-\frac{2\pi }{3}+2\pi n$) also works since $\phi$ is
-well-defined up to addition of $2 pi$. 
+well-defined up to addition of $2 \pi$. 
+\clearpage
+
+\subsection{Proof}
+\subsubsection{Proof of the trigonometric identity}
+\begin{equation*}
+  a \cos \theta + b \sin \theta = C \cos \left( \theta - \phi \right)
+\end{equation*}
+
+\paragraph{The high school proof}\footnote{
+  \begin{align*}
+    C \cos (\theta - \phi) &= C \left(\cos\theta \cos(-\phi) - \sin \theta \sin(-\phi) \right) \\
+    &= C \left(\cos\theta \cos \phi + \sin \theta \sin \phi \right) \\
+    &= (C cos \phi) \cos \theta + (C \sin \phi) \sin \theta
+  \end{align*}
+  Compare two form
+  \begin{equation*}
+    a \cos \theta + b \sin \theta \quad \text{with} \quad
+    (C \cos \phi) \cos \theta + (C \sin \phi) \sin \theta
+  \end{equation*}
+  \begin{eqnarray*}
+    a &=& C \cos \phi\\
+    b &=& C \sin \phi \\
+  \end{eqnarray*}
+  How can we use these to find values for $A$ and $\phi$?
+  \begin{align*}
+    a^2 + b^2 &= C^2 (\cos \phi)^2 + C^2(\sin \phi)^2 \\
+              &= C^2(\cos^2 \phi + \sin^2 \phi) \\
+              &= C^2
+  \end{align*}
+  So, $\displaystyle C \displaystyle = \displaystyle \sqrt{a^2 + b^2}$ and
+  $\phi$ is
+  \begin{eqnarray*}
+    \displaystyle \frac{C \sin \phi}{C \cos \phi}
+    &\displaystyle = & \displaystyle \frac{b}{a}\\
+    \tan \phi &=& \frac{b}{a}                                                                     
+  \end{eqnarray*}
+}
+
+The thing that's no good about it is that the direction in which it goes is from right to left side.
+Well, everybody knew that. If I gave you this and told you write it out
+in terms of cosine and sine, I would assume and dearly hope that practically all of you could do that.
+Unfortunately, when you want to use the formula, it's this way you want to use it in the opposite direction.
+You're starting with this and want to convert it to that.
+Now the proof, therefore, will not be of much help.
+It requires you to go in the backwards direction and match up coefficients.
+It's much better to go forwards.
+Now there are two proofs that go forwards.
+\clearpage
+
+\paragraph{The 18.02 proof} is
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-18_02_proof}
+  \caption{18.02 Proof}
+  \label{fig:18.02 Proof}
+\end{figure}
+
+First of all, the $a$ and the $b$ are the given.
+So I'm going to put in that vector $< a, b>$.
+Now, there's another vector lurking around.
+It's the unit vector whose-- I'll write it this way, $\hat u$ because it's
+a unit vector and theta to indicate that its angle is $\theta$.
+Now the reason for doing that is because you
+see that the left hand side is a dot product of two vectors.
+\begin{equation*}
+  <a , b> \cdot <\cos \theta, \sin \theta>
+\end{equation*}
+The left hand side of the identity is the dot product of the vector $<a, b>$ with the vector
+whose components are cosine $\theta$ and sine $\theta$.
+That's what I'm calling this unit vector.
+It's a unit vector because cosine squared plus size squared is one.
+Now all this formula is is saying that scale of product, the dot product of those two vectors,
+can be evaluated if you know their components by the left hand side of the formula.
+And if you don't know their components, it can be evaluated in another way.
+The geometric evaluation, which goes--What is it?
+It's the magnitude of one times the magnitude of the other times the cosine of the included angle.
+Now what's the included angle?
+Well, $\theta$ is this angle from the horizontal to that unitvector.
+The angle $phi$ is this angle from figure \ref{fig:18.02 Proof} here.
+And therefore the included angle between $\theta$ and my pink vector is theta minus $\phi$.
+That's the formula.
+\begin{equation*}
+  <a , b> \cdot < \cos \theta, \sin \theta > = |<a, b>| \cdot 1 \cdot \cos (\theta - \phi)
+\end{equation*}
+It comes from two ways of calculating the scalar product of the vector whose coefficients are
+$<a, b>$ and the unit vector whose components are cosine theta and sine theta.\\
+
+\paragraph{The 18.03 proof} is uses complex numbers.
+Take the left side. Instead of viewing it as the dot product of two vectors,
+there's another way.
+You can think of it as part of the product of two complex numbers.
+So the 18.03 argument, really the complex number argument, says look.
+Multiply together $a -bi$ and the complex number $\cos \theta + i \sin \theta$.
+\begin{equation*}
+  (a - bi)(\cos \theta + i \sin \theta)
+\end{equation*}
+There are different ways of explaining why I want to put the $-i$ there instead of $i$.
+But the simplest is because, when I take the real part to get the left hand side, I will.
+If I take the real part of this, I'm going to get $a \cos \theta + b \sin \theta$
+because $-i$ and $i$ make one multiplied together.
+That's the left hand side. And now the right hand side, I'm going
+to use polar representation instead. What's the polar representation of this guy?
+Well, if $<a, b>$ has the angle $\theta$, then $a -bi$, goes down below on figure \ref{fig:18.02 Proof}.
+It has the angle $- \ phi$. 
+In its polar representation, $\sqrt{a^2 + b^2} e^{-\phi}$ not positive $\phi$
+because of $a -bi$ goes below the axis if $a$ and $b$ are positive.
+How about the second guy?
+The second guy is $e^{i \theta}$. 
+So what's the product?
+\begin{align*}
+  (a - bi)(\cos \theta + i \sin \theta) &= \sqrt{a^2 + b^2} e^{-\phi} \cdot e^{i \theta}\\
+  &= \sqrt{a^2 + b^2} e^{i(\theta - \phi)}
+\end{align*}
+And now what do I want? The real part of this.
+And I want the real part of this.
+So let's just say take the real parts of both sides.
+\begin{equation*}
+  a \cos \theta + b \sin \theta = \sqrt{a^2 + b^2} \cos(\theta - \phi)
+\end{equation*}
+
 
 
 %%% Local Variables:

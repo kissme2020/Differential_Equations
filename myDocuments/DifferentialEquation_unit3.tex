@@ -328,7 +328,104 @@ So let's just say take the real parts of both sides.
   a \cos \theta + b \sin \theta = \sqrt{a^2 + b^2} \cos(\theta - \phi)
 \end{equation*}
 
+There are three ways to write a sinusoid function:
+\begin{itemize}
+\item \textbf{\color{blue}amplitude-phase form } : $\displaystyle A \cos \left(\theta -\phi \right)$
+\item \textbf{\color{blue}complex form } : $\mathrm{Re\, }\left(c e^{i\omega t} \right)$, where $c$ is a complex number
+\item \textbf{\color{blue}linear combination } : $a \cos \omega t + b \sin \omega t$, where $a$ and $b$ are real numbers
+\end{itemize}
 
+Different forms are useful in different contexts,
+so we'll need to know how to convert between them. The following proposition explains how.
+\begin{proposition}
+  If
+  \begin{equation*}
+    \qquad \overline{c}=\, A e^{i\phi }\, =\, a+ bi,\,
+    \qquad \qquad c\in \mathbb {C}, \quad A,a,b\in \mathbb {R},
+  \end{equation*}
+  then
+  \begin{equation*}
+    \mathrm{Re\, }\left(c e^{i\omega t}\right)\, =\,  A\cos (\omega t -\phi )\, =\,
+    a\cos \omega t+ b\sin \omega t,\qquad \omega >0\in \mathbb {R}.
+  \end{equation*}
+\end{proposition}
+
+\textbf{\color{orange} Use these key equations to convert between the three forms!} \\
+
+\Warning Don't forget that it is $\overline{c}$ and not $c$ itself that appears
+in the key equations.
+An equivalent form of the key equations (obtained by taking complex conjugates) is
+\begin{equation*}
+  c = Ae^{-i \phi} = a - bi. 
+\end{equation*}
+
+If you ever forget the key equations above, you can do the conversion manually by going through the steps in the proofs below.
+
+\Proofs \\
+\begin{enumerate}
+\item
+  \begin{align*}
+    \displaystyle  \mathrm{Re\, }\left(c e^{i\omega t} \right)
+    & \displaystyle = \mathrm{Re\, }\left(A e^{-i \phi } \,  e^{i\omega t} \right) \\
+    & \displaystyle = \mathrm{Re\, }\left( A e^{i(\omega t - \phi )} \right) \\
+    & \displaystyle = A \cos (\omega t - \phi ).
+  \end{align*}
+\item
+  \begin{align*}
+    \displaystyle  \mathrm{Re\, }\left(c e^{i\omega t} \right)
+    & \displaystyle = \mathrm{Re\, }\left( (a-bi) (\cos \omega t + i \sin \omega t) \right) \\
+    & \displaystyle = \mathrm{Re\, }\left(a \cos \omega t + b \sin \omega t + i(\cdots ) \right) \\
+    & \displaystyle = a \cos \omega t + b \sin \omega t.
+  \end{align*}
+\item Using $\cos (x-y)=\cos x \cos y + \sin x \sin y,\,$, we have
+  \begin{align*}
+    \displaystyle  A \cos (\omega t - \phi )
+    & \displaystyle = A \cos \omega t \cos \phi + A \sin \omega t \sin \phi \\
+    & \displaystyle = a \cos \omega t + b \sin \omega t.
+  \end{align*}
+  The last step follows from $ a = A \cos \phi$ and $b = A \sin \phi$, since
+  $A, \phi$ are polar coordinates of $(a,b)$.
+\item
+  \begin{align*}
+    &\displaystyle a \cos \omega t + b \sin \omega t \\
+    &\displaystyle = (a,b) \cdot (\cos \omega t,\sin \omega t) \\
+    \displaystyle = |(a,b)| \;  |(\cos \omega t,\sin \omega t)| \;
+    \cos \left(\text {angle between the vectors } (a,b) \,
+    \text {and}\,  (\cos \omega t,\sin \omega t)\right) \\
+    &\displaystyle \qquad \qquad (\text {by the geometric interpretation of the dot product)} \\
+    &\displaystyle = A \cos (\omega t - \phi ).
+  \end{align*}
+\end{enumerate}
+\clearpage
+
+\subsection{Graphing sinusoidal functions}
+In polar form, it is easy to see that the graph of the sinusoidal function
+$\, f(t)=A \cos (\omega t-\phi )\,$
+is a rescaled and shifted version of the cosine graph, as shown below:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-graph_sinusoidal_function}
+  \caption{Graph of $f(t) = A \cos \left( \theta t - \phi \right)$}
+\end{figure}
+
+This graph of $f(t)$ can be described geometrically in terms of
+\begin{itemize}
+\item \textbf{\color{blue} A}, its \textbf{\color{blue} amplitude}, how high the graph raises above
+  the $t$-axix at its maximum;
+\item \textbf{\color{blue} P} (in \textbf{\color{orange} seconds} or \textbf{\color{orange}seconds per cycle)},
+  its \textbf{\color{blue} period}, the time for one complete oscillation, or equivalently the width between successive maxima;
+\item ${\color{blue} t_0}$ (in \textbf{\color{orange} seconds), its \textbf{\color{blue}} time lag}(relative to the cosine curve),
+  a $t$-value at which a maximum is attained. The time lag is well defined up to the addition to integer multiples of a period.
+\end{itemize}
+
+\begin{question}
+  How are the parameters describling the graph, $P$ and $t_0$, related to the parameters,
+  $\omega$ and $\phi$, in function $f(t)$?
+\end{question}
+\Answer \\
+
+  
 
 %%% Local Variables:
 %%% mode: latex

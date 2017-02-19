@@ -389,9 +389,9 @@ If you ever forget the key equations above, you can do the conversion manually b
   \begin{align*}
     &\displaystyle a \cos \omega t + b \sin \omega t \\
     &\displaystyle = (a,b) \cdot (\cos \omega t,\sin \omega t) \\
-    \displaystyle = |(a,b)| \;  |(\cos \omega t,\sin \omega t)| \;
-    \cos \left(\text {angle between the vectors } (a,b) \,
-    \text {and}\,  (\cos \omega t,\sin \omega t)\right) \\
+    &\displaystyle = |(a,b)| \;  |(\cos \omega t,\sin \omega t)| \;
+     \cos \left(\text {angle between the vectors } (a,b) \,
+     \text {and}\,  (\cos \omega t,\sin \omega t)\right) \\
     &\displaystyle \qquad \qquad (\text {by the geometric interpretation of the dot product)} \\
     &\displaystyle = A \cos (\omega t - \phi ).
   \end{align*}
@@ -424,8 +424,658 @@ This graph of $f(t)$ can be described geometrically in terms of
   $\omega$ and $\phi$, in function $f(t)$?
 \end{question}
 \Answer \\
+\begin{itemize}
+\item $\displaystyle P = \frac{2 \pi }{\omega },\,$ since adding $\, \displaystyle \frac{2\pi }{\omega }\,$
+  to $t$ increases the angle $\omega t - \phi$ by $2 \pi$.
+\item $\displaystyle t_0= \frac{\phi }{\omega },\,$, since $t_0$ is the $t$-value for which the angle
+  $\, \omega t - \phi =0,\,$. 
+\end{itemize}
 
+There is also \textbf{\color{blue} frequency} $\displaystyle \nu \colon =\frac{1}{P}\,$
+(in \textbf{\color{orange}Hertz}=\textbf{\color{orange}cycles per second}), the number of
+complete oscillations per second. To convert from frequency $\nu$ to angular frequency
+$\omega$, multiply by $\frac{2\pi \textrm{ radians}}{1 \textrm{ cycle}}$; thus
+$\omega = 2\pi \nu = 2\pi /P$, which is consistent with formula $P = 2\pi /\omega$
+above.\\
+
+\paragraph{Steps to graph} $\, f(t)=A \cos (\omega t - \phi )$\\
+Start with the curve $y(\theta )=\cos \theta .\, \,$ Then ``work from the outside in''
+\begin{enumerate}
+\item Amplify (stretch vertically) by a factor of ${\color{blue}A}$,
+  the {\color{blue}amplitude}. You now have the graph of $y(\theta )=A\cos (\theta )$
+\item hift the graph by $\, {\color{blue}{\phi }}$(in {\color{orange}radians})) to the
+  right. You now have the graph of $\, y(\theta )=A\cos (\theta -\phi ).\, \,$\\
   
+  The angle $\phi$ is called the {\color{blue}phase lag} or {\color{blue}phase shift} (relative th the cosine curve).
+  The first maximum of graph of $\, A\cos (\theta -\phi )\,$ is at $\, \theta =\phi ,\,$ shifted from $\theta =0\,$
+  in graph of $\, y(\theta )=A\cos (\theta -\phi ).\, \,$
+\item Compress the result horizontally by \textbf{dividing} by the scale factor ${\color{blue}{\omega }} \,$
+  (in {\color{orange}radains/second}), the {\color{blue} angular frequency}.
+  The result is the graph of  $\, f(t)=A\cos (\omega t-\phi ).\, \,$\\
+  
+  With the horizontal rescaling, the horizontal axis change from the $\theta$-axis(in radains) to
+  $t$-axis(in seconds). The first maximum of the rescaled graph is at $t_0=\phi /\omega$ instead of
+  at $\theta =\phi ,\,$ and complete oscillation takes $2\pi /\omega \,$ instead of $\, 2\pi$.  
+\end{enumerate}
+
+\textbf{Remark:} The phase lag $\phi$ tells us by what \textbf{frequency of cycle} the graph
+of $f(t)$ is shifted from a cosine graph of the same frequency.
+For example, the graph of $\, f(t)=A\cos (\omega t-\pi /2)\,$ is shifted by $1/4$ of a cycle
+to the right from the graph of $A\cos (\omega t).\, \,$
+On the other hand, the time lag $t_0$ tell us by \textbf{how much time} the graph of 
+$\, f(t)=A\cos (\omega t-\pi /2)\, =\, A\cos \left(\omega (t-t_0)\right)\,$ is shifted to
+the right from the graph of $A\cos (\omega t).\, \,$ Also note that
+$\displaystyle \, \frac{\phi }{2\pi }= \frac{t_0}{P}.$
+
+\begin{exercise}
+  Units of phi
+\end{exercise}
+What are the units of $\phi$?
+\begin{mybox}{gray}{Answer}
+  The unit of $\phi$ is radians, but this is the same as being unitless.
+  The length $l$ (meter) of an arc spanning a center angle $\theta$
+  radians in a circle of radius $r$ (meters) is given by $\, l=r\theta .$
+\end{mybox}
+\clearpage
+
+
+\subsubsection{Worked example}
+
+\begin{enumerate}
+\item Write real part of
+  \begin{equation*}
+    \displaystyle \frac{e^{i \omega t}}{2 + 3i}
+  \end{equation*}
+  in polar and rectangular from.\\
+
+  Change denominator into polar form, the modular is $\displaystyle \sqrt{2^2 + 3^2}$
+  and the angle is $\displaystyle \tan \phi = \frac{3}{2}$, then
+  \begin{align*}
+    \displaystyle \frac{e^{i \omega t}}{2 + 3i}
+    &\displaystyle = \displaystyle \frac{e^{i \omega t}}{\sqrt{13} e^{i \phi}} \\
+    &\displaystyle = \displaystyle \frac{1}{\sqrt{13}} e^{i(\omega t - \phi)}
+  \end{align*}
+  The polar complex number is $\displaystyle \frac{1}{\sqrt{13}} e^{i(\omega t - \phi)}$.\\
+  To find the real part, use Euler's formula
+  \begin{equation*}
+    e^{i \theta} = \cos \theta + i \sin \theta
+  \end{equation*}
+  The real part of polar form is 
+  \begin{equation*}
+    \displaystyle \mathrm{Re\, } \left( \frac{1}{\sqrt{13}} \cos (\omega t - \phi)  +
+      i \frac{1}{\sqrt{13}} \sin (\omega t - \phi) \right)
+    \displaystyle = \frac{1}{\sqrt{13}} \cos (\omega t - \phi). 
+  \end{equation*}
+
+  The Rectangular form is 
+  \begin{align*}
+    \displaystyle \mathrm{Re\, } \left( \frac{\cos \omega t + i \sin \omega t}{2 + 3i} \right)
+    \displaystyle &=  \displaystyle \mathrm{Re\, } \left(
+                    \frac{(\cos \omega t + i \sin \omega t) \cdot (2 - 3i)} 
+                    {(2 + 3i) \cdot (2 - 3i)} \right)\\
+    \displaystyle &= \displaystyle \mathrm{Re\, } \left( \frac{1}{13}
+                    \left(2 \cos \omega t + i 2 \sin \omega t -i 3 \cos \omega t
+                    + 3 \sin \omega t \right) \right) \\
+    \displaystyle &= \displaystyle \mathrm{Re\, } \left( \frac{1}{13}
+                    \left( \left( 2 \cos \omega t + 3 \sin \omega t \right)
+                    + i \left(2 \sin \omega t - 3 \cos \omega t \right) \right) \right) \\
+    \displaystyle &= \frac{1}{13} \left( 2 \cos \omega t + 3 \sin \omega t \right)
+  \end{align*}
+
+\item What is the circular frequency, amplitude and phase lag?\\
+
+  The circular frequency is just $\omega$,
+  from polar form the amplitude is $\displaystyle \frac{1}{\sqrt{13}}$
+  , and the phase lag is $\phi = \arctan \frac{3}{2}$. 
+\end{enumerate}
+\clearpage
+
+\subsection{Application to spring-mass system}
+\begin{exercise}
+  Solution in amplitude-phase form
+\end{exercise}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-damped_frequency}
+  \caption{Damped Frequency}
+\end{figure}
+
+A mass of $1 kg$ is attached to a spring with spring constant of (approximately)
+$\pi^2 N/m$. It is pulled to 1m to the left of the equilibrium and then pushed and released
+at a velocity of $\pi m/s$ to the right.\\
+
+(Note that the initial velocity has been corrected from a previous version of this problem.)\\
+
+What is the position $x(t)$ of the mass at time $t$ seconds after being released?
+Answer in amplitude-phase form $x(t) = A \cos⁡ (\omega t - \phi)$ by entering the values of
+$A$, $\omega$, and $\phi$.\\
+
+(Use the convention that $ A > 0$ and $\omega > 0$.)
+
+\begin{mybox}{gray}{Answer}
+  From Newton's second law and Hooke's law
+  \begin{equation*}
+    F = ma \qquad F = -kx
+  \end{equation*}
+  Let $x(t)$ position function of time, then the differential equation is 
+  \begin{align*}
+    &m \ddot{x} = -kx \\
+    &m \ddot{x} + kx = 0
+  \end{align*}
+  with initial condition
+  \begin{equation*}
+    x(0) = 1 \,m \quad \text{ and, } \dot{x}(0) = - \pi\, m/s .
+  \end{equation*}
+  Put numbers in equation $m \ddot{x} + kx = 0$
+  \begin{equation*}
+    1 \ddot{x} + \pi^2 x = 0 
+  \end{equation*}
+  The characteristic polynomial is
+  \begin{equation*}
+    r^2 + \pi^2 = 0 
+  \end{equation*}
+  The root of characteristic polynomial is
+  \begin{equation*}
+    \frac{\pm \sqrt{-4 \pi^2}}{2} = \pm i \pi
+  \end{equation*}
+\end{mybox}
+
+\begin{mybox}{gray}{Answer continuous}
+  The root of characteristic polynomial is two distinct complex number,
+  the general solution is
+  \begin{equation*}
+    x(t) = c_1 \cos (\pi t) + c_2 \sin (\pi t) 
+  \end{equation*}
+  Apply initial condition $x(0) = -1$
+  \begin{eqnarray*}
+    x(0) &=& c_1 \cos (0) + c_2 \sin (0) \\
+    c_1  &=& -1
+  \end{eqnarray*}
+  Apply another initial condition $\dot{x}(0) = \pi $
+  \begin{eqnarray*}
+    \dot{x}(0) &=& \pi \cdot \sin(\pi \cdot 0) + c_2 \cdot \pi \cos(\pi \cdot 0) \\
+    \dot{x}(0) &=&  c_2 \cdot \pi  \\
+    \pi &=& c_2 \cdot \pi \\
+    c_2  &=& 1
+  \end{eqnarray*}
+
+  The solution is
+  \begin{equation*}
+    x(t) = -\cos \pi t + \sin \pi t
+  \end{equation*}
+  Change it as amplitude-phase form
+  \begin{equation*}
+    \displaystyle \sqrt{2} \cos(\pi t - \phi) 
+    \quad \text{, where } \phi = \arctan \frac{1}{-1}
+  \end{equation*}
+  The amplitude is $\sqrt{2}$, $\omega = \pi$, and $\phi = \frac{3 \pi}{4}$.
+  Note that $\, \displaystyle \left(\frac{3\pi }{4}+2\pi n\right)\,$
+  for any integer $n$ would work as the value of $\phi$ as well.
+\end{mybox}
+
+\begin{exercise}
+ Units 
+\end{exercise}
+An amplitude-phase form, the solution to the problem above is
+$x(t) = A \cos ⁡(\omega t - \phi)$, What are the units of
+$A$, $\omega$ and $\phi$?
+\begin{mybox}{gray}{Answer}
+  Since the position $x$ of the mass is measured in meters,
+  and the output of cosine function is unitless, $A$ must has the same units as $x$, and so is in meters.\\
+  Since $(\omega t - \phi)$ is the argument of the cosine function,
+  each term must be in radians. This means $\phi$ is in radians, and $\omega$ in radians per second.  
+\end{mybox}
+\clearpage
+
+\begin{exercise}
+  Period, frequency, and time lag
+\end{exercise}
+What are the units of the period $P$, frequency $\nu$ and time lag $t_0$?
+What are the values of the period $P$, the frequency $\nu$, and the time lag $t_0$,
+for the solution $x(t)$ to the spring-mass system above?
+
+\begin{mybox}{gray}{Answer}
+  \begin{itemize}
+  \item The period $P$ is the time for one complete oscillation and so
+    has units of $seconds$. Its value is given by
+    \begin{equation*}
+      \displaystyle P=\frac{2\pi }{\omega }
+      \left(\, \frac{\text {rad}}{\text {rad}/\text {sec}}\right)=2(\text {sec})
+    \end{equation*}
+  \item The frequency $\nu$ is the number of cycles per second, and given by
+    $\displaystyle \, \nu =\frac{1}{P} =\frac{1}{2}
+    \left(\frac{\text {cycles}}{\text {seconds}}\right).$
+  \item The time lag $t_0$ is the $t$-value that the graph of $\, \cos (\omega t)\,$
+    is shifted to the right to get to the graph of
+    $\, \cos \left(\omega (t-t_0)\right) \, =\cos (\omega t-\phi )$.
+    Therefore, it is in $seconds$, and its value is
+    $\, \displaystyle t_0\, =\, \frac{\phi }{\omega }\, =\, \frac{3\pi /4}{\pi }\, =\, \frac{3}{4}.$    
+  \end{itemize}
+\end{mybox}
+
+\begin{exercise}
+  Sketch the solution
+\end{exercise}
+Sketch the graph of $x(t)$, the position function of the mass in the spring-mass system above
+(which you have found in the first problem above).
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-exercise_2_7}
+  \caption{Sketch Soluation}
+\end{figure}
+\clearpage
+
+\subsection{Amplitude phase forms of solutions to spring-mass-dashpot system}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-spring_mass_dashpot}
+  \caption{Spring mass dashpot system}
+\end{figure}
+The solution a spring-mass-dashpot system with $\, m=1,\, b=4,\, k=5\,$
+and initial conditions $\, y(0)\, =\, 1,\, \, y'(0)\, =\, 0$ is
+\begin{equation*}
+  \displaystyle  e^{-2t}\left(\cos t+2 \sin t\right).
+\end{equation*}
+
+\subsubsection{Sketching the solution to an underdamped spring-mass}
+\begin{equation*}
+  \displaystyle  e^{-2t}\left(\cos t+2 \sin t\right) \displaystyle =
+  \displaystyle \sqrt{5} e^{-2t} \cos \left(t - \phi \right) \quad
+  \text{, where } \phi = \arctan 2
+\end{equation*}
+The graph is
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-underdamped}
+  \caption{Underdamped Frequency}
+\end{figure}
+
+The main difference between solutions to an undamped system and a damped system
+(where $b$ is small enough so there are two complex roots) is
+that real solutions to the damped system have an additional overall exponential factor.\\
+
+The general real solution to $m\ddot{y}+b\dot{y}+ky=\, 0\,$(where $\, b^2<4km)\,$) is:
+\begin{align*}
+  \displaystyle  \displaystyle y(t)
+  & \displaystyle = \displaystyle  e^{(-b/2m)t}
+    \left( c_1\cos \left(\omega _ d t \right)+c_2 \sin \left(\omega _ d t\right)\right) \\
+  & \displaystyle = \displaystyle  e^{(-b/2m)t} \left( A \cos \left(\omega _ d t -\phi \right) \right) \\
+  & \displaystyle = \displaystyle  e^{(-b/2m)t} \left( A \cos \left(\omega _ d t -\phi \right) \right) \\
+  & \displaystyle = \displaystyle  \left(A e^{(-b/2m)t}\right) \cos \left(\omega _ d t -\phi \right).    
+\end{align*}
+
+Since cosine oscillates between $1$ and $-1$, the function $y(t)$ oscillates between $A e^{(-b/2m)t}$
+and $-A e^{(-b/2m)t}$.
+We call the graph of $\pm A e^{(-b/2m)t}$ the {\color{blue}envelope} of the oscillation.
+
+\begin{exercise}
+  Crossing equilibrium
+\end{exercise}
+Let
+\begin{equation*}
+  \displaystyle  \left(A e^{-pt}\right) \cos \left(\omega _ d t -\phi \right)
+\end{equation*}
+where $\,  A,\, p, \omega _ d ,\, \phi \,$ are non-zero real numbers.\\
+How many times does $x(t)$ cross the $t$-axis as $t$ increases?\\
+Are the time intervals between the zeros (the $t$-values when $x(t)$ crosses the $t$-axis)
+always the same?
+\begin{mybox}{gray}{Answer}
+  Since $\, A e^{(-b/2m)t} \neq 0 \,$ for all $t\, x(t)=0\,$ whenever $\, \cos (\omega _ d t - \phi )=0.\, \,$
+  Therefore, the zeros of $x(t)$ are the same as the zeros for the pure sinusoid
+  $\, \cos (\omega _ d t - \phi ),\,$ which are at the $t$-values satisfying.
+  \begin{eqnarray*}
+    \displaystyle  \displaystyle \omega _ d t -\phi
+    &\displaystyle =& \displaystyle  \pi /2 + n\pi \qquad n \text { any integer} \\
+    \displaystyle \implies t &\displaystyle =& \displaystyle  \frac{\pi /2 + n\pi + \phi }{\omega _ d}.
+  \end{eqnarray*}
+  Hence, $x(t)$ has infinitely many equally spaced zeros.
+  The exponential factor changes the amplitude of the oscillation but not the frequency.
+\end{mybox}
+\clearpage
+
+\subsection{Damped sinusoid revisited}
+The system response for an unforced spring-mass-dashpot system with small damping term
+$\, (b<4km)\,$ is called a {\color{blue}damped sinusoid} and is of the form
+\begin{equation*}
+  \displaystyle  \displaystyle x(t) \displaystyle =
+  \displaystyle  \left(A e^{(-b/2m)t}\right) \cos \left(\omega t -\phi \right).
+\end{equation*}
+
+The exponential factor does not affect the frequency of the oscillations:
+$x(t)$ crosses the equilibrium whenever the pure sinusoid $\, \cos \left(\omega t -\phi \right)\,$
+does.\\
+
+Therefore, the period $P$ and the time lag $t_0$ still make sense and have same formulas as
+for the pure sinusoid $\, \cos \left(\omega t -\phi \right)\, :$
+\begin{eqnarray*}
+  t_0 \qquad &=& \qquad \phi / \omega\\
+  P \qquad &=& \qquad 2 \pi / \omega
+\end{eqnarray*}
+Because the graph of $x(t)$ is not truly periodic-its amplitude id decreasing, we call $P$
+the {\color{blue}pseudo-period}.\\
+
+For damped sinusoids, the time lag $t_0$ is easier to see from the shifts of zeros.
+The value of $t_0$ is the time difference between a zero of $x(t)$ and a corresponding
+zero of $\, \cos (\omega t)\,$.\\
+
+(You can check using calculus that the local extrema of $x(t)$ are no longer
+at the same $t$-values as those of the pure sinusoid $\, \cos \left(\omega t -\phi \right).\, \,$
+However, they are still equally spaced.
+Consecutive local maxima of a damped sinusoid are still a full period $P$ apart.)\\
+\clearpage
+
+\subsection{Beats}
+
+\textbf{\color{blue} Bests} occur when two very nearby pitches are sounded simultaneously.\\
+
+\begin{problem}
+  Consider two sinusoid sound waves of angular frequencies $\omega +\epsilon$ and
+  $\omega -\epsilon$, say $\cos ((\omega +\epsilon )t)$ and $\cos ((\omega -\epsilon )t)$,
+  where $\epsilon$ is much smaller than $\omega$.
+  What happens when they are superimposed? 
+\end{problem}
+
+\Solution The sum is 
+\begin{align*}
+  \displaystyle  \cos ((\omega +\epsilon )t) + \cos ((\omega -\epsilon )t)
+  \displaystyle &= \mathrm{Re\, }(e^{i(\omega +\epsilon ) t}) + \mathrm{Re\, }(e^{i(\omega -\epsilon ) t}) \\
+  \displaystyle &= \mathrm{Re\, }(e^{i\omega t} (e^{i \epsilon t} + e^{-i\epsilon t})) \,
+  \text{ Inverse Euler's Formula\footnotemark}\\
+  \displaystyle &= \mathrm{Re\, }(e^{i\omega t} (2 \cos \epsilon t))  \\
+  \displaystyle &= (2 \cos \epsilon t) \mathrm{Re\, }(e^{i\omega t}) \\
+  \displaystyle &= 2 (\cos \epsilon t) (\cos \omega t).
+\end{align*}
+\footnotetext{Inverse Euler's Formula
+  \begin{align*}
+    e^{i\theta} + e^{-i\theta} &= \cos \theta + i \sin \theta + \cos \theta -i \sin \theta\\
+                               & = 2 \cos \theta
+  \end{align*}
+  therefore, $ 2 \cos \theta = \frac{e^{i\theta} + e^{-i\theta}}{2} $
+}
+
+The function $\cos \omega t$ oscillates rapidly between $\pm 1$.
+Multiplying it by the slowly varying function $2 \cos \epsilon t$ produces a rapid oscillation between
+$\pm 2 \cos \epsilon t$, so one hears a sound wave of angular frequency $\omega$
+whose amplitude is the slowly varying function $|2 \cos \epsilon t|$.
+
+
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-beats}
+  \caption{A plot of $2\left(\cos \epsilon t\right)\left(\cos \omega t\right)$
+  for $\epsilon =1/8$ and $\omega =4$.}
+\end{figure}
+
+\textbf{Practical application}\\
+
+You hear beats when tuning the strings of an instrument, or in tuning one instrument to another.
+The waa waa waa sound you hear is exactly theses beats.
+The higher the frequency of the beats, the more out of tune.
+As the instruments or strings become closer and closer in tune,
+the frequency of the beats diminish until you cannot hear them at all. \\
+Observe that changing the phase of one signal with respect to the other doesn't change
+the frequency of the beats!
+This is important. If you could hear phase shifts,
+it would be very difficult to tune your instrument by ear.\\
+
+\begin{exercise}
+  Envelope of the beats
+\end{exercise}
+In general, the sum of the two sinusoids with different frequencies and
+\textbf{different amplitudes} can be written as the imaginary part of a complex valued function as follows:
+\begin{align*}
+  \displaystyle  \displaystyle f(t)+g(t)
+  \displaystyle &= \displaystyle \sin (t)+A \sin (\omega t) \\
+  \displaystyle &= \displaystyle  \mathrm{Im\, }( R(t) e^{i \theta (t)}) \qquad R(t) \, \text {real} \\
+  \displaystyle &= \displaystyle  R(t) \sin (\theta (t))
+\end{align*}
+
+Notice that $|f(t)+g(t)|\leq R(t).\, \,$. This function $R(t)$ is called the
+{\color{blue}envelope of the beats}.\\
+
+Find $R(t)$.\\
+(Your answer should be in terms of $\, A,\, \omega ,\, t.$)
+
+\begin{mybox}{gray}{Answer}
+  The envelope $R(t)$ is the modulus of the complex function whose imaginary part is
+  $f(t)+g(t)$. Since
+  \begin{align*}
+    \displaystyle  \displaystyle f(t)+g(t)
+    \displaystyle &= \displaystyle \sin (t)+A \sin (\omega t) \\
+    \displaystyle &= \displaystyle  \mathrm{Im\, }\left(e^{it} +A e^{i\omega t}\right) \\
+    \displaystyle &= \displaystyle \mathrm{Im\, }
+                    \left(\cos (t)+A\cos (\omega t) +i \left(\sin (t)+A\sin (\omega t)\right)\right),
+  \end{align*}
+  we have
+  \begin{align*}
+    \displaystyle  \displaystyle R(t)
+    \displaystyle &= \displaystyle
+                    \left|\cos (t)+A\cos (\omega t) +i \left(\sin (t)+A\sin (\omega t)\right)\right| \\
+    \displaystyle &= \displaystyle \sqrt
+                    {\left(\cos (t)+A\cos (\omega t)\right)^2 +
+                    \left(\sin (t)+A\sin (\omega t)\right)^2 } \\
+    \displaystyle &= \displaystyle
+                    \sqrt { 1 + A^2+2 A\left(\cos (t)\cos (\omega t)
+                    +\sin (t)\sin (\omega t)\right) } \\
+    \displaystyle &= \displaystyle \sqrt { 1 + A^2+2 A\left(\cos ((1-\omega ) t)\right)}.
+  \end{align*}
+  \textbf{Note:} When $A=1$, the amplitudes of the two sinusoids in $f(t)$ are the same,
+  and $R(t)$ reduces to what we computed in the example above:
+  \begin{align*}
+    \displaystyle  \displaystyle R(t)
+    \displaystyle &= \displaystyle  \sqrt {2(1+\cos (1-\omega t))} \\
+    \displaystyle &= \displaystyle  \sqrt {4\cos ^2\left(\frac{1-\omega }{2}t\right)}\qquad
+                    \left(\cos ^2\theta \, =\, \frac{\cos (2\theta )+1}{2}\right) \\
+    \displaystyle &= \displaystyle  2 \left|\cos \left(\frac{1-\omega }{2}t\right)\right|.
+  \end{align*}
+\end{mybox}
+\clearpage
+
+\subsection{Recitation}
+\subsubsection{The different forms of a sinusoid function}
+\begin{problem}
+  Linear combination to amplitude-phase form practice 
+\end{problem}
+Write $\, \cos (2t)+\sin (2t)\,$ in the form $A\cos (\omega t-\phi ),\,$ ?
+\begin{mybox}{gray}{Answer}
+  The amplitude is
+  \begin{equation*}
+    \sqrt{1^2 + 1^2} = \sqrt{2}. 
+  \end{equation*}
+  The $\omega$ is $2$ and $\phi$ is $\arctan \frac{1}{1}\, = \, \frac{\pi}{4}\, .$
+\end{mybox}
+
+\begin{problem}
+  Linear combination to amplitude-phase form practice 
+\end{problem}
+Write $\, \cos (\pi t)-\sqrt {3}\sin (\pi t)\,$ in the form $A\cos (\omega t-\phi ),\,$ ?
+\begin{mybox}{gray}{Answer}
+  The amplitude is
+  \begin{equation*}
+    \sqrt{1^2 + {\sqrt{3}}^2} = 2
+  \end{equation*}
+  The $\omega$ is $\pi$ and $\phi$ is $\arctan \frac{-\sqrt{3}}{1}\, = \, - \frac{\pi}{3}\, .$
+\end{mybox}
+
+
+\begin{problem}
+  Amplitude-phase form to linear combination practice
+\end{problem}
+Write $5\cos \left(3t+\frac{3\pi }{4}\right)$ in the form $a\cos (\omega t)+b\sin (\omega t)\,$ ?
+\begin{mybox}{gray}{Answer}
+  From $\phi = \arctan{ \frac{b}{a}} = \frac{-3 \pi}{4}$,
+  \begin{align*}
+    \tan (\arctan{ \frac{b}{a}}) &= \tan \frac{-3 \pi}{4} \\
+    \frac{b}{a} &= 1 \\
+    b &= a
+  \end{align*}
+  Substitutes $a = b$ into $\sqrt{a^2 + b^2} = 25$   
+  \begin{align*}
+    \sqrt{a^2 + a^2} &= 5\\
+    2a^2 &= 25 \\
+    a^2 &= \frac{25}{\sqrt{2}}\\
+    a &= \pm \frac{5}{\sqrt{2}}. 
+  \end{align*}
+\end{mybox}
+
+\begin{mybox}{gray}{Answer Continuous}
+    The $\phi$ is the angel is in third quadrant, the sign of $a \, b\,$ should be negative.
+  So, the linear combination form is
+  \begin{equation*}
+    -\frac{5}{\sqrt{2}} \cos 3t  -\frac{5}{\sqrt{2}} \sin 3t 
+  \end{equation*}
+\end{mybox}
+\clearpage
+
+\subsubsection{Graphing a damped sinusoid}
+
+\begin{problem}
+  Solution in amplitude-phase form
+\end{problem}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-spring_mass_dashpot}
+  \caption{Spring Mass Dashpot}
+\end{figure}
+
+The spring-mass-dashpot system is set up with mass $m \, = \, 1(Kg)$,
+spring constant $\, \displaystyle k= \frac{17}{16} \, (\text {N/m}),\,$
+and damping constant $\, \displaystyle b=\frac{1}{2}\, (\text {N s /m})$. \\
+
+The mass is pulled to $1\, m$ to the right of the equilibrium and then pushed
+and released at a velocity of $\, 0.75\text {m/s}\,$ the the right. \\
+
+What is the position $x(t)$ of the mass at time $t$ seconds after being release?
+Answer in amplitude phase form $x(t) = Ae^{-pt}\cos (\omega t- \phi )$ ?
+
+\begin{mybox}{gray}{Answer}
+  The differential equation is
+  \begin{equation*}
+    \ddot{x} + \frac{1}{2} \dot{x} + \frac{17}{16} x = 0 
+  \end{equation*}
+  with initial condition
+  \begin{equation*}
+    x(0) = 1 \, m \qquad \text{and \,} \dot{x}(0) = 0.75 \, m/s
+  \end{equation*}
+  The characteristic polynomial have two distinct complex roots, when the
+  discriminant $\displaystyle \sqrt{\frac{1}{4} - 4\cdot \frac{17}{16} } \, < 0 $. 
+  So, the general real solution:
+  \begin{equation*}
+    \displaystyle e^{-\frac{1}{4} t} \left( c_1 \cos t + c_2 \sin t\right)
+  \end{equation*}
+  Apply initial condition $\, x(0) = 1 ,\,$ the $\, c_1 = 1$.
+  \begin{align*}
+    \displaystyle \dot{x}
+    \displaystyle &= \displaystyle \frac{d}{dt}
+                    \left( e^{-\frac{1}{4} t} \left( \cos t + c_2 \sin t\right) \right) \\
+    \displaystyle &= -\frac{1}{4} e^{-\frac{1}{4} t} \left( \cos t + c_2 \sin t\right) 
+                    + e^{-\frac{1}{4} t} \left( -\sin t + c_2 \cos t \right) \\
+    \displaystyle \dot{x}(0)
+    \displaystyle &= -\frac{1}{4} + c_2 = 0.75 \\
+    \displaystyle c_2 &= 1.
+  \end{align*}
+  The solution of differential equation is
+  \begin{equation*}
+    \displaystyle e^{-\frac{1}{4} t} \left( \cos t + \sin t\right). 
+  \end{equation*}
+\end{mybox}
+\clearpage
+
+\begin{mybox}{gray}{Answer Continuous}
+  Change linear combination
+  \begin{equation*}
+    \displaystyle e^{-\frac{1}{4} t} \left( \cos t + \sin t\right) 
+  \end{equation*}
+  to the amplitude phase form
+  \begin{equation*}
+    \displaystyle \sqrt{2} e^{-\frac{1}{4} t} \left( \cos (t - \phi) \right) \,
+    \text{where, } \, \phi = \arctan \frac{1}{1}
+  \end{equation*}
+  
+\end{mybox}
+
+\begin{problem}
+  Half-time
+\end{problem}
+Let us consider the envelope $\, \pm \epsilon (t)\,$ with
+$\, \epsilon (t)=Ae^{-pt}\,$ of the solution $x(t)$ that you found above.
+The decaying exponential envelope is a main feature that distinguishes
+a damped sinusoid from a pure sinusoid.\\
+
+How long does it take for the envelope to decay by half? In other words, find
+$\, t_{1/2}\,$ (in seconds) such that
+$\, \displaystyle \epsilon \left(t_{1/2}\right)\, =\, \frac{1}{2} \epsilon (0).$
+This is called the {\color{blue}half-time} of the decaying exponential envelope.
+
+\begin{mybox}{gray}{Answer}
+  Let start time in 0 second as $t_0$ and half-time is $t_h$,
+  \begin{align*}
+    \displaystyle e^{-\frac{1}{4} t_h}
+    \displaystyle &= \displaystyle \frac{1}{2} e^{-\frac{1}{4} t_0} \\
+    \displaystyle &= \displaystyle \frac{1}{2}  \, \text{, where } t_0 = 0\\
+    \displaystyle \ln {e^{-\frac{1}{4} t_h}}
+    \displaystyle &= \displaystyle \ln{\frac{1}{2}} \\
+    \displaystyle -\frac{1}{4} t_h \displaystyle &= \displaystyle \ln{\frac{1}{2}} \\
+    \displaystyle t_h \displaystyle &= \displaystyle -4 \ln{\frac{1}{2}} 
+  \end{align*}
+\end{mybox}
+
+\begin{problem}
+  Pseudo-period, pseudo-frequency and time lag
+\end{problem}
+What are the values of the (pseudo)-period $P$,
+(in seconds) the (pseudo)-frequency $\nu \,$
+(in cycles per second) and the time lag $\, t_0 \,$ (in seconds) for
+$\,x(t) ,\,$ of the solution that you found above?
+
+\begin{mybox}{gray}{Answer}
+  The period is $\, P = \frac{2 \pi}{\omega} = 2 \pi \,$.
+  The frequency $\, \nu \,$ is $\, \frac{1}{P} = \frac{1}{2 \pi} \,$.
+  The time lag $t_0$ is $\, \frac{\phi}{\omega} = \frac{\pi}{4} \,$. 
+\end{mybox}
+\clearpage
+
+\begin{problem}
+  Zeros of the graph
+\end{problem}
+When are the first $4$ times that the mass crosses the equilibrium position?
+That is, Find the 4 smallest $t$-values for $\, t>0\,$ such that $\, x(t)=0$?
+Let $t_1,\, t_2,\, t_3,\, t_4\,$ be the 4 $t$-values in increasing order.
+\begin{mybox}{gray}{Answer}
+  In
+  \begin{equation*}
+    \sqrt{2} e^{-\frac{1}{4} t} \left( \cos (t - \frac{\pi}{4}) \right) 
+  \end{equation*}
+  the exponential function $\displaystyle \, e^{-\frac{1}{4} t} \,$
+  can not be zero. Find the $t$ values that $\, \cos (t - \frac{\pi}{4}) = 0$.
+  \begin{align*}
+    t - \frac{\pi}{4} &= \frac{\pi}{2} \\
+    t &= \frac{3 \pi}{4} + n \cdot \pi \quad , 
+    \text{where } n = 0, 1, 2, \cdots 
+  \end{align*}
+\end{mybox}
+
+\begin{problem}
+  Sketch the graph  
+\end{problem}
+Sketch the solution $\, x(t)\,$.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-Problem_2_9}    
+  \caption{ Graph of $\displaystyle \sqrt{2}
+    e^{-\frac{1}{4} t} \left( \cos (t - \frac{\pi}{4}) \right)$ }
+\end{figure}
+\clearpage
+
+\subsection{Simple harmonic oscillator}
+
+
+
+
 
 %%% Local Variables:
 %%% mode: latex

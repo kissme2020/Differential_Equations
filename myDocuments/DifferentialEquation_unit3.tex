@@ -1073,6 +1073,178 @@ Sketch the solution $\, x(t)\,$.
 
 \subsection{Simple harmonic oscillator}
 
+Let us review what we have learned about the spring-mass-dashpot system with no external force.
+We will first review the cases where oscillations are present.\\
+
+If there is \textbf{no damping}, the DE that models the position of the mass is
+\begin{eqnarray*}
+  m \ddot{x} + kx \quad &=& \quad 0 \quad (m,\, k \, > \,0)\\
+  \text{standard linear form:} \quad \ddot{x} + \frac{k}{m} x \quad &=& \quad 0 \\
+  \text{ or } \ddot{x} + \omega ^2 _n x \quad &=& \quad 0 \quad
+                                                  \text{where } \, \omega _n : \, = \, \sqrt{\frac{k}{m}}
+\end{eqnarray*}
+
+\textbf{Summary of results:}
+\begin{eqnarray*}
+  \text{Characteristic polynomial:} & \quad
+  & P(r) =  mr^2 + k \, \text{(defined up to a constant multiple)}\\
+  \text{Roots:}  & \quad
+  & \pm i \omega _ n,\, \text{where } \, {\color{blue}{\omega _ n = \sqrt {\frac{k}{m}} }} \\
+  \text{Basis of solution space:} & \quad
+  & e^{i \omega _ n t}\, , \, e^{-i\omega _ n t}. \\
+  \text{Real-valued basis:} & \quad
+  & \cos \omega _ n t, \, \sin \omega _ n t \\
+  \text{General real solution:}	& \quad
+  & {\color{blue}{ a \cos \omega _ n t + b \sin \omega _ n t}} , \,
+    \text{ where, $a, \, b$ are real constants} \\
+  \text{amplitude-phase Form:}	& \quad
+  & {\color{blue}{A \cos (\omega _ n t - \phi )}}
+    \text{ where, $A \, >  \, 0$ and $\phi$ are real constants}     
+\end{eqnarray*}
+
+In other words, the real-valued solutions are all the sinusoidal functions of
+angular frequency $\omega _n$. \\
+
+This system, or any other system governed by the same DE, is also called a
+{\color{blue} simple harmonic oscillator}.
+The angular frequency $\omega _n$ is also called the {\color{blue} natural frequency}
+( or {\color{blue} resonant frequency}) of oscillator.
+
+\begin{exercise}
+  Undamped Spring
+\end{exercise}
+A spring system that is undamped is called the harmonic oscillator, or an ideal spring.
+What is the period of a nonzero solution of $\ddot x + 4x = 0$?
+\begin{mybox}{gray}{Answer}
+  Characteristic equation:  $r^2 + 4 = 0$. \\
+  Roots: $r^2 = -4 \,  \Rightarrow \,  r = \pm 2i$. \\
+  Complex exponential solutions: $z_1 = e^{i(2t)} , \, \, z_2 = e^{-i(2t)}$. \\
+  Basic real solutions:  $\textrm{Re}(z_1) = \cos (2t)$, $\textrm{Im}(z_1) = \sin (2t)$. \\
+  General real solution:
+  \begin{equation*}
+    x = c_1\cos (2t) + c_2\sin (2t) = A\cos (2t-\phi )
+  \end{equation*}
+  To find the period, we think of what $t$ has to do to take $2t$ from $0$ to $2 \pi$.
+  Thus the period is $\, 2\pi /2=\pi$. 
+\end{mybox}
+\clearpage
+
+\subsubsection{Review}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-spring_mass_dashpot}
+  \caption{Spring Mass Dashpot}
+\end{figure}
+Constants $k, \, m, \, b$, the DE equation is
+\begin{eqnarray*}
+  \text{Differential equation: } & \quad & m \ddot{x} + b \dot{x} + kx = 0\\
+  \text{Standard Form: } & \quad & \ddot{x} + \frac{b}{m} \dot{x} + \frac{k}{m} x = 0\\
+  \text{Change $x$ to $y$: } & \quad & \ddot{y} + 2p \dot{y} + {\omega _n}^2 y = 0
+\end{eqnarray*}
+
+\paragraph{Oscillation} which characteristic polynomial's root are two distinct complex number.
+If root is real number that is overdamp case which does not get any oscillations.
+The characteristic equation is
+\begin{equation*}
+  r^2 + 2pr + {\omega _n}^2 = 0. 
+\end{equation*}
+The root is
+\begin{equation*}
+  r = -p \pm \sqrt{p^2 - {\omega _n}^2}
+\end{equation*}
+The first case is $p \, = \, 0$,(means the mass $m$ can not be a zero, so there is no
+dashpot) the oscillations is undamped.
+\begin{equation*}
+  \ddot{y} + \underbrace{{\omega _n}^2}_{angular frequency} y = 0 
+\end{equation*}
+The general solution for this particular case is
+\begin{equation*}
+  y = c_1 \cos \omega_n t + c_2 \sin \omega_n t = A \left( \cos(\omega_n t + \phi) \right)
+\end{equation*}
+
+\begin{exercise}
+  Effect of the spring constant
+\end{exercise}
+
+\begin{mybox}{gray}{Answer}
+  The frequency of the oscillations is directly proportion to the angular frequency
+  $\omega _n$. Since $\displaystyle \, \omega _ n=\sqrt {\frac{k}{m}},\,$ if $k$ increases
+  $\omega _n$ also increases.
+  This agrees with intuition: the stiffer the spring, the faster the oscillations.  
+\end{mybox}
+\clearpage
+
+\subsection{Damped Harmonic Oscillator}
+When damping is present, the DE that models the position of the mass is
+\begin{equation*}
+  \displaystyle  \displaystyle m \ddot{x} + b \dot{x} + k x \quad \displaystyle = 
+  \displaystyle  0 \qquad m,k>0,\,  b\geq 0
+\end{equation*}
+
+\textbf{Summary of results:}
+\begin{eqnarray*}
+  \text{Characteristic polynomial:} & \quad
+  & P(r) =  mr^2 + + b r + k \\
+  \displaystyle \text{Roots:}  & \quad
+  & \displaystyle \displaystyle - \frac{b \pm \sqrt {b^2-4mk}}{2m}\, \text{ (by the quadratic formula)} \\
+                                    & \quad
+  & =\displaystyle \,
+    -\frac{b}{2m} \pm \sqrt {\left(\frac{b}{2m}\right)^2 - \omega _ n^2}                                      
+\end{eqnarray*}
+
+There are three cases, depending on the sign of $b^2-4mk.\, \,$
+The behavior of the solutions in these 3 cases are qualitatively different in these 3 cases.
+
+\subsubsection{Case 1: underdamped}
+\textbf{Case 1:} $b^2 < 4mk\,$ {\color{blue} underdamped} \\
+
+There are two complex roots, and we will give names to the real and imaginary parts. Since the real part is always negative, we call it $-p, \, \,$ with $\displaystyle \, p=\frac{b}{2m}.\, \,$
+The imaginary part is either positive or negative of the {\color{blue} underdamped frequency}
+$\, \omega _ d,\,$ given by
+\begin{eqnarray*}
+  \displaystyle  \displaystyle {\color{blue}{\omega _ d}}
+  & : \displaystyle = & \displaystyle {\color{blue}{\frac{\sqrt {4mk-b^2}}{2m} }} \\
+  & : \displaystyle = & \displaystyle  {\color{blue}{ \sqrt {\omega _ n^2-p^2} }} \
+                        ,\qquad \text {where } \, {\color{blue}{\omega _ n=\sqrt {\frac{k}{m}} }}
+                        \, \, \text {is the natural frequency}.
+\end{eqnarray*}
+Note that both $p$ and $\omega _d$ are positive.\\
+
+\textbf{Summary of results:}
+\begin{eqnarray*}
+  \text{Roots:}  & \quad
+  & -p \pm i \omega _ d \\
+  \text{Basis of solution space:} & \quad
+  & \displaystyle e^{(-p + i \omega _ d) t}\, , \, e^{(-p -i\omega _ d) t}. \\
+  \text{Real-valued basis:} & \quad
+  & \displaystyle e^{-p t}  i\cos \omega _ d t, \, e^{-p t} \sin \omega _ d t \\
+  \text{General real solution:}	& \quad
+  & \displaystyle {\color{blue}{e^{-p t} (a \cos (\omega _ d t) + b \sin (\omega _ d t))}}
+    , \, \text{ where $a, \, b \, $ are real constants.} \\
+  \text{Amplitude-phase Form:}	& \quad
+  & \displaystyle {\color{blue}{A e^{-pt}\cos (\omega _ d t - \phi ) }}
+    , \, \text{for some $A$ and $\phi$. }
+\end{eqnarray*}
+
+This is a sinusoid multiplied by a decaying exponential. Each nonzero solution tends to $0 , \,$
+but changes sign infinitely many times along the way.
+The system is called {\color{blue} underdamped}, because there was not enough damping
+to eliminate the oscillation completely.\\
+
+The damping not only causes the solution to decay exponentially, but also
+\textbf{ changes the frequency of the sinusoid}.
+The new angular frequency, $\omega _ d$, is called {\color{blue}damped (angular) frequency}( or
+sometimes \textit{pseudo (angular) frequency}). \\
+
+The damped frequency $\omega _d$ is less than the natural(undamped) frequency $\omega _n$, as evident
+from the formula $\, \omega _ d=\sqrt {\omega _ n^2-p^2}.\, \,$.
+When $\, b=0,$ \, $\omega _ d\,$ is the same as $\, \omega _ n$. \\
+
+The damped solutions are not actually periodic:
+they don't repeat exactly, because of the decay.
+Therefore $\, 2\pi /\omega _ d$  is called the {\color{blue}pseudo-period}.
+\subsubsection{Review: the underdamped case}
+
 
 
 

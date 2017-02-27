@@ -1394,7 +1394,48 @@ the conduction constant $k$, and time $t$.)
 \end{mybox}
 \clearpage
 
+\subsubsection{Mixing salt water for ocean fish aquarium continued}
 
+Recall that our task at hand is to prepare a salt-water solution with salt concentration of $34\, g/L$ for ocean fish to live in.
+We do so by pumping a concentrated salt-water solution, of concentration $75\, g/L$,
+at a rate of $5\, L/min$ into a tank that initially contains $800L$ of pure fresh water,
+and allowing the mixed solution to flow out of a drain at a rate of $3\, L/min$.\\
+
+The initial value problem that describes the total amount of salt
+$x(t)$ (in grams) in the tank is
+
+\begin{equation*}
+  \displaystyle \frac{dx}{dt} \displaystyle =
+  \displaystyle  375-\frac{3x}{800+2t}\qquad x(0)=0.
+\end{equation*}
+The associated a homogeneous equation is
+\begin{equation*}
+  \frac{dx}{dt} = (\frac{-3}{2}) \frac{x}{400 + t} 
+\end{equation*}
+The homogeneous solution is
+\begin{equation*}
+  x(t) = c(400 + t)^{frac{-3}{2}}
+\end{equation*}
+Choose one nonzero solution, say $x_h = (400+t)^{frac{-3}{2}}$.
+By variation of parameters,
+Substitute $x = ux_h$ into the inhomogeneous equation
+\begin{eqnarray*}
+  \dot{ux_h} &=& 375 -(\frac{3}{2})\frac{ux_hx}{400+t} \\
+  \frac{d}{dt} (u \cdot (400+t)^{frac{-3}{2}})
+             &=& 375 -(\frac{3}{2})\frac{u \cdot (400+t)^{frac{-3}{2}}}{400+t} \\
+  \dot{u} (400+t)^{frac{-3}{2}} + \frac{-3}{2} u (400+t)^{frac{-5}{2}}
+             &=& 375 + (\frac{-3}{2}) u (400+t)^{frac{-5}{2}} \\
+  \dot{u} (400+t)^{frac{-3}{2}} &=& 375 \\
+  \dot{u} &=& 375 (400+t)^{frac{3}{2}} \\
+  \int \dot{u} dt &=& 375 \int 375 (400+t)^{frac{3}{2}} dt \\
+  u(t) = 150 (400+t)^{frac{5}{2}} + c  
+\end{eqnarray*}
+The general solution for inhomogeneous differential equation is
+\begin{equation*}
+  x(t) = u(t)x_h(t) =  \left( 150 \frac{2}{5} (400+t)^{frac{5}{2}} + c  \right) \cdot \left( (400+t)^{frac{-3}{2}} \right)
+  = 60000 + 150t + \frac{c}{(400+t)^{frac{-3}{2}}}
+\end{equation*}
+we then obtained the solution
   
 
 %%% Local Variables:

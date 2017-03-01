@@ -1414,29 +1414,234 @@ The associated a homogeneous equation is
 \end{equation*}
 The homogeneous solution is
 \begin{equation*}
-  x(t) = c(400 + t)^{frac{-3}{2}}
+  x(t) = c(400 + t)^{\frac{-3}{2}}
 \end{equation*}
-Choose one nonzero solution, say $x_h = (400+t)^{frac{-3}{2}}$.
+Choose one nonzero solution, say $x_h = (400+t)^{\frac{-3}{2}}$.
 By variation of parameters,
 Substitute $x = ux_h$ into the inhomogeneous equation
 \begin{eqnarray*}
   \dot{ux_h} &=& 375 -(\frac{3}{2})\frac{ux_hx}{400+t} \\
-  \frac{d}{dt} (u \cdot (400+t)^{frac{-3}{2}})
-             &=& 375 -(\frac{3}{2})\frac{u \cdot (400+t)^{frac{-3}{2}}}{400+t} \\
-  \dot{u} (400+t)^{frac{-3}{2}} + \frac{-3}{2} u (400+t)^{frac{-5}{2}}
-             &=& 375 + (\frac{-3}{2}) u (400+t)^{frac{-5}{2}} \\
-  \dot{u} (400+t)^{frac{-3}{2}} &=& 375 \\
-  \dot{u} &=& 375 (400+t)^{frac{3}{2}} \\
-  \int \dot{u} dt &=& 375 \int 375 (400+t)^{frac{3}{2}} dt \\
-  u(t) = 150 (400+t)^{frac{5}{2}} + c  
+  \frac{d}{dt} (u \cdot (400+t)^{\frac{-3}{2}})
+             &=& 375 -(\frac{3}{2})\frac{u \cdot (400+t)^{\frac{-3}{2}}}{400+t} \\
+  \dot{u} (400+t)^{\frac{-3}{2}} + \frac{-3}{2} u (400+t)^{\frac{-5}{2}}
+             &=& 375 + (\frac{-3}{2}) u (400+t)^{\frac{-5}{2}} \\
+  \dot{u} (400+t)^{\frac{-3}{2}} &=& 375 \\
+  \dot{u} &=& 375 (400+t)^{\frac{3}{2}} \\
+  \int \dot{u} dt &=& 375 \int 375 (400+t)^{\frac{3}{2}} dt \\
+  u(t) &=& 150 (400+t)^{\frac{5}{2}} + c  
 \end{eqnarray*}
 The general solution for inhomogeneous differential equation is
 \begin{equation*}
-  x(t) = u(t)x_h(t) =  \left( 150 \frac{2}{5} (400+t)^{frac{5}{2}} + c  \right) \cdot \left( (400+t)^{frac{-3}{2}} \right)
-  = 60000 + 150t + \frac{c}{(400+t)^{frac{-3}{2}}}
+  x(t) = u(t)x_h(t) =  \left( 150 \frac{2}{5} (400+t)^{\frac{5}{2}} + c  \right) \cdot \left( (400+t)^{\frac{-3}{2}} \right)
+  = 60000 + 150t + \frac{c}{(400+t)^{\frac{3}{2}}}
 \end{equation*}
-we then obtained the solution
-  
+Apply initial condition $x(0) - 0$, we get
+\begin{equation*}
+  x(t) = \left( 60000 + 150t \right) - \left( \frac{4.8e8}{(400+t)^{\frac{3}{2}}} \right)
+\end{equation*}
+
+where the linear function in first bracket is the long time (or steady state) solution.
+The decreasing function in the second bracket tends to
+$0$ as $t\to \infty$ and is the transient solution.
+In order for the term in the second bracket to tend to, $0, \,$
+the exponent $3/2$ of the denominator only needs to be positive.
+
+\begin{exercise}
+  The derivative of the concentration
+\end{exercise}
+
+How does the concentration of the salt-water solution change over time?
+Consider the sign of its derivative.
+
+\begin{mybox}{gray}{Answer}
+  The concentration (in $g/L$) of the solution is
+  \begin{equation*}
+    C(t) = \frac{x(t)}{V(t)}
+  \end{equation*}
+  By the quotient rule,
+  \begin{equation*}
+    \dot{C} = \frac{V \dot{x} - x \dot{V}}{V^2}
+  \end{equation*}
+  substituting $\dot{x} = 375 - 3x/V \,$ and $\dot{V} = 2 , \, $ we get
+  \begin{align*}
+    \displaystyle \dot{C}  \displaystyle
+    &= \displaystyle \displaystyle \frac{V\left(375-\frac{3x}{V}\right)-2x}{V^2} \\
+    \displaystyle &= \displaystyle 5 \left(\frac{4.8 \times 10^8}{(400+t)^{3/2}}\right),
+  \end{align*}
+  which is positive for all $t$. Therefore, the concentration is always increasing. 
+\end{mybox}
+
+\begin{exercise}
+  Is the tank too small?
+\end{exercise}
+
+The size of our fish tank is $1800 L$.
+Will the tank overflow before we achieve the desired concentration of $34 g/L$?
+
+\begin{mybox}{gray}{Answer}
+  Since the concentration is a continuous function of time,
+  we only need to check that there is some time t before the tank overflows
+  when the concentration is $\, > 34 g/L$.
+  We choose to check at the time when the tank is full.\\
+  The tank is full when
+  \begin{equation*}
+    \displaystyle  \displaystyle V(t)=800+2t=1800
+    \displaystyle \Longrightarrow
+    \displaystyle  t=500 \text { minutes}.
+  \end{equation*}
+  We can evaluate the concentration at $t = 500$(min) or estimate it:
+  \begin{equation*}
+    \displaystyle  \displaystyle C(500)
+    \displaystyle =
+    \displaystyle \frac{x(500)}{1800}
+  \end{equation*}
+\end{mybox}
+\clearpage
+
+\begin{mybox}{gray}{Answer Continuous}
+  where the total number of grams of salt is given by
+  \begin{align*}
+    \displaystyle x(500) \displaystyle
+    &= \displaystyle \left(60000+150(500)\right)-\left(\frac{4.8 \times 10^8}{(400+(500))^{3/2}}\right) \\
+    \displaystyle &= \displaystyle 135000-\frac{4.8 \times 10^8}{2.7\times 10^4} \\
+    \displaystyle &> \displaystyle 135000-20000\qquad
+                    \left(\text {since}\, \,  \frac{4.8 \times 10^8}{2.7\times 10^4}<2\times 10^4\right) \\
+    \displaystyle &= \displaystyle 115000.
+  \end{align*}
+  This gives
+  \begin{equation*}
+    \displaystyle \frac{115000}{1800}\, >\,  34.
+  \end{equation*}
+
+  Therefore, at the time the tank is fully filled, the concentration is above the desired level.
+  Since the concentration is a continuous function of time,
+  there must be a time before then when the desired concentration level is achieved.
+  The tank is indeed large enough to prepare the salt-water solution.\\
+
+  \Remark Alternatively, you can also use a computer program to plot the concentration
+  $c(t)$ and find exactly the time when the desired concentration $34 g/L$ is achieved.
+  This is the time when both the pipe and the drain should be turned off.
+  The tank is ready for the fish!
+\end{mybox}
+
+\clearpage
+\subsection{Solving inhomogeneous equations by integrating factor}
+
+This method is exactly the same as variation of parameters.
+It is algebraically equivalent, but comes at the approach from a slightly different angle.
+We are adding it here because some texts and courses will refer to the term integrating factor, and we want you to be familiar with it.\\
+
+The set up is the same, we start with a first order, linear, inhomogeneous ODE:
+\begin{equation*}
+  \dot{y} + p(t) y = q(t)
+\end{equation*}
+
+To find an {\color{blue} integrating factor:}
+\begin{enumerate}
+\item Find an antiderivative $P(t)\,$ of $p(t)$. The integrating factor is $e^{P(t)}$.
+\item Multiply both sides of the ODE by the integrating factor $e^{P(t)}$.
+  \begin{equation*}
+    \displaystyle \displaystyle  e^{P(t)} \dot{y} + e^{P(t)} p(t) \,  y
+    \quad = \quad
+    \displaystyle  \frac{d}{dt} \left( e^{P(t)} y(t) \right) .
+  \end{equation*}
+  We do this multiplication because it is now possible to express
+  the left side as the derivative of something:
+  \begin{equation*}
+    \displaystyle \displaystyle  e^{P(t)} \dot{y}(t) + e^{P(t)} p(t) \,  y(t)
+    \displaystyle =
+    \displaystyle  \frac{d}{dt} \left( e^{P(t)} y(t) \right) .
+  \end{equation*}
+  Now we can carry out the integration.
+  \begin{align*}
+    \displaystyle  \frac{d}{dt} \left( e^{P} y \right)
+    \displaystyle &= \displaystyle \displaystyle  q e^{P} \\
+    \displaystyle e^{P} y \displaystyle
+                  &= \displaystyle
+                    \displaystyle  \int q e^{P} \,  dt \\
+    \displaystyle y
+    \displaystyle &= \displaystyle  e^{-P} \int q e^{P} \,  dt.
+  \end{align*}
+  The indefinite integral $\displaystyle \int q(t) e^{P(t)} \,  dt$
+  represents a family of solutions because there is a constant of integration.
+  If we fix one antiderivative, say$R(t) , \,$then the others are $R(t) + C$
+  for a constant $C$. So, the general solution is
+  \begin{equation*}
+    y = R(t) e^{-P(t)} + C e^{-P(t)}.
+  \end{equation*}
+\end{enumerate}
+
+\begin{remark}
+  The integrating factor $e^{P(t)}$ is the reciprocal of a solution
+  to the homogeneous equation.
+\end{remark}
+
+\begin{remark}
+  This process is equivalent to variation of parameters.
+  The connection between the methods is that the unknown in variation by parameters is
+\end{remark}
+
+\begin{equation*}
+  u = \frac{y}{y_h} = y\, e^{P}
+\end{equation*}
+
+\subsubsection{Integrating factor and example}
+The standard form of ODE
+\begin{equation*}
+  \dot{y} + p(x)\,y = q(x) 
+\end{equation*}
+
+I amd going to solve the equation by finding an integrating factor of the form
+$u(x)$.
+Multiplying integrating factor $u$ to the standard form
+\begin{align*}
+  &u\, \dot{y} +  p\,  u\, y = q\, u \\
+  & \qquad \Downarrow \\
+  & \quad (u\, y)'                               
+\end{align*}
+Works if : $ u' = p\, u$.
+\begin{eqnarray*}
+  \frac{du}{dt} &=& p(x)\, u \\
+  \frac{1}{u}\, du &=& p(x)\, dx \\
+  \int \frac{1}{u}\, du &=& \int p(x)\, dx \\
+  \ln |u| &=& \int p(x)\, dx \\
+  e^{\ln |u|} &=& e^{\int p(x)\, dx} \\
+  u &=& e^{\int p(x)\, dx} 
+\end{eqnarray*}
+The integrating factor is $e^{\int p(x)\, dx}, \, $ So no arbitrary constant since only one u needed.\\
+
+Method of integrating factor :
+\begin{itemize}
+\item Put in in standard linear form
+  \begin{equation*}
+    y' + p\, y = q 
+  \end{equation*}
+\item Find the integrating factor
+  \begin{equation*}
+    e^{\int p dx}
+  \end{equation*}
+\item Multiply\textbf{both side} by the integrating factor.
+\item Integrate.   
+\end{itemize}
+
+The example $x\, y' - y = x^3$
+\begin{eqnarray*}
+  x\, y' - y &=& x^3 \\
+  y' - \frac{1}{x}\, y &=& x^2 \\
+\end{eqnarray*}
+The integrating factor is
+\begin{align*}
+  e^{- \ln x} &= e^{(\ln x)^{-1}} \\
+  &= \frac{1}{x}
+\end{align*}
+Multiply both side of equation written standard form:
+\begin{eqnarray*}
+  \frac{1}{x}\,y' - \frac{1}{x^2}\, y &=& x \\
+  (\frac{1}{x}\, y)' &=& x \\
+  \int (\frac{1}{x}\, y)' dx &=& \int x dx \\
+  \frac{1}{x}\, y &=& \frac{x^2}{2} + C\\
+  y &=& \frac{x^3}{2} + C\,x
+\end{eqnarray*}
 
 %%% Local Variables:
 %%% mode: latex

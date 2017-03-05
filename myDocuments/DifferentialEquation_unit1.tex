@@ -1642,6 +1642,344 @@ Multiply both side of equation written standard form:
   \frac{1}{x}\, y &=& \frac{x^2}{2} + C\\
   y &=& \frac{x^3}{2} + C\,x
 \end{eqnarray*}
+\clearpage
+
+\subsection{Linear combinations}
+A \textbf{\color{blue} linear combination} of a list of functions is any function
+that can be built from them by scalar multiplication and addition.
+
+\begin{align*}
+  \text{linear combinations of } f(t)\,
+  : &\, \text{the functions } cf(t), \, \text{where $c$ is any number} \\
+  \text{linear combinations of } f_1(t)\, \text{and }
+    & \text{ the functions of the form } c_1\, f_1(t) + c_2\, f_2(t), \,
+      \text{where $c_1$ and $c_2$ are any } \\
+  f_2 (t) &\, \text{ numbers.} \\
+    & \cdot \\
+    & \cdot \\
+    & \cdot 
+\end{align*}
+
+\begin{example}
+  Linear combination of function 
+\end{example}
+\begin{itemize}
+\item $2\, \cos t + 3\, \sin t$ is a linear combination of
+  the functions $\cos \, t$ and $\sin \, t$
+\item $9t^5 + 3$ is a linear combination of
+  the functions $t^5$ and $1$.     
+\end{itemize}
+
+\begin{exercise}
+  Linear combinations concept check
+\end{exercise}
+
+Check all of the functions below that are linear combinations of
+$\cos^2 \, t$ and $1$.
+
+\begin{mybox}{gray}{Answer}
+  \begin{eqnarray*}
+    \sin(2t) &=& \text{ NOT a linear combination. } \\
+    3\, \cos^2\, t - 4 &=& 3 \cdot \cos^2\, t + (-4) \cdot 1 \\
+    \sin^2 \, t &=& (-1) \cdot \cos^2 \, t + 1 \cdot 1\\
+    5 &=& 0 \cos^2\, t + 5 \cdot 1\\
+    0 &=& 0 \cos^2\, t + 0 \cdot 1 \\
+  \end{eqnarray*}
+
+  Every linear combination of $\cos^2 \, t$ and $1$ has the form
+  \begin{equation*}
+    c_1 \, \cos^2 \, t + c_2
+  \end{equation*}
+  for some numbers $c_1$ and $c_2$. All such function are \textbf{even} functions,
+  but $\sin(2t)$ is an \textbf{odd} function. \\
+  (\Warning This is trick might mow work in other situations.) 
+\end{mybox}
+\clearpage
+
+\subsection{Superposition}
+Let's compare the solutions to a homogeneous equation
+and some inhomogeneous equations with the same left hand side:
+\begin{eqnarray*}
+  \displaystyle  \text {general solution to} \quad
+  \displaystyle  t \dot{y} + 2 y = 0
+  & : & \quad \displaystyle  ct^{-2} \\
+  \displaystyle  \text {one solution to} \quad
+  \displaystyle  t \dot{y} + 2 y = {\color{orange}{t^5}}
+  & : & \quad \displaystyle  \frac{t^5}{7} \\
+  \displaystyle  \text {general solution to} \quad
+  \displaystyle  t \dot{y} + 2 y = {\color{orange}{t^5}}
+  & : & \quad \displaystyle  \frac{t^5}{7} + ct^{-2} \\
+  \displaystyle  \text {one solution to} \quad
+  \displaystyle  t \dot{y} + 2 y = {\color{orange}{1}}
+  & : & \quad \displaystyle  \frac{1}{2} \\
+  \displaystyle  \text {general solution to} \quad
+  \displaystyle  t \dot{y} + 2 y = {\color{orange}{1}}
+  & : & \quad \displaystyle  \frac{1}{2} + ct^{-2}. 
+\end{eqnarray*}
+
+From each ``one solution'' above, scalar-multiply to get
+\begin{eqnarray*}
+  \displaystyle  \text {one solution to} \quad
+  \displaystyle  t \dot{y} + 2 y = {\color{orange}{9}} {\color{orange}{t^5}}
+  & : & \quad \displaystyle  \frac{{\color{orange}{9}} t^5}{7} \\ 
+  \displaystyle  \text {one solution to} \quad
+  \displaystyle  t \dot{y} + 2 y = {\color{orange}{3}}
+  & : & \quad \displaystyle  \frac{{\color{orange}{3}}}{2}   
+\end{eqnarray*}
+
+and add to get
+\begin{equation*}
+  \displaystyle  \text {one solution to }\quad
+  \displaystyle  t \dot{y} + 2 y = {\color{orange}{9}} {\color{orange}{t^5+{}}} {\color{orange}{3}} :
+  \displaystyle  \frac{{\color{orange}{9}} t^5}{7} + \frac{{\color{orange}{3}} }{2} .
+\end{equation*}
+
+The general principle, which works for all \textbf{linear} ODEs, is this:\\
+
+\textbf{Superposition principle.} \\
+\begin{enumerate}
+\item
+  \begin{eqnarray*}
+    \displaystyle  \text {Multiplying a solution to}\quad p_ n(t) \,
+    {\color{blue}{y^{(n)}}}  + \cdots + p_0(t) \,  {\color{blue}{y}}
+    \displaystyle &=& {\color{orange}{\phantom{a} q(t)}}  \quad \text {by a number } {\color{orange}{a}} \\
+    \displaystyle \text {gives a solution to}\quad p_ n(t) \,
+    {\color{blue}{y^{(n)}}}  + \cdots + p_0(t) \,  {\color{blue}{y}}
+    \displaystyle &=& {\color{orange}{a}} {\color{orange}{q(t)}} .
+  \end{eqnarray*}
+\item
+  \begin{eqnarray*}
+    \displaystyle  \text {Adding a solution of }\quad p_ n(t) \,
+    {\color{blue}{y^{(n)}}}  + \cdots + p_0(t) \,  {\color{blue}{y}}
+    \displaystyle &=& {\color{orange}{q_1(t)}} \\
+    \displaystyle \text {to a solution of}\quad p_ n(t) \,
+    {\color{blue}{y^{(n)}}}  + \cdots + p_0(t) \,  {\color{blue}{y}}
+    \displaystyle &=& {\color{orange}{q_2(t)}} \\
+    \displaystyle \text {gives a solution of}\quad p_ n(t) \,
+    {\color{blue}{y^{(n)}}}  + \cdots + p_0(t) \,  {\color{blue}{y}}
+    \displaystyle &=& {\color{orange}{q_1(t)}}  + {\color{orange}{q_2(t)}} .
+  \end{eqnarray*}
+  
+\end{enumerate}
+Together these two properties show that linear combinations of $y$'s
+solve the ODE with the corresponding linear combination of $q$'s.
+\clearpage
+
+\subsection{Consequence of superposition for first order linear ODEs}
+To understand the general solution $y(t)$ to an inhomogeneous linear ODE
+\begin{equation*}
+  \text {inhomogeneous:} \quad \dot y + p(t)y = q(t),
+\end{equation*}
+do the following:
+\begin{enumerate}
+\item Find the general solution to the associated homogeneous equation
+  \begin{equation*}
+    \text {homogeneous:}\qquad \dot y + p(t)y = 0;
+  \end{equation*}
+  i.e., write down the general solution $y_h$.
+\item Find (in some way) any \textbf{one} particular solution $y_p$ to
+  the \textbf{inhomogeneous} ODE.
+\item Add $y_p$ to the general solution of the homogeneous ODE
+  to get the general solution to the inhomogeneous ODE.
+\end{enumerate}
+
+\Summary
+\begin{equation*}
+  \underset {{\text {general inhomogeneous solution}}}{y} =
+  \underset {{\color{orange}{\text {particular solution}}} }{y_ p} +
+  \underset {{\color{blue}{\text {general homogeneous solution}}} }{y_ h}.
+\end{equation*}
+
+(Note that here we are using $y_h$ for the general homogeneous solution
+rather than a specific homogeneous solution.)\\
+
+Why does this work? Superposition says that adding $y_p$ to a homogeneous solution
+gives a solution with the DE with right hand side $q(t) + 0 = q(t)$.
+All solutions to the DE with right hand side $q(t)$ arise this way,
+since subtracting $y_p$ from any solution gives a solution to the DE with right hand side $0$.\\
+
+The result of this section is the key point of linearity in the inhomogeneous case.
+It allows us to combine solutions efficiently.
+
+\begin{exercise}
+  Superposition practice
+\end{exercise}
+
+Use the following general homogeneous solution and particular solutions
+to the given differential equations to find the solution to the DE below.
+
+\begin{align*}
+  \text{Differential equation} \qquad & \text{general homogeneous solution} \\
+  \dot x + 2x = 0 \qquad & x = ce^{-2t} \\
+     \\
+  \text{Differential equation} \qquad & \text{a particular solution} \\
+  \dot x + 2x = 1 \qquad & x_ p = 1/2 \\
+  \dot x + 2x = t \qquad & x_ p = t/2-1/4 \\
+  \dot x + 2x = e^{-2t}  \qquad & x_ p = te^{-2t}            
+\end{align*}
+
+Find the general solution to the differential equation
+\begin{equation*}
+  \dot x + 2x = 5 + 6t -7e^{-2t}
+\end{equation*}
+(Your answer may depend on $t$ and $c$.)
+
+\begin{mybox}{gray}{Answer}
+  By superposition, the solution is given by
+  \begin{eqnarray*}
+    \displaystyle  \displaystyle x(t)
+    &=& \displaystyle  \underbrace{5(1/2) + 6(t/2-1/4) - 7(te^{-2t})}_{\text {particular solution}}
+        + \underbrace{ce^{-2t}}_{\text {homogeneous solution}} \\
+    &=& \displaystyle  5/2 + 3t - 3/2 - 7te^{-2t} + ce^{-2t} \\
+    &=& \displaystyle  1+3t + (-7t+c)e^{-2t}
+  \end{eqnarray*}
+\end{mybox}
+\clearpage
+\subsection{How superposition fails for nonlinear ODEs}
+
+\begin{exercise}
+  Nonlinear case
+\end{exercise}
+The superposition principle does \textbf{not hold} for nonlinear differential equations.
+\begin{equation*}
+  \dot x + p(t) x^2 = 0.
+\end{equation*}
+What right hand side $q(t)$ is needed for the function $x_1(t) + x_2(t)$ to be a solution
+to the differential equation $\dot{x} + p(t)x2 = q(t)$?
+
+\begin{mybox}{gray}{Answer}
+  Let's plug in $x_1 + x_2$ into our differential equation
+  and see what the right side of the equation must equal.
+  \begin{eqnarray*}
+    \displaystyle  \frac{d}{dt}(x_1+x_2) + p(x_1+x_2)^2
+    \displaystyle &=&  \dot x_1 + \dot x_2 + p(x_1^2 + 2x_1x_2 + x_2^2) \\
+    \displaystyle &=& (\dot x_1+px_1^2) + (\dot x_2 +px_2^2) + 2px_1x_2 \\
+    \displaystyle &=& 2p(t)x_1(t)x_2(t)
+  \end{eqnarray*}
+  Thus the right hand side needed for the sum of these two solutions
+  to be a solution to the differential equation is $q(t) = 2p(t)x_1(t)x_2(t)$.\\
+
+  Note that if the differential equation had been linear,
+  the answer would have been $q(t) = 0 + 0 = 0$.
+\end{mybox}
+
+\subsubsection{Worked example}
+Linear Equations
+\begin{enumerate}
+\item Which of the following OED's are linear?
+  \begin{itemize}
+  \item $\dot{y} = ky$
+  \item $\dot{y} + y^2 t = y$
+  \item $y' + \cos (x) y = x^3$
+  \item $\frac{\dot{y}}{y} = t^2$
+  \item $x^2yy' + 4x = x^3$
+  \end{itemize}
+  Every first order linear equation can be rewritten the standard form of
+  \begin{equation*}
+    \frac{dy}{dx} + p(x)y = q(x)
+  \end{equation*}
+  
+  $\dot{y} = ky$ 
+  \begin{equation*}
+    \dot{y} - ky = 0 
+  \end{equation*}
+  is linear ODE.\\
+
+  $\dot{y} + y^2 t = y$
+  \begin{equation*}
+    \dot{y} + y^2 t -y = 0 
+  \end{equation*}
+  the term of $y^2$ is not a standard form, so it is not a linear ODE.
+  this equation is also known as a Bernoulli equation.
+  And as an aside, if you were to make a substitution $u = \frac{1}{y}$ and rewrote
+  this equation in terms of $u$ as the independent variable,
+  you'd find out that this equation would be linear in terms of $u$.\\
+
+  $y' + \cos (x) y = x^3$
+  \begin{equation*}
+    y' + \cos (x) y - x^3 = 0 
+  \end{equation*}
+  $p(x) = \cos (x)$ and $q(x) = x^3$, So it is a linear ODE.\\
+
+  $\frac{\dot{y}}{y} = t^2$ multiply both side by $y$
+  \begin{equation*}
+    \dot{y} - t^2 y = 0 
+  \end{equation*}
+  is linear ODE. \\
+
+  $x^2yy' + 4x = x^3$
+  \begin{equation*}
+    y' + \frac{4x}{x^2 y} - \frac{x^3}{x^2 y} = 0
+  \end{equation*}
+  because of the denominator of $y$, this is not a linear ODE.   
+  
+\item Show $\dot{y} + y^2 = q(t)$ dose not satisfy superposition. \\
+  
+  So we need to exploit the fact
+  that it's a non-linear equation to make it fail the superposition principle.
+  And just as an example, what we can do is I can just pick a couple right-hand sides
+  $q(t)$ as examples of this ODE.
+  So we can imagine we have a solution $y_1$, which solves the ODE,
+  \begin{equation*}
+    \dot{y}_1 + y_1 ^2 = 1 . 
+  \end{equation*}
+  And I can also take another function $y2$
+  \begin{equation*}
+    \dot{y}_2 + y_2 ^2 = t . 
+  \end{equation*}
+  
+  So all I've done is I've just picked one $q(t)$ on the right-hand side and another function $q(t)$ too.
+  And I imagine that I have a solution $y_1$, which satisfies this differential equation,
+  and $y_2$, which satisfies this differential equation.\\
+  
+  So what does the superposition principle say?
+  The function
+  \begin{equation*}
+    y = y_1 + y_2
+  \end{equation*}
+  must solve the equation
+  \begin{equation*}
+    \dot{y} + y^2 = 1 + t
+  \end{equation*}
+  So if we try and substitute in $y_1 + y_2$ into this equation we're going to come to a contradiction.
+  \begin{eqnarray*}
+    \displaystyle \frac{d}{dt}(y_1 + y_2) + (y_1 + y_2)^2
+    \displaystyle &=& 1 + t \\
+    \displaystyle \dot{y}_1 + \dot{y}_2 + y_1 ^2 + 2y_1 y_2 + y_2 ^2
+    \displaystyle &=& 1 + t \\
+    \displaystyle \dot{y}_1 + y_1 ^2 + \dot{y}_2 + y_2 ^2 + 2y_1 y_2 
+    \displaystyle &=& 1 + t \\
+    \displaystyle 1 + \dot{y}_2 + y_2 ^2 + 2y_1 y_2 
+    \displaystyle &=& 1 + t \quad \text{where } \dot{y}_1 + y_1 ^2 = 1 \\
+    \displaystyle 1 + t + 2y_1 y_2 
+    \displaystyle &=& 1 + t \, \quad \text{where } \dot{y}_2 + y_2 ^2 = t \\
+    \displaystyle 1 + t + 2y_1 y_2 
+    \displaystyle &\neq& 1 + t 
+  \end{eqnarray*}
+  The terms of $2y_1 y_2$ shows that does not satisfy superposition. 
+\end{enumerate}
+\clearpage
+
+\subsection{Newton's Law of Cooling and CSI}
+We are using Newton Cooling to solve a problem in a crime scene investigation (CSI).\\
+
+If we write Newton's Law of cooling as
+\begin{equation*}
+  \frac{dT}{dt} = k\left(T_ e-T\right),
+\end{equation*}
+where $T(t)$ is temperature as a function of time and $T_e$ is the ambient temperature,
+the solution takes the form
+\begin{equation*}
+  T(t)=T_ e+\left(T_0-T_ e\right)e^{-kt},
+\end{equation*}
+where $T_0 = T(0)$ is the initial temperature. \\
+
+The equation above does a surprisingly good job of modeling real world temperature changes over time.
+For example it's used by law enforcement in criminal cases to determine the time of death in a murder case.\\
+
+\clearpage
+
+
 
 %%% Local Variables:
 %%% mode: latex

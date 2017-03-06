@@ -1977,6 +1977,136 @@ where $T_0 = T(0)$ is the initial temperature. \\
 The equation above does a surprisingly good job of modeling real world temperature changes over time.
 For example it's used by law enforcement in criminal cases to determine the time of death in a murder case.\\
 
+We assume that up until a person is murdered the body temperature is constant at $38{}^{\circ }\text {C}$.
+After the murder, the body cools, via Newton cooling, to the ambient temperature.
+When investigators arrive at the scene to find a corpse,
+one of the first things done is to measure of the core temperature of the body and the ambient temperature.
+This gives two immediate pieces of information: \\
+\begin{enumerate}
+\item $T(t_1),$ where $t_1$ is the (unknown)time since the murder, and
+\item $T_e,$ the ambient temperature. 
+\end{enumerate}
+
+We also assume that the starting temperature $T_0$
+is the average human core temperature of $38{}^{\circ }\text {C}$.
+\clearpage
+
+\begin{question}
+  Is this enough information to determine the time since the murder $T_1$? 
+\end{question}
+\begin{mybox}{gray}{Answer}
+  No. When we evaluate the solution at time $t_1$, we get
+  \begin{equation*}
+    \displaystyle  T(t_1) = T_ e+(T_0-T_ e)e^{-kt_1}
+  \end{equation*}
+  Every quantity is known except for $k$ and $t_1$.
+  In general, the constant $k$ is the conductivity,
+  determined by many factors to do with the heat flow properties of the body and its surroundings.
+  However, we can assume, if the body is not disturbed,
+  that for a given case the value of $k$ will not change over time.\\
+
+  If so, we can determine $k$ by taking a second measurement at a later time $t2$.\\
+
+  We can then write a system of equations using our data,
+  \begin{eqnarray*}
+    \displaystyle  T(t_1) \displaystyle &=& T_ e+(T_0-T_ e)e^{-kt_1} \\
+    \displaystyle T(t_2) \displaystyle &=& T_ e+(T_0-T_ e)e^{-kt_2}
+  \end{eqnarray*}
+  We can solve the system above because we know the time difference $t_2 - t_1$. 
+\end{mybox}
+
+\begin{exercise}
+  CSI Concept Check
+\end{exercise}
+
+You arrive on the scene of a crime and find a body.
+The victim was found in a room that is at a constant temperature of $25{}^{\circ }\text {C}$ all day.
+You examine body at 7:00pm right after arriving and find that the core temperature is $34{}^{\circ }\text {C}$.
+At 8:00pm, you take a second measurement and find that the core temperature has dropped to $31{}^{\circ }\text {C}$.
+What time was the victim murdered? Select the time closest to the time of death. \\
+(Assume that body temperature is $31{}^{\circ }\text {C}$ when alive.)
+
+\begin{mybox}{gray}{Answer}
+  To figure out the time of death we have to solve for $t_1$ in the system
+  \begin{equation*}
+    \displaystyle \begin{cases}
+      T\left(t_1\right)= T_ e+\left(T_0-T_ e\right)e^{-kt_1}\\
+      T\left(t_1+1\right)= T_ e+\left(T_0-T_ e\right)e^{-k\left(t_1+1\right)}.
+    \end{cases}
+  \end{equation*}
+
+  For us the ambient temperature is $T_e= 25{}^{\circ}\text{C}$,
+  and the initial temperature is average core body temperature $38{}^{\circ}\text{C}$.
+
+\end{mybox}
+\clearpage
+
+\begin{mybox}{gray}{Answer continuous}
+    The first temperature measurement was $34{}^{\circ }\text {C}$, so $T\left(t_{1}\right)=34{}^{\circ }\text {C}$
+  , and the second temperature measurement was $31{}^{\circ }\text {C}$,
+  so $T\left(t_{1}+1\right)=31{}^{\circ }\text {C}$, hence our system becomes
+  \begin{align*}
+    \displaystyle  34 &= 25+\left(38-25\right)e^{-kt_1} \\
+    \displaystyle 31 &= 25+\left(38-25\right)e^{-k\left(t_1+1\right)}.
+  \end{align*}
+  So the first measurement (at 7:00pm) was taken 54 minutes after the victim was murdered at around 6:06pm.
+    Simplifying we see that
+  \begin{align*}
+    9 &= 13e^{-kt_1} \\
+    6 &= 13e^{-kt_1 + 1}. 
+  \end{align*}
+  To eliminate $t_1$, we divide the second equation by the first equation and get
+  \begin{equation*}
+    \frac{6}{9} = e{-k}. 
+  \end{equation*}
+  Then taking the logarithm of both sides, we find the value of $k$ to be
+  \begin{equation*}
+    k = \ln (3/2). 
+  \end{equation*}
+  To find $t_1$, we first find $kt_1$ by taking the logarithm of the first equation above $(9 = 13e^{−kt_1})$:
+  \begin{equation*}
+    -\ln \frac{9}{13} = kt_1. 
+  \end{equation*}
+  Plugging in the value of $k$, we get
+  \begin{equation*}
+    t_1 = \frac{\ln (13/9)}{\ln (3/2)} \approx 0.9
+  \end{equation*}
+\end{mybox}
+\clearpage
+
+\subsection{Cell division revisited}
+In the last lecture we derived a differential equation governing yeast growth.
+In particular, we showed that if $y$ is the number of yeast cells and $t$ is the time in seconds,
+$y$ satisfies the \textbf{homogeneous} differential equation
+\begin{equation*}
+  \dot{y}\, (t) = ay 
+\end{equation*}
+for a known proportionality constant $a$. Recall that $y_h(t) = y(0)e^{at}$
+is a solution to the differential equation.\\
+
+Let's extend this model to a more complex and realistic scenario.
+Suppose that the yeast cells are living in bread dough.
+A baker usually doesn't keep one batch of yeast growing indefinitely,
+but instead will remove portions of dough over time to bake into bread,
+while maintaining some of the original yeast in the batch so
+that this so-called ``mother'' can grow again for the next day's bread.\\
+
+To model the amount of yeast in a batch using the differential equation method,
+let us express this process in terms of a rate, the rate at which yeast is being removed from the batch,
+with units \textbf{$\text{Millions of cells}/hour$}.
+Suppose the rate of removal is $b(t)$.
+Then we can just modify our differential equation to read
+\begin{equation*}
+  \frac{dy}{dt} = ay -b(t)
+\end{equation*}
+
+\begin{exercise}
+  Particular solutions concept check
+\end{exercise}
+Suppose the rate of removal of the yeast is constant,
+that is $b(t) = b$.
+Which of the following functions are particular solutions to the inhomogeneous ODE
+$\dot{y} = ay − b$?
 \clearpage
 
 

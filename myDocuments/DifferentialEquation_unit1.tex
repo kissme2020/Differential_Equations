@@ -574,7 +574,7 @@ In the example on the previous page, we outlined a 5 step modeling process that 
 \end{enumerate}
 \clearpage
 
-\subsection{Recitation 1, Modeling Natural population growth}
+\subsection{Recitation}
 A certain African government is trying to come up with a good policy regarding
 the hunting of oryx in a specific game preserve.
 They are using the following model: the oryx population has a positive natural growth rate of
@@ -2107,8 +2107,145 @@ Suppose the rate of removal of the yeast is constant,
 that is $b(t) = b$.
 Which of the following functions are particular solutions to the inhomogeneous ODE
 $\dot{y} = ay − b$?
+
+\begin{mybox}{gray}{Answer}
+  The associated homogeneous ODE $\dot{y}-ay=0$ has a general solution $y_ h\left(t\right)=Ce^{at}$,
+  for any real number $C$.
+  To find a particular solution to the inhomogeneous ODE $\dot{y}=ay−b$, we rewrite the ODE as
+  \begin{equation*}
+    \dot{y} - ay = -b. 
+  \end{equation*}
+
+\end{mybox}
+
+\begin{mybox}{gray}{Answer Continuous}
+    If you have a constant right hand side, it is always a good idea to look for a constant particular solution.
+  If there is a constant solution, $\dot{y} = 0$, and the equation simplifies to
+  \begin{equation*}
+    -ay = -b 
+  \end{equation*}
+
+  Thus we find one particular solution $y_p= b/a$.
+  Using the superposition principle, all solutions take the form
+  \begin{equation*}
+    y = y_p + y_h = \frac{b}{a} + Ce^{at}
+  \end{equation*}
+  Thus
+  \begin{equation*}
+    \frac{b}{a}, \quad \frac{b}{a} + e^{at}, \quad \text{and, } \frac{b}{a} -3 e^{at}  
+  \end{equation*}
+  are all particular solutions.
+\end{mybox}
+\clearpage
+\subsection{Recitation}
+\subsubsection{Characteristics of an equation}
+\begin{problem}
+  Standard linear form
+\end{problem}
+Using $x$ for the independent variable and $y$ for the dependent variable,
+what is “standard linear form"?
+\begin{mybox}{gray}{Answer}
+  The standard linear form is
+  \begin{equation*}
+    y' + p(x)y = q(x)
+  \end{equation*}
+\end{mybox}
+
+\begin{problem}
+  Characteristics of the equation
+\end{problem}
+Is the equation $y' − (\tan⁡ x)y = 1$ linear? Is it separable?
+\begin{mybox}{gray}{Answer}
+  It is the form of linear, but not separable. 
+\end{mybox}
+
 \clearpage
 
+\subsubsection{Homogeneous equation}
+\begin{problem}
+  Solution to the homogeneous equation
+\end{problem}
+We continue with the equation $y' − (\tan⁡ x)y = 1$.
+Find the solution $y_h$ to the associated homogeneous equation that satisfies $y_h (0)=1$.
+\begin{mybox}{gray}{Answer}
+  To find homogeneous solution, set right side to zero,
+  \begin{eqnarray*}
+    y' - (\tan⁡ x)y  &=& 0 \\
+    y'  &=& (\tan⁡ x)y \\
+    \frac{1}{y} dy &=& \tan x dx \\
+    \int \frac{1}{y} dy &=& \int \tan x dx \\
+    ln |y| + C_1 &=& - ln |\cos (x)| + C_2 \\
+    ln |y| &=& ln |\cos (x)| ^{-1} + C_3 \\
+    e^{ln |y|} &=& e^{ln |\cos (x)| ^{-1} + C_3} \\
+    y &=& e^{ C_3}\,e^{ln |\cos (x)| ^{-1}} \\
+    y = C \frac{1}{\cos (x)}
+  \end{eqnarray*}
+  Apply condition $y_h (0)=1$ to a homogeneous equation,
+  the constant $C = 1$.
+  So, the homogeneous equation is
+  \begin{eqnarray*}
+    y_h = \frac{1}{\cos(x)}
+  \end{eqnarray*}
+\end{mybox}
+\clearpage
+
+\subsubsection{Inhomogeneous equation}
+\begin{problem}
+  General solution to the inhomogeneous equation
+\end{problem}
+We continue with the equation $y′− (\tan⁡ x)y = 1$.
+Using the homogeneous solution $y_h$ you found on the previous page,
+find $u(x)$ such that $y = y_h u$ is a solution.
+
+\begin{mybox}{gray}{Answer}
+  Substitute $y = y_h u$ to the left side of a equation,
+  \begin{eqnarray*}
+    (u y_h)' + (\tan(x)) uy_h &=& 1 \\
+    \left( \frac{u}{\cos(x)} \right)' + u \tan(x) \frac{1}{\cos(x)} &=& 1 \\
+    \frac{u'}{\cos(x)} + u\left( \frac{-\sin(x)}{cos^2 (x)} \right) + u \tan(x) \frac{1}{\cos(x)} &=& 1 \\
+    \frac{u'}{\cos(x)} - u \tan(x) \frac{1}{\cos(x)} + u \tan(x) \frac{1}{\cos(x)} &=& 1 \\
+    \frac{u'}{\cos(x)} &=& 1 \\
+    u' &=& \cos(x) \\
+    \int u' dx &=& \int \cos(x) dx \\
+    u &=& \sin(x) + c
+  \end{eqnarray*}
+  The $u(x)$ is
+  \begin{equation*}
+    \sin (x) + c 
+  \end{equation*}
+\end{mybox}
+
+\begin{problem}
+  General solution
+\end{problem}
+Write down the general solution of $y′− (\tan⁡ x)y = 1$.
+(Enter in terms of the initial value $y(0) = y_0$.)
+
+\begin{mybox}{gray}{Answer}
+  The general solution of inhomogeneous equation is
+  \begin{equation*}
+    u(x) \cdot y_h = \left( \sin (x) + c \right) \cdot (\frac{1}{\cos(x)}) = \tan x + \frac{c}{\cos x}
+  \end{equation*}
+  Apply $y(0) = y_0$, $c = y_0$ \\
+
+  The general solution is
+  \begin{equation*}
+    y = \tan x + \frac{y_0}{\cos x}
+  \end{equation*}
+\end{mybox}
+\clearpage
+\subsubsection{A different equation}
+\begin{problem}
+  General solution
+\end{problem}
+Solve $y' -xy = 1.$ 
+
+\clearpage
+
+\subsection{Part A Homework}
+\begin{enumerate}
+\item 
+\end{enumerate}
 
 
 %%% Local Variables:

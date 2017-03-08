@@ -2243,11 +2243,104 @@ Solve $y' -xy = 1.$
 \clearpage
 
 \subsection{Part A Homework}
+\begin{homework}
+  What is the order of the ODE $(y^{(3)})^{3 } + 9 \dot y \,  y^{(7 )} -t^{6 }\cdot y + t^{4 } = 0$?\\
+\end{homework}
+7 , because the highest derivative of $y$ that appears is the derivative: $y^{(7)}.$
+
+\begin{homework}
+  Which of the following ODEs are linear?
+\end{homework}
 \begin{enumerate}
-\item 
+\item $\dot y = \cos (t+y) + t$ \\
+  is nonlinear since the term $\, \cos (t+y)\,$
+  is not a function of $t$ times some derivative of $y$ (and it is also not just a function of $t$).
+\item $ty = \cos (t) \,  \dot y + \sin t$ \\
+  is an inhomogeneous linear ODE, because it can be put in the linear form
+  \begin{equation*}
+    ty - \cos t \dot y = \sin t.
+  \end{equation*}
+  (The coefficient functions in front of $\dot{y}$ and $y$ are allowed to be any functions of $t$,
+  and the right hand side too is allowed to be any function of $t$.)
+\item $y^{(3)} = y \ddot y + 2e^ t \,  \dot y$ \\
+  is nonlinear since the term $\ddot{y}y$ is not a function of
+  $t$ times some derivative of $y$ (and it is also not just a function of $t$).
+\item $\, t^2\ddot y = (\dot y-1)\log t\,$ \\
+  is an inhomogeneous linear ODE, because it can be rewritten in linear form as
+  \begin{equation*}
+    t^2 \ddot y - \log t \dot y = -\log t.
+  \end{equation*}
 \end{enumerate}
+\clearpage
+
+\begin{homework}
+  Suppose that $y(t)$ is the solution to $\, \displaystyle \dot y = \frac{-\pi }{2}t(1+y^2)\,$
+  with $y(0) = 1$. What is $y(1)$?
+\end{homework}
+Separate variables:
+\begin{eqnarray*}
+  \displaystyle \frac{dy}{dt}
+  \displaystyle &=& \displaystyle \frac{-\pi }{2}t(1+y^2) \\
+  \displaystyle  \frac{1}{1+y^2} \frac{dy}{dt}
+  \displaystyle &=& \frac{-\pi }{2}t \qquad (1+y^2\neq 0) \\
+  \displaystyle  \int \frac{1}{1+y^2} dy \footnotemark
+  \displaystyle &=& \int \frac{-\pi }{2}t dt  \\
+  \displaystyle  \arctan y + C_1 
+  \displaystyle &=& \frac{-\pi }{4}t^2 + C_2 \\
+  \displaystyle  y 
+  \displaystyle &=& \tan \left( \frac{-\pi }{4}t^2 + C \right)
+\end{eqnarray*}
+\footnotetext{Integration using trigonometries identity.  \\
+  \begin{equation*}
+    \int \frac{1}{1+y^2} dy
+  \end{equation*}
+  Let $\tan \theta = y$ than,
+  \begin{equation*}
+    dy = \sec ^2 \theta d \theta
+  \end{equation*}
+  Substitute,
+  \begin{align*}
+    \int \frac{1}{1+ \tan ^2 \theta } \sec ^2 \theta d \theta
+    &= \int d \theta \quad
+      (\text{ where } 1 + \tan ^2 \theta = \sec ^2 \theta )\\
+    &= \theta + C \\
+    &= \arctan y + C \quad (\text{ where } \tan \theta = y  )\\
+  \end{align*}  
+}
+Since $y(0) = 1$ setting $t = 0$ in the equation above gives the condition
+\begin{equation*}
+  y(0) = 1 = \tan (C). 
+\end{equation*}
+
+And since $\tan$ is $\pi$−periodic,
+\begin{equation*}
+  \displaystyle
+  \displaystyle C
+  \displaystyle =\frac{\pi }{4} +n\pi \qquad \text {for }\, n\,
+  \text { any integer}.
+\end{equation*}
+Any of these values of $C$ gives the same expression for $y$:
+\begin{align*}
+  \displaystyle  \displaystyle y
+  \displaystyle &= \tan \left(\frac{-\pi }{4}t^2 + \frac{\pi }{4} +n\pi \right) \\
+  \displaystyle &= \tan \left(\frac{\pi }{4}(1-t^2)\right).
+\end{align*}
+
+(This formula only holds for $|1 − t^2| < 2$, which reduces to $−\sqrt{3} < t < \sqrt{3}$.
+Note that both $0$ and $1$ fall in this interval.)
+
+Finally, setting $t = 1$ gives $y(1) = \tan⁡ (0) =0$.
+\clearpage
+\begin{homework}
+  What function must $q(t)$ be in order for the ODE
+\end{homework}
+\begin{equation*}
+  8  \ddot{y} + 4  \dot{y} + 4  y = q(t)
+\end{equation*}
+to have $y = e^{10t}$ as a solution? \\
 
 
+\clearpage
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

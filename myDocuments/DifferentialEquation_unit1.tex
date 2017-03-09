@@ -2332,12 +2332,85 @@ Note that both $0$ and $1$ fall in this interval.)
 Finally, setting $t = 1$ gives $y(1) = \tan⁡ (0) =0$.
 \clearpage
 \begin{homework}
-  What function must $q(t)$ be in order for the ODE
+  $8  \ddot{y} + 4  \dot{y} + 4  y = q(t)$
 \end{homework}
+\begin{enumerate}
+\item \label{1} What function must $q(t)$ be in order for the ODE to have $y = e^{10t}$ as a solution? \\
+
+  If $y=e^{10t}$, then $\dot{y}=10 e^{10 t}$ and $\ddot{y}=100 e^{10 t}$ so the left hand side of the ODE is
 \begin{equation*}
-  8  \ddot{y} + 4  \dot{y} + 4  y = q(t)
+  8  \ddot{y} + 4  \dot{y} + 4  y = 8 (100 e^{10 t}) + 4  (10 e^{10 t}) + 4  e^{10 t} = 844  e^{10t}.
 \end{equation*}
-to have $y = e^{10t}$ as a solution? \\
+In order for this to match the right hand of the ODE, $q(t)$ also must be $844  e^{10 t}$.
+
+\item Use part \ref{1} and the superposition principle (which holds for 2nd order linear equations,
+  which this is) to find the (particular) solution to
+  \begin{equation*}
+    8  \ddot{y} + 4  \dot{y} + 4  y = e^{10t}.
+  \end{equation*}
+
+  (Enter the particular solution that comes from part \ref{1} in terms of $e$ rather
+  than a numerical approximation.) \\
+
+  The previous homework showed that $e^{10t}$ is a solution to the linear ODE
+  \begin{equation*}
+    8  \ddot{y} + 4  \dot{y} + 4  y = 844  e^{10t}.
+  \end{equation*}
+  Multiplying this solution by $\frac{1}{844}$ gives a solution to
+  \begin{equation*}
+    8  \ddot{y} + 4  \dot{y} + 4  y = e^{10t}.
+  \end{equation*}
+\end{enumerate}
+
+\begin{homework}
+  Which of the following functions are linear combinations of the two functions $t$ and $t^2 + 1$?
+\end{homework}
+
+$(t+1)^2$, $t$, and $0$. \\
+The linear combinations $t$ and $t^2+1$ are the functions of the form
+$c_1 t + c_2(t^2+1)$ for some numbers $c_1$ and $c_2$.
+
+\begin{enumerate}
+\item $3t^2+4t+5$ \\
+  It is impossible to get $3t^2+4t+5$, since comparing coefficients shows that
+  $c_2$ would have to be simultaneously $3$ and $5$.
+\item $(t+1)^2$ \\
+  Taking $c_1 = 2$ and $c_2 = 1$ gives $(t+1)^2$ 
+\item $t$ \\
+  Taking $c_1 = 1$ and $c_2 = 0$ gives $t$.
+\item $(t-2)^2 $ \\
+  It is impossible to get $(t-2)^2 $, since comparing coefficients shows that
+  that $c_2$ would have to be simultaneously $1$ and $4$.
+\item $0$ \\
+  Taking $c_1 = 0$ and $c_2 = 0$ gives $0$.
+\item $1$ \\
+  It is impossible to get $1$, since comparing coefficients shows that $c_2$ would have
+  to be simultaneously $1$ and $0$.
+\end{enumerate}
+
+\begin{homework}
+  The function $y(t)$ satisfies $\dot{y} + 5 y = 5 t^9 + 9 t^8$ and $y(0)=2$. What is $y(−1)$? 
+\end{homework}
+
+The particular function $y_ p(t) = t^9$ satisfies the ODE.
+The general solution to the associated homogeneous ODE is $y_ h = c e^{-5t}$.
+So the general solution to the given inhomogeneous ODE is $y = t^9 + c e^{-5t}$.
+The condition $y(0) = 2$ becomes $2 = 0 + c e ^0$, so $c = 2$.
+Thus $y = t^9 + 2 e ^{−5t}$. Hence $y(−1) = (−1) ^9 + 2 e ^5 = 2 e ^5 - 1$.
+\clearpage
+
+\subsection{Part B Homework}
+\begin{homework}
+  Find a first order differential equation
+\end{homework}
+Find a first order homogeneous linear ODE whose solutions include the functions
+$a \sin⁡ (2t)$ on the open interval $( 0, \frac{\pi}{2})$ for all real numbers $a$.
+Write the DE in standard linear form:
+\begin{equation*}
+  \dot{y} + p(t) y = 0
+\end{equation*}
+for a specific function $p(t)$.\\
+
 
 
 \clearpage

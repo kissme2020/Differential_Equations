@@ -1,0 +1,640 @@
+\section{UNIT4}
+\clearpage
+
+\subsection{Operators and Exponential Response}
+
+\subsubsection{Objective}
+
+\textbf{\color{blue}Objectives}
+\begin{itemize}
+\item Write {\color{blue} linear constant coefficient} differential equations
+  using {\color{blue} operator} notation, that is using
+  {\color{blue} linear time invariant (LTI) operators}.
+\item Use {\color{blue} time-shifts } to solve LIT differential equations.
+\item Solve inhomogeneous constant coefficient ODEs with exponential inputs
+  using the {\color{blue} Exponential Response Formula (ERF)}.
+\item Recognize when ERF {\color{blue} fails} and how to apply the {\color{blue} ERF'} and
+  the {\color{blue} Generalized ERF} in these situations.
+\item Apply superposition to higher order, linear {\color{blue} inhomogeneous }
+  differential equations. 
+\end{itemize}
+\clearpage
+
+\subsubsection{Operator Notation}
+
+If $y_1$ and $y_2$ are two solutions to a homogeneous, linear differential equation
+\begin{equation*}
+  \ddot y + p\dot y + qy = 0,
+\end{equation*}
+Why is $c_1y_1 + c_2y_2$ a solution?\\
+
+You know superposition for linear homogeneous differential equations.
+We want an elegant proof because it will help us with more complicated problems,
+including solving higher order inhomogeneous equations.\\
+
+\paragraph{An elegant proof of superposition}
+The superposition principle says exactly that if $y_1$ and $y_2$ are solution to a  linear homogeneous ODE. \\
+\footnote{in fact, it can be of higher order too, In other words, you don't have to stop
+with a second derivative. You could add a third derivative and fourth derivative.
+As long as the form remained the same, then that implies, automatically, that $c_1 y_1 + c_2 y_2$
+is a solution.}
+Now the way to do that nicely is to take a little detour and talk a little bit about
+{\color{blue}linear operators}.
+And since we're going to be using these for the rest of the term, this is the natural place for you
+to learn a little bit about what they are.
+So I'm going to do it.
+Ultimately, I am aimed at a proof of this statement, but there are going to be certain side
+excursions I have to make.\\
+
+The first side excursion is to write the differential equation in a different way.
+So I'm going to just write its transformations.
+So first, I'll simply recopy it, 
+\begin{equation*}
+  \ddot y + p\dot y + qy = 0. 
+\end{equation*}
+That's the first form. \\
+The second form, I'm going to replace this by the differentiation operator $D$
+\begin{equation*}
+  D^2 y + pDy qy = 0, 
+\end{equation*}
+
+$D^2$ means differentiate it twice. $D$ it, and then $D$ it again.
+$D$ means only have to differentiate once, so I'll write that as $p Dy$, $p$ times the derivative of $y$.\\
+Now I'm going to formally factor out the $y$.
+\begin{equation*}
+  \left( D^2 + pD + q \right)y = 0 
+\end{equation*}
+So this I'm going to turn into $D^2 +  pD + q$.
+Now everybody reads $D^2 +  pD + q$ times $y$ equals $0$.
+But what it means is $(D^2 + pD + q)y$ means this is shorthand for
+$D^2 y + pDy qy$.
+I'm multiplying $q$ times $y$, but I'm not multiplying $D$ times $y$.
+I'm applying $D$ to $y$. \\
+And now I'll take the final step.
+I'm going to view $(D^2 + pD + q)$ as a guy all by itself, a {\color{blue} linear operator}.
+This is called a linear operator.
+And I'm going to simply abbreviate it by the letter $L$.
+And so the final version of this equation
+\begin{equation*}
+  Ly = 0
+\end{equation*}
+
+\clearpage
+Now what's L? You could think of L as
+\begin{equation*}
+  L = D^2 + pD + q 
+\end{equation*}
+
+But you can think of L the way to think of it is as a black box.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-linear_operator}
+  \caption{Linear Operators}
+\end{figure}
+
+What goes into this black box? Well if this were a function box, what
+would go in would be a number and what would come out would be a number.
+But it's not that kind of a black box. It's an {\color{blue} operator box}.
+And therefore what goes in is a function of $x$, and what comes out is another function of $x$,
+the result of applying this operator to that.\\
+So from this point of view, trying to solve the differential equation means what should come
+out, you want to come out 0 and the question is what should you put in?
+That's what it means; solving differential equations in an {\color{blue} inverse problem}.
+The easy thing is to put in a function and see what comes out.
+You just calculate. The hard thing is to ask.
+You say, I want such and such a thing to come out, for example, $0$.
+What should I put in? That's the difficult question.
+And that's what we're spending the term answering.\\
+
+Now the key thing about this is that this is a linear operator
+and what that means is that it behaves in a certain way with respect to functions.
+The easiest way to say it is, I like to make two laws of it,
+\begin{align*}
+  L(u _1 + u _2 ) &= L(u_1) + L(u_2)
+  \text{ Where } u _1 \text{ and } u _2 \text{ a function of } x \\
+  L(c u) &= c L(u) \text{ Where } c \text{ is a any constant. } 
+\end{align*}
+These are the two laws of linearity.
+An operator is linear if it satisfies these two laws.
+Now for example, the differentiation operator is such an operator; D is linear.
+Why?
+\begin{align*}
+  (u _1 + u _2)' &= u' _1 + u' _2 \\
+  (cu)' &= c u' 
+\end{align*}
+
+All that was a prelude to proving this simple theorem, the superposition principle.
+So finally, what's the proof?
+Well, proof of the superposition principle, if you believe that the operator is linear,
+in other words, the ODE is $L$.
+$L$ is $D^2 +  pD +  q$. So the ODE is $Ly = 0$.
+And what am I being asked to prove?
+I'm being asked to prove that if $y _1$ and $y _2$ are solutions,
+\begin{align*}
+  L(c_1 y _1 + c_2 y_2 \footnotemark) &= L(c_1 y _1) + L(c _2 y _2) \\
+                                      &= c _1 L(y _1) + c _2 L(y _2) \\
+                                      &= c _1 0 + c _2 0 = 0                                        
+\end{align*}
+\footnotetext{
+  $c_1 y _1 + c_2 y_2$ called a linear combination.
+  This expression is called a linear combination of $y_1$ and $y_2$.
+  It means that particular sum with constant coefficients.
+}
+I'm trying to prove that this is $0$.
+Well, what is $L(y _1)$?
+At this point, I use the fact that $y_1$ is a solution.
+Because it's a solution, this is $0$. That's what it means to solve that differential equation.
+It means when you apply the linear operator $L$ to the function, you get $0$.
+In the same, way $y _2$ is a solution. So that's $0$. 
+That's the argument.
+Why it's so is because the operator, this differential equation, is expressed as a linear operator applied
+to $y$ is $0$.
+And the only properties that are really being used is the fact that this operator is linear.
+That's the key point. $L$ is linear.
+It's a linear operator.\\
+
+\textbf{\color{blue} The operator $D$}
+\begin{itemize}
+\item A function takes an input number and returns another number.
+\item An {\color{blue} operator} takes an input \textbf{function} and return another function. 
+\end{itemize}
+
+For example, the {\color{blue} differential operator} $\frac{d}{dt}$ takes an input function
+$y(t)$ and returns $\frac{dy}{dt}$.
+This operator is also called {\color{blue} $D$}.
+For instance $De^{4t} = 4e^{4t}$. The operator $D$ is {\color{blue} linear} ,
+which means that
+\begin{equation*}
+  D(f+g) = Df + Dg, \qquad D(af) = a Df
+\end{equation*}
+
+for any functions $f$ and $g$, and any number $a$. Because of this, $D$
+behaves well with respect to linear combinations, namely
+\begin{equation*}
+  D(c_1 f_1 + \cdots + c_ n f_ n) = c_1 \,  D f_1 + \cdots + c_ n \,  Df_ n
+\end{equation*}
+for any numbers $c_1,\ldots ,c_ n$ and functions $f_1,\ldots ,f_ n$.
+
+\begin{example}
+  $Dt^3 = 3t^2$. 
+\end{example}
+
+\Warning You can't take this equation and substitute $t = 2$ to get $D8 = 12$.
+The only way to interpret ``8'' in ``$D8$'' is as a constant function,
+which of course has derivative zero: $D8 = 0$.
+The point is that in order to know the function $Df(t)$ at a particular value of $t$,
+say $t = a$, you need to know more than just $f(a)$;
+you need to know how $f(t)$ is changing near $a$ as well.
+This is characteristic of operators;
+in general you have to expect to need to know the whole function $f(t)$ in order to evaluate an operator on it.
+
+\begin{mydef}
+  In general, a linear operator $L$ is any operator that satisfies
+  \begin{equation*}
+    L(f+g) = Lf + Lg, \qquad L(af) = a\, Lf
+  \end{equation*}
+  for any function $f$ and $g$, and any number $a$. 
+\end{mydef}
+
+\begin{example}
+  The operator $L = D^2 + p(t)D + q(t)$ where $p(t)$ and $q(t)$ are
+  any functions of $t$ is a linear operator. 
+\end{example}
+Why is $L$ linear? You know that $D$ is linear, and similarly, $D^2$ is linear.
+To see that $L$ is linear, verify that a linear combination of linear operators is again a linear operator.
+
+\clearpage
+\subsubsection{Multiplying and adding operators}
+To apply a product of two operators, apply each operator in succession.
+For instance, $DDy$ means take the derivative of $y$, and then take the derivative of the result;
+therefore we write $D ^2 y = \ddot{y}$.\\
+
+To apply a sum of two operators, apply each operator to the function and add the results.
+For instance,
+\begin{equation*}
+  (D^2 + D) y = D^2 y + D y = \ddot{y} + \dot{y}
+\end{equation*}
+
+Any number can be viewed as the ``multiply-by-the-number'' operator:
+for instance, the operator $5$ transforms the function $\sin ⁡x$ into the function $5 \sin ⁡x$.\\
+
+Similarly, we can multiply by any function of $t$, and this is also a linear operator.
+For instance, the operator $t^2$ transforms the function $\sin ⁡x$ into the function $t ^22 \sin⁡ x$.
+
+\begin{example}
+  The ODE
+\end{example}
+\begin{equation*}
+  2 \ddot{y} + 3 \dot{y} + 5 y = 0,
+\end{equation*}
+whose characteristic polynomial is $P(r) = 2r^2+3r+5$, can be rewritten as
+\begin{align*}
+  (2D^2 + 3D + 5) y &= 0\\
+  P(D) y &= 0 
+\end{align*}
+
+The same argument shows that every constant-coefficient homogeneous linear ODE
+\begin{equation*}
+  a_ n y^{(n)} + \cdots + a_0 y = 0
+\end{equation*}
+can be written simply as
+\begin{equation*}
+  P(D) y = 0,
+\end{equation*}
+where $P$ is the characteristic polynomial.
+
+\begin{exercise}
+  Operator notation concept check
+\end{exercise}
+Consider the differential equation
+\begin{equation*}
+  \displaystyle  \frac{d^4x}{dt^4}+2\frac{d^2x}{dt^2}+x=0.
+\end{equation*}
+If we want to write the differential equation in the form
+$P\left(D\right)x=0$, what is the differential operator $P\left(D\right)$?\\
+
+The characteristic polynomial of the differential equation
+\begin{equation*}
+  \displaystyle  \frac{d^4x}{dt^4}+2\frac{d^2x}{dt^2}+x=0
+\end{equation*}
+is $P\left(r\right)=r^4+2r^2+1$, so the differential equation can be written in the form
+$P\left(D\right) x = 0$, where
+\begin{equation*}
+  \displaystyle  P\left(D\right)=D^4+2D^2+1
+\end{equation*}
+
+\begin{exercise}
+  Linear operators concept check
+\end{exercise}
+Which of the following differential operators are linear? Check all that apply.
+\begin{enumerate}
+\item $4D ^n + 3$
+\item $D + t ^2$
+\item $D ^2 + tD + t ^2$
+\item $mD ^2 + bD + k$
+\item $a_0D^ n + a_1D^{n-1} + \cdots + a_ n$
+\end{enumerate}
+
+All of these operators are linear.
+In particular, every linear differential equation can be written in terms of a linear differential operator.\\
+
+The second and third choices are linear with variable coefficients.
+The first, fourth, and fifth are linear with constant coefficients.\\
+
+We'll only have formulas for solutions when the operators involved have constant coefficients.
+\clearpage
+
+\subsubsection{Time Invariance}
+In this course we'll focus on polynomial differential operators with constant coefficients,
+that is operators of the form
+\begin{equation*}
+  \displaystyle  P\left(D\right)=a_ nD^ n+a_{n-1}D^{n-1}+\dots a_1D+a_0,
+\end{equation*}
+
+where all of the coefficients $a_k$ are numbers (as opposed to functions of $t$).
+All operators of this form are linear.
+In addition to being linear operators, they are also {\color{blue}time-invariant} operators, which means:
+\begin{equation*}
+  \text{If } x(t) \text{solves } P\left(D\right)x=f\left(t\right), \,
+  \text{then } y\left(t\right)=x\left(t-t_0\right) \text{ solves }
+  P\left(D\right)y=f\left(t-t_0\right)
+\end{equation*}
+
+In words, this says that ``delaying the input signal $f(t)$ by $t_0$
+seconds delays the output signal $x(t)$ by $t_0$ seconds.''
+If we know that $x(t)$ is a solution to $P\left(D\right)x=f\left(t\right)$,
+we can solve $P\left(D\right)y=f\left(t-t_{0}\right)$ by replacing $t$ by $t - t_ 0$.
+This is a useful property because gives us the solutions to many differential equations for free.
+
+\begin{example}
+  The function $x(t) = \sin (t)$ solves the differential equation
+  $\dot(x) = \cos t$.  
+\end{example}
+What is a solution to the differential equation
+\begin{equation*}
+  \dot y = \cos (t +\pi /2) ?
+\end{equation*}
+By time-invariance, one solution is $y=\sin (t+\pi /2)$. \\
+Note that
+\begin{eqnarray*}
+  \dot{y} &=& \cos (t + \pi / 2) \\
+  \dot{y} &=& \cos t \cos \pi / 2  - \sin t \sin \pi / 2 \\
+  \dot{y} &=& - \sin t 
+\end{eqnarray*}
+
+And
+\begin{eqnarray*}
+  y &=& \sin (t + \pi / 2) \\
+  y &=& \sin t \cos  \pi / 2 + \cos t \sin  \pi / 2 \\
+  y &=& \cos t 
+\end{eqnarray*}
+
+\begin{example}
+  Consider the differential equation
+\end{example}
+\begin{equation*}
+  \displaystyle  \dot{x}+x=\cos t.
+\end{equation*}
+Using integrating factors $e^t$
+\begin{eqnarray*}
+  e^t \dot{x} + e^t x &=& e^t \cos t \\
+  \int (e^t x)' dt &=& \int e^t \cos t dt \footnotemark \\
+  e^t x &=& \frac{e^{t}}{2} \cos t + \frac{1}{2} \sin t + c_1  \\
+  x &=& \frac{1}{2} \cos t + \frac{1}{2} \sin t + c_1 e^{-t}.
+\end{eqnarray*}
+
+\footnotetext{
+  $\cos t$ is a real part of $e^{it}$,
+  \begin{align*}
+    \int e^t \cos t dt  &= \int e^t e^{it} dt \\
+                        &= \int  e^{(1 + i)t} dt \\
+                        &= \frac{1}{1+i} e^{t} e^{it} + c \\
+                        &= \frac{e^{t}}{2} \left( (1 - i) (\cos t + i \sin t)\right) + c \\
+                        &= \frac{e^{t}}{2} \left( (1 - i) (\cos t + i \sin t)\right) + c 
+  \end{align*}
+  The $\mathbb{Re} \left( (1 - i) (\cos t + i \sin t)\right)$ is
+  $\cos t + \sin t$.
+  So,
+  \begin{equation*}
+    \int e^t \cos t dt = \frac{1}{2} \cos t + \frac{1}{2} \sin t + c
+  \end{equation*}
+}
+
+Now suppose that we want to solve the equation $\dot{y}+y=\sin t$.
+Since $\sin t=\cos \left(t-\pi /2\right)$, time invariance tells us that
+\begin{align*}
+  \displaystyle  y\left(t\right)
+  &\displaystyle =x\left(t-\frac{\pi }{2}\right)
+    =\frac12\cos \left(t-\pi /2\right) + \frac12 \sin \left(t-\pi /2\right)+c_1e^{-\left(t-\pi /2\right)} \\
+  &\displaystyle =
+    \frac12\sin \left(t\right) - \frac12 \cos \left(t\right)+
+    \underbrace{c_1e^{\pi /2}}_{\textrm{call this }c_{2}}e^{-t} \\
+  &\displaystyle =\frac12\sin \left(t\right) - \frac12 \cos \left(t\right)+c_2e^{-t}
+\end{align*}
+
+should solve $\dot{y}+y=\sin t$.
+This agrees with the solution we'd get if we had used variation of parameters or integrating factors,
+but we had to do almost no work to get this solution from the first.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-LTI_function}
+  \caption{LTI Function}
+\end{figure}
+
+\begin{exercise}
+  LTI concept check
+\end{exercise}
+
+Which of the following differential operators are LTI operators? Check all that apply.
+\begin{itemize}
+\item $4D^ n + 3$
+\item $D + t^2$
+\item $D^2 +tD + t^2$
+\item $mD^2 +bD +k$
+\item $a_0D^ n + a_1D^{n-1} + \cdots + a_ n$
+\end{itemize}
+
+All of these operators are linear, and all of them that are polynomials with constant coefficients are time-invariant.
+The exceptions are $tD + 2$ and $D^2 +tD + t^2$. \\
+To see that $P\left(D\right)=tD + 2$ for instance is not time-invariant,
+notice that the general solution to
+\begin{equation*}
+  \displaystyle  P\left(D\right)x=t\dot{x}+2x=t^5
+\end{equation*}
+on $\left(0,+\infty \right)$ is
+\begin{equation*}
+  \displaystyle  x\left(t\right)=\frac{1}{7}t^{5}+ct^{-2}
+\end{equation*}
+
+Now if the operator were time invariant, then
+\begin{equation*}
+  \displaystyle  y\left(t\right)
+  =x\left(t-t_{0}\right)=\frac{1}{7}\left(t-t_0\right)^{5}+c\left(t-t_0\right)^{-2}
+\end{equation*}
+would solve
+\begin{equation*}
+  \displaystyle  t\dot{y}+2y=\left(t-t_{0}\right)^5,
+\end{equation*}
+for any $t_{0}>0$. However,
+\begin{equation*}
+  \displaystyle t\dot{y}+2y
+  =\frac{2}{7}\left(t-t_{0}\right)^5+\frac{5}{7}t\left(t-t_{0}\right)^4
+  +2c\left(t-t_0\right)^{-2}-2ct\left(t-t_{0}\right)^{-3}.
+\end{equation*}
+It should be clear from this that $t\dot{y}+2y\neq \left(t-t_{0}\right)^5$,
+so the linear operator $tD + 2$ tD + 2. 
+\clearpage
+
+\subsubsection{Superposition for an inhomogeneous linear ODE}
+To understand the general solution $y$ to an inhomogeneous linear ODE
+
+\begin{equation*}
+  \text {inhomogeneous equation:}
+  \quad p_ n(t) \,  {\color{blue}{y^{(n)}}}  + \cdots + p_0(t) \,
+  {\color{blue}{y}}  = {\color{orange}{q(t)}} ,
+\end{equation*}
+do the following:
+\begin{enumerate}
+\item List all solutions to the associated homogeneous equation
+  \begin{equation*}
+    \text {homogeneous equation:}
+    \quad p_ n(t) \,  {\color{blue}{y^{(n)}}}  +
+    \cdots + p_0(t) \,  {\color{blue}{y}}  = 0;
+  \end{equation*}
+\item Find (in some way) any \textbf{one} particular solution $y_p$ to the
+  \textbf{inhomogeneous} ODE.
+\item Add $y_p$ to all the solutions of the homogeneous ODE to get all the solutions to the inhomogeneous ODE.
+\end{enumerate}
+
+\Summary \\
+\begin{equation*}
+  \underset {{\color{blue}{\text {general solution}}} }{y}
+  = \underset {{\color{blue}{\text {particular solution}}} }{y_ p}
+  + \underset {\text {general homogeneous solution}}{y_ h}.
+\end{equation*}
+
+Why does this work? \textbf{Proof.} Let $L$ be the linear operator
+$L = p_ n(t)D^ n + \dotsb + p_1(t)D+p_0(t)$.
+Then the differential equations become
+\begin{eqnarray*}
+  \displaystyle  \text {inhomogeneous equation} \qquad Ly
+  \displaystyle &=& \displaystyle q(t) \\
+  \displaystyle  \text {homogeneous equation} \qquad Ly
+  \displaystyle &=& \displaystyle 0   
+\end{eqnarray*}
+Let $y_p$ be a particular solution to the inhomogeneous equation $L(y_p)=q$.
+Let $y_h$ be a homogeneous solution $L(y_h)=0$. Then
+\begin{equation*}
+  L(y_ p+y_ h) =q+0=q.
+\end{equation*}
+Suppose that $y$ is also a solution to $Ly=q$. That is
+\begin{eqnarray*}
+  \displaystyle  Ly \qquad \displaystyle &=& \qquad q \\
+  \displaystyle  Ly_p \qquad \displaystyle &=& \qquad q.
+\end{eqnarray*}
+Then it follows by linearity that
+\begin{equation*}
+  L(y-y_ p) = L(y)-L(y_ p) = q - q = 0
+\end{equation*}
+Therefore $y−y_p=y_h$ is a solution to the associated homogeneous equation. In other words,
+\begin{equation*}
+  y=yp+yh.
+\end{equation*}
+
+{\color{blue} The result of this section is the key point of linearity in the inhomogeneous case.}
+It lets us build \textbf{all} the solutions to an inhomogeneous DE out of
+\textbf{one particular solution} provided that you have already solved the associated homogeneous ODE.
+
+\paragraph{Consequence of superposition for inhomogeneous equations}
+So the {\color{blue}main theorem} about solving the inhomogeneous equation.
+\begin{equation*}
+  \ddot{y} + p\dot{y} + q = f(x) 
+\end{equation*}
+I'm going to make the left hand side a linear operator $L$.
+And I'm going to write the equation
+\begin{equation*}
+  Ly = f(x). 
+\end{equation*}
+And what the theorem says is that the solution has the following form.
+\begin{equation*}
+  \text{Solution : } y_p + y_c\footnotemark 
+\end{equation*}
+\footnotetext{
+  $y_c$ stands for the complementary solution.\\
+  The general solution of differential equation is
+  \begin{equation*}
+    y = y_p + c_1 y_1 + c_2 y_2 \text{, where } y_h = c_1 y_1 + c_2 y_2
+  \end{equation*}
+}
+What is $y_p$? $p$ stands for \textbf{particular}, the most confusing word in this subject.\\
+
+The procedure for solving this equation is composed of two steps.
+First, to find complementary solution $y_c$.
+solve not the equation you are given, but the reduced equation.
+The second step is to find $y_p$.
+$y_p$ is a particular solution to the whole equation. Yeah, but which one?
+Any one. Well, if it's any one, then it's not a particular solution.
+So particular means any one solution.\\
+
+
+First prove the theorem
+It's extremely simple if you just use the fact that $L$ is a linear operator.
+We've got two things to prove.
+\begin{enumerate}
+\item All the $y_p + c_1 y_1 + c_2 y_2$ are solutions.\\
+  You plug it into the equation and you see if it satisfies the equation.
+  \begin{eqnarray*}
+    L(y_p + c_1 y_1 + c_2 y_2)
+    &=& \underbrace{L(y_p)}_{f(x) \text{ since particular solution} }
+        + \underbrace{L(c_1 y_1 + c_2 y_2)}_{0 \text{ since homogeneous solution}} \\
+    L(y_p + c_1 y_1 + c_2 y_2) &=& f(x)    
+  \end{eqnarray*}
+  They satisfy the whole inhomogeneous differential equation
+  \begin{equation*}
+    L(y) = f(x).  
+  \end{equation*}
+
+\item There are no other solutions. \\
+  So, Let $u(x)$ as a solution.
+  \begin{equation*}
+    L(u) = f(x).
+  \end{equation*}
+  The $L(y_p)$ is
+  \begin{equation*}
+    L(y_p) = f(x). 
+  \end{equation*}
+  Subtract two equations
+  \begin{equation*}
+    L(u - y_p) = 0 
+  \end{equation*}
+  The homogeneous solution $L(c_1 y_1 + c_2 y_2) = 0$, 
+  \begin{equation*}
+    u - y_p = \tilde{c_1}y_1 + \tilde{c_1} y_1 
+  \end{equation*}
+  I'll put a $\tilde{ }$ on to indicate it's a particular one. 
+  Therefor
+  \begin{equation*}
+    u  = y_p + \tilde{c_1}y_1 + \tilde{c_1} y_1 
+  \end{equation*}  
+\end{enumerate}
+All we have to do is find to solve equations which are inhomogeneous,
+all we have to do is find a particular solution.
+Find one solution. It doesn't matter which one.
+\clearpage
+
+\subsubsection{Why exponential inputs?}
+Our task for today is to find particular solutions.
+We're talking about the second order equation with constant coefficients,
+which you can think of as modeling springs or simple electrical circuits.
+\begin{equation*}
+  y'' + Ay' + By = f(x)
+\end{equation*}
+The problem is remember that to find a particular solution $y_p$. 
+And the reason why we want to do that is then the general solution will be
+of the form is $y$ equals that particular solution, plus the complementary solution
+the general solution to the reduced equation,
+\begin{equation*}
+  y = y_p + c_1 y_1 + c_2 y_2. 
+\end{equation*}
+
+So all the work depends upon finding out what that $y_p$ is.
+And that's what we're going to talk about today--
+or rather, talk about for two weeks.
+But the point is not all functions
+that you could write on the right-hand side
+are equally interesting.
+There's one kind, which is far more interesting or more
+important in the applications than all the others.
+And that's the one out of which, in fact,
+as you'll see later on this week and next week,
+an arbitrary function can be built out
+of these simple functions.
+So the important function is on the right-hand side
+to be able to solve it when it's a simple exponential.
+But if you allow me to make it a complex exponential,
+so here are the important right-hand sides we want.
+
+We want to be able to do it when it's of the form e to the ax.
+In general, that will be--
+in most applications, a is not a growing exponential,
+but a decaying exponential.
+So typically, a is negative, but it doesn't have to be.
+I'll put it in parentheses though often.
+That's not any assumption that I'm going to make today.
+It's just culture.
+Well, we want to be able to do it for sine omega
+x and cosine omega x, in other words, when the right-hand side
+is a pure oscillation.
+That's another important type of input both for electrical
+circuits-- think alternating current--
+or the spring systems that's a pure vibration is being--
+you're imposing a pure vibration on the spring mass dashpot
+system, and you want to see how it responds to that.
+Or you can put them together and make these decaying
+oscillations.
+So we could also have something like e to the ax times
+sine omega x or times cosine omega x.
+
+Now, the point is all of these together
+are really just special cases of one general thing--
+exponential if you allow the exponent
+not to be a real number, but to be a complex number.
+So they are all special cases of e
+to the, I'll write it alpha x.
+Well, why don't we write it of a plus i omega x, right?
+If omega is 0, then I've got this case.
+If a is 0, then I've got this case
+separating it into its real and imaginary parts.
+And if neither is 0, I have this case.
+
+But I don't want to keep writing a plus i omega all the time.
+So I'm going to write that simply as e to the alpha x.
+And you understand that alpha is a complex number now.
+Looks different.
+It doesn't look like a real number.
+OK, so it's a complex number.
+\clearpage
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "NoteForDifferentialEquation"
+%%% End:

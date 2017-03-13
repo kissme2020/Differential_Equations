@@ -576,64 +576,727 @@ the general solution to the reduced equation,
 \begin{equation*}
   y = y_p + c_1 y_1 + c_2 y_2. 
 \end{equation*}
-
 So all the work depends upon finding out what that $y_p$ is.
-And that's what we're going to talk about today--
-or rather, talk about for two weeks.
-But the point is not all functions
-that you could write on the right-hand side
-are equally interesting.
-There's one kind, which is far more interesting or more
-important in the applications than all the others.
-And that's the one out of which, in fact,
-as you'll see later on this week and next week,
-an arbitrary function can be built out
-of these simple functions.
-So the important function is on the right-hand side
-to be able to solve it when it's a simple exponential.
-But if you allow me to make it a complex exponential,
-so here are the important right-hand sides we want.
+And that's what we're going to talk about. \\
 
-We want to be able to do it when it's of the form e to the ax.
-In general, that will be--
-in most applications, a is not a growing exponential,
-but a decaying exponential.
-So typically, a is negative, but it doesn't have to be.
-I'll put it in parentheses though often.
-That's not any assumption that I'm going to make today.
-It's just culture.
-Well, we want to be able to do it for sine omega
-x and cosine omega x, in other words, when the right-hand side
-is a pure oscillation.
-That's another important type of input both for electrical
-circuits-- think alternating current--
-or the spring systems that's a pure vibration is being--
-you're imposing a pure vibration on the spring mass dashpot
-system, and you want to see how it responds to that.
-Or you can put them together and make these decaying
-oscillations.
-So we could also have something like e to the ax times
-sine omega x or times cosine omega x.
+But the point is not all functions that you could write on the right-hand side are equally interesting.
+There's one kind, which is far more interesting or more important in the applications than all the others.
+And that's the one out of which, an arbitrary function can be built out of these simple functions.
+So the important function is on the right-hand side to be able to solve it when it's a simple exponential.
+But if you allow me to make it a complex exponential, so here are the important right-hand sides we want.
+We want to be able to do $f(x)$ when it's of the form $e^{ax}$.
+in most applications, a is not a growing exponential, but a decaying exponential.
+So typically, $a < 0$, but it doesn't have to be.
+That's not any assumption that I'm going to make today. It's just culture.
+\begin{equation*}
+   f(x) = e^{ax} \text{ or , } \left\{
+    \begin{array}{rl}
+      \sin \omega x \\
+      \cos \omega x
+    \end{array} \right. 
+\end{equation*}
+In other words, when the right-hand side is a pure oscillation.
+That's another important type of input both for electrical circuits(alternating current) or the spring systems that's a pure vibration is being. 
+you're imposing a pure vibration on the spring mass dashpot system, and you want to see how it responds to that. \\
 
-Now, the point is all of these together
-are really just special cases of one general thing--
-exponential if you allow the exponent
-not to be a real number, but to be a complex number.
-So they are all special cases of e
-to the, I'll write it alpha x.
-Well, why don't we write it of a plus i omega x, right?
-If omega is 0, then I've got this case.
-If a is 0, then I've got this case
-separating it into its real and imaginary parts.
-And if neither is 0, I have this case.
+You can put them together and make these decaying oscillations.
+\begin{equation*}
+  f(x) =  \left\{
+    \begin{array}{rl}
+      e^{ax } \sin \omega x \\
+      e^{ax} \cos \omega x
+    \end{array} \right. 
+\end{equation*}
 
-But I don't want to keep writing a plus i omega all the time.
-So I'm going to write that simply as e to the alpha x.
+Now, the point is all of these together are really just special cases of one general thing--
+exponential if you allow the exponent not to be a real number, but to be a complex number.
+So they are all special cases of
+\begin{equation*}
+  f(x) = e^{(a + i \omega) x}. 
+\end{equation*}
+
+If $\omega$ is $0$, then I've got $f(x) = e^{ax}$.
+If $a = 0$, then I've got $\sin \omega x$ or $\cos \omega x$ separating it into its real and imaginary parts.
+And if neither is $0$, I have a $e^{(a + i \omega) x}$.
+
+But I don't want to keep writing $a + i \omega$ all the time.
+So I'm going to write that simply as $e^{\alpha x}$.
 And you understand that alpha is a complex number now.
-Looks different.
-It doesn't look like a real number.
-OK, so it's a complex number.
+
 \clearpage
+\subsubsection{Shortcut}
+
+\textbf{Warm-up problem: } if $r$ is a number, what is $(2D^2+3D+5) e^{rt}$?\\
+\Solution First, $D e^{rt} = r e^{rt}$ and $D^2 e^{rt} = r^2 e^{rt}$ (keep applying the chain rule). Thus
+\begin{align*}
+  \displaystyle  (2D^2+3D+5) e^{rt}  \displaystyle &= 2 r^2 e^{rt} + 3 r e^{rt} + 5 e^{rt} \\
+  \displaystyle &= (2r^2+3r+5) e^{rt}.
+\end{align*}
+
+The operator is $P(D) = 2D^2+3D+5$. Notice that $P(r) = 2r^2+3r+5$
+is the characteristic polynomial. The same calculation, but with an arbitrary polynomial, proves the following general rule.
+
+\begin{theorem}
+  For any polynomial $P$ and any number $r$,
+  \begin{equation*}
+    {\color{blue}{P(D) e^{rt} = P(r) e^{rt}.}}
+  \end{equation*}
+\end{theorem}
+
+\paragraph{Setup}
+There are just a couple of basic formulas that we're going to use all the time.\\
+The first is that if you apply $P(D)$ to a complex exponential or a real one-- it doesn't matter--
+the answer is 
+\begin{equation*}
+  P(D) e^{\alpha x} = P(\alpha) e^{\alpha x}. 
+\end{equation*}
+The $P(\alpha)$ is now just an ordinary complex number.
+So that's a basic formula.
+It's called, the substitution rule, because the heart of it is you substitute for the $D$,
+you substitute $\alpha$.\\
+
+\begin{proof}
+  How would I prove that?
+  Well, just calculate it out.
+  \begin{align*}
+    \left( D^2 + AD + B\right) e^{\alpha x}
+    &= D^2 e^{\alpha x} + AD e^{\alpha x} + B  e^{\alpha x} \\
+    &= \alpha ^2 e^{\alpha x} + A \alpha e^{\alpha x} + B  e^{\alpha x} \\
+  \end{align*}
+
+It's obviously true for the operator $D$ and the operator $D^2$.
+In other words,
+\begin{equation*}
+  D  e^{\alpha x} = \alpha e^{\alpha x}, \qquad D^2  e^{\alpha x} = \alpha^2 e^{\alpha x} 
+\end{equation*}
+And therefore, it's true for linear combinations of these as well by linearity.
+So therefore, also true for $P(D)$.
+\end{proof}
+\clearpage
+\subsubsection{Exponential response formula}
+\textbf{Question:} For any polynomial $P$ and any number $r$, what is a particular solution to
+\begin{equation*}
+  P(D)y = e^{rt}
+\end{equation*}
+
+{\color{blue} Answer(superposition):} We have
+\begin{equation*}
+  P(D) {\color{blue}{e^{rt}}}  = {\color{orange}{P(r) e^{rt}}} .
+\end{equation*}
+
+This is off by a factor of $P(r)$. So multiply through by $1/P(r)$ and we can use linearity to get
+\begin{equation*}
+  P(D)\left(\frac{1}{P(r)}e^{rt} \right) = e^{rt}.
+\end{equation*}
+
+\textbf{\color{orange} Conclusion:} This is called the {\color{blue} Exponential Response Formula (ERF).}\\
+In words, for any polynomial $P$ and any number $r$ such that $P(r) \neq 0$,
+\begin{equation*}
+  {\color{blue}{\frac{1}{P(r)} e^{rt}}}  \quad
+  \text { is a particular solution to }
+  \quad P(D) y = {\color{blue}{e^{rt}}} .
+\end{equation*}
+
+Remember, this is just one particular solution.
+To get the general solution, we need to add the solution to the associated homogeneous equation.
+
+\begin{example}
+  Find the general solution to $\ddot{y} + 7\dot{y} + 12 y = {\color{blue}{-5e^{2t}}}$. 
+\end{example}
+
+\Solution\\
+\begin{align*}
+  \text{Characteristic polynomial:} \qquad
+  &P(r) = r^2+7r+12 = (r+3)(r+4)\\
+  \text{Roots:} \qquad
+  & -3, -4\\
+  \text{General solution to \textbf{homogeneous} equation:} \qquad
+  & {\color{orange}{y_ h}}  = c_1 e^{-3t} + c_2 e^{-4t}    
+\end{align*}
+
+ERF says:
+\begin{equation*}
+  {\color{blue}{\frac{1}{P(2)} e^{2t}}}
+  \quad \text {is a particular solution to }
+  \quad P(D) y = {\color{blue}{e^{2t}}} ;
+\end{equation*}
+i.e.,
+\begin{equation*}
+  {\color{blue}{\frac{1}{30} e^{2t}}}
+  \quad \text { is a particular solution to }
+  \quad \ddot{y} + 7 \dot{y} + 12 y = {\color{blue}{e^{2t}}} ,
+\end{equation*}
+so
+\begin{equation*}
+  \underset {{\color{blue}{ \text {call this } y_ p}} }{-\frac{1}{6} e^{2t}}
+  \quad \textrm{ is a particular solution to }
+  \quad \ddot{y} + 7 \dot{y} + 12 y = {\color{blue}{-5e^{2t}}} .
+\end{equation*}
+
+General solution to inhomogeneous equation:
+\begin{align*}
+  \displaystyle y \displaystyle &= {\color{blue}{y_ p}}  + {\color{orange}{y_ h}} \\
+  \displaystyle &= -\frac{1}{6} e^{2t} + c_1 e^{-3t} + c_2 e^{-4t}.
+\end{align*}
+\clearpage
+\subsubsection{ERF and complex roots}
+
+\begin{example}
+  Use ERF to find a particular solution to $\ddot x + x = e^{2it}$.
+\end{example}
+
+\Solution In operator notation, this differential equation can be written as
+\begin{equation*}
+  (D^2+1)y = e^{2it}.
+\end{equation*}
+By the ERF, a particular solution is given by
+\begin{equation*}
+  y_ p = \frac{e^{rt}}{r^2+1} = \frac{e^{2it}}{(2i)^2+1} = \frac{-1}{3}e^{2it}.
+\end{equation*}
+
+\begin{exercise}
+  Practice problem 1
+\end{exercise}
+Use ERF to find a particular solution to
+\begin{equation*}
+  (D^2+1)y = e^{-t}.
+\end{equation*}
+By the ERF, a particular solution is
+\begin{equation*}
+  y _p = \frac{e^{-t}}{r^2 + 1} = \frac{e^{-t}}{(-1)^2 + 1} = \frac{e^{-t}}{2} 
+\end{equation*}
+
+\begin{exercise}
+  Practice problem 2
+\end{exercise}
+Use ERF and superposition to find a particular solution to
+\begin{equation*}
+  (D^2+1)y = e^{-t} - 3e^{2it} .
+\end{equation*}
+By superposition
+\begin{eqnarray*}
+  (D^2+1)(c_1 y_1 + c_2 y_2) &=& e^{-t} - 3e^{2it} \\
+  (D^2+1)(c_1 y_1) + (D^2+1)(c_2 y_2) &=& e^{-t} - 3e^{2it} \\
+  c_1 (D^2+1)(y_1) + c_2(D^2+1)(y_2) &=& e^{-t} - 3e^{2it}
+\end{eqnarray*}
+By ERF, the particular solution of $ c_1 (D^2+1)(y_1) = e^{-t}$ is
+\begin{equation*}
+  y_{1p} = \frac{e^{-t}}{r^2 + 1} = \frac{e^{-t}}{(-1)^2 + 1} = \frac{e^{-t}}{2}. 
+\end{equation*}
+By ERF, the particular solution of $ c_2 (D^2+1)(y_2) = -3 e^{-2it}$ is
+\begin{equation*}
+  -3 y_{2p} = -3 \left(\frac{e^{2it}}{r^2 + 1} \right)
+  = -3 \left(\frac{e^{2it}}{(2i)^2 + 1} \right)
+  = -3 \left(\frac{-1}{3} e^{2it} \right) = e^{2it}. 
+\end{equation*}
+The particular solution is
+\begin{equation*}
+  y _p = y_{1p} + y_{2p} =  \frac{e^{-t}}{2}  + e^{2it}. 
+\end{equation*}
+
+\clearpage
+\subsubsection{The generalized exponential response formula}
+
+\begin{exercise}
+  When the ERF fails
+\end{exercise}
+For which of the following functions $q\left(t\right)=e^{at}$ does the differential equation
+$\ddot{x}+x = q(t)$ \textbf{not} have a solution of the form $Ae^{at}$?
+
+\begin{itemize}
+\item $e^t$
+\item $e^{-t}$
+\item $e^{it}$
+\item $e^{-it}$
+\item $e^{2it}$
+\item $e^{3t}$
+\item $1$
+\end{itemize}
+The characteristic polynomial is $P(r) = r^2+1$.
+This polynomial is zero when $r=\pm i$.
+Thus we can not apply the Exponential Response Formula to find a solution of the form
+$e^{at}$ is when $a=\pm i$.\\
+
+The existence and uniqueness theorem says that
+\begin{equation*}
+  P(D) y = e^{rt}
+\end{equation*}
+should have a solution even if $P(r) = 0$(when ERF does not apply). Let's start with the one case:\\
+{\color{blue} ERF'} Suppose that $P$ is a polynomial and $P(r _0) = 0$, but
+$P'(r _0) \neq 0$ for some number $r_0$. Then
+\begin{equation*}
+  \boxed {{\color{blue}{x_ p=\frac{1}{P'(r_0)} t e^{r_0t}}}  \
+    quad \text { is a particular solution to }\quad P(D) x = {\color{blue}{e^{r_0t}}} .}
+\end{equation*}
+
+\begin{proof}
+  We want to solve $P(D)y = e^{r_0t}$. We know that
+  \begin{equation*}
+    P(D)e^{r_0t} = P(r_0)e^{r_0t},
+  \end{equation*}
+  for all $r$. However, since $P(r_0)$ is zero, we cannot divide by it.\\
+  Instead, let us look at what happens near this point $r_0$ and differentiate with respect to $r$.
+  \begin{equation*}
+    \displaystyle  \displaystyle \frac{\partial }{\partial r}\left(P(D) e^{rt} \right)
+    \displaystyle = \displaystyle  \frac{\partial }{\partial r}\left(P(r) e^{rt} \right)
+    = P'(r)e^{rt} + P(r)te^{rt}.
+  \end{equation*}
+  We need to take the derivative of the left hand side. Recall that
+  $\frac{\partial }{\partial r}\frac{\partial }{\partial t}
+  = \frac{\partial }{\partial t}\frac{\partial }{\partial r}$.
+  In this context, this means the same thing as
+  \begin{equation*}
+    \frac{\partial }{\partial r}D =
+    D\frac{\partial }{\partial r} \qquad \left(D = \frac{d}{dt} \right).
+  \end{equation*}
+  Hence
+  \begin{equation*}
+    \frac{\partial }{\partial r}P(D) = P(D)\frac{\partial }{\partial r}
+  \end{equation*}
+  by linearity. \\
+  The left hand side becomes.
+  \begin{align*}
+    \displaystyle  \displaystyle \frac{\partial }{\partial r}\left(P(D) e^{rt} \right)
+    \displaystyle &= \displaystyle  P(D) \left( \frac{\partial }{\partial r} e^{rt}\right) \\
+    \displaystyle &= \displaystyle  P(D) \left( te^{rt}\right)
+  \end{align*}
+  Let $r\rightarrow r_0$. Therefore since $P(r _0) = 0$
+  \begin{align*}
+    \displaystyle  P(D) \left( te^{r_0t}\right)
+    \displaystyle &= \displaystyle  P'(r_0)e^{r_0t} + P(r_0)te^{r_0t} \\
+    \displaystyle &= \displaystyle  P'(r_0)e^{r_0t}
+  \end{align*}
+  If $P'(r _0) \neq 0$. then we can divide through by $P'(r _0)$
+  \begin{equation*}
+    P(D) \left( \frac{te^{r_0t}}{P'(r_0)}\right) = e^{r_0t},
+  \end{equation*}
+  and $\displaystyle y_ p = \frac{te^{r_0t}}{P'(r_0)}$ is a particular solution to $P(D)y = e^{r_0t}$
+\end{proof}
+
+\begin{example}
+  Find a particular solution to $\ddot{x} -4x = e^{-2t}$
+\end{example}
+
+\Solution The characteristic polynomial is $P(r) = r^2 - 4$, thus $P(-2) = 0$, But
+$P'(2) = 2(-2) = -4 \ne 0$. Therefore this is a cae where we can apply ERF'.
+which gives us a particular solution
+\begin{equation*}
+  x_ p = \frac{te^{rt}}{P'(r)} = \frac{te^{-2t}}{-4}.
+\end{equation*}
+
+\begin{example}
+  Solve the system $\ddot{x} + x = e^{it}$ with initial conditions $x(0)=1$ and $\dot{x}(0) = 0$.
+\end{example}
+The characteristic polynomial of the differential equation $\ddot{x} + x = e^{it}$ is $P(r) = r^2 + 1$
+, with roots $\pm i$.
+Since $i$ is a root of the characteristic polynomial, the {\color{blue}Generalized ERF} tells
+us to find the smallest integer $s$ for which $P(s)(i) \ne 0$.
+In this case, $P'(r) = 2r$, so $P'(i) = 2i$, which is not zero, so $s = 1$.
+The Generalized ERF tells us that
+\begin{equation*}
+  \displaystyle  x_ p\left(t\right)=\frac{1}{P^{\prime }\left(i\right)}t^{1}e^{it}
+  =\frac{1}{2i}te^{it}
+\end{equation*}
+is particular solution to the inhomogeneous ODE.
+Since $\frac{1}{i} = e^{-i \pi/2}$ \footnote{
+  \begin{align*}
+    \frac{1}{i} &= \frac{1}{i} \cdot \frac{i}{i} \\
+    \frac{1}{i} &= -i \\
+    \frac{1}{i} &= \cos (-\pi / 2) + i \sin (-\pi / 2) \\
+    \frac{1}{i} &= e^{i \frac{-\pi}{2}}
+                  \quad \text{where } e^{i \theta} = \cos \theta + i \sin theta     
+  \end{align*}
+}
+, we can write $x _P$ as
+\begin{equation*}
+  \displaystyle  x_ p\left(t\right)=\frac{1}{2}te^{it-i\pi /2}.
+\end{equation*}
+Since the characteristic polynomial has roots $\pm i$, we know that the pair
+\begin{equation*}
+  \displaystyle  e^{it},e^{-it}
+\end{equation*}
+form a basis for the space of solutions to the homogeneous equation
+$\ddot{x}+x=0$.
+Hence, the general solution to the inhomogeneous equation
+$\ddot{x}+x=e^{it}$ is
+\begin{equation*}
+  \displaystyle  x\left(t\right)
+  =\underbrace{c_{1}e^{it}+c_{2}e^{-it}}_{\text {general solution to homogeneousODE}}
+  +\underbrace{\frac{1}{2}te^{it-i\pi /2}.}_{{\color{orange}{\text {particular solution}}} }
+\end{equation*}
+Now we just need to solve for the constants $c_1$ and $c_2$
+from the initial conditions initial conditions $x(0)=1$ and $\dot{x}(0) = 0$.
+We see that
+\begin{equation*}
+  \displaystyle  x\left(0\right)=1=c_{1}+c_{2},
+\end{equation*}
+so $c _2 = 1 - c _1$, and we can write $x(t)$ as
+\begin{equation*}
+  \displaystyle  x\left(t\right)
+  =c_{1}e^{it}+\left(1-c_{1}\right)e^{-it}+\frac{1}{2}te^{it-i\pi /2}.
+\end{equation*}
+We see that
+\begin{equation*}
+  \displaystyle  \dot{x}\left(t\right)
+  =ic_{1}e^{it}-i\left(1-c_{1}\right)e^{-it}+\frac{1}{2}e^{it-i\pi /2}+\frac{1}{2}te^{it},
+\end{equation*}
+so
+\begin{align*}
+  \displaystyle  \dot{x}\left(0\right)
+  \displaystyle &=ic_{1}-i\left(1-c_{1}\right)+\frac{1}{2}e^{-i\pi /2}\\
+  \displaystyle &=ic_{1}-i\left(1-c_{1}\right)-\frac{i}{2}.
+\end{align*}
+
+Using the initial condition $\dot{x}(0) = 0$ and solving for $c_1$ we see that $c_1 = 3/4$.
+Substituting this into the equation $c_2 = 1 - c_1$, we see that $c_2 = 1/4$.
+Thus the solution to the system $\ddot{x} + x = e^{it}$ with initial conditions $x(0)=1$ and $\dot{x}(0) = 0$
+is
+\begin{equation*}
+  \displaystyle  x\left(t\right)=
+  \frac{3}{4}e^{it}+\frac{1}{4}e^{-it}+\frac{1}{2}te^{it-i\pi /2}.
+\end{equation*}
+
+
+\textbf{Generalized exponential response formula.} if $P$ is a polynomial and $r_0$ is a number
+such that
+\begin{equation*}
+  P(r_0) = P'(r_0) = \dotsb = P^{(m-1)}(r_0) = 0 \qquad P^{(m)}(r_0) \neq 0,
+\end{equation*}
+then
+\begin{equation*}
+  P(D)\left( t^ me^{r_0t} \right) = P^{(m)}(r_0)e^{r_0t}
+\end{equation*}
+and
+\begin{equation*}
+  \boxed {{\color{blue}{y_ p=\frac{1}{P^{(m)}(r_0)} t^ m e^{r_0t}}}
+    \quad \text { is a particular solution to }
+    \quad P(D) y = {\color{blue}{e^{r_0t}}} .}
+\end{equation*}
+
+\begin{proof}
+  We want to solve $P(D)y = e^{rt}$. We know that
+  \begin{equation*}
+    P(D)e^{r_0t} = P(r_0)e^{r_0t},
+  \end{equation*}
+  for all $r$. However, since $P(r_0)$ is zero, we cannot divide by it.
+  Instead, let us look at what happens near this point $r_0$ and differentiate with
+  respect $r$.
+  \begin{eqnarray*}
+    \displaystyle  \displaystyle P(D)e^{rt} \qquad
+    \displaystyle &=&
+                      \qquad \displaystyle  P(r)e^{rt} \\
+    \displaystyle \frac{\partial }{\partial r}\left(P(D)e^{rt}\right) \qquad
+    \displaystyle &=&
+                      \qquad \displaystyle \frac{\partial }{\partial r}\left( P(r)e^{rt}\right) \\
+    \displaystyle P(D)\left(\frac{\partial }{\partial r}e^{rt}\right) \qquad
+    \displaystyle &=&
+                      \qquad \displaystyle  P'(r)\  e^{rt} + P(r)\  t\  e^{rt}
+  \end{eqnarray*}
+  In the case that $r_0$ is a repeated root with multiplicity $m$, then $P(r) = Q(r)(r-r_0)^{m}$,
+  and
+  \begin{equation*}
+    \displaystyle  \displaystyle \frac{d^{m}}{dr^ m}P(r_0) \displaystyle  \neq \quad 0,
+  \end{equation*}
+  however, all lower derivatives are zero at $r$
+  \begin{align*}
+    \displaystyle  \displaystyle \frac{d^{m-1}}{dr^{m-1}}P(r_0)
+    \displaystyle  &=& \displaystyle  0 \\
+    \displaystyle \quad \vdots & & \displaystyle  \vdots \\
+    \displaystyle P(r_0) \displaystyle  &=& \displaystyle  0.
+  \end{align*}
+  Differentiate both sides of the equation $m$ times with respect to $r$ to obtain a relationship:
+  \begin{equation*}
+    \displaystyle  \displaystyle P(D)\left(t^ m e^{rt}\right)
+    \displaystyle  =
+    \displaystyle  \left(P^{(m)}(r) + m\  t\  P^{(m-1)}(r)
+      + \frac{m(m-1)}2 t^2P^{(m-2)}(r) + \dotsb + t^ mP(r)\right)e^{rt}
+  \end{equation*}
+  Evaluating at $r_0$, only the $m$th derivative term survives
+  \begin{equation*}
+    \displaystyle  \displaystyle P(D)\left(t^ m e^{r_0t}\right)
+    \displaystyle  = \displaystyle  P^{(m)}(r_0)e^{r_0t},
+  \end{equation*}
+  which gives a particular solution to the differential equation
+  $P(D)y = e^{r_0t}$ of the form
+  $\displaystyle y_ p= \frac{t^ me^{r_0t}}{P^{(m)}(r_0)}$. 
+\end{proof}
+\clearpage
+\subsubsection{Worked example}
+\paragraph{Linear, constant coefficient, inhomogeneous ODEs}
+We'll be solving linear ODEs with constant coefficients. \\
+\begin{enumerate}
+\item $\dot{x} + kx = 1$
+\item $\dot{x} + kx = e^{-5t}$
+\item $\dot{x} + kx = 4 + 7 e^{-5t}$
+\end{enumerate}
+The first step in solving these problems is finding the homogeneous solution.
+We do this by setting the right hand side equal to 0.
+Actually, note that all these three problems have the same exact left hand side.
+So the homogeneous solution will be common to all of them.
+The characteristic polynomial of $\dot{x} + kx$ is
+\begin{equation*}
+  P(s) = s + k 
+\end{equation*}
+We find the solution to the homogeneous problem by setting
+\begin{equation*}
+  P(s) = s + k = k 
+\end{equation*}
+That will tell us that $s = -k$.
+Therefore, our homogeneous solution,
+\begin{equation*}
+  x_h = C e^{-kt}
+\end{equation*}
+
+For part 1, now we need to find a particular solution
+that satisfies the differential equation $\dot{x} + kx = 1$.  
+Now, this is an equation that we can actually solve by inspection.
+If we assume that $x$ is a constant, then $\dot{x} = 0$.
+\begin{align*}
+  0 + kx &= 1 \quad \text{ if } x = \text{constant} \\
+  x &= \frac{1}{k} 
+\end{align*}
+We'll denote this particular solution by the subscript $a$.
+So $x_a$ is the particular solution to part 1.
+Now, the general solution to pat 1 would be given by
+\begin{equation*}
+  x = x_a + x_h = \frac{1}{k} + C e^{-kt}.
+\end{equation*}
+We used \textbf{the method of inspection}, and that's not the most systematic way of doing it.
+But for now, I just wanted to show you that there are ways to solve ODEs that are very simple just
+by looking at them.\\
+
+Now, for part 2 we're looking $\dot{x} + kx = e^{-5t}$.
+And now we use the systematic method.
+We're going to use the exponential response formula, or ERF.
+We can only use the ERF because the right hand side or the forcing of this equation is exponential.
+In order to calculate the the particular solution $x_b$,
+We take the right hand side $e^{-5t}$ and divide by the characteristic polynomial $P$,
+\begin{equation*}
+  x_b = \frac{e^{-5t}}{P(-5)} = \frac{e^{-5t}}{-5 + k}  
+\end{equation*}
+We can write the general solution to part 2 by adding the particular solution
+and the homogeneous solution, that is 
+\begin{equation*}
+  x = C e^{-kt} + \frac{e^{-5t}}{-5 + k}. 
+\end{equation*}
+Note an important thing here. What happens if $k = 5$?
+Then this denominator goes to $0$, and this solution is undefined.
+We'll need to look at another method to solve this.
+But just one last thing that I want to point out is that the ERF could also have been used here. 
+if we think of $1$ as $e^{0t}$.
+That's true. That's an exponential.
+And if we use the exponential response formula,
+we would have gotten the same answer.\\
+
+All right so we just found a solution for part 2.
+But we notice that there is a problem when $k = 5$.
+So this solution actually
+\begin{equation*}
+  x = C e^{-kt} + \frac{e^{-5t}}{k + 5} \quad \text{if } k \ne 5.   
+\end{equation*}
+
+If $k = 5$, we're actually solving the differential equation
+\begin{equation*}
+  \dot{x} + 5x = e^{-5t}
+\end{equation*}
+Now, since we saw that the exponential response formula as we know it didn't work,
+we can use the method of variation of parameters.
+So for variation of parameters we need a homogeneous solution $C e^{-5t}$.
+But for the method of variation of parameters we only need one homogeneous solution.
+So we can take $C$ to be $1$.
+So now
+\begin{equation*}
+  x = u(t) e^{-5t}
+\end{equation*}
+We plug this into our ordinary differential equation, and we get 
+\begin{equation*}
+  \frac{d}{dt}(u e^{-5t}) + 5ue^{-5t} = e^{-5t}
+\end{equation*}
+Now, we use the product rule to simplify this term, which
+\begin{align*}
+  \frac{du}{dt} e^{-5t}n -5ue^{-5t} + 5u e^{-5t} &= e^{-5t} \\
+  \frac{du}{dt} &= e^{5t} e^{-5t} \\
+  \frac{du}{dt} &= 1 \\
+  \int \frac{du}{dt} &= \int 1 \\
+  u = t + c
+\end{align*}
+Now we plug that back into our expression for $x$.
+\begin{equation*}
+  x = (t+c)e^{-5t} = te^{-5t} + ce^{-5t} \quad \text{where } k = 5 
+\end{equation*}
+Note that contains a particular solution $te^{-5t}$, as well as the homogeneous solution
+$ce^{-5t}$. 
+So by using the method of variation of parameters, we got both solutions at the same time.
+That's a nice feat of the method a variation of parameters. \\
+
+Now, in part 3, we're asked to solve $\dot{x} + kx = 4 + 7 e^{-5t}$.
+We need to note that the right hand side is a superposition of the problems that we solved.
+\begin{equation*}
+  \dot{x} + kx = 4\cdot (1) + 7 \cdot e^{-5t}.
+\end{equation*}
+And these were the right hand sides on parts 1 and 2.
+So we're solving this problem.
+Because this equation is linear, we can superimpose the solutions that we found in part 1 and 2
+and get the particular solution for part 3.
+So the particular solution for part 3 is recovered by
+\begin{equation*}
+  x_c = 4 x_a + 7 x_b  
+\end{equation*}
+Note that, once again, this is the particular solution.
+If I want the full solution, I would get the general solution by adding the particular solution plus the homogeneous solution that we found before.
+\begin{equation*}
+  x = 4 x_a + 7 x_b + c e^{-kt}
+\end{equation*}
+And this is the most general solution
+\clearpage
+
+\subsubsection{Review: Basis of homogeneous solutions with linear operators}
+Recall the method for finding a basis of solutions to a constant-coefficient homogeneous linear ODE, now written as $P(D)y=0$. Using operators, we can explain why it works.
+\begin{example}
+  Consider the ODE
+  \begin{equation*}
+    y^{\prime \prime \prime } - 10 y^{\prime \prime } + 31y'-30y = 0.
+  \end{equation*}
+\end{example}
+Rewriting this using operator notation we have $P(D)y = 0$, where $P(r) = r^3-10r^2+31r-30$
+is the characteristic polynomial of the ODE.
+The trick now is to factor the operator, and proceed from there.
+The characteristic polynomial factors as $P(r) = (r-2)(r-3)(r-5)$.
+The order is $3$, so the dimension of the vector space of solutions is $3$.\\
+
+Now
+\begin{align*}
+  e^{2t} &\text{  is a solution since } P(D) e^{2t} = p(2) e^{2t} = 0 e^{2t} = 0 \\
+  e^{3t} &\text{  is a solution since } P(D) e^{2t} = p(2) e^{3t} = 0 e^{3t} = 0 , \text{ and}\\
+  e^{5t} &\text{  is a solution since } P(D) e^{5t} = p(5) e^{5t} = 0 e^{5t} = 0 
+\end{align*}
+
+Just because we wrote down $3$ solutions does not mean that they form a basis:
+If we had written down $e^{2t}\, , e^{3t}\, , 4e^{2t} + 6e^{3t}$, 
+then they would \textbf{not} have been a basis, because they are linearly dependent
+(and their span is only $2$-dimensional).\\
+
+To know that $e^{2t}, \, e^{3t} , \, e^{5t}$ really form a basis,
+we need to know that they are {\color{orange}linearly independent.}
+Could it instead be that
+\begin{equation*}
+  e^{5t} = c_1 e^{2t}+c_2 e^{3t} \qquad \text{(as functions)}
+\end{equation*}
+for some numbers $C_1, \, c_2$? \\
+
+One way to see that is no possible is to apply $(D-2)(D-3)$ to both side,
+which would give
+\begin{align*}
+  \displaystyle  \displaystyle (D-2)(D-3)e^{5t}
+  \displaystyle &= \displaystyle  (D-2)(D-3)\left( c_1 e^{2t} + c_2 e^{3t} \right) \\
+  \displaystyle &= \displaystyle  c_1(D-2)(D-3)e^{2t} + c_2 (D-2)(D-3) e^{3t}
+                  \qquad \text {(by linearity)} \\
+  \displaystyle &= \displaystyle  c_1\cdot 0 + c_2 \cdot 0 = 0  
+\end{align*}
+
+The left hand side gives us
+\begin{equation*}
+  (D-2)(D-3)e^{5t} = (5-2)(5-3) e^{5t} \neq 0.
+\end{equation*}
+This contradiction implies that $e^{5t}$ is not a linear combination of $e^{2t}$ and $e^{3t}$.
+The same argument shows that no one of $e^{2t}, \, e^{3t} , \, e^{5t}$ is a linear combination
+of the other tow. Since $e^{2t}, \, e^{3t} , \, e^{5t}$ are linearly independent,
+they form a basis of a $3$-dimensional space (which must be the space of all solutions,
+since that too is $3$-dimensional). 
+\clearpage
+
+\subsubsection{Review: repeated roots with linear operators}
+
+What about the case of repeated roots?\\
+
+This case is less important than the others,
+because if someone hands you a polynomial it's unlikely that two or more of its roots will coincide.
+But it does happen, and it is interesting to think about what happens.\\
+
+\begin{example}
+  Find a basis of solutions to $D^3 y=0$. (
+  The characteristic polynomial is $r^3$, whose roots with multiplicity are
+  $0,\, 0,\, 0$.) 
+\end{example}
+
+\Solution Integrate three times:
+\begin{align*}
+  D^2 y &= c_1\\
+  Dy &= c_1 t + c_2 \\
+  y &= c_1 \frac{t^2}{2} + c_2 t + c_3 \\
+  \displaystyle &= \underset {{\color{orange}{\textrm{general solution}}} }{C_1 t^2 + c_2 t + c_3}.          
+\end{align*}
+for some numbers $C_1=c_2 / 2, c_2,$ and $c_3$.
+Since $t^2,\, t,\, 1$ are linearly independent, they form a basis for the space of solution.
+\begin{example}
+  Find a basis of solutions to $(D - 5)^3 y = 0$. 
+\end{example}
+
+\Solution \\
+The characteristic polynomial is $(r-5)^3$, which a repeated root $5,\, 5,\, 5$,
+so based on the previous example, we might hope that $e^{5t},\, te^{5t},\, t^2 e^{5t},\,$
+are basis.
+Let's now explain \textbf{why} these are solutions. \\
+We know that $D - 5$ sends $e^{5t}$ to $0$.
+What does $D - 5$ do to $ue^{5t}$, if $u$ is a function of $t$?
+Using product rule:
+\begin{align*}
+  \displaystyle  (D-5) \,  u e^{5t}
+  \displaystyle &= \left( \dot{u}\cdot e^{5t} + u \cdot 5 e^{5t} \right) - 5 u \cdot e^{5t} \\
+  \displaystyle &= \dot{u} \cdot e^{5t}.
+\end{align*}
+Replacing $(D-5)$ by $(D-5)^2$ and $(D-5)^3$ on the left we get the following:
+\begin{align*}
+  \displaystyle  (D-5)^2 \,  u e^{5t}
+  \displaystyle = \ddot{u} e^{5t}\\
+  \displaystyle (D-5)^3 \,  u e^{5t}
+  \displaystyle = u^{(3)} e^{5t}.
+\end{align*}
+So our guess was right! In order for $ue^{5t}$ to be a solution to
+$(D-5)^3y = 0$ the function$u^{(3)}$ must be 0:i.e,
+$u = a + bt + ct^2$ for some numbers $a,\, b,\, c,$ so the solutions are
+\begin{equation*}
+  \displaystyle u e^{5t} = a \,  e^{5t} + b \,  t e^{5t} + c \,  t^2 e^{5t},
+\end{equation*}
+are expected. \\
+
+Since $1,\, t,\, t^2$ are linearly independent functions, so are $e^{5t},\, te^{5t},\, t^2 e^{5t}$
+(any relation between the last there function could by divided by $e^{5t}$ to get a relation
+between the first three). Thus $e^{5t},\, te^{5t},\, t^2 e^{5t}$ form a basis. \\
+
+If a characteristic polynomial $P(r)$ has a root $r$ is repeated $k$ times, then
+$e^{rt},\, te^{rt},\, t^2 e^{rt},\, \cdots ,\, t^{k-1} e^{rt}$ are independent solutions
+to the differential equation $P(D)=0$. 
+\clearpage
+
+\subsubsection{Worked Examples}
+\begin{example}
+  Find the general solution to the differential equation
+  \begin{equation*}
+    2\ddot{x}+\dot{x}+x=1+2e^{t}.
+  \end{equation*}
+\end{example}
+
+This is an inhomogeneous linear equation, so the general solution has the form
+$x_p + x_h$, where $x_p$ is any particular solution and $x_h$ is the
+general homogeneous solution.
+The characteristic polynomial is $P(s) = 2s^2 + s + 1$, with roots$(-1 \pm \sqrt{7})/4$,
+So and the general homogeneous solution is given by
+\begin{align*}
+  \displaystyle x_h(t)
+  \displaystyle &=e^{-t/4}\left(a_1\cos \left( \frac{\sqrt {7} t}{4}\right)
+                  +c_2\sin \left( \frac{\sqrt {7}t}{4}\right)\right) \\
+  \displaystyle &=Ae^{-t/4}\cos \left(\frac{\sqrt {7}t}{4}-\phi \right)
+                  \quad \text{ where } A = \sqrt{a_1^2 + c_2^2}
+                  \quad, \phi = \arctan(c_2 / a_1)                    
+\end{align*}
+The inhomogeneous equation is $P(D)x = 1 + 2e^{t}$.
+
+
+
+
+\clearpage
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

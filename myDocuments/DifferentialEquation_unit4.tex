@@ -1291,12 +1291,300 @@ So and the general homogeneous solution is given by
                   \quad, \phi = \arctan(c_2 / a_1)                    
 \end{align*}
 The inhomogeneous equation is $P(D)x = 1 + 2e^{t}$.
+The input signal is a linear combination of $1$ and $e^t$,
+so we can find particular solution to $P(D)x =1$ and $P(D)x = e^t$ separately,
+then use superposition to construct a particular solution is $P(D) = 1 + 2e^t$.
+if $x_1$ is a particular solution to $P(D)x = 1$, and $x_2$ is a particular solution
+to $P(D)x = e^t$, then superposition says that a particular solution to
+$P(D)x = 1 + 2e^t$ is given by
+\begin{equation*}
+  x_p = x_1 + 2x_2
+\end{equation*}
+The construct function $1$ is an exponential: $1=e^{0t}$. Thus $P(D)x = 1$ has a particular solution
+\begin{equation*}
+  x_1 = \frac{1}{P(0)} = 1
+\end{equation*}
+(More elementarily, we've learned to look for constant solutions when the right hand side is constant, and solving $P(D)c = 1$ gives $c = 1$.)\\
+Similarly, the ERF tells us that
+\begin{equation*}
+  x_2 = \frac{1}{P(1)} e^t = \frac{1}{4} e^t  
+\end{equation*}
+is a particular solution to $P(D)x = e^t$. Thus
+\begin{align*}
+  x_p &= 1 + 2 \left( \frac{1}{4} e^t\right) \\
+      &= 1 + \frac{1}{2} e^t
+\end{align*}
+is a particular solution to $P(D)x = 1 + 2e^t$. So the general solution
+$2\ddot{x}+\dot{x}+x=1+2e^{t}$ is
+\begin{equation*}
+  \displaystyle  x\left(t\right)=
+  1+\frac{1}{2}e^ t+Ae^{-t/4}\cos \left(\frac{t\sqrt {7}}{4}-\phi \right).
+\end{equation*}
+
+\begin{example}
+  Find a particular solution to the equation
+  \begin{equation*}
+    \displaystyle  \ddot{x} + 8\dot{x} + 15 x = e^{-5t}
+  \end{equation*}
+\end{example}
+
+The characteristic polynomial is $P(r) = r^2 + 8r + 15$. Since $P(-5) = 0$
+we need to use the generalized ERF.\\
+
+Computing we see that $P \prime (r) = 2r + 8$, and $P \prime (-5) = -2$.
+Therefore the generalized ERF gives a particular solution of
+\begin{equation*}
+  x_p = \frac{te^{-5t}}{P \prime (-5)} = - \frac{te^{-5t}}{2}.
+\end{equation*}
+
+(Of course, there are other particular solution.)
+
+\begin{exercise}
+  ERF Concept Check
+\end{exercise}
+For which values $a$ does not the differential equation
+\begin{equation*}
+  \displaystyle  \frac{d^5 y}{dt^5} - y = e^{at}
+\end{equation*}
+\textbf{not} have a solution of $ce^{at}$ for some number $c$? 
 
 
-
+The characteristic polynomial of the differential equation
+\begin{equation*}
+  \displaystyle  \frac{d^5 y}{dt^5} - y = e^{at}
+\end{equation*}
+is $r^5 -1$, which has roots are $1,\, e^{2 \pi i / 5},\, e^{4 \pi i / 5},\, , e^{(n-1) 2 \pi i / 5}$.
+When $a$ is one of these values, substituting $y = ce^{at}$ into left side of the differential
+equation gives $0$, not $e^{at}$.
+Thus the differential equation does \textbf{not} have a solution of the form $ce^{at}$ when
+$a=1$ or $a = e^{(n-1)2 \pi/5}$. 
 
 \clearpage
+\subsection{Recitation}
 
+\subsubsection{Operator Notation}
+
+\begin{problem}
+  Operations on Operators
+\end{problem}
+Express $(D^3 -D)(x+y)$ as an operators acting on $x$ plus and operator action on y.
+(if $(D^3 -D)(x+y) = Ax + By$, what do $A$ and $B$ equal in terms of $D$? )\\
+
+By product rule ,
+\begin{equation*}
+  (D^3 -D)(x+y) = (D^3 -D)x + (D^3 -D)y  
+\end{equation*}
+
+\begin{problem}
+  Superposition
+\end{problem}
+
+Let $x_1$ and $x_2$ be two solution to $(D^3 - D)x = 0$. Which of the following are also
+solution to the same equation? Choose all that apply.
+\begin{itemize}
+\item $x_1 - x_2$
+\item $x_1 x_2$
+\item $ax_1$ for any constant $a$
+\item $x_2 + 1$
+\item $ax_1 + bx_2$ for any two constant $a$ and $b$.
+\item $x_1 + x_2 + x_1 x_2$
+\end{itemize}
+By superposition, the solution is form of
+\begin{equation*}
+  c_1 x_1 + c_2 x_2 \qquad \text{ where } c_1,\, c_2 \text{ is any number.}, 
+\end{equation*}
+and the right side is equation is $0$, so both $x_1$ and $x_2$ can be constant function.\\
+
+The answer is
+\begin{align*}
+  &x_1 - x_2\\
+  &ax_1 \quad \text{ for any constant } a \\
+  &x_2 + 1 \\
+  &ax_1 + bx_2 \quad \text{for any two constant } a\, \text{and} \,b.
+\end{align*}
+
+\begin{problem}
+  Homogeneous solutions
+\end{problem}
+Which of the following are solutions to the homogeneous equation
+$(D^3 - D)x = 0$?\\
+
+The characteristic polynomial is
+\begin{equation*}
+  r^3 - r = 0
+\end{equation*}
+The root of $r$ is $0,\, -1,\, 1$, so the homogeneous solutions for $(D^3 - D)x$ is
+\begin{equation*}
+  c_1 e^{0t},\, c_2e^{t},\, \text{ and } c_3 e^{-t}.   
+\end{equation*}
+
+\begin{problem}
+  Particular solutions
+\end{problem}
+
+\begin{enumerate}
+\item Use ERF (or generalized ERF) to find a particular solution to $(D^3 - D)x = e^{2t}$. \\
+  The particular solution using ERF is
+  \begin{equation*}
+    x_p = \frac{e^{rt}}{P(r)} = \frac{e^{2t}}{2^3 - 2} = \frac{1}{6} e^{2t} 
+  \end{equation*}
+\item Use ERF (or generalized ERF) to find a particular solution to $(D^3 - D)x = e^{-t}$. \\
+  The $P(r) = 0$, so suing generalized ERF is
+  \begin{equation*}
+    x_p = \frac{te^{rt}}{P^{\prime}(r)} = \frac{te^{-t}}{3 - 1} = \frac{1}{2} te^{-t}. 
+  \end{equation*}
+\item Use ERF (or generalized ERF) to find a particular solution to $(D^3 - D)x = 1$. \\
+  The $(D^3 - D)x = 1 = e^{0t}$, so $r=0$.
+  Using generalized ERF, $P^{ \prime} (r) = 3 r^2 - 1$. So
+  The particular solution is
+  \begin{equation*}
+    x_p = \frac{te^{rt}}{P^{\prime} (r)} = \frac{te^{0t}}{0 - 1} = - t. 
+  \end{equation*}
+\end{enumerate}
+\clearpage
+\subsubsection{ERF}
+
+Use ERF to find a particular solution of $\ddot{x} + 9x = e^{3t} + 9$.\\
+
+Let particular solution of $\ddot{x} + 9x = e^{3t}$ as $x_a$ and
+$\ddot{x} + 9x = 1$ as $x_b$. \\
+By superposition,  the particular solution of  a particular solution of
+$\ddot{x} + 9x = e^{3t} + 9$ is
+\begin{equation*}
+  x_p = x_a + 9 \cdot x_b
+\end{equation*}
+The characteristic polynomial is $r^2 + 9$, so the particular of
+$x_a$ is
+\begin{equation*}
+  \frac{e^{rt}}{r^2 + 9} = \frac{e^{3t}}{3^2 + 9} = \frac{e^{3t}}{18}.  
+\end{equation*}
+The particular solution $x_b$ is
+\begin{equation*}
+  \frac{e^{rt}}{r^2 + 9} = \frac{e^{0t}}{0^2 + 9} = \frac{1}{9}. 
+\end{equation*}
+So,
+\begin{equation*}
+  x_p = x_a + 9 \cdot x_b = \frac{e^{3t}}{18} + 9 \cdot \frac{1}{9} =  1 + \frac{e^{3t}}{18}. 
+\end{equation*}
+
+\begin{problem}
+  Higher order inhomogeneous
+\end{problem}
+Use ERF to find a particular solution of $\displaystyle {\frac{d^{4}x}{dt^{4}}-x=e^{-2t}}$. \\
+
+The characteristic polynomial is $r^4 - 1$.
+The particular solution using ERF is
+\begin{equation*}
+  \frac{e^{rt}}{P(r)} = \frac{e^{-2t}}{(-2)^4 -1} = \frac{e^{-2t}}{15}.  
+\end{equation*}
+\clearpage
+
+\subsubsection{Using Operators, a Review}
+\begin{problem}
+  Review damped oscillators
+\end{problem}
+Consider the damped harmonic oscillator corresponding to the differential operator
+$10D^2 + 2D + 5I$. \\
+\begin{itemize}
+\item If this were an undamped oscillator (damping term put to zero), find the natural angular frequency
+  $\omega _n$\\
+  
+  The characteristic polynomial for undamped oscillator is $10r^2 + 5$.
+  The roots of polynomial is $\pm i \frac{\sqrt{2}}{2}$.
+  The homogeneous solution is
+  \begin{equation*}
+    e^{i \frac{\sqrt{2}}{2} t},\, e^{i \frac{\sqrt{2}}{2} t}
+  \end{equation*}
+  By Eular's Formular,
+  \begin{equation*}
+    e^{i \frac{\sqrt{2}}{2} t} = \cos(\frac{\sqrt{2}}{2} t) + i \sin (\frac{\sqrt{2}}{2} t). 
+  \end{equation*}
+  So the natural angular frequency $\omega _n $ is $\frac{\sqrt{2}}{2}$.
+
+\item For the damped oscillator, what is the rate $a$ of exponential decay? \\
+  
+  The characteristic polynomial for undamped oscillator is $10r^2 + 2r + 5$.
+  The roots of polynomial is $-\frac{1}{10} \pm i \frac{7}{10}$
+  The homogeneous solution is
+  \begin{equation*}
+    \displaystyle e^{(-\frac{1}{10} + i \frac{7}{10})t},\, e^{(-\frac{1}{10} - i \frac{7}{10})t}
+  \end{equation*}
+  \begin{equation*}
+    \displaystyle e^{(-\frac{1}{10} + i \frac{7}{10})t}
+    \displaystyle = e^{(-\frac{1}{10})t} e^{(i \frac{7}{10})t}
+  \end{equation*}
+  So, the exponential decay $a$ is $-\frac{1}{10}$.
+
+\item For the damped oscillator, find the angular frequency $\omega _d$?\\
+  
+  The angular frequency $\omega _2$ is $\frac{7}{10}$. 
+\end{itemize}
+\clearpage
+
+\clearpage
+\subsection{Complex Replacement, Gain and Phase Lag, Stability}
+
+\subsubsection{Complex Replacement}
+\textbf{\color{blue}Objectives}
+\begin{itemize}
+\item Use {\color{blue}complex replacement} to solve any inhomogeneous LTI
+  system with {\color{blue} sinusoidal input}.
+\item Find the {\color{blue}complex gain} of an LIT system in terms of
+  the complex system response, and the complexified system input.
+\item Describe the {\color{blue}phase shift} and {\color{blue} amplitude gain} of
+  any LTI system with sinusoidal input signal in terms of the
+  {\color{blue}complex gain}.
+\item Describe {\color{blue}conditions for stability} in physical systems,
+  and distinguish between {\color{blue}long term (steady state)} and
+  {\color{blue}transient} behavior in a {\color{blue}stable} system. 
+\end{itemize}
+\clearpage
+\subsubsection{Boston Harbor Example}
+
+Suppose we are studying the tides in Boston Harbor.
+Let $x$ the water level in Boston Harbor.
+Let $y$ be the water level of the ocean.
+Then the input is the ocean level $y$, which is responsible for the changing tides $x$ in Boston Harbor,
+the system response.\\
+
+\textbf{\color{blue} The Physics} \\
+
+We assume that the ocean and the harbor are connected by a narrow channel
+so that the flow is slow and not turbulent.
+This allows us to assume that the flow rate is pressure driven, and is linearly proportional to the pressure difference.
+Furthermore the pressure difference is linearly proportional to the difference in water level between the ocean and the harbor.
+
+\begin{exercise}
+  Modeling sinusoidal tides
+\end{exercise}
+
+Represent this system as ODEs.\\
+
+The change in water level in the harbor is proportional to the difference in water level between the ocean
+and the harbor, therefore
+\begin{equation*}
+  \dot{x} = k(y - x)
+\end{equation*}
+
+which is the same as
+\begin{equation*}
+  \dot{x} + kx = ky 
+\end{equation*}
+
+We wrote $k(y−x)$ not $k(x−y)$ because we make a habit of choosing positive parameters where possible.
+We can see that $k$ must be positive because
+if the water level in the ocean is higher than the water level in the harbor,
+then the water level in the harbor will increase.
+Similarly, if the water level in the ocean lower than the water level in the harbor,
+the water level in the harbor will decrease.
+Therefore the proportionality constant $k$ must be positive.
+Notice that our equation is the same equation as Newton Cooling.
+\clearpage
+\subsubsection{Complex replacement method}
+
+\paragraph{Introduction to complex replacement}
+
+\clearpage 
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

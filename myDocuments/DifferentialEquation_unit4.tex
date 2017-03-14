@@ -1583,6 +1583,552 @@ Notice that our equation is the same equation as Newton Cooling.
 \subsubsection{Complex replacement method}
 
 \paragraph{Introduction to complex replacement}
+So I'm going to take the equation in the form
+\begin{equation*}
+  \dot{y} + ky = kq _e (t) \quad \text{ where} q _e(t) = \cos \omega t. 
+\end{equation*}
+And the input that I'm interested in is when this
+is a simple one that you used on the visual that you did,
+got two points worth of work for handing in today, $\cos \omega t$,
+which is the physical input. \\
+
+And $\omega$ is the angular frequency.
+\begin{align*}
+  \omega &= \quad \text{Angular Frequency} \\
+         &= \quad \text{Number of Complete Oscillations in } 2 \pi
+\end{align*}
+In other words, it's the number of complete oscillations.
+This $\cos \omega t$ is going up and down.
+So a complete oscillation is it goes down and then returns to where it started.
+So the number of complete oscillations in how much time, well, in the distance $2 \pi$
+on the $t$-axis in the interval of length $2 \pi$.
+For example, if $\omega = 1$, $\cos t$ takes $2 \pi$ to repeat itself.
+If omega were 2, it would make two complete oscillations in the interval $2 \pi$.
+So it's what happens in the interval $2 \pi$, not what happens in the time interval $1$ second,
+which is the natural meaning of the word frequency.
+There's always this factor of $2 \pi$ that floats around to make all your formulas
+and solutions incorrect.\\
+
+Now, what I'm out to do is, the problem is for the physical input $q_e =  \cos \omega t$,
+find the response. In other words, solve the differential equation.
+So we got to solve the differential equation using complex number. 
+I'm going to \textbf{complexify}.
+To use complex numbers, what you do is complexification of the problem.
+So I'm going to complexify the problem, turn it into the domain of complex numbers.
+So take the differential equation, turn it into a differential equation involving
+complex numbers, solve that, and then go back to the real domain to get the answer.\\
+
+In other words, I didn't give you the real answer.
+The real answer, why one would do it, is because it's easier.
+And what makes it easier is the fact that exponentials are very easy to integrate.
+There's hardly anything easier to integrate than an exponential, well they're polynomials,
+but unfortunately, polynomials occurred distressingly little in real life.
+Since it's easier to integrate exponential,and therefore, try to change the trigonometric functions
+into complex exponentials simply because the work will be easier to do.\\
+
+So let's do it.
+To change this differential equation $\dot{y} + ky = k \cos \omega t$, got $\cos \omega t$, 
+I am  going to use the fact that $e^{i \omega}$, Euler's formula, that the real part of it
+is $\cos \omega t$.
+So I'm going to view this as the real part of this complex function, but I'll
+throw in the imaginary part too since at one point we'll need it.\\
+
+Now, what is the equation then it's going to turn into?
+The complexified equation is going
+\begin{equation*}
+  \dot{y} + ky = k e^{iwt}
+\end{equation*}
+Now, I have a problem because $y$, in this equation, $y$ means the real function which solves that problem.
+I, therefore, cannot continue to call this $y$ because I want $y$ to be a real function.
+I have to change its name Since this is a complex function on the right side of the equation,
+I'll have to expect a complex solution to the differential equation.
+I'm going to call that complex solution $\tilde y$.
+\begin{equation*}
+  \tilde y ^{\prime} + k \tilde y = k e^{i \omega t}
+\end{equation*}
+Now, then that's what I would also use as the designation for the variable.
+So $\tilde y$  is the complex solution, and it's going to have the form
+\begin{equation*}
+  \tilde y = y_1 + i y_2 \qquad \text{Complex Solution}
+\end{equation*}
+
+Find this complex solution, so the program is to find $\tilde y$.
+That's the complex solution. And then I say all you have to do is take the real part of that, and that will
+answer the original problem.
+Then $y1$, will solve the original problem, the original real ODE.\\
+
+\textbf{\color{blue}Complex replacement} is a method for finding \textbf{a particular solution} to
+an inhomogeneous ODE
+\begin{equation*}
+  P(D) x = {\color{orange}{\cos \omega t}} ,
+\end{equation*}
+where $P$ is a real polynomial, and $\omega$ is real number.
+\begin{enumerate}
+\item Write the right hand side of the equation ${\color{orange}{\cos \omega t}}$
+  as $\mathrm{Re\, }\left(e^{i\omega t} \right)$
+  \begin{equation*}
+    P(D)x = {\color{orange}{\mathrm{Re\, }\left( e^{i\omega t}\right)}} .
+  \end{equation*}
+\item Replace the right hand side of the differential equation with the complex exponential
+  $e^{i \omega t}$.
+  We need a new variable for the solution, which will be a complex function. Give the name
+  $z$ for the unknown complex function. This \textbf{\color{blue} complexified}
+  differential equation is this:
+  \begin{equation*}
+    P(D) {\color{blue}{z}}  =
+    \underset {{\color{blue}{\text {complex replacement}}} }{{\color{blue}{e^{i\omega t}}} .}
+  \end{equation*}
+\item Use ERF(or generalized ERF if $P(i \omega) = 0$) to find a particular solution ${\color{blue}{z_ p}}$
+  to the complexified ODE.
+\item Computer $x_ p = \mathrm{Re\, }({\color{blue}{z_ p}} )$. Then $x _p$ is a particular solution
+  to the \textbf{original} ODE. 
+\end{enumerate}
+
+\begin{exercise}
+  Complexification concept check
+\end{exercise}
+The ocean tides are periodic with angular frequency $\omega$.
+The input can be modeled as the sinusoidal function
+$y = A \cos (\omega t)$.\\
+What is the complexified ODE for the tide problem above?\\
+
+Because $A \cos \omega t = \mathrm{Re\, }\left(Ae^{i\omega t}\right)$,
+the complexified differential equation is
+\begin{equation*}
+  \dot z + kz = kAe^{i\omega t}.
+\end{equation*}
+\clearpage
+\subsubsection{Why does complex replacement work?}
+
+\begin{question}
+  Why does the complex replacement method work?
+\end{question}
+
+If $z = x _1 + ix _2$ is solution to complex replacement ODE, i.e.,
+\begin{eqnarray*}
+  P(D)z &=& e^{i \omega t} \\
+  P(D)(x _1 + i x _2) &=& \cos \omega t + i \sin \omega t  
+\end{eqnarray*}
+Since $P$ has real coefficients, taking the real parts of both side gives
+\begin{equation*}
+  P(D)x _1 = cos \omega t
+\end{equation*}
+which says that $x_ 1$ is a solution to the original ODE.
+Note that for free we have actually solve another equation.
+Taking the imaginary parts of both gives us
+\begin{equation*}
+  P(D)x _2 = \sin \omega t
+\end{equation*}
+
+Complex replacement is helpful also with other real input signals,
+with any real-valued function that can be written
+as the real part of a reasonably simple complex input signal.
+Here are some simple examples that would be helpful to have memorized:
+\begin{align*}
+  &\text{\color{blue} Real input signal}  \qquad  &\text{\color{blue}Complex replacement} \\
+  &\cos \omega t \qquad &e^{i \omega t} \\
+  &A \cos(\omega t - \phi) \qquad &A e^{i(\omega t - \phi)} \\
+  &e^{at} \cos \omega t \qquad &e^{(a + i \omega t)}
+\end{align*}
+
+Using complex arithmetic, there is a more complicated formula which can be derived as well 
+\begin{align*}
+  &\text{\color{blue} Real input signal}  \qquad  &\text{\color{blue}Complex replacement} \\
+  &a \cos \omega t + b \sin \omega t \qquad &(a -bi)e^{i \omega t}
+\end{align*}
+
+Each function in the first column is the real part of the corresponding function in the second column. The nice thing about these examples is that the complex replacement is a constant times a complex exponential, so ERF (or generalized ERF) applies.
+\clearpage
+\subsubsection{Worked examples using complex replacement}
+
+\begin{example}
+  Find a solution to $\ddot{x} + 4x = \cos (2t)$
+\end{example}
+\Solution
+\begin{enumerate}
+\item Replace $cos (2t)$ by $\mathrm{Re\, }e^{2it}$, and complexify the ODE:
+  \begin{equation*}
+    \ddot{z} + 4z = e^{2it}. 
+  \end{equation*}
+\item Find the characteristic polynomial and apply ERF: $P(r) = r^4 +4$.
+  We find that $P(2i) = 0$, so we must use the $ERF^{\prime}:\, P^{\prime} (r) = 2r$.
+  The particular solution is
+  \begin{equation*}
+    \displaystyle z_ p
+    \displaystyle = \frac{te^{2it}}{P^{\prime} (2i)} = \frac{te^{2it}}{4i}. 
+  \end{equation*}
+\item Take the real part to find the solution to the original equation
+  \begin{equation*}
+    \displaystyle x_ p \displaystyle = \mathrm{Re\, } (z_ p)
+    \displaystyle = \frac{t\left( \cos (2t) + i \sin (2t)\right)}{4i}
+    \displaystyle = \frac{t}{4} \sin (2t)
+  \end{equation*}
+\end{enumerate}
+
+\begin{example}
+  Find a particular solution $x_ p$ to 
+\end{example}
+\begin{equation*}
+  \ddot{x} + \dot{x} + 2x = {\color{orange}{\cos (2t)}} .
+\end{equation*}
+
+\Solution
+\begin{enumerate}
+\item Since ${\color{orange}{\cos (2t)}}$ is the real part of ${\color{orange}{e^{2it}}}$, 
+  replace ${\color{orange}{\cos (2t)}}$ by ${\color{orange}{e^{2it}}}$.
+  \begin{equation*}
+    {\color{blue}{\ddot{z}}}  + {\color{blue}{\dot{z}}}  + 2{\color{blue}{z}}
+    = {\color{orange}{e^{2it}}} .
+  \end{equation*}
+\item Find the characteristic polynomial $P(r) = r^2 + r + 2$ and apply ERF,
+  which says that one particular solution to this new ODE is
+  \begin{equation*}
+    \displaystyle z_ p
+    \displaystyle = \frac{1}{P(2i)} e^{2it}
+    \displaystyle = \frac{1}{-2 + 2i} e^{2it}. 
+  \end{equation*}
+\item A particular solution to the original ODE is
+  \begin{equation*}
+    {\color{orange}{x_ p = \mathrm{Re\, }(z_ p)
+        = \mathrm{Re\, }\left( \frac{1}{-2+2i} e^{2it} \right).}}
+  \end{equation*}
+  This is a sinusoid expressed in complex form. \\
+  It might be more useful to have answer in amplitude-phase form or
+  as a linear combination of cosine and sine. \\
+
+  \textbf{\color{blue} Converting to amplitude-phase form.} We have
+  \begin{equation*}
+    \displaystyle z_ p
+    \displaystyle = \frac{1}{-2 + 2i} e^{2it}. 
+  \end{equation*}
+  To get the amplitude-phase form, we convert numerator and denominator to
+  polar form so the division is easier. The denominator $-2 + 2i$ has absolute value
+  $2 \sqrt{2}$ and angle $3 \pi / 4$, so in polar form
+  \begin{equation*}
+    \displaystyle -2 + 2i
+    \displaystyle = 2 \sqrt{2} e^{i (3 \pi / 4)}. z_ p
+    \displaystyle = \frac{e^{2it}}{2 \sqrt{2} e^{i (3 \pi / 4)}}
+    \displaystyle = \frac{1}{2 \sqrt{2}} e^{i(2t - 3 \pi / 4)}
+  \end{equation*}
+\end{enumerate}
+\Conclusion In amplitude-phase form
+\begin{equation*}
+  \boxed {x_ p = \frac{1}{2\sqrt {2}} \cos (2t - 3\pi /4). }
+\end{equation*}
+
+\textbf{\color{blue} Converting to a linear combination of $\cos$ and $\sin$:}
+We have
+\begin{equation*}
+  \displaystyle z_ p
+  \displaystyle = \frac{1}{-2 + 2i} e^{2it} 
+\end{equation*}
+To get the linear combination, we express numerator and denominator in rectangular form and then rationalize the denominator. We have
+
+\begin{align*}
+  \displaystyle e^{2it} \displaystyle &= \displaystyle  \cos 2t + i \sin 2t \\
+  \displaystyle \frac{\cos 2t + i \sin 2t}{-2+2i}
+  \displaystyle &= \displaystyle  \frac{\cos 2t + i \sin 2t}{-2+2i} \left(\frac{-2-2i}{-2-2i}\right) \\
+  \displaystyle &= \displaystyle (\cos 2t + i \sin 2t) \frac{-2-2i}{8}
+                  =(\cos 2t + i \sin 2t) \frac{-1-i}{4} \\
+  \displaystyle &= \displaystyle  \frac{(-\cos 2t +\sin 2t) - i(\cos 2t +\sin 2t)}{4}.                  
+\end{align*}
+
+\Conclusion
+\begin{equation*}
+  \boxed {x_ p = -\frac{1}{4} \cos (2t) + \frac{1}{4} \sin (2t)}
+\end{equation*}
+\clearpage
+
+\subsubsection{Damped sinusoidal inputs}
+We can use \textbf{complex replacement} to solve any ODE of the form
+\begin{equation*}
+  P(D)x = e^{at}\cos (\omega t -\phi ).
+\end{equation*}
+Let us see how by working through an example.
+
+\begin{example}
+  Find a solution to $\ddot{x} + 2x = e^{-t} \cos (3t - \phi)$, where $\phi$ is a real number. 
+\end{example}
+
+\Solution
+\begin{enumerate}
+\item Replace the right hand side with a complex exponential:
+  \begin{equation*}
+    \displaystyle e^{-t}e^{i3t -i\phi}
+    \displaystyle = e^{-i\phi}e^{(-1 + 3i)t}.
+  \end{equation*}
+  The complexified equation is
+  \begin{equation*}
+    \ddot{z} + 2z = e^{-i\phi}e^{(-1 + 3i)t}.
+  \end{equation*}
+\item Apply ERF. The characteristic polynomial is
+  \begin{align*}
+    P(r) &= r^2 + 2 \\
+    P(-1 + 3i) &= (-1 + 3i)^2 + 2 = -6 -6i.     
+  \end{align*}
+  and complex solution is
+  \begin{equation*}
+    \displaystyle z_ p
+    \displaystyle = \frac{e^{-i\phi}e^{(-1 + 3i)t}}{-6 -6i}, 
+  \end{equation*}
+  A solution to the original problem is then $X_ p = \mathrm{Re\, } (z_ p)$.
+  The solution involves a sinusoid. Polar form is the most convenient for
+  this problem, so we put the denominator in polar form:
+  \begin{equation*}
+    -6 -6i = 6 \sqrt{2} e^{-i 3 \pi / 4}. 
+  \end{equation*}
+  Then
+  \begin{equation*}
+    \displaystyle z_ p
+    \displaystyle = \frac{e^{-i\phi}e^{(-1 + 3i)t}}{-6 -6i}
+    \displaystyle = \frac{1}{6 \sqrt{2}} e^{-i\phi + i 3 \pi / 4}e^{(-1 + 3i)t} 
+  \end{equation*}
+  and
+  \begin{equation*}
+    \displaystyle x_ p
+    \displaystyle = \mathrm{Re\, } (z_ p)
+    \displaystyle = \frac{1}{6 \sqrt{2}} e^{-t} \cos (3t - \phi + 3 \pi / 4)
+  \end{equation*}
+\end{enumerate}
+
+\paragraph{Complex replacement of sine}
+
+\begin{equation*}
+  y^{\prime \prime} - y^{\prime} + 2y = 10e^{-x} \sin x 
+\end{equation*}
+
+So the input of this function is $10e^{-x} \sin x $. 
+It's a decaying oscillation.
+A decaying exponential, and I want to find a particular solution.
+Well, let's find a particular. \\
+
+So we want a particular solution, and our equation is
+\begin{equation*}
+  (D^2 -D +2)y = 10e^{-x} \sin x
+\end{equation*}
+Now, let's complexify it to make this right side of
+\begin{equation*}
+  10e^{-x} \sin x = 10 e^{(-1 + i)x}
+\end{equation*}
+What is $e^{(-1 + i)x}$? This is the \textbf{imaginary part} of this complex exponential.
+So this is imaginary part of $e^{-x} \sin x$. \\
+
+Since this is a complex equation, I shouldn't call this $y$ anymore.
+By my notation, I like to call it $\tilde y$.
+
+\begin{equation*}
+  (D^2 -D +2) \tilde y = 10 e^{(-1 + i)x}.
+\end{equation*}
+
+The $\tilde y$ to indicate that the solution we get to this is not going to be the solution to the original problem, but you'll have to take the imaginary part of it to get it.\\
+So we're looking now for the complex solution to this complexified equation.
+Well, the complex particular solution I can write down immediately.
+\begin{align*}
+  \displaystyle \tilde y_ p
+  \displaystyle &= \frac{10 e^{(-1 + i)x}}{(-1 + i)^2 - (-1 + i) + 2} \\
+  \displaystyle &= \frac{10 e^{(-1 + i)x}}{3 -3i} \\
+  \displaystyle &= \frac{10}{3} \frac{(1 + i)}{(1 - i) \cdot (1 + i)} e^{(-1 + i)x} \\
+  \displaystyle &= \frac{10}{3} \frac{(1 + i)}{2} e^{(-1 + i)x} \\
+  \displaystyle &= \frac{10}{3} \frac{(1 + i)}{2} e^{-x} \left( \cos (x) + i \sin (x) \right) \\
+  \displaystyle &= \frac{10}{3} \frac{(1 + i)}{2} e^{-x} \left( \cos (x) + i \sin (x) \right) \\
+  \displaystyle &= \frac{5}{3}  e^{-x} (1 + i) \left( \cos (x) + i \sin (x) \right) 
+\end{align*}
+
+So we're practically at our solution.
+The solution then finally is going to be $y_p $ is the imaginary part of $\tilde y_ p$, and what's that?
+\begin{equation*}
+  y_ p = \mathrm{Im\, } \left( \tilde y_ p \right)
+  = \frac{5}{3}  e^{-x} \left(\cos (x) + \sin (x) \right)   
+\end{equation*}
+In amplitude-phase form
+\begin{equation*}
+  y_ p = \frac{5}{3} e^{-x} \sqrt{2} \cos (x - \pi / 4)
+\end{equation*}
+
+\clearpage
+
+\subsubsection{Complex gain}
+
+Our goal is to explain how the amplitude and phase lag depend on system parameters and the input frequency.
+To do so, we will use our method of complex replacement and introduce the complex gain.\\
+
+Let's state the general picture here for reference.
+We have an LTI system modeled by the differential equation
+\begin{equation*}
+  P(D)x = Q(D)y 
+\end{equation*}
+
+with input signal $y$ and system response $x$.
+The ERF together with complex replacement shows that if $y = \cos (\omega t)$,
+then a particular solution is given by
+\begin{equation*}
+  x_ p  = \mathrm{Re\, } \left( G(\omega) e^{i \omega t}\right)
+\end{equation*}
+where
+\begin{equation*}
+  \displaystyle G(\omega)
+  \displaystyle = \displaystyle \frac{Q(i \omega)}{P(i \omega)} \quad
+  \text{if } P(i \omega) \neq 0. 
+\end{equation*}
+
+\paragraph{Complexification and ERF worked out}
+The complexified equation is
+\begin{equation*}
+  P(D)z = Q(D) e^{\i \omega t}. 
+\end{equation*}
+
+If $P(i \omega) \neq 0$, the ERF gives us a particular solution of the form
+\begin{equation*}
+  \displaystyle z_ p
+  \displaystyle = \frac{Q(i \omega)}{P(i \omega)} e^{\i \omega t}. 
+\end{equation*}
+
+We can express this as
+\begin{equation*}
+  \displaystyle Z_ p = G(\omega) e^{\i \omega t}.
+\end{equation*}
+
+Writing the complex gain in polar form, $G(\omega) = |G(\omega)| e^{-i \phi}$. we find
+\begin{equation*}
+  z_ p =\left|G(\omega )\right| e^{i(\omega t-\phi )}.
+\end{equation*}
+So the solution to the original OED is
+\begin{equation*}
+  x_ p =\left|G(\omega )\right| \cos {(\omega t-\phi )}.
+\end{equation*}
+
+This form leads directly to the polar form of the sinusoidal function $x_ p$.
+Let's see how this works with the equation we used to model the tide in Boston Harbor
+\begin{equation*}
+  \dot x + kx = k\cos (\omega t).
+\end{equation*}
+
+Recall that we model the ocean tide by $\cos (\omega t)$, and this is regraded as the input signal.
+The system response $x$ is the high of the water in harbor.\\
+
+We use the method of complex replacement to solve the ODE for Boston harbor problem.
+
+\begin{itemize}
+\item The complex replacement ODE is
+  \begin{equation*}
+    \dot z + kz = k e^{i \omega t}
+  \end{equation*}
+  with input signal $e^{i \omega t}$.
+\item One particular response determined by ERF is
+  \begin{equation*}
+    \displaystyle z_ p
+    \displaystyle = \frac{Q(i \omega)}{P(i \omega)} e^{i \omega t}
+    \displaystyle = \frac{k}{i \omega + k} e^{i \omega t}
+  \end{equation*}
+\item The ERF shows that the system response to a complex exponential input signal is a
+  \textbf{constant multiple} of that input signal.
+  That constant is the \textbf{\color{blue}complex gain}:
+  \begin{equation*}
+    \displaystyle  G(\omega ) \displaystyle  =
+    \displaystyle
+    \frac{\text {complexified system response}}{\text {complexified system input}}.
+  \end{equation*}
+  in the present case,
+  \begin{equation*}
+    G(\omega) = \frac{k}{i \omega + k}
+  \end{equation*}
+  and
+  \begin{equation*}
+    \displaystyle  z_ p =G(\omega )e^{i\omega t} =  \frac{k}{i\omega + k}e^{i\omega t}.
+  \end{equation*}
+  This complex number $G$, expressed as a ratio of two function of time is \textbf{constant}.
+  It depends upon the system parameters, of course, but we regard them as fixed.
+  We are interested in how it varies with the input angular frequency $\omega$, and
+  write $G(\omega)$ to stress that functional dependence.
+\item To get a particular solution to the original real ODE, take the real part of $z_ p$:
+  \begin{equation*}
+    x_ p = \mathrm{Re\, }\left( G(\omega ) e^{i\omega t}\right)
+    = \mathrm{Re\, }\left( \frac{k}{i\omega + k}e^{i\omega t} \right)
+  \end{equation*}
+\item Now comes the best part of this method.
+  Writing the particular solution in terms of $G$ leads directly to the polar form for $x_ p$.
+  To find it, write out the polar expression for the complex number $G(\omega)$.
+  \begin{equation*}
+    G(\omega ) = \left| G(\omega ) \right|e^{-i\phi }.
+  \end{equation*}
+  In our case
+  \begin{equation*}
+    \left| G(\omega ) \right| = \frac{k}{\sqrt {\omega ^2+k^2}}
+  \end{equation*}
+  and so
+  \begin{equation*}
+    \displaystyle  z_ p \displaystyle =
+    \displaystyle \frac{k}{\sqrt {\omega ^2+k^2}}e^{i(\omega t-\phi )}
+    \qquad \text {and}
+    \qquad x_ p \displaystyle  = \displaystyle \frac{k}{\sqrt {\omega ^2+k^2}}\cos (\omega t-\phi ).    
+  \end{equation*}
+  We have discovered that the gain is given by
+  \begin{equation*}
+    \text {gain} = g(\omega ) = \frac{k}{\sqrt {\omega ^2+k^2}}.
+  \end{equation*}
+
+  \textbf{\color{orange}General rule:}\\
+  In general, the
+  \begin{equation*}
+    \text {gain} = g(\omega ) = \left|G(\omega ) \right|
+  \end{equation*}
+  and the
+  \begin{equation*}
+      \text {phase lag} = \phi = -\arg G(\omega ).
+  \end{equation*}
+
+\end{itemize}
+Observe that the amplitude of the response is different than the amplitude of the input.
+That difference in amplitude is the gain $g$. which is the magnitude of the complex gain
+$g = |G|$.
+The \textbf{\color{blue}phase lag} is $\phi = -\arg {G}$.
+
+For the system,
+\begin{equation*}
+  \text {gain} = |G| = \frac{k}{\left| k+i\omega \right|} = \frac{k}{\sqrt {k^2 + \omega ^2}}
+\end{equation*}
+and
+\begin{align*}
+  \displaystyle  \displaystyle \text {phase lag} = -\arg G
+  \displaystyle &= \displaystyle  -\left(\arg \frac{k}{k+i\omega }\right) \\
+  \displaystyle &= \displaystyle  - \arg k + \arg (k+i\omega ) = \arg (k+i\omega ).  
+\end{align*}
+
+Note the last equality follows because $\arg k =0$
+since $k$ is real and positive. Observe that in general, we have
+\begin{align*}
+  \displaystyle  \text {complex gain} = G
+  \displaystyle &= \displaystyle  \frac{Q(i\omega )}{P(i\omega )}\\
+  \displaystyle \text {phase lag} = -\arg G
+  \displaystyle &= \displaystyle  \arg P(i\omega ) - \arg Q(i\omega ).
+\end{align*}
+
+\begin{exercise}
+  Complex gain and LTI
+\end{exercise}
+
+Why is it enough to consider input signals of the type $\cos (\omega t)$?\\
+What about an input signal of the type $A\cos (\omega t - \theta )$? \\
+If you know that
+\begin{equation*}
+  x_ p = g\cos (\omega t - \phi )
+\end{equation*}
+is steady state response to
+\begin{equation*}
+  P(D) x = \cos (\omega t),
+\end{equation*}
+what is a steady state response to
+\begin{equation*}
+  P(D) x = A\cos (\omega t-\theta )?
+\end{equation*}
+
+This is the key idea behind LTI. A steady state response is given by
+\begin{equation*}
+  x_ p = g\cdot A \cos (\omega t - \theta - \phi ).
+\end{equation*}
+
+\clearpage
+
 
 \clearpage 
 %%% Local Variables:

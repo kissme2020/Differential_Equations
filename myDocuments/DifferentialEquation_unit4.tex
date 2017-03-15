@@ -2157,7 +2157,9 @@ Find the complex gain for the system
     z_ p=\frac{2 e^{it}}{i^2 + bi + 2} = \frac{2 e^{it}}{1+ bi}.
   \end{equation*}
 \item The complex gain is
-  \frac{z_ p}{e^{it}} = \frac{2}{1+bi}.
+  \begin{equation*}
+      \frac{z_ p}{e^{it}} = \frac{2}{1+bi}.
+  \end{equation*}
 \end{itemize}
 
 \begin{exercise}
@@ -2196,8 +2198,169 @@ We have been studying LTI, or Linear-invariant system.
 ``Time-invariant'' means that the system parameters are not changing,
 or are change very slowly relative to the time scale we are interested in.
 The implication of our input/output analysis is this:
-If $x(t)$ is a system response to the input signal $f(t)$,  
+If $x(t)$ is a system response to the input signal $f(t)$,
+then if we delay the input signal by $t_0$ seconds, the output signal is the same
+as before but delayed by $t_0$ seconds as well: $x(t - t_0)$ is system response
+to the input $f(t - t_0)$. The system parameters are the coefficients
+in differential equation; so ``time-invariant'' is the same as ``constant coefficients.''\\
 
+Because our systems are also \textbf{linear}, if $x(t)$ is system response to $f(t)$,
+then $Ax(t)$ is system response to $Af(t)$. Thus when studying a a linear time-invariant
+system with sinusoidal input $A \cos (\omega - \phi)$, it is enough to consider
+the input $\cos (\omega t)$ since linearity and time-invariance give the response
+to all other sinusoidal inputs for free.
+
+\begin{example}
+  If
+  \begin{equation*}
+    P(D) x = \cos \omega t
+  \end{equation*}
+\end{example}
+has $x_ p = A \cos (\omega t - \phi )$ as a particular solution, then shifting time by
+$a = \alpha / \omega$ show that
+\begin{equation*}
+  P(D) x = \cos (\omega t - \alpha )
+\end{equation*}
+has $x_ p = A \cos (\omega t - \alpha - \phi )$ as a particular solution. \\
+
+The gain and phase lag represent a relationship between the input and the output (both sinusoidal).
+The gain is the ratio of the output amplitude to the input amplitude,
+and the phase lag is the number of radians the output signal falls behind the input signal.
+Because our system is time-invariant, those relationships between input and response are
+\textbf{unchanged} by replacing the input signal $cos(\omega t)$ with $cos(\omega t - \alpha)$:
+the gain is $A$ and the phase lag is $\phi$.\\
+
+\begin{exercise}
+  Time Invariance concept check
+\end{exercise}
+
+If $x_ p = A\cos (\omega t - \phi )$ is a particular solution to $P(D)x = \cos (\omega t)$, 
+what is a solution to $P(D) x = \sin (\omega t)$?\\
+
+Since $\sin (\omega t) = \cos (\omega t - \pi /2)$, the system response is
+$A\cos (\omega t - \pi /2 - \phi ) = A\sin (\omega t - \phi )$,
+as the gain and phase lag are unchanged.
+\clearpage
+
+\subsubsection{Worked example}
+\paragraph{Review of complex replacement and time-invariance}
+We'll review how to solve first order differential equations
+with sinusoidal inputs using complex replacement and the exponential response formula.\\
+
+\begin{enumerate}[label=\textbf{Part.\arabic*}]
+\item \label{Part.1} Use complex techniques to solve
+  \begin{equation*}
+    \dot{x} + kx = \cos (\omega t) \qquad \text{ where } k,\, \omega \text{ is constant}. 
+  \end{equation*}
+  The general solution is
+  \begin{equation*}
+    x = x_ h + x_ p 
+  \end{equation*}
+  Set right side of equation to zero,
+  \begin{equation*}
+      \dot{x} + kx = 0
+  \end{equation*}
+  then solve it by separate variable,
+  \begin{align*}
+    \dot{x} + kx &= 0 \\
+    \frac{1}{x} dx  &= -k dt \\
+    \int \frac{1}{x} dx  &= \int -k dt \\
+    \ln |x|  &= -kt + c_1 \\
+    e^{\ln |x|}  &= e^{-kt + c_1} \\
+    x  &= e^{c_ 1} e^{-kt}. 
+  \end{align*}
+
+  So, the homogeneous solution for $\dot{x} + kx$ is
+  \begin{equation*}
+    C_1 e^{-kt}. 
+  \end{equation*}
+
+  The particular solution of $\dot{x} + kx = \cos (\omega t)$. \\
+  
+  The complex replacement of $\cos (\omega t)$ is $\cos (\omega t) = \mathrm{Re\, }(e^{i \omega t})$. \\
+  Complexified this ODE, 
+  \begin{equation*}
+    \dot{z} + kz = e^{i \omega t}. 
+  \end{equation*}
+  The characteristic polynomial is $P(D) = D + k$, Using ERF, 
+  \begin{equation*}
+    z_ p = \frac{1}{P(i \omega)} e^{i \omega t} = \frac{1}{i \omega  + k} e^{i \omega t}
+    = \frac{k - i \omega}{k^2 + \omega ^2} e^{i \omega t}
+    = \frac{k - i \omega}{k^2 + \omega ^2} \left( \cos (\omega t) + i \sin (\omega t) \right). 
+  \end{equation*}
+  Take real part of $z_ p$ is
+  \begin{equation*}
+    x_p = \mathrm{Re\, }(z_ p) 
+    = \frac{1}{k^2 + \omega ^2} \left( k \cos (\omega t) + \omega \sin (\omega t) \right). 
+  \end{equation*}
+  So the general solution is
+  \begin{equation*}
+    x = C_1 e^{-kt} +
+    \frac{1}{k^2 + \omega ^2} \left( k \cos (\omega t) + \omega \sin (\omega t) \right). 
+  \end{equation*}
+  
+\item \label{Part.2}Use our work from \ref{Part.1} to solve
+  \begin{equation*}
+    \dot{x} + kx = F \sin (\omega t) \qquad \text{ where } F \text{ is constant}.
+  \end{equation*}
+  Complex replacement
+  \begin{equation*}
+    \sin (\omega t) = F \mathrm{Im\, }(e^{i \omega t}).
+  \end{equation*}
+  The complexified ODE
+  \begin{equation*}
+    \dot{z} + kz = Fe^{i \omega t}. 
+  \end{equation*}
+  Using linearity
+  \begin{equation*}
+    z_ p = \frac{F \left(k - i \omega \right)}{k^2 + \omega ^2}
+    \left( \cos (\omega t) + i \sin (\omega t) \right). 
+  \end{equation*}
+  Take imaginary part of $z_ p$ is
+  \begin{equation*}
+    x_ p = \mathrm{Im\, } (z_ p)
+    = \frac{F}{k^2 + \omega ^2} \left( - \omega \cos (\omega t) + k \sin (\omega t) \right). 
+  \end{equation*}
+  
+\item Use the superposition principle to solve
+  \begin{equation*}
+    \dot{x} + kx =  \cos (\omega t) + 3 \sin (\omega t)
+  \end{equation*}
+  Let the solution of \ref{Part.1} as $x_a$ and \ref{Part.2} as $x_b$ then,
+  \begin{align*}
+    \dot{x}_ a + kx_ a &= \cos (\omega t) \\
+    \dot{x}_ b + kx_ b &= F \sin (\omega t) = 3 \sin (\omega t), \text{ where } F = 3
+  \end{align*}
+  By linearity
+  \begin{align*}
+    \frac{d}{dt} (\underbrace{x_ a + x_ b}_{x}) +
+    k(\underbrace{x_ a + x_ b}_{x}) =  \cos (\omega t) + 3 \sin (\omega t). 
+  \end{align*}
+  We can write down the solution to this equation by simply taking
+  the sum of the solutions from \ref{Part.1} and \ref{Part.2}. \\
+  So the particular solutions is
+  \begin{align*}
+    x_ p &= \frac{1}{k^2 + \omega ^2} \left( k \cos (\omega t) + \omega \sin (\omega t) \right)
+    + \frac{3}{k^2 + \omega ^2} \left( - \omega \cos (\omega t) + k \sin (\omega t) \right) \\
+         &= \frac{1}{k^2 + \omega ^2} \left( \left(k -3 \omega \right) \cos(\omega t) +
+           \left( \omega + 3k \right) \sin (\omega t) \right)    
+  \end{align*}  
+  
+\item use our work from \ref{Part.1} again, to solve
+  \begin{equation*}
+    \dot{x} + kx = \cos (\omega t - \phi) \qquad \text{ where } \phi \text{ is constant}.
+  \end{equation*}
+  Reform the equation
+  \begin{equation*}
+      \dot{x} + kx = \cos (\omega (t - \phi / \omega).   
+  \end{equation*}
+  This equation is same form of \ref{Part.1}. So using LTI
+  \begin{align*}
+    x_ p & = \frac{1}{k^2 + \omega ^2} \left( k \cos \left( \omega ( t - \phi / \omega) \right)
+    + \omega \sin \left( \omega (t - \phi / \omega) \right) \right) \\
+    &= \frac{1}{k^2 + \omega ^2} \left( k \cos (\omega t - \phi)  + \omega \sin (\omega t - \phi ) \right) \\
+  \end{align*}
+\end{enumerate}
 
 
 \clearpage 

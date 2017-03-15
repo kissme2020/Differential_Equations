@@ -2128,6 +2128,76 @@ This is the key idea behind LTI. A steady state response is given by
 \end{equation*}
 
 \clearpage
+\subsubsection{Driving through the spring}
+
+Now we will apply the method of complex gain to understand solutions to a more
+complicated system — a mass-spring-dashpot system driven through the spring.
+The general differential equation is
+\begin{equation*}
+  \ddot x + b\dot x + kx = ky
+\end{equation*}
+
+where $y$ is the input signal, namely the position of the far end of the spring,
+and $x$ is the displacement of the mass.
+
+\begin{exercise}
+  Complex gain check
+\end{exercise}
+
+Find the complex gain for the system
+\begin{equation*}
+  \ddot x + b\dot x + 2x = 2\cos (t).
+\end{equation*}
+
+\begin{itemize}
+\item The input is $\cos (t)$.
+\item The complex replacement ODE is $\ddot z + b\dot z + 2z = 2e^{it}$.
+\item Use ERF to find a particular solution
+  \begin{equation*}
+    z_ p=\frac{2 e^{it}}{i^2 + bi + 2} = \frac{2 e^{it}}{1+ bi}.
+  \end{equation*}
+\item The complex gain is
+  \frac{z_ p}{e^{it}} = \frac{2}{1+bi}.
+\end{itemize}
+
+\begin{exercise}
+  Phase lag
+\end{exercise}
+Consider the equation
+\begin{equation*}
+  \ddot x + b\dot x + 2x = 2\cos (t).
+\end{equation*}
+If the damping constant $b$ starts at $1$ and is increased,
+what happens to the \textbf{phase lag} ?\\
+
+The phase lag increases—the phase lag is the argument of $\frac{2}{P(i)} = \frac{2}{1+bi}$.
+As $b$ increases the argument increases.
+
+\begin{exercise}
+  Amplitude gain
+\end{exercise}
+Consider the equation
+\begin{equation*}
+  \ddot x + b\dot x + 2x = 2\cos (t).
+\end{equation*}
+If the damping constant $b$ starts at $1$ and is increased,
+what happens to the \textbf{phase lag} ? \\
+
+The amplitude decreases. The amplitude of the solution is the gain
+$g=\frac{2}{|P(i)|}$.
+As $b$ increases, the value of $|P(i)| = |1+bi|$ increases, so gain $g=\frac{2}{|P(i)|}$. 
+
+\clearpage
+\subsubsection{The meaning of LTI}
+Here we explain why it is really enough to understand
+the system response to the input signal $\cos (\omega t)$\\
+
+We have been studying LTI, or Linear-invariant system.
+``Time-invariant'' means that the system parameters are not changing,
+or are change very slowly relative to the time scale we are interested in.
+The implication of our input/output analysis is this:
+If $x(t)$ is a system response to the input signal $f(t)$,  
+
 
 
 \clearpage 

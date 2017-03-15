@@ -2362,8 +2362,157 @@ with sinusoidal inputs using complex replacement and the exponential response fo
   \end{align*}
 \end{enumerate}
 
+\clearpage
+\subsubsection{Stability} 
+To do with the first order linear DE
+\begin{equation*}
+  \dot{y} + ky = q(t).
+\end{equation*}
 
-\clearpage 
+In this lecture, we've been discussing the case of exponential inputs
+$q(t) = e^{(a + bi)t}$.
+This is the case where complex numbers and ERF help.
+But earlier in the class we used {\color{blue} variation of parameters} to find
+a general integral solution for any input $q(t)$.\\
+Considering the most general input $q(t)$.
+
+\paragraph{Steady state and transients} \label{stablilty}
+
+Let's look at the equation
+\begin{equation*}
+  q(t) = e^{(a + bi)t}.
+\end{equation*}
+
+When you solve it, let me remind you how the solutions look,
+because that explains the terminology. \\
+The solution looks like
+--after you've done the integrating factor and multiplied through and integrated both sides--
+in short, what you're supposed to do.
+\begin{equation*}
+  y = e^{{\color{orange}-k}t} \int q(t) e^{{\color{orange}k}t} dt + c e^{-k}
+\end{equation*}
+It will help you to remember the opposite signs.
+If you think that when $q$ is a constant, $1$ for example,
+you want these two $e^{-kt}$ and $e^{kt}$ to cancel out and produce a constant solution.
+That's a good way to remember that the signs have to be opposite.
+But I don't encourage you to remember the formula at all.
+It's just a convenient thing for me to be able to use right now.
+And then there's the other term which
+comes by putting out the arbitrary constants explicitly, $c e^{-kt}$. 
+So you could either write it this way, where this is somewhat vague, or you could
+make it definite by putting $\int_0 ^t$ and change the dummy variable inside
+according to the way the notes tell you to do it. \\
+
+When you do this and if $k > 0$--
+that's absolutely essential-- only when that is so, then this term, as I told you a week or so ago,
+this $c e^{-k}$ goes to 0 because $k > 0$ as $t$ goes to infinity.
+So this goes to 0 as t goes-- and it doesn't matter what $c$ is--as $t$ goes to infinity.
+The terms, $e^{{\color{orange}-k}t} \int q(t) e^{{\color{orange}k}t} dt$, stays some sort of function.
+And so this term is called the \textbf{\color{blue}steady state} or long term solution.\\
+
+And this term $c e^{-kt}$ disappears, gets smaller and smaller as time goes on,
+is therefore called the \textbf{transient} because it disappears as the time increases to infinity.
+So $c e^{-kt}$ uses the initial value, let's call it $y(0)$, assuming that you started
+the initial value when t was equal to $0$, which is a common thing to do, although of course
+not necessary.
+The starting value appears in this term. This one is just some function.\\
+The general picture of the way that looks
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-steady_state}
+  \caption{Image of steady state}
+\end{figure}
+
+Well, the steady state solution has this starting point.
+Other solutions can have any of these other starting points.
+So in the beginning, they won't look like the steady state solution.
+But we know that as time goes on, they must approach it,
+because $c e^{-kt}$ represents the difference between the solution and the steady state solution.
+So this term is going to $0$, and therefore whatever these solutions of graph do to start out with,
+after a while they must follow the steady state solution more and more closely.
+They must, in short, be asymptotic to it.
+So the solutions to any equation of that form will look like this.
+Even if up here maybe it started at 127, that's OK.
+After a while it's going to start approaching that green curve.\\
+
+Of course, they won't cross each other.
+But they are sort of like that's the rock star and these are the groupies trying to get close to it.
+But something follows from that picture, which is the steady state solution?
+What, in short, is so special about this green curve?
+All these other white solution curves have the same property that all the other white curves
+and the green curve, too, are trying to get close to them.
+In other words, there is nothing special about the green curve.
+It's just that they all want to get close to each other.
+And therefore, though you can write a formula like this, there isn't one steady state solution.
+There are many. Now, this produces vagueness.
+So you talk about the steady state solution, which are you talking about?
+I have no answer to that. The usual answer is whichever one looks simplest.
+Normally the one that will look simplest is the one where $c$ is zero.
+But if this is a peculiar function, it might be that for some other value of $c$,
+you get an even simpler expression.\\
+
+So the steady state solution, about the best I can say, either you integrate that, don't use an arbitrary constant and use what you get, or pick the simplest.
+Pick the value of $c$ which gives you the simplest answer.
+Pick the simplest function.
+That's what's usually called the steady state solution.\\
+
+\textbf{\color{orange} Remarks on \ref{stablilty}: }
+For higher order systems, we haven't presented the general integral formula
+for solving differential equations with arbitrary input.
+So here we only discuss transients, steady state, and stability
+in the case of complex exponential input for higher order systems.\\
+
+A certain spring/mass/dashpot system is modeled by the LTI ODE
+\begin{equation*}
+  \ddot x + 7\dot x+12 x = 12f(t)
+\end{equation*}
+where $f(t)=\cos (2t)$ is the input signal.\\
+
+\textbf{\color{blue}Question:} Suppose that the solution to this equation
+with initial conditions $(x(0), \dot x(0)) = (2,3)$ is $x(t)$.
+What can you say about the solution $y(t)$ to the same ODE with initial condition
+$(y(0), \dot y(0)) = (3,-8)$?
+\begin{itemize}
+\item It isn't related to $x(t)$ in any way.
+\item It oscillates.
+\item ts graph becomes asymptotic to that of $x(t)$ as $t \to \infty$.
+\item Its graph diverges from that of $x(t)$ as $t \to \infty$.
+\end{itemize}
+
+\Solution \\
+The characteristic polynomial is $r^2 + 7r + 12$, and the roots are $-3$ and $-4$.
+Thus the general homogeneous solution has form
+\begin{equation*}
+  x_ h = c_1 e^{-3t} + c_2 e^{-4t},
+\end{equation*}
+
+where $c_ 1$ and $c_ 2$ are constants determined by initial conditions.
+All of these homogeneous solutions decay (rapidly!) to zero as $t$ grows to $\infty$.
+So any solution with different initial conditions will become
+asymptotic to that. Why is this?\\
+
+The general solution to the original inhomogeneous ODE is
+
+\begin{align*}
+  \displaystyle  x \displaystyle &= x_ p + x_ h \\
+  \displaystyle &=
+                  \underbrace{\mathrm{Re\, }
+                  \left( \frac{1}{8+14i} e^{2it} \right)}_{{\color{blue}{\text {steady state solution}}} }
+                  + \underbrace{c_1 e^{-3t} + c_2 e^{-4t}}_{{\color{orange}{\text {transient}}} }.
+\end{align*}
+In general, for a damped oscillator forced with a sinusoidal input produces a sinusoidal output signal.
+That output is a particular solution called a \textbf{\color{blue} steady-state solution},
+because this is what the solution looks like as $t \to \infty$.
+Every other solution is the steady-state solution plus a \textbf{\color{orange} transient},
+where the transient is a function that decays to $0$ as $ t \to + \infty$. \\
+
+Changing the initial conditions changes only the constants $c_ 1$ and $c_ 2$ in the homogeneous
+solution above, so the steady-state solution is the same.
+A system like this,in which changes in the initial conditions have vanishing effect on
+the long-term behavior of the solution, is called $stable$. 
+\clearpage
+
+\clearpage
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

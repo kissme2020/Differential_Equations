@@ -2511,6 +2511,178 @@ solution above, so the steady-state solution is the same.
 A system like this,in which changes in the initial conditions have vanishing effect on
 the long-term behavior of the solution, is called $stable$. 
 \clearpage
+\subsubsection{Tests for stability in a second-order system}
+
+\textbf{\color{blue}Stability} means that the long-term system behavior is independent of initial conditions.\\
+
+\textbf{Stability test in terms of roots}.
+A constant coefficient linear ODE of any order is stable if and only if every root of
+the characteristic polynomial has negative real part.\\
+
+We will explain this in the case of a second order system. For any second order system
+\begin{equation*}
+  m \ddot{x} + b \dot{x} + kx = 0
+\end{equation*}
+there are 3 cases for the roots of the characteristic polynomial.
+\begin{enumerate}
+\item The roots are complex conjugates: $a \pm bi$.
+\item The roots are repeated and real: $s,\, s$.
+\item The roots are distinct real number: $r_ 1 ,\, r_2$
+\end{enumerate}
+
+If the roots are complex conjugates, then the solution to the general solution to the homogeneous equation takes
+the form $e^{at} \left(A \cos(bt - \phi) \right)$.
+The homogeneous solution is transient only if the real part of the root is negative $(a<0)$.
+If the real part is zero $a = 0$, the homogeneous solution oscillates forever
+with constant amplitude;
+if the real part is positive $(a>0)$, the homogeneous solution oscillates
+and the amplitude grows exponentially as time goes on.\\
+
+If the roots are real and repeated, then the homogeneous solution takes the form
+$(A + Bt) e^{st}$, and these solution are transient only if $s < 0$.\\
+
+If the roots are real and distinct, then the homogeneous solution takes the form
+$c_ 1 e^{r_ 1 t} + c_ 2 e^{r_ 2 t}$ and these solutions are transient only if
+$r_ 1 ,\, r_ 2 < 0$. \\
+
+These conditions are collected in the table below.
+All three cases are covered by the statement that the real part of the roots of
+the characteristic polynomial must be negative.
+\begin{align*}
+  &\text{\textbf{\color{blue}Roots}}&
+  &\text{\textbf{\color{blue}General solution}} x_ h &
+  &\text{\textbf{\color{blue}Condition for stability}} \\
+  &\text{complex } a \pm bi &
+  &\text{repeated real} s,\, s &
+  &\text{distinct real} r_ 1,\, r_ 2 & \\
+  &e^{at}\left(c_ 1 \cos (bt) \right)&
+  &e^{st} (c_ 1 + c_ 2 t)&
+  & c_ 1 e^{r_ 1 t} + c_ 2 e^{r_ 2 t} 
+\end{align*}
+
+\paragraph{Conditions for stability}
+This is our equation.
+
+\begin{equation*}
+  \ddot{y} + A \dot{y} + By =  f(t) \quad \text{ where } A, \, B \text{ are conditions. }
+\end{equation*}
+
+The question I'm asking is,
+under what circumstances can I make that same type of analysis into steady state and transient?
+Well, what does the solution look like?
+The solution looks like
+\begin{equation*}
+  y = y_p + c_1 y_ 1 + c_ 2 y_ 2 
+\end{equation*}
+Therefore, to make $y = y_p + c_ 1 y_ 1 + c_ 2 y_ 2$ look like
+this,$y = e^{-kt} \int q(t) e^{kt}dt + c e^{-kt}$,
+the $c_ 1$ and $c_ 2$ contain the initial conditions.
+This part $y_ p$ does not.\\
+Therefore, if I want to say that the solutions look like a steady state solution
+plus something which dies away, which becomes less and less important
+as time goes on, what I'm really asking is, under what circumstances is this
+$c_1 y_ 1 + c_ 2 y_ 2$ guaranteed to go to zero.?\\
+
+So the question is, in other words, 
+under what conditions on the equation constants $A$ and $B$ in effect
+is what we're asking.\\
+When does $c_ 1 y_ 1 + c_ 2 y_ 2$ go to $0$ as $t \to \infty$ regardless of what
+$c_ 1$ and $c_ 2$ are, for all $c_ 1,\, c_22$?\\
+
+Here
+\begin{equation*}
+  y = e^{-kt} \int q(t) e^{kt}dt + c e^{-kt}
+\end{equation*}
+there was no difficulty. We had the thing very explicitly,
+and you could see it.
+$k > 0$, $c e^{-kt}$ this goes to $0$.
+And if $k < 0$, it doesn't go to zero. It goes to infinity. \\
+Here
+\begin{equation*}
+  c_1 y_ 1 + c_ 2 y_ 2 
+\end{equation*}
+I want to make the same kind of analysis, except it's just going to be a little more trouble.
+But the answer when it finally comes out is very beautiful.
+So when are the $c_1 y_ 1 + c_ 2 y_ 2$ going to go to $0$?\\
+First of all, you might as well have the definition.
+All the good things that this is going to imply, if this is so--
+in other words, \textbf{if they all go to 0,
+everything in the complementary solution goes to 0}, then the ODE is called stable.
+Some people call it asymptotically stable. I don't know what to call it.\\
+
+I can make the analysis.
+And then I use the identical terminology,
+\begin{equation*}
+  y = \underbrace{y_ p}_{\text{Steady State Solution }} +
+  \underbrace{c_1 y_ 1 + c_ 2 y_ 2}_{\text{Transient}}
+\end{equation*}
+The transient because it goes to $0$.
+This $y_ p$ is called the particular solution now that we labor so hard to get for
+the next two weeks is the important part. It's the steady state part.
+It's what lasts out to infinity after the other stuff has disappeared.
+So this is the steady state solution.
+And the differential equation is called stable. \\
+It's of the highest interest to know when a linear differential
+equation is stable in this sense, because you have a control.
+You know what its solutions look like.
+You have some feeling for how it's behaving in the long term.
+If this is not so, each equation is a law unto itself, and you don't know. \\
+
+So let's do the work.
+For the rest of the period, what I'd like to do is to find out what the conditions are
+which make this true.
+Those are the equations which we'll have a right to call stable.
+So when does this happen, and where is it going to happen?
+I don't know. I guess here.\\
+
+
+I think the first step is fairly easy, and it'll give you a good review of what
+we've been doing up till now.
+So I'm simply going to make a case by case analysis.
+Don't worry, it won't take very long.
+\begin{align*}
+  &\text{\textbf{\color{blue}Characteristic Roots}}&
+  &\text{\textbf{\color{blue} Homogeneous Solution}} &
+  &\text{\textbf{\color{blue}Condition for stability}} \\
+  & r_ 1 \neq r_ 2 &
+  & C_ 1 e^{r_ 1 t}  + C_ 2 e^{r_ 2 t} &
+  & r_ 1 < 0 , \, r_ 2 < 0\\
+  & r_ 1 = r_ 2&
+  & (C_ 1  + tC_ 2) e^{r_ 1 t}&
+  & r_ 1 < 0  \\                 
+  &r = a \pm bi & 
+  &e^{at} \left(C_ 1 \cos bt  +  C_ 2 \sin bt \right) &
+  & a < 0
+\end{align*}
+
+The ODE is stable-- so this is
+\begin{equation*}
+  \ddot{y} + A \dot{y} + By = f(t)
+\end{equation*}
+It doesn't matter. But psychologically you can put $0$ to the right side of equation.
+It's stable if what?
+But that's ugly. Make it beautiful.
+The beautiful way of saying it is, \textbf{if all the characteristic roots have negative real part}.
+
+If the characteristic roots, the $r$'s or the a plus or minus $bi$ have negative real part.
+That's the form in which the electrical engineers will nod their head, tell you yeah, that's right.
+The only case in which I really have to use real part is when I talk about the complex case,
+because $a$ is just the real part of the complex number.\\
+
+\begin{exercise}
+  Stability concept check
+\end{exercise}
+Is the ODE
+\begin{equation*}
+  \displaystyle  x^{\left(3\right)}+\ddot{x}+\dot{x}-3x=\sin 7t
+\end{equation*}
+stable?\\
+The characteristic polynomial is
+\begin{equation*}
+  \displaystyle  P\left(r\right)=r^3+r^2+r-3.
+\end{equation*}
+We see by inspection that $r = 1$ is a root of the characteristic polynomial.
+Since this root is real and positive, the ODE is not stable (by the Stability test in terms of roots).
 
 \clearpage
 %%% Local Variables:

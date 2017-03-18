@@ -2553,11 +2553,14 @@ the characteristic polynomial must be negative.
   &\text{\textbf{\color{blue}General solution}} x_ h &
   &\text{\textbf{\color{blue}Condition for stability}} \\
   &\text{complex } a \pm bi &
-  &\text{repeated real} s,\, s &
-  &\text{distinct real} r_ 1,\, r_ 2 & \\
   &e^{at}\left(c_ 1 \cos (bt) \right)&
+  & a < 0 \\
+  &\text{repeated real} s,\, s &
   &e^{st} (c_ 1 + c_ 2 t)&
-  & c_ 1 e^{r_ 1 t} + c_ 2 e^{r_ 2 t} 
+  &s < 0\\
+  &\text{distinct real} r_ 1,\, r_ 2 & 
+  & c_ 1 e^{r_ 1 t} + c_ 2 e^{r_ 2 t} &
+  &r_ 1 , \, r_ 2 < 0 \\
 \end{align*}
 
 \paragraph{Conditions for stability}
@@ -2684,6 +2687,383 @@ The characteristic polynomial is
 We see by inspection that $r = 1$ is a root of the characteristic polynomial.
 Since this root is real and positive, the ODE is not stable (by the Stability test in terms of roots).
 
+\clearpage
+
+\subsubsection{Coefficients and tests for stability}
+
+In the $2^{\text {nd}}$ order case, there is also simple test to check
+for stability directly in terms of the coefficients:\\
+
+\textbf{Stability test in terms of coefficients, $2^{\text {nd}}$ order case.}\\
+Assume that $a_ 0,\, a_1,\, a_2$ are real numbers with $a_ 0 > 0$.
+The ODE
+\begin{equation*}
+  (a_0 D^2 + a_1 D + a_2) x = F(t)
+\end{equation*}
+is stable if an only if $a_ 1 > 0$ and $a_2 > 0$. \\
+\begin{proof}
+  Recall the results for stability in terms of the roots of the characteristic polynomial.
+  \begin{align*}
+    &\text{\textbf{\color{blue}Roots}}&
+    &\text{\textbf{\color{blue}General solution}} x_ h &
+    &\text{\textbf{\color{blue}Condition for stability}} &
+    &\text{\textbf{\color{blue} Characteristic polynomial}}\\
+    &\text{complex } a \pm bi &
+    &e^{at}\left(c_ 1 \cos (bt) \right)&
+    & a < 0 &
+    &r^2 - 2ar + (a^2 + b^2)\\
+    &\text{repeated real} s,\, s &
+    &e^{st} (c_ 1 + c_ 2 t)&
+    &s < 0&
+    &r^2 -2sr + s^2\\
+    &\text{distinct real} r_ 1,\, r_ 2 & 
+    & c_ 1 e^{r_ 1 t} + c_ 2 e^{r_ 2 t} &
+    &r_ 1 , \, r_ 2 < 0&
+    &r^2 -(r_1 + r_2)r + r_1 r_2\\
+  \end{align*}
+  By dividing by $a_0$, we can assume that $a_0 = 1$.
+  Break into cases according to the table above.
+  \begin{itemize}
+  \item The radical is imaginary only if $a \pm bi$,
+    we have $a < 0$ if and only if the the coefficients $-2a$
+    and $a^2 + b^2$ are both positive.
+  \item When the roots are $s,\, s$,
+    we have $s < 0$ if and only if the coefficients $-2s$ and $s^2$
+    are both positive.
+  \item When the roots are distinct and real $r_1 \neq r_2$,
+    both roots are less than zero if and only if the coefficients
+    $-(r_1 + r_2)$ and $r_1 r_2$ are both positive.
+    (Knowing that $-(r_1 + r_2)$ os positive means that at least
+    one of $r_1,\, r_2$ is negative;
+    if move over the product $r_1 r_2$ is positive,
+    then the other root must be negative too.)     
+  \end{itemize}
+\end{proof}
+
+\begin{remark}
+  There is a generalization of the coefficient test to higher-order ODEs,
+  called the \textbf{\color{blue}Routh–Hurwitz conditions} for stability ,
+  but the conditions are much more complicated.
+\end{remark}
+
+\begin{exercise}
+  Stability concept check
+\end{exercise}
+All spring/mass/dashpot systems,
+\begin{equation*}
+  m\ddot x + b\dot x + kx= F_{ext}, \qquad m, b, k > 0,
+\end{equation*}
+is stable?\\
+
+All spring/mass dashpot systems are \textbf{stable}.
+This is required by our physical model which came up with the equation
+\begin{equation*}
+  m\ddot x + b\dot x + kx= F_{ext},
+\end{equation*}
+and required the coefficients $m,\, b,$ and $k$  to be positive real numbers. \\
+Physically this makes sense as well.
+We know that there can be no such thing as a perpetual motion machine,
+so in the absence of external forces,
+we expect energy to dissipate in the form of friction or heat,
+and thus our system will eventually be unmoving.
+Any good differential equation model should also reflect this behavior.
+\clearpage
+
+\subsubsection{Upshot of stability}
+Why are stable systems so great?
+If we are interested in understand the long term behavior with respect to an exponential input,
+it is enough to find one particular solution.
+All other solutions will tend asymptotically to any particular solution.
+And with ERF and its versions,
+we have a simple way of determining one nice particular solution to any exponential input.\\
+
+Keep in mind that while the long term behavior is enough to answer a question,
+there are some situations where the initial conditions
+and behavior as a system reaches steady state are important.
+For instance as in the {\color{blue}example from Lecture 2}
+about mixing saline and fresh water to create a salt water solution habitable for ocean fish.
+\clearpage
+\subsubsection{Worked Examples}
+\paragraph{Damped sinusoidal signals}
+Complex Replacement and Exponential Response Formula can be use to solve equation form
+\begin{equation*}
+  P\left(D\right)x=e^{at}\cos (\omega t-\phi )
+\end{equation*}
+where $P(D)$ is any LTI differential operator.
+
+\begin{example}
+  Solve
+  \begin{equation*}
+    2\ddot x+\dot x+x=e^{-t}\cos t.
+  \end{equation*}
+\end{example}
+
+We found the general solution to the homogeneous version of the ODE in the example above.
+To solve this ODE in general we just need to find a particular solution.
+To do this, we complexify the ODE:
+\begin{equation*}
+  2\ddot{z}+\dot{z}+z=e^{(-1+i)t},
+\end{equation*}
+then apply the Exponential Response Formula:
+\begin{equation*}
+  z_ p=\frac{e^{(-1+i)t}}{P(-1+i)}.
+\end{equation*}
+To get $x_p$ we have to extract the real part of $zp$.
+We have the choice to put $x_p$ in rectangular form or polar form.
+To put $x_p$ in rectangular form, we expand
+\begin{equation*}
+  P(-1+i)=2(-1+i)^2+(-1+i)+1=-3i
+\end{equation*}
+so $z_p = i e^{(-1 + i)t}/3$, and the real part is
+\begin{equation*}
+  x_ p=-(1/3)e^{-t}\sin (t)\, .
+\end{equation*}
+To put $x_p$ in polar form, we write
+\begin{equation*}
+  \frac{1}{P(-1+i)}=ge^{-i\phi }
+\end{equation*}
+so that
+\begin{equation*}
+  z_ p=ge^{-i\phi }e^{(-1+i)t}=ge^{-t}e^{i(t-\phi )}
+\end{equation*}
+and real part is
+\begin{equation*}
+  x_ p=ge^{-t}\cos (t-\phi )
+\end{equation*}
+It's easy to check that you get the same answer!
+
+\paragraph{Forced Oscillations Worked Example}
+We'll consider ODEs that describe forced oscillations.
+And in the solution process, we'll use complex replacement and the exponential response formula.
+\begin{enumerate}[label=\textbf{Part.\arabic*}]
+\item Find the general solution to
+  \begin{equation*}
+    \ddot{x} + 8x = \cos (\omega t). \quad {\color{blue} \omega ^2 \neq 8}
+  \end{equation*}
+  Why is this called undamped, forced?
+  \begin{enumerate}[label=Step.\arabic*]
+  \item To solve the associated homogeneous equation. \\
+    Denote $x_h$ as homogeneous equation
+    \begin{equation*}
+      \ddot{x}_h + 8x_h = 0 
+    \end{equation*}
+    The characteristic polynomial is $P(s) = s^2 + 8$. 
+    The roots of polynomial is $\pm \sqrt{8} i$.
+    Because these roots are purely imaginary, we know that the solution will be a sinusoid.
+    So, the homogeneous solution is
+    \begin{equation*}
+      x_ h= c_1 \cos (\sqrt{8}t) + c_2 \sin (\sqrt{8}t), 
+    \end{equation*}
+    where $c_1$ and $c_2$ are arbitrary constants.\\
+    Now, note that I've written this in rectangular form.
+    I could also write this in polar form,
+    \begin{equation*}
+      x_ h= A \cos (\sqrt{8}t - \phi). 
+    \end{equation*}
+    These are different representations for the same solution.
+  \item Find a particular solution to the inhomogeneous equation.\\
+    Using complex replacement, $\cos (\omega t) = \mathrm{Re\, }e^{i \omega t}$.
+    Write down the complexified ODE, which would be
+    \begin{equation*}
+      \ddot{z} + 8 z = e^{i \omega t}. \\qquad x_ p = \mathrm{Re\, }(z_ p)
+    \end{equation*}
+    Apply Exponential Response Formula
+    \begin{align*}
+      z_ p &= \frac{1}{P(i \omega)} e^{i \omega t} \\
+           &= \frac{1}{(i \omega)^2 + 8} e^{i \omega t} \\
+           &= \frac{1}{8 - \omega ^2} e^{i \omega t} 
+    \end{align*}
+    Now, you might have noticed that the amplitude here depends on $\omega$.
+    When $\omega ^2$ is near $8$, this amplitude is huge, because we're dividing by a very small number.
+    If $\omega ^2 = 8$, then we're dividing by zero, and this just blows up.
+    When that's the case, we're in a situation called \textbf{resonance},
+    where the input frequency is the same as the natural frequency of the problem.
+    So, just to be safe, we're going to solve this when $\omega ^2 \neq 8$.\\
+    So now, since we're going to extract the real part of $z_p$
+    \begin{align*}
+      x_ p &= \mathrm{Re\, }\frac{1}{8 - \omega} e^{i \omega t} \\
+           &= \frac{1}{8 - \omega ^2} \mathrm{Re\, }\left( \cos (\omega t) + i \sin (\omega t) \right) \\
+           &= \frac{1}{8 - \omega ^2} \cos (\omega t)
+    \end{align*}
+    Now, we actually could have gotten this solution a lot faster, and maybe skipped a few steps,
+    if we had noticed that we could have used the sinusoidal response formula,
+    because \textbf{we have no damping} here.
+    The sinusoidal response formula just says that the particular solution is
+    equal to $\frac{1}{P(D)}$ at $i \omega$ times
+    the right hand side of our original equation $\cos (\omega t)$.
+    We can use that technique when \textbf{the ODE on the left hand side only has even derivatives},
+    because then, our characteristic polynomial will only have even powers.
+    And when you raise $i$ to an even power, you'll either get $1$ or $-1$.
+    So, we'll have a real amplitude and then we can just multiply by the right hand side.
+    So, if you notice that, it can make your computations more convenient.
+    But if you're unsure, you can always go through this computation.
+  \item So now we can actually write down the general solution,
+    \begin{equation*}
+      x = x_ h + x_ p = c_1 \cos (\sqrt{8}t) + c_2 \sin (\sqrt{8}t)
+      + \frac{1}{8 - \omega ^2} \cos (\omega t)
+    \end{equation*}
+    And we actually could have answered this question,
+    Why is this called undamped, forced?, right away. \\
+    It's called undamped because we don't have a damping term.
+    In other words, we don't have a term that's proportional to $\dot{x}$ in our ODE.
+    And it's forced because we have this nonzero input on the right hand side.
+  \end{enumerate}
+  \item Find the general solution to
+  \begin{equation*}
+    \ddot{x} + 2 \dot{x} + 4x = \cos (3t). 
+  \end{equation*}
+  This is still a forced ODE, but now we have a damping term $2 \dot{x}$
+  because we have a term that is proportional to $\dot{x}$.
+  \begin{enumerate}[label=Step.\arabic*]
+  \item Solve associated homogeneous solution, that's given by \\
+    \begin{equation*}
+      \ddot{x}_ h + 2 \dot{x}_ h + 4 x_ h = 0
+    \end{equation*}
+    The characteristic polynomial $P(s)$ is $s^2 + 2 s + 4$,
+    and the roots are $-1 \pm sqrt{3} i$. 
+    Since the roots of the characteristic polynomial now have a real and an imaginary part,
+    the solution to the homogeneous equation is written as follows.
+    \begin{equation*}
+      x_ h = e^{-t} \left( c_ 3 \cos (sqrt{3} t ) +  c_ 4 \sin (sqrt{3} t )\right), 
+    \end{equation*}
+    where $c_ 3$ and $c_ 4$ are arbitrary constants.
+  \item Find a particular solution to the inhomogeneous equation. \\
+    We're going to use complex replacement.
+    And note that, our right hand side, $cos (3t)$ is a real part of
+    $e^{i3t}$. \\
+    So then the complexified ODE can be written as
+    \begin{equation*}
+      \ddot{z} + 2 \dot{z} + 4 = e^{i3t}
+    \end{equation*}
+    Now, we going to solve this equation and find particular solution for $z$. 
+    Then, we'll take its real part, which will give us a particular solution for this equation.
+    So, $x_ p$, or particular solution, is going to be equal to $\mathrm{Re\, }(z_ p)$.\\
+    Use ERF,
+    \begin{align*}
+      z_ p  &= \frac{1}{P(3i)} e^{i3t} \\
+            &= \frac{1}{(3i)^2 + 2*(3i) + 4} e^{i3t} \\
+            &= \frac{1}{-9 + 6i + 4} e^{i3t}\\
+            &= \frac{1}{-5 + 6i} e^{i3t}\\
+    \end{align*}
+    And we want to extract the real and imaginary parts from $z_ p$,
+    so we're going to rationalize this complex fraction
+    by multiplying by the complex conjugate of the denominator.
+    \begin{equation*}
+      z_ p = \frac{1}{-5 + 6i} e^{i3t} = \frac{-5 - 6i}{61} \left( \cos (3t) + i \sin(3t) \right)
+    \end{equation*}
+    Now, x sub p, our particular solution for this equation,
+    is going to be the real part of this expression.
+    \begin{align*}
+            x_ p &= \mathrm{Re\, }(z_ p) \\
+                 &= \mathrm{Re\, } \frac{1}{61} \left( -5 \cos (3t) + - 5 i \sin (3t)  -6i \cos (3t)
+        + 6 \sin (3t) \right) \\
+                 &= \frac{1}{61} \left( -5 \cos (3t) + 6 \sin (3t) \right) 
+    \end{align*}
+  \item The general solution is that
+    \begin{equation*}
+      x = x_ h + x_ p = e^{-t} \left( c_ 3 \cos (sqrt{3} t ) +  c_ 4 \sin (sqrt{3} t )\right)
+      + \frac{1}{61} \left( -5 \cos (3t) + 6 \sin (3t) \right) 
+    \end{equation*}
+  \end{enumerate}
+  And just want to point out a couple of things.
+  This is a general solution
+  \begin{equation*}
+    c_1 \cos (\sqrt{8}t) + c_2 \sin (\sqrt{8}t) + \frac{1}{8 - \omega ^2} \cos (\omega t), 
+  \end{equation*}
+  for an undamped forced harmonic oscillator.
+  And we can see that each of these terms is just a pure sinusoid,
+  and their amplitudes do not decay over time.\\  
+  However, in this case
+  \begin{equation*}
+    e^{-t} \left( c_ 3 \cos (sqrt{3} t ) +  c_ 4 \sin (sqrt{3} t )\right)
+    + \frac{1}{61} \left( -5 \cos (3t) + 6 \sin (3t) \right), 
+  \end{equation*}
+  where we have a damping term, we note that our solution to the homogeneous equation
+  actually decays to $0$ as $t \to \infty$. 
+  So, we have a transient part of our equation,
+  and this would be the steady state part of our solution.
+  \begin{equation*}
+    x = \underbrace{e^{-t} \left( c_ 3 \cos (sqrt{3} t ) +  c_ 4 \sin (sqrt{3} t )\right)}
+    _{\text{Transient part}}
+    + \underbrace{\frac{1}{61} \left( -5 \cos (3t) + 6 \sin (3t) \right) }
+    _{\text{steady state part}}
+  \end{equation*}
+\end{enumerate}
+
+\begin{example}
+  Consider the harmonic oscillator with a sinusoidal forcing term:
+  \begin{equation*}
+    \ddot x+\omega _ n^2x=A\cos (\omega t).
+  \end{equation*}
+  Find a the complex gain, the gain, and the phase lag, and a particular solution.
+  Food for thought: is this system stable?
+\end{example}
+This ODE has complex gain
+\begin{equation*}
+  G(\omega ) = \frac{1}{P(i\omega )}
+\end{equation*}
+where
+\begin{equation*}
+  \displaystyle  P(i\omega )=(i\omega )^2+\omega _ n^2=\omega _ n^2-\omega ^2.
+\end{equation*}
+Thus a particular solution is given by
+\begin{equation*}
+  x_ p=\mathrm{Re\, }\left(\frac{1}{\omega _ n^2-\omega ^2}Ae^{i\omega t}\right)
+\end{equation*}
+as long as the input frequency is different from the natural frequency of the harmonic oscillator.
+Since the denominator is \textbf{real}, the real part is easy to find:
+\begin{equation*}
+  x_ p=A\frac{\cos (\omega t)}{\omega _ n^2-\omega ^2}\, .
+\end{equation*}
+Note that the gain is
+\begin{equation*}
+  g = G(\omega ) = \frac{1}{\omega _ n^2-\omega ^2}.
+\end{equation*}
+Since the complex gain is real, the phase lag is either
+$0$ or $\pi$ depending on $\omega _ n > \omega$ or $\omega _ n < \omega$.
+In particular, the same equation forced with a sine input curve
+\begin{equation*}
+  \ddot y+\omega _ n^2y=A\sin (\omega t)
+\end{equation*}
+has response
+\begin{equation*}
+  y_ p=A\frac{\sin (\omega t)}{\omega _ n^2-\omega ^2}\,
+\end{equation*}
+by time invariance.\\
+
+This solution puts in precise form some of the things
+we can check from experimentation with vibrating systems.
+When the frequency of the signal is smaller than the natural frequency of the system,
+$\omega < \omega _n$, the denominator is positive.
+The effect is that the system response is a positive multiple of the signal:
+the vibration of the mass is “in sync" with the impressed force.
+As $\omega$ increases towards $\omega _n$ ,
+the denominator of the particular solutions nears zero,
+so the amplitude of the solution grows arbitrarily large.\\
+
+When $\omega =\omega _ n$ the system is \textbf{in resonance} with the signal;
+the Exponential Response Formula fails because the gain would be infinite there,
+and there is \textbf{no} periodic (or even bounded) solution.
+This phenomena is called resonance, and will be discussed in more detail
+in the next section 11 Resonance, Frequency Response, and RLC circuits.\\
+
+When $\omega > \omega _n$ the denominator is negative.
+The system response is a negative multiple of the signal:
+the vibration of the mass is perfectly ``out of sync'' with the impressed force.\\
+
+Since the coefficients are constant here,
+a time-shift of the signal results in the same time-shift of the solution:
+\begin{equation*}
+  \ddot x+\omega _ n^2x=A\cos (\omega t-\phi )
+\end{equation*}
+has the periodic solution
+\begin{equation*}
+  x_ p=A\frac{\cos (\omega t-\phi )}{\omega _ n^2-\omega ^2}.
+\end{equation*}
+The equations $\displaystyle x_ p=A\frac{\cos (\omega t)}{\omega _ n^2-\omega ^2}$
+and $\displaystyle y_ p=A\frac{\sin (\omega t)}{\omega _ n^2-\omega ^2}$
+will be very useful to us when we solve ODEs via Fourier series in
+\textit{Fourier Series and Partial Differential Equations}. 
 \clearpage
 %%% Local Variables:
 %%% mode: latex

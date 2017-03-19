@@ -1974,18 +1974,18 @@ where
 \paragraph{Complexification and ERF worked out}
 The complexified equation is
 \begin{equation*}
-  P(D)z = Q(D) e^{\i \omega t}. 
+  P(D)z = Q(D) e^{i \omega t}. 
 \end{equation*}
 
 If $P(i \omega) \neq 0$, the ERF gives us a particular solution of the form
 \begin{equation*}
   \displaystyle z_ p
-  \displaystyle = \frac{Q(i \omega)}{P(i \omega)} e^{\i \omega t}. 
+  \displaystyle = \frac{Q(i \omega)}{P(i \omega)} e^{i \omega t}. 
 \end{equation*}
 
 We can express this as
 \begin{equation*}
-  \displaystyle Z_ p = G(\omega) e^{\i \omega t}.
+  \displaystyle z_ p = G(\omega) e^{i \omega t}.
 \end{equation*}
 
 Writing the complex gain in polar form, $G(\omega) = |G(\omega)| e^{-i \phi}$. we find
@@ -2920,11 +2920,11 @@ And in the solution process, we'll use complex replacement and the exponential r
       \ddot{x}_ h + 2 \dot{x}_ h + 4 x_ h = 0
     \end{equation*}
     The characteristic polynomial $P(s)$ is $s^2 + 2 s + 4$,
-    and the roots are $-1 \pm sqrt{3} i$. 
+    and the roots are $-1 \pm \sqrt{3} i$. 
     Since the roots of the characteristic polynomial now have a real and an imaginary part,
     the solution to the homogeneous equation is written as follows.
     \begin{equation*}
-      x_ h = e^{-t} \left( c_ 3 \cos (sqrt{3} t ) +  c_ 4 \sin (sqrt{3} t )\right), 
+      x_ h = e^{-t} \left( c_ 3 \cos (\sqrt{3} t ) +  c_ 4 \sin (\sqrt{3} t )\right), 
     \end{equation*}
     where $c_ 3$ and $c_ 4$ are arbitrary constants.
   \item Find a particular solution to the inhomogeneous equation. \\
@@ -2961,21 +2961,21 @@ And in the solution process, we'll use complex replacement and the exponential r
     \end{align*}
   \item The general solution is that
     \begin{equation*}
-      x = x_ h + x_ p = e^{-t} \left( c_ 3 \cos (sqrt{3} t ) +  c_ 4 \sin (sqrt{3} t )\right)
+      x = x_ h + x_ p = e^{-t} \left( c_ 3 \cos (\sqrt{3} t ) +  c_ 4 \sin (\sqrt{3} t )\right)
       + \frac{1}{61} \left( -5 \cos (3t) + 6 \sin (3t) \right) 
     \end{equation*}
   \end{enumerate}
   And just want to point out a couple of things.
   This is a general solution
   \begin{equation*}
-    c_1 \cos (\sqrt{8}t) + c_2 \sin (\sqrt{8}t) + \frac{1}{8 - \omega ^2} \cos (\omega t), 
+    c_1 \cos (\\sqrt{8}t) + c_2 \sin (\\sqrt{8}t) + \frac{1}{8 - \omega ^2} \cos (\omega t), 
   \end{equation*}
   for an undamped forced harmonic oscillator.
   And we can see that each of these terms is just a pure sinusoid,
   and their amplitudes do not decay over time.\\  
   However, in this case
   \begin{equation*}
-    e^{-t} \left( c_ 3 \cos (sqrt{3} t ) +  c_ 4 \sin (sqrt{3} t )\right)
+    e^{-t} \left( c_ 3 \cos (\sqrt{3} t ) +  c_ 4 \sin (\sqrt{3} t )\right)
     + \frac{1}{61} \left( -5 \cos (3t) + 6 \sin (3t) \right), 
   \end{equation*}
   where we have a damping term, we note that our solution to the homogeneous equation
@@ -2983,7 +2983,7 @@ And in the solution process, we'll use complex replacement and the exponential r
   So, we have a transient part of our equation,
   and this would be the steady state part of our solution.
   \begin{equation*}
-    x = \underbrace{e^{-t} \left( c_ 3 \cos (sqrt{3} t ) +  c_ 4 \sin (sqrt{3} t )\right)}
+    x = \underbrace{e^{-t} \left( c_ 3 \cos (\sqrt{3} t ) +  c_ 4 \sin (\sqrt{3} t )\right)}
     _{\text{Transient part}}
     + \underbrace{\frac{1}{61} \left( -5 \cos (3t) + 6 \sin (3t) \right) }
     _{\text{steady state part}}
@@ -3064,6 +3064,513 @@ The equations $\displaystyle x_ p=A\frac{\cos (\omega t)}{\omega _ n^2-\omega ^2
 and $\displaystyle y_ p=A\frac{\sin (\omega t)}{\omega _ n^2-\omega ^2}$
 will be very useful to us when we solve ODEs via Fourier series in
 \textit{Fourier Series and Partial Differential Equations}. 
+\clearpage
+\subsection{Recitation}
+\clearpage
+
+\subsubsection{Sinusoidal input}
+\textbf{ERF: } If $P(r) \neq 0$, then $\displaystyle x_ p = A\frac{e^{rt}}{P(r)}$
+is a particular solution to $P(D)x = Ae^{rt}$.
+
+\begin{problem}
+  Particular solution
+\end{problem}
+Find a (particular) sinusoidal solution to the differential equation
+\begin{equation*}
+  \ddot x+2\dot x+2x=\cos (2t).
+\end{equation*}
+
+Complex replacement the right side of equation
+\begin{equation*}
+  \cos (2t) = \mathrm{Re\, }(e^{i2t}). 
+\end{equation*}
+Complexified the equation is
+\begin{equation*}
+  \ddot z+2\dot z+2z=e^{i2t}
+\end{equation*}
+The particular solution of inhomogeneous differential equation is
+\begin{align*}
+  z_ p &= \frac{1}{P(2i)} e^{i2t} \\
+       &= \frac{1}{(2i)^2 + 2*(2i) + 2} e^{i2t}\\
+       &= \frac{1}{-4 + 4i + 2} e^{i2t} \\
+       &= \frac{1}{-2 + 4i} e^{i2t}
+\end{align*}
+To take real part of $z_ p$, multiple complex conjugate on the denominator
+\begin{align*}
+  \frac{-2 -4i}{(-2 + 4i)(-2 -4i)} e^{i2t}
+  &= \frac{-2 -4i}{20} \left( \cos(2t) + i \sin(2t) \right) \\
+  &= \frac{1}{20} \left(-2 \cos(2t) + -i2 \sin(2t)
+    -4i \cos(2t) + 4 \sin(2t) \right)
+\end{align*}
+The real part is
+\begin{equation*}
+  \mathrm{Re\, } \left( \frac{1}{20} \left(-2 \cos(2t) + -2i \sin(2t)
+      -4i \cos(i2t) + 4 \sin(i2t) \right) \right)
+  = \frac{1}{20} \left(4 \sin(2t) - 2 \cos(2t) \right)
+\end{equation*}
+The particular sinusoidal solution is
+\begin{align*}
+  x_ p &= \frac{1}{20} \left(4 \sin(2t) - 2 \cos(2t) \right) \\
+       &=  \frac{1}{20}  \sqrt{4^2 + 2^2} \cos (2t - \arctan (4 / -2)) 
+\end{align*}
+
+
+\begin{problem}
+  IVP
+\end{problem}
+Find the solution to the differential equation
+\begin{equation*}
+  \ddot x+2\dot x+2x=\cos (2t).
+\end{equation*}
+that satisfies the initial value problem $x(0) = 0$ and $\dot{x} (0) = 0$.\\
+
+To find associated homogeneous solution,
+\begin{equation*}
+  \ddot x+2\dot x+2x = 0. 
+\end{equation*}
+The characteristic polynomial is $s^2 + 2s + 2$ and the roots are
+$-1 \pm i$.\\
+The root of characteristic polynomial is complex number, So the
+homogeneous solution of ODE is
+\begin{equation*}
+  x_ h =  e^{-t} \left( c_ 1 \cos(t) + c_ 2 \sin(t) \right)
+\end{equation*}
+The general solution is
+\begin{equation*}
+  x = x_ p + x_ h = \frac{1}{20} \left(4 \sin(2t) - 2 \cos(2t) \right)
+  + e^{-t} \left( c_ 1 \cos(t) + c_ 2 \sin(t) \right).
+\end{equation*}
+Apply initial condition $x(0) = 0$ to general solution,
+\begin{align*}
+  x(0) = \frac{-2}{20} + c_1 &= 0 \\
+  c_1 = 1/10. 
+\end{align*}
+The $\dot{x}$ is
+\begin{equation*}
+  \frac{1}{20}\left( 8 \cos(2t) + 4 \sin (2t) \right) +
+  \frac{-1}{10} e^{-t} \cos (t) + \frac{-1}{10} e^{-t} \sin (t) 
+  - c_ 2 e^{-t} \sin(t) + c_2 e^{t} \cos(t)
+\end{equation*}
+
+Apply another initial condition $\dot{x} (0) = 0$,
+\begin{align*}
+  \dot{x} _h (0) =  \frac{8}{20} + \frac{-1}{10} + c_2 &= 0 \\
+  c_2 = -3 / 10 
+\end{align*}
+
+So, the solution for ODE is
+\begin{equation*}
+  x = \frac{1}{20} \left(4 \sin(2t) - 2 \cos(2t) \right)
+  + e^{-t} \left( \frac{1}{10} \cos(t) - \frac{3}{10} \sin(t) \right)
+\end{equation*}
+
+
+\begin{problem}
+  What does the solution look like?
+\end{problem}
+What is the steady state solution?\\
+
+As $t \to \infty$, the terms of $\displaystyle
+e^{-t} \left( \frac{1}{10} \cos(t) - \frac{3}{10} \sin(t) \right)$
+goes to zero. So the steady state solution is
+\begin{equation*}
+  \frac{1}{20} \left(4 \sin(2t) - 2 \cos(2t) \right)
+\end{equation*}
+
+\begin{problem}
+  Complex replacement
+\end{problem}
+Use complex replacement to find a particular solution to the differential equation
+\begin{equation*}
+  \ddot x+2\dot x+2x=e^{-t}\cos (2t).
+\end{equation*}
+
+Complex replacement of $e^{-t}\cos (2t).$ is $ e^{-t} e^{i2t} = e^{(-1 + 2i)t}$.\\
+Complexified ODE is
+\begin{equation*}
+  \ddot z+2\dot z+2z = e^{(-1 + 2i)t}
+\end{equation*}
+Using ERF
+\begin{align*}
+  z_ p &= \frac{1}{P(-1 + 2i)} e^{(-1 + 2i)t} \\
+  &= \frac{-1}{3} e^{(-1 + 2i)t} 
+\end{align*}
+Take real part of $z_ p$ is
+\begin{align*}
+  \mathrm{Re\, }(z_ p) &= \mathrm{Re\, } \left( \frac{-1}{3} e^{(-1 + 2i)t}\right) \\
+                       &= \frac{-1}{3} e^{-t} \mathrm{Re\, } \left( \cos (2t) + i \sin (2t) \right) \\
+                       &= \frac{-1}{3} e^{-t} \cos (2t)
+\end{align*}
+\clearpage
+
+\subsubsection{An inhomogeneous second order ODE}
+\textbf{ERF: } If $P(r) \neq 0$, then $\displaystyle x_ p = A\frac{e^{rt}}{P(r)}$
+is a particular solution to $P(D)x = Ae^{rt}$.
+
+\begin{problem}
+  An inhomogeneous second order ODE
+\end{problem}
+Use ERF and the generalized ERF to find a particular solution to
+\begin{equation*}
+  \ddot x + 4x = 2\cos t + 3\cos (2t) + 4\sin (3t).
+\end{equation*}
+Let $x_1\, x_2$ and $x_3$ are the particular solutions of
+$\cos t,\, \cos (2t)$ and $\sin (3t)$, then by superposition principle,
+\begin{equation*}
+  (c_1 x_1 + c_2 x_2 + c_3 x_3)^{\prime} + 4 (c_1 x_1 + c_2 x_2 + c_3 x_3) =
+  2\cos t + 3\cos (2t) + 4\sin (3t).
+\end{equation*}
+Using complexified and ERF get the particular solutions
+\begin{align*}
+  &\text{Complexified }&
+  &ERF&
+  &Particular Solutions& \\
+  &\ddot z + 4z = e^{it}&
+  &\mathrm{Re\, }(\frac{1}{P(i)} e^{it}) = \mathrm{Re\, }(\frac{1}{3} e^{it}) &
+  &x_1 = \frac{1}{3} \cos (t) \\                                                
+  &\ddot z + 4z = e^{i2t}&
+  &\mathrm{Re\, }(\frac{1}{P^{\prime}(2i)} te^{it}) = \mathrm{Re\, }(\frac{1}{4i} te^{i2t}) &
+  &x_ 2 =\frac{t}{4} \sin (2t) \\
+  &\ddot z + 4z = e^{i3t} &
+  &\mathrm{Im\, }(\frac{1}{P(3i)} e^{i3t}) = \mathrm{Im\, }(\frac{-1}{5} e^{i3t}) &
+  &x_ 3 = \frac{-1}{5} \sin (3t) 
+\end{align*}
+By linearity and superposition
+\begin{equation*}
+  x_ p = 2 x_1 + 3 x_2 + 4 x_3 = \frac{2}{3} \cos (t)
+  + \frac{3t}{4} \sin (2t) + \frac{-4}{5} \sin (3t) 
+\end{equation*}
+\clearpage
+\subsubsection{An inhomogeneous second order ODE with different inputs}
+\textbf{ERF: } If $P(r) \neq 0$, then $\displaystyle x_ p = A\frac{e^{rt}}{P(r)}$
+\begin{problem}
+  When can a solution be of a particular form?
+\end{problem}
+Find $B$ so that $B \cos⁡ (\omega t)$ is a solution to the equation
+\begin{equation*}
+  \ddot x+\omega _ n^2x=A\cos (\omega t),
+\end{equation*}
+when this is possible.\\
+
+Complex replacement of the  right side of equation is
+\begin{equation*}
+  A \cos (\omega t) = A e^{i \omega t}
+\end{equation*}
+Complexified the equation
+\begin{equation*}
+  \ddot z+\omega _ n^2z = A e^{i \omega t}. 
+\end{equation*}
+Using ERF
+\begin{equation*}
+  z_ p = \frac{A}{P(i \omega)} e^{i \omega t} = \frac{A}{\omega _ n^2 - \omega ^2} e^{i \omega t}.  
+\end{equation*}
+Take a real part of $z_ p$ is
+\begin{equation*}
+  \mathrm{Re\, }(z_p) = \mathrm{Re\, }(\frac{A}{\omega _ n^2 - \omega ^2} e^{i \omega t})
+  = \mathrm{Re\, }
+  \left( \frac{A}{\omega _ n^2 - \omega ^2} \left( \cos(\omega t) + i \sin (\omega t) \right) \right)
+  = \frac{A}{\omega _ n^2 - \omega ^2} \cos (\omega t)
+\end{equation*}
+Therefore, the amplitude $B$ is $ \frac{A}{\omega _ n^2 - \omega ^2}$.
+
+\begin{problem}
+  What if we change the inputs?
+\end{problem}
+Does the same formula and value of $B$ work with cosine replaced
+with sine in the ODE and in the solution? \\
+The $B$ is gain of complex gain, so it is same formula.   
+\clearpage
+\subsubsection{Complex gain}
+\begin{problem}
+  Higher order system
+\end{problem}
+Find the complex gain of the following system given
+that the input is $\cos ⁡t$ and the response is $x$.
+\begin{equation*}
+  (D^4+2D^2+5)x = (D^2+D)\cos (t)
+\end{equation*}
+
+The complex gain$G(\omega)$ of $P(D)x = Q(D)y$ is
+\begin{equation*}
+  G(\omega) = \frac{Q(i \omega)}{P(i \omega)} \quad \text{ if } P(i \omega) \neq 0
+\end{equation*}
+So complex replacement of $\cos t$ is $e^{it}$, the complex gain is
+\begin{equation*}
+  \frac{Q(i)}{P(i)} = \frac{i^2 + i}{i^4 + 2i^2 + 5} = \frac{-1 + i}{4}
+\end{equation*}
+
+\begin{problem}
+  Variable complex gain
+\end{problem}
+
+Find the complex gain of the following system as a function of $a$ (where it is defined)
+given that the input is $\cos⁡ at$ and the response is $x$.
+\begin{equation*}
+  (D^4+2D^2+5)x = (D^2+D)\cos (at)
+\end{equation*}
+The complex replacement of $\cos (at)$ is $e^{iat}$, so the complex gain $G(\omega)$ is
+\begin{equation*}
+  \frac{Q(i)}{P(i)} = \frac{(ai)^2 + ai}{(ai)^4 + 2(ai)^2 + 5} = 
+\end{equation*}
+
+\begin{problem}
+  Vary the gain
+\end{problem}
+This problems is for the same the same differential equation
+as in the problem above.
+\begin{equation*}
+  (D^4+2D^2+5)x = (D^2+D)\cos (at).
+\end{equation*}
+
+\begin{enumerate}
+\item What is the magnitude of the complex gain when $a$ is close to $0$? \\
+  The magnitude of gain $\left| G(\omega) \right|$ is
+  \begin{equation*}
+    \frac{\sqrt{a^4 + a^2}}{a^4 -2a^2 + 5}. 
+  \end{equation*}
+  As $a \to 0$, the numerator approach to zero, so the magnitude of gain goes to $0$.
+\item What is the magnitude of the complex gain when $a$ is large?
+  As $a \to + \infty$, the denominator grows much fast than numerator,
+  so it goes to $0$.
+\item Is this system stable?
+  Solve the characteristic polynomial of $P(D)$,
+  \begin{equation*}
+    P(r) = r^4 + 2r^2 + 5 = (r^2 -1 + 2i)(r^2 + 1 + 2i). 
+  \end{equation*}
+  At least one of roost has positive, So this system \textbf{not} unstable. 
+\end{enumerate}
+\clearpage
+
+\subsection{Resonance, Frequency Response, RLC circuits}
+\subsubsection{Objective}
+
+\textbf{Objectives}\\
+
+\begin{itemize}
+\item Understand that \textbf{\color{blue}resonance} occurs
+  at the \textbf{\color{blue}input frequency} at
+  which the amplitude of the system response is largest.
+\item Find \textbf{\color{blue}purely resonant solutions}
+  to differential equations from the generalized exponential response formula.
+\item Express how the amplitude (gain) of the output signal changes
+  as a function of the \textbf{\color{blue}angular frequency} of
+  the input signal as a \textbf{\color{blue}Bode plot}.  
+\end{itemize}
+\clearpage
+\subsubsection{Warm-up and review}
+
+\paragraph{Harmonic oscillator with no input signal}
+Suppose we model a swing on a playground
+as a harmonic oscillator with the ODE
+\begin{equation*}
+  \ddot{x} + 9 x = 0.
+\end{equation*}
+
+In this model, $x$ is the angle of the swing away from vertical,
+and this is a good model when $x$ is small. We can write this using operator notation as
+\begin{equation*}
+  P(D)x = 0, \qquad P(D) = D^2 + 9. 
+\end{equation*}
+
+\begin{align*}
+  \text{Characteristic polynomial:} &\qquad P(r) = r^2 + 9. \\
+  \text{Roots:} &\qquad \pm 3i.\\
+  \text{Basis of complex solution:}  &\qquad e^{3it},\, e^{-3it}. \\
+  \text{General real-valued solution:} &\qquad a \cos 3t + b sin 3t\, \text{ for real numbers } a,\, b.
+\end{align*}
+
+These are all the sinusoids with angular frequency $3$, the natural frequency.
+\begin{equation*}
+  A \cos (3t - \phi)
+\end{equation*}
+  
+\begin{exercise}
+  A particular solution
+\end{exercise}
+Now suppose that the swing is being pushed with a sinusoidal input signal, $cos \omega t$.
+where $\omega \neq 3$. \\
+Complexify and use the ERF to find a particular solution to the ODE
+\begin{equation*}
+  (D^2+9)x = \cos (\omega t).
+\end{equation*}
+
+The complex replacement of $\cos (\omega t)$ is $e^{i \omega t}$.
+Complexify ODE is
+\begin{equation*}
+  (D^2+9)z = e^{i \omega t}. 
+\end{equation*}
+Find complex particular solution using ERF,
+\begin{equation*}
+  z_ p = \frac{1}{P(i \omega)} e^{i \omega t} = \frac{1}{(i \omega)^2 + 9} e^{i \omega t}
+  = \frac{1}{9 - \omega ^2} e^{i \omega t}
+\end{equation*}
+Take a real part of $z_ p$
+\begin{equation*}
+  x_ p = \mathrm{Re\, }\left( \frac{1}{9 - \omega ^2} (\cos \omega t + i \sin \omega t) \right)
+  = \frac{1}{9 - \omega ^2} \cos (\omega t)
+\end{equation*}
+
+\begin{exercise}
+  The complex gain
+\end{exercise}
+Suppose that in the ODE
+\begin{equation*}
+  (D^2+9)x = \cos (\omega t)
+\end{equation*}
+the input signal is $\cos ⁡(\omega t)$, and the system response is $x$.
+What is the complex gain $G(\omega)$?\\
+
+Complexification and ERF worked out
+\begin{equation*}
+  P(D)z = Q(D) e^{i \omega t} 
+\end{equation*}
+The complex gain is
+\begin{equation*}
+  G(\omega) = \frac{Q(i \omega)}{P(i \omega)} = \frac{1}{9 - \omega ^2}.
+\end{equation*}
+
+\begin{exercise}
+  Amplitude and the input frequency
+\end{exercise}
+What happens to the gain $g$,
+which is the magnitude of the complex gain $G$ found above as $\omega$
+approaches but is not equal to $3$?\\
+
+When the $\omega \to \text{ near }3$ then
+the denominator $9 - \omega ^2$ approaches to zero. So the magnitude of
+complex gain is \textbf{increases}. 
+\clearpage
+\subsubsection{Near resonance}
+
+\paragraph{Near resonance, an introduction}
+what this has to do with the \textbf{phenomenon of resonance}.\\
+
+Everybody knows at least one case of resonance, I hope.
+A little kid is on a swing.
+Back and forth.
+Well, everybody knows that to make the swing go--
+the swing has a certain natural frequency.
+It swings back and forth like that.
+It's a simple pendulum. It's actually damped.
+But let's pretend that it isn't.
+Everybody knows you want to push a little kid on a swing
+so that they go high.
+You have to push with essentially the same frequency
+that the \textit{natural frequency} of the swing is.
+Well, now, it's automatic, because when
+you come back here, it gets to there,
+and that's where you push.
+So automatically, you time your pushes.
+But if you want the kid to stop, you just do the opposite.
+So that's resonance. \\
+
+So my aim is, what is this physical phenomenon?
+That to get a big amplitude, you should have them match the frequency.
+What is that to do with a differential equation?
+Well, the differential equation for that simple pendulum--
+let's assume it's undamped--
+\begin{equation*}
+  y^{\prime \prime} + \underbrace{\omega _0 ^2}_{\text{Natural frequency}} = \cos \omega _1 t
+\end{equation*}
+-- I'm using $t$ now, since $t$ is time.
+That will be our new independent variable.
+$\omega _0 ^2$ is the natural frequency of the pendulum, or of the spring,
+or whatever it is that's doing the vibrating.
+What we're doing is driving that with the $\cos \omega _1 t$,
+with something of a different frequency $\omega _1$ .
+So this is the input, or the driving term,
+as it's often called. Or sometimes it's called the forcing term.
+And the point is, I'm going to assume that the frequency is
+different.
+The driving frequency is different from the natural frequency $\omega _0 ^2$.
+So this is the input frequency.\\
+
+Now, let's simply solve the equation and see what we get.
+So if I write it using the operator.
+\begin{equation*}
+  (D^2 + \omega _0 ^2)y =  \cos (\omega _1 t)
+\end{equation*}
+It's a good idea to do this, because the formulas
+are going to ask you to substitute into a polynomial.
+So it's good to have the polynomial right
+in front of you, to avoid the possibility of error.
+Well, really what I want is the particular solution.
+It's the particular solution that's
+going to give me a pure oscillation.
+And the thing to do is, of course, since this is $\cos$,
+you want to make it complex.
+So we're going to complexify the equation in order
+to be able to solve it more easily.
+And in order to be able to use those formulas.
+So the complex equation is going to be
+\begin{equation*}
+  (D^2 + \omega _0 ^2) \tilde y =  e^{i \omega _1 t}
+\end{equation*}
+$\cos$ is the real part of $e^{i \omega _1 t}$.
+So when we get our answer, we want
+to be sure to take the real part of the answer.
+I don't want the complex answer, I want its real part.
+
+So now, without further ado, because of those beautiful--
+the problem has been solved once and for all by using the substitution rule.
+\begin{equation*}
+  \tilde y_ p = \frac{1}{P(D)} e^{i \omega _1 t}
+  = \frac{1}{\omega _0 ^2 - \omega _1 ^2} e^{i \omega _1 t}
+\end{equation*}
+But I want the real part of it, so there's one final last step.
+The real part of that is what we call just
+the real particular solution.
+\begin{equation*}
+  y_ p = \frac{1}{\omega _0 ^2 - \omega _1 ^2} \cos (\omega _1 t)
+\end{equation*}
+In other words, $\frac{1}{\omega _0 ^2 - \omega _1 ^2} \cos (\omega _1 t)$ is  the response.
+
+This $\cos \omega _1 t$ is the input, and  that's what came out.
+Well, in other words, what one sees
+is that regardless of what natural frequency
+the system wanted to use for itself, at least
+for this solution, what it responds to is the driving,$\cos (\omega _1 t)$ frequency.
+The only thing is, that the amplitude is changed.
+And in a rather dramatic way.
+If $\omega_ 1$-- depending on the relative sizes
+of $\omega_ 0 ^2$ and $\omega_ 1$.\\
+
+Now the interesting case is when $\omega_ 1 \approx \omega _0 ^2$.
+When you push it,$\omega_ 1$ with approximately its natural frequency $\omega _0 ^2$,
+then the solution is big amplitude. The amplitude is large.\\
+
+Now, to all intents and purposes, that's resonance.
+Pushing something with approximately the same frequency, something that wants to oscillate.
+And you're pushing it with the same frequency-- approximately
+the same frequency that it would like to oscillate by itself.
+And what that does is it builds up the amplitude enormously.\\
+
+\begin{example}
+  We might try to model a swing on a playground as a simple harmonic oscillator.
+  Recall that a harmonic oscillator has a natural frequency $\omega _n$.
+  When you push your kid sister on a swing,
+  the key is to get in sync with the natural frequency of the swing.
+  You keep pushing on regular intervals with the same force, but your sister swings higher and higher.
+\end{example}
+
+Let's model the swing-and-sister setup by a sinusoidally driven harmonic oscillator
+$\ddot{x}+\omega _ n^2x=A\cos (\omega t)$.\\
+We find a periodic solution using the exponential response formula
+\textit{provide that} $\omega \neq \omega _ n$:
+\begin{equation*}
+  \displaystyle x_p \quad
+  \displaystyle = \quad
+  \displaystyle A\frac{\cos (\omega t)}{\omega _ n^2-\omega ^2}.
+\end{equation*}
+
+Notice that as $\omega$ gets closer to $\omega_ n$,
+the amplitude of this particular solution grows larger.\\
+
+What happens when the two frequencies coincide,
+that is $\omega = \omega _n$? This is the phenomenon known as pure resonance , which we explore next.
+
+
+
 \clearpage
 %%% Local Variables:
 %%% mode: latex

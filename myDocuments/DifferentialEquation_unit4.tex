@@ -3568,6 +3568,366 @@ the amplitude of this particular solution grows larger.\\
 
 What happens when the two frequencies coincide,
 that is $\omega = \omega _n$? This is the phenomenon known as pure resonance , which we explore next.
+\clearpage
+
+\subsubsection{Pure resonance}
+
+\paragraph{Finding the resonant response}
+If $\omega_ 1 = \omega_ 0$--
+so now our equation looks like
+\begin{equation*}
+  (D^2 + \omega_ 0 ^2)y = \cos (\omega _0 t)
+\end{equation*}
+But this time the driving frequency--
+the input frequency-- is $\omega_ 0$ itself.
+Then the same analysis, a lot of it is exact--
+well, I'd better be careful.
+Let's go through the analysis again very rapidly.
+
+What we want to do is first complexify it and then solve.
+So the complexify equation will be
+\begin{equation*}
+  (D^2 + \omega_ 0 ^2) \tilde y = e^{i \omega _0 t}
+\end{equation*}
+But now $i \omega$ is a $0$ of this polynomial,$ (D^2 + \omega_ 0 ^2)$ .
+That's why I picked it, right?
+If I plug in $i \omega_ 0$.
+I get $(i \omega_ 0)^2 -  \omega _ 0 ^2 = 0$. 
+So I'm in the second case, because $i \omega _0$ is a simple root, simple zero, of
+$D^2 + \omega _0 ^2$. 
+Therefore, the complex particular solution is now
+\begin{equation*}
+  \tilde y _p = \frac{1}{P^{\prime}(D)}{te^{i \omega _0 t}}
+  = \frac{1}{2\omega _0 i}{te^{i \omega _0 t}}  
+\end{equation*}
+And now I want the real part of that, which is what?
+\begin{equation*}
+  z_ p = \mathrm{Re\, }\left(\frac{t}{2\omega _0 i} \left( \cos (\omega _0) + i \sin (\omega _0) \right) \right)
+  = \frac{t}{2\omega _0}  \sin (\omega _0 t)
+\end{equation*}
+So that's our particular solution now. \\
+
+
+Well, it looks different from that guy,
+doesn't look like that anymore.
+What does it look like?
+Well it shows the way to plot such things is basically as an oscillation of frequency $\omega _0$,
+but it's amplitude is changing.
+So the way to do it is, as always, if you have a basic oscillation, which is neither too fast nor too slow,
+think of that as the thing and the other stuff multiplying it, think of as changing the amplitude
+of that oscillation with time.
+So the amplitude is that function-- $\frac{t}{2 \omega _0}$
+So just as we did when we talked about damping, you plot that
+and it's negative on the picture.
+So this is the curve--the function whose graph is $\frac{t}{2 \omega _0}$,
+that's the changing amplitude-- as it were--
+and then the function itself does what oscillation it can
+but it has to stay within those lines.
+So the thing that's oscillating is $\sin (omega _0 t)$,
+which would like to be a pure oscillation
+but can't because its amplitude is being changed by that thing,
+so it's doing this and now the rest I have
+to leave to your imagination.\\
+
+
+In other words, what happens when $omega _0$ equal--
+when the driving frequency is actually equal to $omega _0$,
+mathematically this turns into a different-looking solution, one
+with steadily increasing amplitude.
+The amplitude increases linearly, like the function $\frac{t}{2 \omega _0}$. \\
+
+The case in which we drive a harmonic oscillator by the natural frequency
+$\omega _n$ is known as \textbf{\color{blue} pure resonance}.
+\begin{equation*}
+  (D^2 + \omega _ n^2)x = \cos (\omega _ n t).
+\end{equation*}
+
+To find a particular solution, we find a particular solution instead to the complexified equation
+\begin{equation*}
+  (D^2 + \omega _ n^2)z = e^{i \omega _ n t}.
+\end{equation*}
+
+Note that $i \omega _n$ is a root of the characteristic polynomial
+$P(r) = r^2 + \omega _ n^2$. But $P'(r) = 2r$, so
+$P'(i\omega _ n) = 2i \omega _ n \neq 0$ and we use $\text{ERF}^{\prime}$
+to find a complex particular solution
+\begin{equation*}
+  z_ p = \frac{te^{i\omega _ n t}}{P'(i \omega _ n)}
+  = \frac{te^{i\omega _ n t}}{2 i \omega _ n}
+  = \frac{t(\cos \omega _ n t + i\sin \omega _ n t)}{2 i \omega _ n}).
+\end{equation*}
+The real part of $z_ p$ is a real-valued particular solution
+\begin{equation*}
+  \mathrm{Re\, }(z_ p)=x_ p = \frac{t\sin (\omega _ n t)}{2\omega _ n}.
+\end{equation*}
+
+Even though our input signal is sinusoidal, the response is not a sinusoid.
+The response is an oscillating function whose oscillations grow linearly
+without bound as time increases.\\
+
+\textbf{\color{blue}Pure resonance} is a phenomenon that occurs
+when a harmonic oscillator is driven
+with an input sinusoid whose frequency is at the natural frequency:
+
+\begin{itemize}
+\item the gain becomes larger and larger as
+  the input frequency approaches the natural frequency, and
+\item when the input frequency \textit{equals} the natural frequency,
+  any particular solution is unbounded.
+\end{itemize}
+
+\begin{exercise}
+  Example of Pure Resonance
+\end{exercise}
+
+Find a particular solution to the ODE
+$\,  \ddot x + 4 x = 2 \cos 2 t \,$ using complex replacement and
+$\text{ERF}^{\prime}$.\\
+
+The complex replacement of $2 \cos 2 t$ is $2 e^{i2t}$.
+Complexified is
+\begin{equation*}
+  z_ p = \frac{1}{P(D)} 2 e^{i2t}. 
+\end{equation*}
+The $P(i2) = 0$, so we use $\text{ERF}^{\prime}$
+\begin{equation*}
+  z_ p = \frac{1}{P^{\prime} (2i)} 2t e^{i2t}
+  = \frac{2t}{4i}  e^{i2t} 
+\end{equation*}
+The real part of $z _p$ is
+\begin{equation*}
+  \mathrm{Re\, } (z _p) = x _p 
+  = \mathrm{Re\, } \left(\frac{2t}{4i} \left( \cos (2t) + i \sin (2t)\right) \right)
+  = \frac{t}{2} \sin (2t)
+\end{equation*}
+\clearpage
+
+\subsubsection{Resonance with damping}
+In a realistic physical situation, there is at least a tiny amount of damping,
+and this prevents the runaway growth of the amplitude of the system response
+that we saw in the previous section.\\
+
+\begin{question}
+  What happens if $\omega = 3$ exactly, but there is a tiny amount of damping, so that the ODE is
+  \begin{equation*}
+    \ddot{x} + \underset {{\color{blue}{\text {damping term}}} }{b \dot{x}} + 9 x
+    = \underset {{\color{orange}{\text {input signal}}} }{\cos \omega t}
+  \end{equation*}
+  for some small positive constant $b$?
+\end{question}
+
+
+The new characteristic polynomial is $P(r)=r^2+br+9$.
+Since $3i$ is no longer a root, the ERF applies.
+The complex gain is $\displaystyle G= \frac{1}{P(3i)} = \frac{1}{3bi},\,$
+and the gain is $\displaystyle |G| = \frac{1}{3b}$.
+This is large, but the oscillations are bounded; there is a steady-state solution.
+
+\begin{exercise}
+  Preparation and review
+\end{exercise}
+Rewrite the equation
+\begin{equation*}
+  m\ddot x + b\dot x + kx = 0
+\end{equation*}
+for the homogeneous spring-mass-dashpot system by dividing through by $m$ as
+\begin{equation*}
+  \ddot x + 2p\dot x + \omega _ n^2 = 0.
+\end{equation*}
+When this system is underdamped, we write $\omega d$ for the angular frequency
+of the oscillations of the solution to this homogeneous equation. \\
+
+Find $\omega _ d^2$ in terms of $\omega _ n$ and $p$\\
+
+The roots of characteristic polynomial for the underdamped system are the complex number.
+Therefore, the discriminate $(2p)^2 - 4 \omega _ n^2 < 0$. \\
+So, the damping frequency is 
+\begin{equation*}
+  \displaystyle \omega _ d \displaystyle= \frac{\sqrt{4 \omega _ n^2 - 4p^2}}{2}
+  \displaystyle= \sqrt{ \omega _ n^2 - p^2}. 
+\end{equation*}
+So $\omega _ d^2$ is $\omega _ n^2 - p^2$.\\
+\clearpage
+\textbf{Remark:} The only case where the damped frequency exists when
+$\sqrt {p^2-\omega _ n^2}$ is imaginary. In this case,
+$\omega _ n^2 > p^2,\,$ and the damped frequency $\omega _d$ satisfies
+the pythagorean relationship
+\begin{equation*}
+  \omega _ n^2 - p^2 = \omega _ d^2.
+\end{equation*}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-damped_frequency_pythagorean}
+  \caption{ $\omega _d$ satisfies the pythagorean relationship.}
+\end{figure}
+
+\textbf{\color{orange} Note for paragraph Damped resonance:} \\
+
+We need to prepare you for below paragraph because we are entering in the middle.
+In the paragraph below, $\omega _0$ is used instead of $\omega _n$
+for the natural angular frequency of the spring-mass-dashpot;
+$\omega _1$ is used instead of $\omega _d$ for the natural damped frequency,
+or damped pseudofrequency. \\
+
+We use the notation
+\begin{equation*}
+  m\ddot x + b\dot x + kx = f_1(t)
+\end{equation*}
+or the spring-mass-dashpot system driven through the mass. We rewrite this as
+\begin{equation*}
+  \ddot x + 2p \dot x + \omega _ n^2 x = f_2(t)
+\end{equation*}
+
+by dividing through by $m$:
+
+\begin{align*}
+  2p \qquad &= \qquad \frac{b}{m} \, \\
+  \omega _n^2 \qquad &= \qquad \frac{k}{m} .
+\end{align*}
+
+
+\paragraph{Damped resonance}
+The spring mass, damping, k--
+spring constant-- then you divide out by m
+and you get this-- you're familiar with that.
+And it's only after you've divided up by the k--
+by the m that you're allowed to call this
+the square of the natural frequency.
+So omega 0 is the natural, undamped frequency.
+If this term were not there that omega 0
+would give the frequency with which the little spring would
+like to vibrate by itself.
+
+Now, further complication is that the visual
+uses neither of these.
+The visual uses x double dot plus b times x prime--
+I think we'll have to fix this in the future,
+but for now, just live with it--
+plus kx and that's some function--
+again, a function.
+So in other words, the problem is
+that b is OK, can't be confused with c.
+On the other hand, this is not the same k as that,
+because this k, to be converted into--
+either you have to assume the mass is
+1 or you have to divide through by it, in which case--
+So, what I'm trying to say is don't automatically
+go to a formula one place and assume
+it's the same formula in another place.
+You have to use these equivalences.
+You have to look and see how the basic equation was written
+and then figure out what the constant should be.
+Now, there was something called--
+when we analyzed this before, and this has happened
+in recitation-- there was the natural--
+the damped frequency, then I'll call it
+the natural damped frequency.
+The book calls it the pseudo frequency.
+
+It's called pseudo frequency because the function
+if you have 0 on the right-hand side
+but have damping, the function isn't periodic, it decays,
+does this.
+Nonetheless, it still crosses the x-axis at regular
+intervals--
+I'm sorry, it crosses the t-axis at regular intervals,
+and therefore almost everybody just
+casually refers to it as the frequency
+and understands it's the natural damped frequency.
+Now, the relation between them is
+given by the little picture I drew you once,
+but I didn't emphasize it enough.
+Here is omega 0.
+Here is a right angle.
+This side is omega 1 and this side is the damping.
+So in other words, this is fixed because it's
+fixed by the spring, that's the natural frequency
+of the spring by itself.
+
+If you have damping, if you're damping the motion,
+then the more you damp it, the bigger this side gets
+and therefore the smaller omega 1 is.
+The bigger the damping then the smaller
+the frequency with which the damped thing vibrates.
+That's sort of intuitive.
+And vice versa-- if you decrease the damping to almost 0,
+well then you'll make omega 1 almost the same size as omega
+0--
+this must be a right angle--
+and therefore if there's very little damping,
+this natural damped frequency will
+be almost the same as the original frequency,
+the natural frequency.
+So the relation between them is that omega 1 squared
+is equal to omega 0 squared minus p squared,
+and this comes from the characteristic roots
+of the damped equation.
+
+So we did that before, I'm just reminding you of it.
+Now, the third frequency which now enters
+and that I'm asking you about on the problem set is--
+if you've got a damped spring, what
+happens when you impose a motion on it
+with yet a third frequency?
+So in other words, drive the damped spring.
+Let's-- x--
+I don't care.
+I switched to y's, as I'm in a y mode.
+So our equation looks like this, just
+as it did before, except now I'm going
+to drive that with an undetermined frequency,
+cosine omega t.
+And my question now is--
+see, it's not going to be able to resonate in the correct--
+you really only get true resonance
+when you don't have damping, that's
+the only time where the amplitude can build up
+indefinitely.
+But nonetheless, for all practical--
+and you never have--
+there's always some damping, unless you
+are a perfect vacuum or something,
+there's always some damping.
+So p isn't 0, can't be exactly 0.
+So the problem is which omega gives --
+which frequency in the input--
+which input frequency gives the maximal
+amplitude for the response?
+
+We solved that problem when it was undamped
+and the answer was easy--
+omega should equal omega 0.
+But when it's damped, the answer is different.
+And I'm not asking you to do it in general,
+I'm giving you some numbers.
+But nonetheless, it still must be the case you--
+so I'm giving you a specific values of p and omega 0.
+That's on the problem set, of course one of them
+is tied to your recitation.
+But the answer is--
+I'm going to give you the answer, the general formula
+for the answer to make sure that you don't get widely astray--
+let's call that omega r, the resonant omega.
+This isn't true resonance, your book
+calls it practical resonance, again, most people just
+call it resonance, so you know what I mean now, type of thing.
+The answer is very curious and I would
+love to have someone explain it to me.
+Of course, I can derive it mathematically
+but that's not entirely satisfying.
+It is omega r is very much like that,
+maybe we should have written this one down in the same form.
+Omega 1 is the square root of omega 0
+squared minus p squared.
+What would you expect?
+Well, what I would expect is that omega r should be omega 1.
+The damped system has a natural frequency, omega 1.
+The resonant frequency should be the same
+as that natural frequency with which the damped system wants
+to do it's thing.
+And the answer is that's not right, it is the square root--
+it's a little lower, it is omega 0 squared minus 2p squared.
 
 
 

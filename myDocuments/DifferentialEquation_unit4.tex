@@ -3786,98 +3786,105 @@ by dividing through by $m$:
   \omega _n^2 \qquad &= \qquad \frac{k}{m} .
 \end{align*}
 
-
 \paragraph{Damped resonance}
-The spring mass, damping, k--
-spring constant-- then you divide out by m
-and you get this-- you're familiar with that.
-And it's only after you've divided up by the k--
-by the m that you're allowed to call this
+The spring mass, damping
+\begin{equation}
+  \label{eq:3}
+  m\ddot x + b\dot x + kx = f_1(t) 
+\end{equation}
+divide by mass $m$
+\begin{equation*}
+  \ddot x + 2p \dot x + \omega _ n^2 x = f_2(t)  
+\end{equation*}
+
+And it's only after you've divided up by the $k$--
+by the $m$ that you're allowed to call this
 the square of the natural frequency.
-So omega 0 is the natural, undamped frequency.
-If this term were not there that omega 0
+So $\omega _0$ is the natural, undamped frequency.
+If this term, $2p \dot x$, were not there that $\omega _0$
 would give the frequency with which the little spring would
-like to vibrate by itself.
+like to vibrate by itself.\\
 
 Now, further complication is that the visual
 uses neither of these.
-The visual uses x double dot plus b times x prime--
-I think we'll have to fix this in the future,
-but for now, just live with it--
-plus kx and that's some function--
-again, a function.
+\begin{equation}
+  \label{eq:5}
+  \ddot x + b \dot x + k = f_3 (t)
+\end{equation}
+I think we'll have to fix this in the future.
 So in other words, the problem is
-that b is OK, can't be confused with c.
-On the other hand, this is not the same k as that,
-because this k, to be converted into--
+that $b$ is OK, can't be confused with $c$.
+On the other hand, the $k$ on the equation~\ref{eq:3} $k$ is
+not the same $k$ on the equation~\ref{eq:5} as that,
+because on the equation~\ref{eq:3}  $k$, to be converted into--
 either you have to assume the mass is
-1 or you have to divide through by it, in which case--
+$1$ or you have to divide through by it, in which case--
 So, what I'm trying to say is don't automatically
 go to a formula one place and assume
 it's the same formula in another place.
 You have to use these equivalences.
 You have to look and see how the basic equation was written
-and then figure out what the constant should be.
+and then figure out what the constant should be.\\
+
+
 Now, there was something called--
 when we analyzed this before, and this has happened
-in recitation-- there was the natural--
+in recitation-- there was the natural $\omega _1$--
 the damped frequency, then I'll call it
 the natural damped frequency.
 The book calls it the pseudo frequency.
-
-It's called pseudo frequency because the function
-if you have 0 on the right-hand side
+because the function if you have $0$ on the right-hand side
 but have damping, the function isn't periodic, it decays,
 does this.
-Nonetheless, it still crosses the x-axis at regular
-intervals--
-I'm sorry, it crosses the t-axis at regular intervals,
-and therefore almost everybody just
+Nonetheless, it still crosses the t-axis at regular
+intervals, and therefore almost everybody just
 casually refers to it as the frequency
-and understands it's the natural damped frequency.
+and understands it's the natural damped frequency.\\
+
 Now, the relation between them is
-given by the little picture I drew you once,
+given by the little picture,
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-damped_frequency_pythagorean}
+  \caption{ $\omega _d$ satisfies the pythagorean relationship.}
+\end{figure}
+
 but I didn't emphasize it enough.
 Here is omega 0.
 Here is a right angle.
-This side is omega 1 and this side is the damping.
-So in other words, this is fixed because it's
+This side is omega 1 and $p$ is the damping.
+So in other words, $\omega _0$ is fixed because it's
 fixed by the spring, that's the natural frequency
 of the spring by itself.
 
 If you have damping, if you're damping the motion,
 then the more you damp it, the bigger this side gets
-and therefore the smaller omega 1 is.
+and therefore the smaller $\omega _1$ is.
 The bigger the damping then the smaller
 the frequency with which the damped thing vibrates.
 That's sort of intuitive.
-And vice versa-- if you decrease the damping to almost 0,
-well then you'll make omega 1 almost the same size as omega
-0--
+And vice versa-- if you decrease the damping to almost $0$,
+well then you'll make $\omega _1$ almost the same size as $omega _0$--
 this must be a right angle--
 and therefore if there's very little damping,
 this natural damped frequency will
-be almost the same as the original frequency,
-the natural frequency.
-So the relation between them is that omega 1 squared
-is equal to omega 0 squared minus p squared,
+be almost the same as the original frequency.
+So the relation between them
+\begin{equation*}
+  \omega _1^2 = \omega _0^2 - p^2
+\end{equation*}
 and this comes from the characteristic roots
 of the damped equation.
-
-So we did that before, I'm just reminding you of it.
-Now, the third frequency which now enters
-and that I'm asking you about on the problem set is--
+Now, the third frequency which now enters, 
 if you've got a damped spring, what
 happens when you impose a motion on it
 with yet a third frequency?
 So in other words, drive the damped spring.
-Let's-- x--
-I don't care.
-I switched to y's, as I'm in a y mode.
-So our equation looks like this, just
-as it did before, except now I'm going
-to drive that with an undetermined frequency,
-cosine omega t.
+\begin{equation*}
+  \ddot x + 2p \dot x + \omega _0^2 y = \cos \omega t
+\end{equation*}
+I'm going to drive that with an undetermined frequency,
+$\cos \omega t$.
 And my question now is--
 see, it's not going to be able to resonate in the correct--
 you really only get true resonance
@@ -3889,26 +3896,26 @@ and you never have--
 there's always some damping, unless you
 are a perfect vacuum or something,
 there's always some damping.
-So p isn't 0, can't be exactly 0.
-So the problem is which omega gives --
+So $p$ isn't 0, can't be exactly 0.
+So the problem is which $\omega$ gives --
 which frequency in the input--
 which input frequency gives the maximal
-amplitude for the response?
+amplitude for the response?\\
 
 We solved that problem when it was undamped
 and the answer was easy--
-omega should equal omega 0.
+$\omega$ should equal $\omega _0$.
 But when it's damped, the answer is different.
 And I'm not asking you to do it in general,
 I'm giving you some numbers.
 But nonetheless, it still must be the case you--
-so I'm giving you a specific values of p and omega 0.
+so I'm giving you a specific values of $p$ and $omega_ 0$.
 That's on the problem set, of course one of them
 is tied to your recitation.
 But the answer is--
 I'm going to give you the answer, the general formula
 for the answer to make sure that you don't get widely astray--
-let's call that omega r, the resonant omega.
+let's call that $\omega _r$, the resonant omega.
 This isn't true resonance, your book
 calls it practical resonance, again, most people just
 call it resonance, so you know what I mean now, type of thing.
@@ -3916,22 +3923,764 @@ The answer is very curious and I would
 love to have someone explain it to me.
 Of course, I can derive it mathematically
 but that's not entirely satisfying.
-It is omega r is very much like that,
+It is $omega _r$ is very much like that,
 maybe we should have written this one down in the same form.
-Omega 1 is the square root of omega 0
-squared minus p squared.
 What would you expect?
-Well, what I would expect is that omega r should be omega 1.
-The damped system has a natural frequency, omega 1.
+Well, what I would expect is that $\omega _r$ should be $\omega _1$.
+The damped system has a natural frequency, $omega _1$.
 The resonant frequency should be the same
 as that natural frequency with which the damped system wants
 to do it's thing.
-And the answer is that's not right, it is the square root--
-it's a little lower, it is omega 0 squared minus 2p squared.
+And the answer is that's not right, it's a little lower.
+\begin{equation*}
+  \omega _r = \sqrt{\omega _0^2 + 2p^2}
+\end{equation*}
+
+\paragraph{Resonant frequency recap}
+There are three frequencies that come into play when we drive a spring-mass-dashpot system with a sinusoidal input.
+\begin{align*}
+  &\omega _n \qquad \qquad \text{the natural (undamped) frequency,} \\
+  &\omega _d \qquad \qquad \text{the natural damped (pseudo) frequency,} \\
+  &\omega _r \qquad \qquad \text{the {\color{blue}resonant frequency} .} 
+\end{align*}
+\clearpage
+
+\subsubsection{Frequency response and amplitude response}
+Given any ODE
+\begin{equation*}
+  P(D)x = Q(D)\cos (\omega t)
+\end{equation*}
+the complex gain is a complex function given by
+\begin{equation*}
+  G(\omega ) = \frac{Q(i \omega )}{P(i \omega )} = ge^{-i\phi } \quad \text {(in polar form)}.
+\end{equation*}
+
+The gain of the response $x$ is $g= |G(\omega )|$,
+which can also be thought of as a function of the input sinusoidal frequency $\omega$.
+The phase lag of the response $-\phi =\arg (G(\omega ))$
+can similarly be thought of as a function of $\omega$. \\
+
+In engineering, the graph of gain as a function of $\omega$ is called
+\textbf{\color{blue} Bode plot}(Bode is pronounced Boh-dee), and is usually on a log-log scale.
+Alternatively, a \textbf{\color{blue} Nyquist plot}
+hows the trajectory of the complex gain $G$ as $\omega$ varies.
+The Bode plots contain, at a glance, all of the information about the resonant response $\omega _r$.
+By looking at the Bode plot of the amplitude as a function of frequency,
+we can observe any vertical asymptotes (pure resonant values) or local maxima (resonant values).
+Sometimes the gain is monotonically decreasing, this is the case of no resonance.\\
+
+\textbf{\color{orange} Note on below paragraph: }
+In the paragraph that follows, the input is the entire right hand side
+$F_0 \cos (\omega t)$.
+The response is $x$.
+The \textit{gain} is called the \textit{amplitude response}. \\
+
+\paragraph{Amplitude response worked example}
+So today I'd like to talk about resonant frequency response.
+And specifically, we're going to take
+a look at a couple of different differential equations.
+And we're asked to graph the amplitude response.
+\begin{enumerate}[label=\textbf{Part.\arabic*}]
+\item $\ddot x + 4x = F_0 cos (\omega t)$\\
+  The particular solution for the equation is
+  \begin{equation*}
+    x_ p = \mathrm{Re\, }(\frac{F_ 0}{P(D)} e^{it}) = \frac{F_ 0}{4 - \omega ^2 } \cos (t) 
+  \end{equation*}
+  \clearpage
+  
+  Now the amplitude response is defined as a ratio of
+  the output amplitude of a differential equation to the input amplitude
+  of a differential equation.\\
+  So I'm going to draw the amplitude response now.
+  \begin{equation*}
+    \displaystyle \frac{\frac{F_ 0}{4 - \omega ^2}}{F_0}
+    \displaystyle= \frac{1}{4 - \omega ^2}
+  \end{equation*}
+  So we have $\omega$ on x-axis and we see that, when $\omega = 2$,
+  there's an asymptote. When $\omega = 0$, we have $1/4$.
+
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image-graph_amplitude_partA}
+    \caption{Graph amplitude response of Part 1}
+  \end{figure}
+  
+  So notice how when we drive the system with frequency $2$,
+  the amplitude response goes to infinity.
+  As a result, we call this frequency the resonant frequency.
+  
+\item $\ddot x + \dot x + 4x = F_0 cos (\omega t)$ \\
+  The particular solution for the equation is
+  \begin{equation*}
+    x_ p = \mathrm{Re\, }(\frac{F_ 0}{P(D)} e^{it})
+    = \frac{F_ 0}{\sqrt{(4 - \omega ^2)^2 - \omega^2  }} \cos (t - \phi) 
+  \end{equation*}
+  The amplitude of output is $\displaystyle \frac{F_0}{|P(i\omega)|} $ and
+  The input amplitude is $F_0$, so amplitude response is
+  \begin{equation*}
+    \frac{1}{|P(i\omega)|} = \frac{1}{\sqrt{(4 - \omega ^2)^2 - \omega^2  }}
+  \end{equation*}
+  \clearpage
+  
+  Now there's the question of how to graph this.
+  And we see that--
+  well, first off, the square root's an increasing function.
+  And we see that we're one over an increasing function.
+  So there's a trick, which is to just  look first at sketching this piece which
+  is under the radical sign.
+  And if you look at maximizing-- trying to maximize this
+  function, so finding the critical points--
+  we see that in this case, we have one minimum to $(4 - \omega ^2)^2 + \omega ^2$.
+  And this is when $\omega = \sqrt{\frac{7}{2}}$.
+  OK, so when I go to sketch this now, we have omega.
+  We have the amplitude response.
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image-graph_amplitude_partB}
+    \caption{Graph of Amplitude response Part 2}
+  \end{figure}
+
+  So we end up with a maximum at $\sqrt{7/2}$ and then decay to infinity.
+  And again, y intercept is going to be $1/4$.
+  So when $\omega$ is $\sqrt{7/2}$, the graph is the peak amplitude response.
+  So note that in this case by adding damping, what we've done
+  is we no longer have an asymptote at $\omega = 2$.
+  But we now have a finite amplitude,  which occurs at $\omega$ equals $\sqrt{7/2}$.
+  
+\item $\ddot x + \dot x + 4x = F_0 cos (\omega t)$ \\
+  The amplitude gain is
+  \begin{equation*}
+     \frac{1}{\sqrt{(4 - \omega ^2)^2 + 36 \omega ^2}}
+  \end{equation*}
+  So now if we'd like to plot this function,
+  we can still do the same trick and try to maximize or find
+  the critical points in the denominator under the radical.
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image-graph_amplitude_partC}
+    \caption{Graph of Amplitude response Part 3}
+  \end{figure}
+
+  And if we did this, in this case we would find that the only critical point
+  is when $\omega = 0$. Secondly, if we look at $\omega \to \infty$,
+  we see that the denominator goes to infinity.
+  So this whole quantity must go to $0$.
+  when $\omega = 0$, it's going to start off at $1/4$.
+
+  I've just argued that it goes to 0 as omega goes to infinity.
+  And since there are no critical points,
+  we must smoothly paste the function between the two.
+  And in fact, it's always decreasing.
+  So the amplitude response in this case
+  is just a decreasing function.
+
+\item Discuss resonance for each system. \\
+  So in Part 1, we had no damping.
+  And we saw that there was a resonance at $\omega =  2$.
+  And the resonance manifested itself in the amplitude response graph with a pole
+  or a divergent asymptote at $\omega = 2$.
+  So as you drive the system close to $\omega = 2$,
+  the amplitude of the system starts to diverge.
+  In Part 2, we introduce damping into the system.
+  So we still have a very large amplitude response at $ \omega = \sqrt{7/2}$
+  However, it's no longer infinite.
+  And then lastly, when we increased damping even further,
+  so we had the $6 \dot x$ terms, the presence of a peak disappeared.
+  And in fact, the amplitude response  just monotonically decayed from one fourth to zero.
+  So it just constantly decreased to zero.
+\end{enumerate}
+
+\begin{exercise}
+  Mathlet activity 1
+\end{exercise}
+
+The mathlet below shows the steady state response of a spring-mass-dashpot system in series being driven sinusoidally through a piston at the bottom.
+The mass in this system is $1kg$. The equation modeling this system is
+\begin{equation*}
+  \ddot x + b\dot x + k x = b\dot y, \qquad y = \cos (\omega t).
+\end{equation*}
+
+\href{http://mathlets.org/mathlets/amplitude-and-phase-2nd-order-ii/}
+{AMPLITUDE AND PHASE: SECOND ORDER II}
+
+The input is the sinusoid $\cos (\omega t)$ and and system response is $x$.
+Set $b=.5$ and $k=3$.
+(Pro tip: click on the numbers above the sliders so that the pointer moves to the exact slider value.)\\
+
+\begin{enumerate}
+\item Find the formula for the complex gain $G$ in terms of $\omega$.
+  (Answer for $b=.5$ and $k=3$.) \\
+  The complex gain is
+  \begin{equation*}
+    G(\omega) = \frac{Q(i \omega)}{P(i \omega)} = \frac{0.5i \omega}{(i \omega)^2 + 0.5 i \omega + 3}
+    = \frac{0.5i \omega}{3 - \omega ^2  + 0.5 i \omega }
+  \end{equation*}
+\item Use the complex gain $G$ to determine what happens to
+  $g$ when $\omega$ is close to zero. (Answer for $b=.5$ and $k=3$.) \\
+  When $\omega$ tends to zero,
+  \begin{equation*}
+    G(\omega ) = \frac{.5\omega i}{3-\omega ^2+.5 \omega i}
+    \approx \frac{.5\omega i}{3} \longrightarrow 0
+  \end{equation*}
+  Therefore $g = |G|$ also also tends to zero as $\omega \rightarrow 0$\\
+
+  What happens when $\omega$ is large? (Answer for $b=.5$ and $k=3$.)\\
+  When $\omega$ is large,
+  \begin{equation*}
+    G(\omega ) = \frac{.5\omega i}{3-\omega ^2+.5 \omega i}
+    \approx \frac{.5\omega i}{-\omega ^2} \longrightarrow 0.
+  \end{equation*}
+  Therefore $g=|G|$ also tends to zero as $\omega \rightarrow \infty$.
+  Since $G$ and hence $g$ is not identically zero, we expect that between $0$ and $\infty$,
+  there is some resonant frequency $\omega _r$ where $g$ obtains a maximum value.   
+\end{enumerate}
+
+\begin{exercise}
+  Mathlet activity 2
+\end{exercise}
+
+The mathlet below shows the steady state response of
+a spring-mass-dashpot system in series being driven
+sinusoidally through the spring by a piston at the top.
+The mass in this system is $1kg$. The equation modeling this system is
+\begin{equation*}
+  \ddot x + b\dot x + k x = k \cos \omega t.
+\end{equation*}
+
+\href{http://mathlets.org/mathlets/amplitude-and-phase-2nd-order/}
+{AMPLITUDE AND PHASE: SECOND ORDER I}
+
+The input is the sinusoid $\cos ⁡(\omega t)$ and system response is $x$.
+Set $b=1.5$ and $k=1$.
+(Pro tip : click on the numbers above the sliders so that the pointer moves to the exact slider value.)
+
+\begin{enumerate}
+\item Find the formula for the complex gain $G$ in terms of $\omega$.
+  (Answer for $b=1.5$ and $k=1$.) \\
+  The complex gain is
+  \begin{equation*}
+    G(\omega) = \frac{Q(i \omega)}{P(i \omega)} = \frac{1}{(i \omega)^2 + 1.5 i \omega + 1}
+    = \frac{1}{1 - \omega ^2  + 1.5 i \omega }
+  \end{equation*}
+\item Use the complex gain $G$ to determine what happens
+  to $g$ when $\omega$ is close to zero. (Answer for $b=1.5$ and $k=1$.) \\
+  When $\omega$ tends to zero,
+  \begin{equation*}
+    G(\omega ) = \frac{1}{1-\omega ^2+1.5 \omega i} \rightarrow \frac{1}{1} =1.
+  \end{equation*}
+  Therefore $g=|G|$ also tends to $1$ as $\omega \rightarrow 0$.\\
+
+  What happens to $g$ when $\omega$ is large?\\
+  When $\omega$ is large,
+  \begin{equation*}
+    G(\omega ) = \frac{1}{1-\omega ^2+1.5 \omega i} \approx \frac{1}{-\omega ^2} \rightarrow 0.
+  \end{equation*}
+  Therefore $g=|G|$ also tends to zero as $\omega \rightarrow \infty$.
+  It is not clear whether there is a resonant frequency or not.
+  Using the Bode plot in the mathlet,
+  we see that g is monotonically decreasing and this system has no resonance.  
+\end{enumerate}
+\clearpage
+
+\subsubsection{Series RLC circuits}
+
+Resonance is a phenomenon that is very important in the design of electrical circuits.
+So we will model an RLC circuit in series.
+Then we will explore how resonance enables different elements in the circuit act as low-pass filters, high-pass filters, or mid-pass filters– selectively allowing certain
+driving frequencies to pass through while others diminish.\\
+
+\paragraph{Introduction and modeling}
+Our goal today is to set up differential equations
+for an electrical circuit and to explore how different system
+measurements or outputs give rise to different responses.
+We'll analyze one-loop circuits and introduce the principles
+that eventually work for more complicated circuits as well.
+Here, I have a one-loop circuit consisting
+of a single resistor with resistance $R$,
+a single inductor with inductance $L$,
+and a capacitor with capacitance $C$.
+Note that the letter $L$ is given to the inductance
+because the letter $I$ is reserved for current.
+$L$ is in honor of physicist Heinrich Lenz.
+Let's dig into RLC circuits now.\\
 
 
+We will model the system using the five-step process.
+
+\begin{enumerate}[label=Step.\arabic*]
+\item To draw a diagram of the system.
+
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image-series_RLC}
+    \caption{Series RLC cricuit}
+  \end{figure}
+
+  We'll start with the power source, which is denoted
+  by a circle with a wiggle.
+  And we'll connect our components by wires,
+  denoted by straight lines.
+  The first component in our system
+  will be the resistor, drawn as a zigzag.
+  The second component is our inductor,
+  which is denoted by a coil.
+  And the final component is a capacitor,
+  denoted by parallel segments.
+  We then connected it back to the power source.
+  And we have here our single-loop circuit.
+  Since all the components are in series one after the other,
+  we call this a series circuit.
+  So these are RLC circuits in series.
+  So the power source provides a voltage V.
+  The resistor has a resistance R. The inductor has
+  an inductance L. And the capacitor has a capacitance C.
+
+\item To identify all the variables and give the corresponding symbols. \\
+
+  So the first variable will be the input voltage, which
+  will be a function of time.
+  So $V$ is $V(t)$, a function of time.
+  The second variable is the current
+  that goes through the system.
+  So we'll denote the current by $I(t)$, also a function of time.
+  And we'll denote positive current
+  as current that flows clockwise in this diagram.
+  Since this is a series circuit, the current
+  through all the components is the same.
+  The other three parts that we can measure of the system
+  are the voltage drops across each of these three components.
+  So we have $V_R$ to be the voltage drop across the resistor.
+  \begin{align*}
+    &V _R : \qquad \text{The voltage drop across the resistor,} \\
+    &V _L : \qquad \text{The voltage drop across the inductor,} \\
+    &V _C : \qquad \text{The voltage drop across the capacitor.} \\
+  \end{align*}
+  And these are all the variables that we
+  can measure in this system. \\
+  So each of these components has an associated law that relates the voltage drop to current.
+  So the associated law for
+  \begin{align*}
+    & V_R(t) = R I(t),  \\
+    & V_L(t) = L \dot I (t),  \\
+    & \dot V _C(t) = \frac{1}{C} I (t). \\
+  \end{align*}
+  So note that $R,\, L,\, $ and $C$ are all constants.
+  So these are linear relations between voltage drop and current.
+  And these laws are actually a pretty big deal
+  because it took generations of physicists
+  to come up with them.
+  And although they're not perfect,
+  they serve as a great model that works for a wide range of circuits.
+  So these are very important laws in physics.
+  And then other thing that the circuit obeys is Kirchhoff's voltage law. \\  
+  So Kirchhoff's voltage law says that the voltage gain
+  from the power source is equal to the sum
+  of all the voltage drops across the circuit.
+  So we have
+  \begin{equation*}
+    V = V _R + V _L + V _C.
+  \end{equation*}
+  And here, since we want to rewrite everything eventually
+  as a single equation, we have to rewrite things
+  in terms of time derivatives because we have $V _C$ dot showing up above.
+  So a natural next step to take is  to differentiate Kirchhoff's law.
+  So we would get
+  \begin{equation*}
+    \dot V = \dot V _R + \dot V _L + \dot V _C.
+  \end{equation*}
+  This way, we can use the relations that we have
+  and plug them into the time derivative
+  of Kirchhoff's voltage law.
+
+\item To declare what's the input and what's the system response of this system.\\
+  So if we have an AM radio, for example,
+  we would have the \textit{input} being the voltage that
+  is received through the radio waves hitting the antenna.
+  And that would be seen here in the \textit{power source} of the circuit.
+  An \textit{output} that we would be interested in-- so the system
+  response we would be interested in--
+  would be the \textit{voltage drop across the resistor},
+  as that signifies the output that we
+  get through our headphones in an AM radio.
+  So in our case, we will look at the system response
+  of the \emph{voltage drop across the resistor}.
+  We could have chosen any of the voltage drops or even
+  the current as our system response.
+  But because we're interested in analyzing an AM radio,
+  we'll take $V_R$ as our system response.\\
+\item  Rewrite things  in terms of our variable of interest--
+  in terms of our system response.\\
+  So we want to rewrite this associated laws in terms of $V _R$.
+  So in the equation $ V_R(t) = R I(t)$, I want to rewrite
+  \begin{equation*}
+    I(t) = \frac{V _R (t)}{R}. 
+  \end{equation*}
+  In the equation $V _L(t) = L \dot I (t)$,
+  I know that I need the time derivative of the current.
+  So I'll need to differentiate this part.
+  And the only thing that's a function of time is $V _R$.
+  So we would get
+  \begin{equation*}
+    V _L (t) = \frac{L}{R} \dot V _R (t)
+  \end{equation*}
+  And finally, in our last equation $\dot V _C = \frac{1}{C} I(t)$,
+  I have that
+  \begin{equation*}
+    \dot V _C = \frac{1}{C} \frac{V _R(t)}{R}
+  \end{equation*}
+  Now we have all of our variables as functions of the system response.
+
+  \item In order to get a single differential equation
+  for $V _R$, the voltage drop across the resistor,
+  is to plug in all of these expressions into Kirchhoff's voltage law.
+  So we have
+  \begin{equation*}
+    \dot V = \dot V _R + \frac{L}{R} \ddot V _R + \frac{1}{CR} V _R
+  \end{equation*}
+  So over here, we have a single differential equation
+  with our input in one side and our system
+  responds in the other.
+  So one side only depends on the system response.
+  And one side only depends on the input.\\
+
+  \item To rewrite so-- as we generally
+  do with the system response on the left-hand side
+  and with the input on the right-hand side.
+  For simplicity, I will multiply both sides by $R$.
+  That way, each component will only have a single parameter,
+  a single constant multiplying it.
+  And we'll see that in a second.
+  And now reorder such that the higher order derivatives
+  appear first.
+  So multiplying by $R$ and putting first the highest order
+  derivative, we would have
+  \begin{equation*}
+    L \ddot V _R + R \dot V _R + \frac{1}{C} V _R = R \dot V
+  \end{equation*}
+  Now we have system response on the left-hand side, input
+  in the right-hand side, and the coefficients of each term
+  is a single constant-- a different constant, but a single one.
+  So this is the differential equation for the system
+  response for a given input.
+\end{enumerate}
+
+We can compare this equation to the mass-dashpot-spring system.
+\begin{align*}
+  &m \ddot x + b \dot x + k x = b \dot y \qquad \text{Mass-dashpot-spring system,} \\
+  &L \ddot V _R + R \dot V _R + \frac{1}{C} V _R = R \dot V
+    \qquad \text{RLC series system.} \\
+\end{align*}
+So we can match each term.
+And they all look the same.
+So these two equations have the exact same form,
+meaning that their solutions are of the same form.
+And that's a very important result--
+that RLC circuits can be modeled by the same equations
+that some physical systems are modeled.
+So what if we had chosen other system responses?
+What if we look at the system response across the inductor?
+And what about the system response across the capacitor?
+What would be the differential equations for each of these system responses? \\
+
+A very simple passive AM radio receiver may be modeled by the following circuit.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-series_RLC}
+  \caption{Series RLC cricuit}
+\end{figure}
+
+The power source at left is the antenna, being driven by radio waves.
+The resistor at top is a speaker.
+The other components are a capacitor (at bottom) and an inductance coil (at right). \\
+
+We will model this circuit using the same five-step process as before.
+
+\begin{enumerate}
+\item \textbf{\color{blue} Draw a diagram of the system.} We've already done Step 1!
+\item \textbf{\color{blue} Identify and give symbols for the parameters and variables of the system. }
+  The diagram shows symbols for four standard electronic components:
+  \begin{align*}
+    &{\color{blue} R} : \qquad \text{resistance of the resistor}\, (ohms) \\
+    &{\color{blue} L} : \qquad \text{inductance of the inductor}\, (henries) \\
+    &{\color{blue} C} : \qquad \text{capacitance of the capacitor}\, (farads) \\
+    &{\color{blue} V} : \qquad \text{voltage source}\, (volts)
+  \end{align*}
+  The quantities $R,\, L,\, C$ are constants while the voltage source $V$ is a function of time. \\
+
+  Next, to understand the diagram above, we need to define an orientation of the circuit;
+  say that current flows counterclockwise.
+  Since it's a series circuit, the current through any of the wires is the same; write
+  ${\color{blue}I(t)}$ for it.
+  Then we can say that the power source, at left,
+  produces a voltage \emph{increase} of ${\color{blue}V(t)}$ volts at time $t$.
+  This voltage increase may vary with time, and may be negative as well as positive.
+  In fact we'll be especially interested in the case in which it is sinusoidal! \\
+
+  These are related by \emph{\color{blue} Kirchhoff's voltage law} :
+  The voltage gain across the power source must equal
+  the sum of the voltage drops across the other components:
+  \begin{equation*}
+    V=V_ L+V_ R+V_ C\, .
+  \end{equation*}
+  
+\item \emph{\color{blue}Declare the input signal and the system response.}
+  We will declare the voltage increase $V(t)$ produced by the power source as the input signal.
+  For system response, we are interested in the loudness of the speaker,
+  which is proportional to the voltage drop across the resistor.
+  So we declare $V _R$ to be the system response. \\
+
+  This means that we want to set up a differential equation relating $V(t)$ to $V _R (t)$.
+
+\item \emph{\color{blue}Write down a differential equation relating the input signal and the system response,
+    using Newton's ``$F=ma$" in the mechanical case or Kirchhoff's laws in the electrical case.}
+  Because $\dot V _C$ appears in the definition of a capacitor,
+  it is natural to differentiate Kirchhoff's voltage law, and rewrite in terms of $I$;
+  \begin{equation*}
+    \dot V=\dot V_ L+\dot V_ R+\dot V_ C=L\ddot I+R\dot I+(1/C)I\, .
+  \end{equation*}
+
+  To make this into an equation relating the input signal $V$ to the system response $V _R, \,$
+  we just have to remember that $V _R=RI$. So multiply through by $R$ and make this substitution,
+  along with its consequences $\dot V _R=R \dot I$ and $\ddot V _R= R \ddot I$:
+  \begin{equation*}
+    R\dot V=L\ddot V_ R+R\dot V_ R+(1/C)V_ R\, .
+  \end{equation*}
+
+  We're done. But before we discuss consequences, recall the equation describing
+  the spring/mass/dashpot system driven through the spring:
+  \begin{equation*}
+    m\ddot x+b\dot x+kx=b\dot y\, .
+  \end{equation*}
+
+  \clearpage
+  
+  These two equations are formally identical in the way they relate input and system response.
+  This reflects a rough parallel between mechanical and electrical systems, in which
+
+  \begin{table}[ht!]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+      \hline
+      \multicolumn{2}{|l|}{Mechanical} & \multicolumn{2}{l|}{Electrical} \\ \hline
+      displacement & $x,\, y$ & Voltage drop, gain& $V _R,=, v$\\ \hline
+      mass & $m$ & Inductance & $L$ \\ \hline
+      damping constant & $b$ & Resistance& $R$ \\ \hline
+      spring constant  & $k$ & 1/capacitance & $1/C$ \\ \hline
+    \end{tabular}
+  \end{table}
+  Similarly, a harmonic oscillator (undamped) is analogous to a series LC circuit (no resistor).
+\end{enumerate}
+
+\begin{exercise}
+  DEs for voltage drops across inductor and capacitor
+\end{exercise}
+
+Write down the differential equation for
+the voltage drop across the inductor $V _L$ by by entering the coefficients of
+$\dot V _L, \,  V _L,\,$ and the differential operator acting on $V$ on the right hand side of the DE.\\
+By Kirchhoff's voltage law
+\begin{equation*}
+  V=V_ L+V_ R+V_ C\, .
+\end{equation*}
+In series circuit, the current through the components is same.
+So, rewrite the equation
+\begin{equation*}
+  V= L \dot I + R I + \frac{1}{C} \int I.
+\end{equation*}
+The current through inductor is
+\begin{align*}
+  L \dot I &= V _L \\
+  \dot I &= \frac{1}{L} V _L \\
+  \int \dot I &= \frac{1}{L} \int V _L \\
+  I &= \frac{1}{L} \int V _L
+\end{align*}
+Substitute $\frac{1}{L} \int V _L$ then
+\begin{align*}
+  V &= L \frac{1}{L}  (\int V _L)^{\prime} + R \frac{1}{L} \int V _L +
+      \frac{1}{L} \frac{1}{C} \int \int V _L \\
+  V &= V _L + \frac{R}{L} \int V _L + \frac{1}{CL}  \int \int V _L \\
+  \dot V &=  \dot V _L + \frac{R}{L} V _L + \frac{1}{CL}  \int V _L \\
+  \ddot V &=  \ddot V _L + \frac{R}{L} \dot V _L + \frac{1}{CL} V _L \\
+  L \ddot V &=  L \ddot V _L + R \dot V _L + \frac{1}{C} V _L 
+\end{align*}
+
+The DE for the the voltage drop across the inductor is
+\begin{equation*}
+  \displaystyle  L{\color{blue}{\ddot{V}_ L}} +
+  R{\color{blue}{\dot{V}_ L}} _+\frac{1}{C} {\color{blue}{V_ L}}
+  \displaystyle =
+  \displaystyle  L{\color{orange}{\ddot V}}
+\end{equation*}
+
+\textbf{Note:} This is analogous to the DE that describe the spring-mass-dashpot system with a
+driving force $F= m \ddot y$ on the mass:
+\begin{equation*}
+  \displaystyle  \displaystyle m\ddot{x}+b\dot{x}+kx
+  \displaystyle = \displaystyle \displaystyle  m\ddot{y}.  
+\end{equation*}
+
+Write down the differential equation for the voltage drop across the capacitor
+by entering the coefficients and the right hand side below: \\
+
+The DE for the the voltage drop across the capacitor is
+\begin{equation*}
+  \displaystyle  \displaystyle L{\color{blue}{\ddot{V}_ C}}
+  +R{\color{blue}{\dot{V}_ C}} _+\frac{1}{C} {\color{blue}{V_ C}}
+  \displaystyle =
+  \displaystyle \frac{1}{C} {\color{orange}{V}}
+\end{equation*}
+
+\textbf{Note:} This is analogous to the DE that describe the spring-mass-dashpot
+system driven through the spring:
+\begin{equation*}
+  \displaystyle  \displaystyle m\ddot{x}+b\dot{x}+kx
+  \displaystyle =
+  \displaystyle  ky.
+\end{equation*}
 
 \clearpage
+\subsubsection{Gain for different system responses}
+
+\paragraph{Complex gain for the different responses}
+You've now found the differential equation
+for the voltage drop across the three components in an RLC
+circuit in series.
+\begin{align*}
+  L \ddot V _R + R \dot V _R + \frac{1}{C} V _R &= R \dot V \\
+  L \ddot V _L + R \dot V _L + \frac{1}{C} V _L &= L \ddot V \\
+  L \ddot V _C + R \dot V _C + \frac{1}{C} V _C &= \frac{1}{C} V  
+\end{align*}
+
+Note that the left-hand side of these three equations
+is of the same form.
+So they have the same coefficients
+and the same derivatives acting on the same places.
+But the way that the input enters into the right-hand side
+is different, depending on the system response that we pick.
+So if we look at a purely sinusoidal input, such as
+$V = \cos (\omega t)$, we can ask what
+are the system responses as omega changes?
+
+\begin{itemize}
+\item What happens if omega is small, if we're driving at low frequencies?
+\item What happens when omega is big?
+\item Is there a value of omega that gives me a maximal response? 
+\end{itemize}
+
+And we'll see that the answers are different,
+depending on the system response that we look at. \\
+
+
+So one way to get the answer to see
+what happens as we change$\omega$ is to calculate the gain, what we call little $g(\omega)$.
+And that's defined as the $|G(\omega)|$,where $G$ is a complex number.
+So in the case of a problem where we have
+so if we have an equation of the type 
+\begin{equation*}
+  P(D)x = Q(D)y 
+\end{equation*}
+and this is the case here, because we have a polynomial acting on our system responses.
+And then, on the right-hand side here, we have another polynomial acting on the input, which
+is what we have in these three right-hand sides.\\
+So if we have a system like this, which we do,
+we can compute $G(\omega)$, which
+is defined to be $\frac{Q(i \omega)}{P(i \omega)}$.
+So what that means is that we need
+to know what the polynomial $Q(D)$ is for each of these system responses.
+And we need to know what $P(D)$, again, for each of these differential equations.\\
+
+
+So let's do that.
+Like I said, before, these three equations
+have the same left-hand side.
+Meaning that, the $P(D)$ or the operator
+\begin{equation*}
+  P(D) = LD^2 + RD + \frac{1}{C}\,  \mathds{1}. 
+\end{equation*}
+that it's being acted on to these system responses is the same.
+I'll add the identity operator $\mathds{1}$, just to make this an operator.
+And this just means I'm multiplying my system response by a constant.
+And in order to calculate the complex gain,
+we need to evaluate $P(i \omega)$.
+So we'll plug that into this polynomial.
+\begin{equation*}
+  P(i \omega) = \frac{1}{C} - L \omega ^2 + iR \omega. 
+\end{equation*}
+So over here, we have computed the first part.
+And this is actually the same for all these three equations.
+Now the second part in order to calculate the gain,
+the complex gain, actually, is to find $Q(D)$.
+\begin{align*}
+  &Q _R(i \omega) = RD = iR \omega \\
+  &Q _L(i \omega) = LD^2 = -L \omega^2 \\
+  &Q _R(i \omega) = \frac{1}{C}\, \mathds{1} = \frac{1}{C}
+\end{align*}
+Now we have all the ingredients to calculate the complex gain.
+We have all of the $Q(D)$ evaluated at $i \omega$.
+And we have $P(i \omega)$, which is the same for all
+of the three components.
+\begin{align*}
+  &G _R(\omega) = \frac{Q(i \omega)}{P(i \omega)}
+    = \frac{iR \omega}{\frac{1}{C} - L \omega ^2 + iR \omega. } \\
+  &G _L(\omega) = \frac{Q(i \omega)}{P(i \omega)}
+    = \frac{-L \omega ^2}{\frac{1}{C} - L \omega ^2 + iR \omega. } \\
+  &G _C(\omega) = \frac{Q(i \omega)}{P(i \omega)}
+    = \frac{\frac{1}{C}}{\frac{1}{C} - L \omega ^2 + iR \omega}.    
+\end{align*}
+
+Recall the DE for the system response $V _R$ and system input $V$ is
+\begin{align*}
+  \displaystyle  P(D) V_ R\, =\,  Q(D) V,\qquad \text {where }\, \,
+  &\displaystyle  P(D)\, =\, L D^2 +R D+\frac{1}{C} \\
+  &\displaystyle Q(D)\, =\,  RD.
+\end{align*}
+
+(Recall $D$ is the differential operator $D=\frac{d}{dt}$. ) The complex gain for $V _R$ is therefore
+\begin{equation*}
+  \displaystyle  G_ R(\omega )
+  \displaystyle =
+  \displaystyle \frac{Q(i\omega )}{P(i\omega )}
+  \displaystyle =
+  \displaystyle \frac{iR\omega }{\left(\frac{1}{C}-L\omega ^2\right)+iR\omega }.
+\end{equation*}
+
+\begin{exercise}
+  Complex gain for the voltage drops across inductor and capacitor
+\end{exercise}
+
+Find the complex gain $G _L(\omega)$ and $G _C(\omega)$ for
+the system responses $V _L$ and $V_C$ respectively.
+(Enter in terms of $L,\, C,\, R,$ and the input angular frequency $\omega$.)
+
+The $G _L$ and $G _C$ are
+\begin{align*}
+    &G _L(\omega) ) =  \frac{-L \omega ^2}{\frac{1}{C} - L \omega ^2 + iR \omega. } \\
+    &G _C(\omega) =  \frac{\frac{1}{C}}{\frac{1}{C} - L \omega ^2 + iR \omega}.    
+\end{align*}
+
+\begin{exercise}
+  Sum of the three complex gains
+\end{exercise}
+What is the sum of the complex gain of the 3 responses as a function of $\omega$?
+That is, find the sum
+\begin{equation*}
+  G_ R (\omega )+G_ L(\omega )+G_ C(\omega ).
+\end{equation*}
+
+At all frequencies $\omega$,
+\begin{equation*}
+  G_ R + G_ L + G_ C\, =\, 1
+\end{equation*}
+
+\emph{Note:} The equation reflects Kirchhoff voltage law:
+\begin{equation*}
+  V_ R+V_ L+V_ C=V
+\end{equation*}
+
+\clearpage
+
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

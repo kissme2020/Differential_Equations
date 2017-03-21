@@ -4679,7 +4679,283 @@ At all frequencies $\omega$,
 \end{equation*}
 
 \clearpage
+\subsubsection{Voltage drop across resistor as system response}
 
+\paragraph{Analyzing the gain for the voltage drop across resistor}
+
+Welcome back.
+So now we're going to be analyzing the gain when
+we pick the system response to be the voltage drop
+across the resistor, $V _R$.
+So one thing that we're interested when
+we have an RLC circuit, for example,
+is to measure how the amplitude of the output
+compares to the magnitude of the input.
+In order to do that, we have to look at the magnitude
+of this complex number
+\begin{equation*}
+  G _R(\omega) = \frac{iR \omega}{(1/C - L \omega ^2) + iR\omega}. 
+\end{equation*}
+So that's what we call the gain, little $g$.
+It's much easier algebraically to work
+with the magnitude squared.
+So for now, we're going to work with little $g(\omega)^2$, which
+is defined as the $|G(\omega)| ^2$.
+\begin{equation*}
+  g^2 (\omega) = |G _R(\omega)| ^2 =
+  \frac{R^2 \omega^2}{(1/C - L\omega^2)^2 + R^2 \omega^2}. 
+\end{equation*}
+
+Some questions that we're interested in asking
+is what happens as we vary $\omega$.
+So let's look at some extreme cases.
+So what happens when $\omega \to 0$,
+that is if we're driving the system with small frequencies.
+So let's look at this expression.
+If we plug in $\omega = 0$, the numerator is equal to $0$
+because we have an $\omega ^2$.
+But the denominator is not because there is a term $\frac{1}{C}$
+that is a constant.
+So when we divide $0$ by a constant,
+we recovered that $g(\omega) ^2$ goes to $0$.
+So the gain goes to $0$ as $\omega \to 0$.\\
+
+What happens at the other extreme
+when $\omega \to \infty$?
+So again, we look at this expression
+and compare the behavior of the numerator and the denominator.
+So the numerator is growing as $\omega ^2$.
+That's the largest term.
+Whereas, the denominator is growing as $(omega ^2)^2$,
+which is $\omega$ to the fourth.
+So the denominator is growing faster than the numerator.
+Therefore, $g(\omega)^2$ tends to $0$ as well.
+So if we drive with small or large frequencies,
+the gain goes to $0$ in both cases.\\
+
+
+So we could use the gain in order
+to obtain this information, but sometimes that can be messy.
+The expression might not be as clear as this.
+In those cases, it's helpful to think about the complex number
+$G _R (\omega)$ and analyze that separately.
+So let's do that now.
+\begin{equation*}
+  G _R (\omega) = \frac{iR \omega}{(1/C - L \omega ^2) + iR\omega} =
+  \begin{cases}
+    \frac{0}{1/C} \approx 0 & \qquad \text{where } \omega \to 0 \\
+    \frac{iR \omega}{-L \omega^2} \approx 0 & \qquad \text{where } \omega \to \infty \\
+  \end{cases}
+\end{equation*}
+
+So here we have the extreme behavior of the graph of the behavior of $G_ R(\omega)$.\\
+
+Now, what happens in the mid-range?
+What happens for values in between $0$ and $\infty$?
+So let's look at mid-range values of $\omega$.
+One behavior that we're interested is what is the maximal gain that we can obtain?
+So one thing that we can do that we learn from calculus
+is that if we take the expression for the gain,
+\begin{equation*}
+  \frac{d}{d \omega} \left( g ^2 (\omega) \right) = 0,   
+\end{equation*}
+this would give us the value of $\omega$ that
+gives us maximal gain or maximal gain squared in this case.
+But if we try to take the derivative of this expression,
+you soon find that this is pretty messy.
+So this will be a challenge that we don't necessarily
+have to do.
+This is a case where dealing with the complex numbers
+and thinking about $G _R$ will be very helpful.
+So let's look at the $|G _R (\omega)|$,  is 
+which is given by
+\begin{equation*}
+  \frac{| i R \omega|}{| (1/C -l \omega ^2) + i R \omega |}. 
+\end{equation*}
+
+Now, we're comparing the magnitude
+of two complex numbers.
+So let's draw that in the complex plane.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-complex_gain_complex_plain}
+  \caption{Draw of the complex gain}
+\end{figure}
+
+So the numerator is a purely imaginary number, $i R \omega$.
+So we plot that on the imaginary axis.
+And then the denominator has the same exact imaginary part.
+So it will also have this imaginary part.
+But it also contains a real part given by $(1/C -L \omega^2)$.
+So the complex number looks like this in the complex plane.
+So we have a numerator that's purely on the imaginary axis.
+And we have the denominator, which
+is drawn here in orange that has a real and imaginary component.
+So we're interested in the \emph{length} of these two complex numbers.
+So just by looking at the graph, we can see that the length of the denominator
+is greater than the length of the numerator
+unless we have a very specific case where
+the real part of the denominator goes to 0.
+In that case, the two vectors would be--
+the two complex numbers would have the exact same magnitude.
+So when does that happen?
+We want the real part of the denominator,
+which is given by
+\begin{equation*}
+  \frac{1}{C} - L \omega ^2 = 0
+\end{equation*}
+Solving this, we obtained that
+\begin{equation*}
+  \omega = \frac{1}{\sqrt{LC}}
+\end{equation*}
+So note, we're thinking about frequency as a \emph{positive} number.
+That's why we don't have a plus or minus.
+So this is the frequency $\frac{1}{\sqrt{LC}}$ where the gain is maximized.
+So instead of taking derivatives of a complicated expression,
+we were able to do this simply by thinking about the geometry
+of complex numbers.
+And now, we have the value of $\omega$ that gives us the maximal gain.\\
+
+Now, what is that gain?
+So what happens when I plug in $\omega = \frac{1}{\sqrt{LC}}$
+into this
+\begin{equation*}
+  \frac{| i R \omega|}{| (1/C -L \omega ^2) + i R \omega |} ? 
+\end{equation*}
+Again, the real part of the denominator goes to $0$.
+So I'm comparing the magnitude of $i R \omega$
+with the magnitude of the same thing, $i R \omega$.
+So this tends to $1$ as $\omega$ tends to $\frac{1}{\sqrt{LC}}$. 
+So we have found not only the frequency
+where the maximum happens, but that the maximal value
+that the gain takes is $1$.
+That is the amplitude of the output is at most the same as the amplitude of the input.
+That's why we have a $1$ over here.
+And now, we have all the ingredients to plot what the gain looks like as a function of $\omega$.
+So we found as $\omega$ goes to $0$, the gain goes to $0$.
+As $\omega$ goes to $\infty$, the gain also goes to $0$.
+And then for this specific value of $\omega = \frac{1}{\sqrt{LC}}$, the gain goes to $1$.
+So let's make a plot with all this information.
+ 
+So here on the x-axis, we have $\omega$, our input frequency.
+And on the y-axis, we have $g (\omega)$ the magnitude
+of the complex gain.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-graph_of_g}
+  \caption{Graph of $g _R (\omega)$}
+\end{figure}
+
+Again, as $\omega$ goes to $0$, the gain goes to $0$.
+As $\omega$ goes to $\infty$, the gain also tends to $0$.
+And then we found that for $\omega  =  \frac{1}{\sqrt{LC}}$
+, $g$ obtains a maximum and that maximum is equal to $1$.
+So we know that this point is on the graph.
+Now, let's do some exercises and practice.
+
+\begin{exercise}
+  Predicting the resonant frequency for voltage drop across resistor
+\end{exercise}
+
+Let us see if our theory predicts the correct resonant frequency. In our series RLC circuit in the lab,
+we used $\, R= 510 \Omega ,\,  L=47 mH,\,$ and $\, C=\, 0.33\mu F,\,$ and
+we observed that the voltage drop across the resistor,
+shown as the red curve on the oscilloscope, has the largest amplitude at around $1.2 kHz.\, \,$\\
+Recall the complex gain for $V _R$:
+\begin{equation*}
+  \displaystyle  G_ R(\omega )
+  \displaystyle =
+  \displaystyle \frac{iR\omega }{\left(\frac{1}{C}-L\omega ^2\right)+iR\omega }.
+\end{equation*}
+\begin{enumerate}
+\item Analyze the complex gain (as in the video) to find the angular frequency $\omega _r$
+  at which the gain is maximum for the system response $\, V_ R.$\\
+
+  The condition to get the  maximum gain value for $\omega$ is that,
+  \begin{align*}
+    1/C -L \omega ^2 &= 0 \\
+    \omega ^2 &= \frac{1}{LC} \\
+    \omega &= \frac{1}{\sqrt{LC}} \\
+    \omega &= \frac{1}{\sqrt{47m \cdot 0.33 \mu}} \\
+    \omega &= 8029.60351198 [rad / s] 
+  \end{align*}
+
+\item Convert $\omega _r$ to a frequency $\, \nu _ r,\,$ in kHz (thousand cycles per seconds), at which the gain of the $V _R$ is maximum.\\
+
+  The $\omega = 2 \pi \cdot \text{frequency}$ , so
+  \begin{equation*}
+    \nu = \frac{\omega}{2 \pi} = \frac{8029.60351198}{2 \pi} \approx 1.277.95109 kHz.
+  \end{equation*}
+
+\item If we use a capacitor which is $10$ times smaller, i.e, $\, C=0.033\mu F,\,$
+  how will $\, \nu _ r\,$ change?
+  Answer by entering the multiplicative factor $a$ in the equation below: \\
+  \begin{align*}
+    \displaystyle  \displaystyle \nu _{r}\left(\frac{C}{10}\right)
+    \displaystyle =
+    &\displaystyle  a \nu _{r}(C) \\
+    \displaystyle \qquad \text {where } \,
+    &\displaystyle \nu _{r}(C)\, \text { is the resonant frequency at }\, \, C=0.33\mu F, \\
+    &\displaystyle \nu _{r}\left(\frac{C}{10}\right)\,
+      \text { is the resonant frequency at }\, \, \frac{C}{10}=0.033\mu F.
+  \end{align*}\\
+
+  Rewrite the relationship between frequency $\nu$ and $\omega$ at the maximum gian,
+  \begin{equation*}
+    \nu = \frac{1}{2 \pi \sqrt{LC}}. 
+  \end{equation*}
+  Apply it the equation for the multiplicative factor $a$
+  \begin{align*}
+    \frac{1}{2 \pi \sqrt{L C/10}} &= a \frac{1}{2 \pi \sqrt{L C/10}} \\
+    a &= \frac{1}{1/ 10} \\
+    a = \sqrt{10}    
+  \end{align*}
+\end{enumerate}
+
+\begin{exercise}
+  Increasing the resistance
+\end{exercise}
+
+
+Recall the complex gain for $V _R$:
+\begin{equation*}
+  \displaystyle  G_ R(\omega )
+  \displaystyle =
+  \displaystyle \frac{iR\omega }{\left(\frac{1}{C}-L\omega ^2\right)+iR\omega }.
+\end{equation*}
+\begin{enumerate}
+\item Determine how increasing the resistance $R$ changes
+  the resonance behaviour of the system response $V _R$. \\
+
+  It is clear from the formula $\, \omega _ r=\sqrt {1/LC}\,$
+  that the resonant frequency does not depend on $R$. \\
+  Also, attains a maximum magnitude of $1$ when its denominator is purely imaginary, regardless on the value of $R$.
+
+\item Increasing the resistance $R$ also has an effect on the shape of the resonance peak,
+  even though it is not immediately obvious from the gain formula
+  \begin{equation*}
+    \displaystyle  \displaystyle g_ R^2(\omega )\, =\, |G_ R|^2
+    \displaystyle =
+    \displaystyle  \frac{R^2\omega ^2}{\left(\frac{1}{C}-L\omega ^2\right)^2+R^2\omega ^2}.
+  \end{equation*}
+
+  Instead of analyzing this formula, we will use the analogy between our system and the spring-mass-dashpot system driven through the dashpot,
+  whose steady state behavior is shown in the following mathlet.\\
+  \href{http://mathlets.org/mathlets/amplitude-and-phase-2nd-order-ii/}
+  {AMPLITUDE AND PHASE: SECOND ORDER II}
+
+  Use the gain curve on the Bode plot in the mathlet above to help you decide how increasing $R$
+  changes the shape of the resonance peak for the response $VR$.\\
+
+  Finally, in the analogy between the series RLC circuit with $V_R$
+  chosen as response and the spring-mass-dashpot system driven by the damper,
+  increasing $R$ is analogous to increasing the damping constant $b$.
+  Using the mathlet, we see that increasing b widens the resonance peak.\\
+  \textbf{Remark:} To make a AM radio, decreasing $R$ will help filter out frequencies outside the desired band.  
+\end{enumerate}
+\clearpage
 
 %%% Local Variables:
 %%% mode: latex

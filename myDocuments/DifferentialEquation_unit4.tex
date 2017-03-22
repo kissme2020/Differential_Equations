@@ -1,3 +1,4 @@
+
 \section{UNIT4}
 \clearpage
 
@@ -4955,6 +4956,857 @@ Recall the complex gain for $V _R$:
   Using the mathlet, we see that increasing b widens the resonance peak.\\
   \textbf{Remark:} To make a AM radio, decreasing $R$ will help filter out frequencies outside the desired band.  
 \end{enumerate}
+\clearpage
+
+\subsubsection{Voltage drop across the capacitor and the inductor}
+\paragraph{Analyzing the gain for the voltage drops across the capacitor and the inductor}
+So now, we're going to analyze the gain for the other two
+system responses, $V _C$, the voltage drop
+across the capacitor, or $V _L$, the voltage drop
+across the inductor.\\
+
+
+What we're interested in is the ratio of the amplitudes
+of our output and of our input.
+And we can understand that by looking at the magnitude
+of the complex gain.\\
+The complex gain are the two expressions that we have here.
+\begin{align*}
+  G _C{\omega} &= \frac{1/C}{(1/C - L\omega ^2) + iR \omega} \\
+  G _L{\omega} &= \frac{-L \omega ^2}{(1/C - L\omega ^2) + iR \omega} 
+\end{align*}
+
+We could analyze little $g (\omega)$, which is
+the magnitude of this complex number, but it's actually-- we
+can actually gain a lot of information
+just by looking at the complex number itself.
+And that's what we're going to do.
+So let's look at some extreme cases for our driving frequency $\omega$.
+
+\begin{equation*}
+  G _C{\omega} = \frac{1/C}{(1/C - L\omega ^2) + iR \omega} =
+  \begin{cases}
+    \frac{1/C}{1/C} &\Rightarrow  g _C \to 1 \qquad \text{ where }\omega \to 0 \\
+    \frac{1/C}{-L \omega^2} &\Rightarrow  g _C \to 0 \qquad \text{ where } \omega \to \infty
+  \end{cases}
+\end{equation*}
+
+So this is in the case of the capacitor.
+So we call that $g _C$, so the gain for the capacitor.\\
+
+Now, let's look at the case of the voltage drop
+across the inductor, which is given by the complex gain $G _L$.
+Again, the two behaviors--
+
+\begin{equation*}
+  G _L{\omega} = \frac{-L \omega ^2}{(1/C - L\omega ^2) + iR \omega}  =
+  \begin{cases}
+    \frac{0}{1/C} &\Rightarrow  g _L \to 0 \qquad \text{ where }\omega \to 0 \\
+    \frac{-L \omega ^2}{-L \omega^2} &\Rightarrow  g _L \to 1 \qquad \text{ where } \omega \to \infty
+  \end{cases}
+\end{equation*}
+
+So here we have the extreme limits behavior for the gain of the capacitor and the inductor.\\
+
+But now, what happens in the mid-range?\\
+So the analysis of the mid-range can be quite complicated.
+So we would have to solve the equation $\frac{d}{d \omega} g_C(\omega) = 0$, 
+if we want to find a maximum for the gain of the capacitor, $g _C$.
+The algebra behind this can be quite tricky,
+but it can be shown that the gain obtains a maximum.
+So $g_ C$ has max as long as $R$ is small,
+so as long as the resistance of the system is small.
+We could do the same calculations for $g _L$.
+But it can be shown that gL always has a maximum. \\
+
+So with this, we have enough information
+to make plots for both $g _C$ and $g _L$.
+So let's recap.
+When $\omega = 0$, $g _C =  1$.
+When $\omega \to \infty$, $g_C \to 0$.
+This means that the capacitor is allowing low frequencies
+to pass through, but it's not allowing high frequencies
+to pass through.
+So it's giving $0$ gain for high frequencies.\\
+Whereas, the inductor is doing the opposite.
+As $\omega =  0$, the inductor has gain of $0$.
+But when $\omega \to \infty$, the inductor--
+the voltage drop across inductor has gain of $1$.
+So let's make a plot with this information.
+Just for reference, I have the plot for the gain for the voltage drop
+across the resistor, which we found previously.
+So let's draw the other two gains now.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-all_gain}
+  \caption{Graph of $g _R, \, g _C, \,$ and $g _L$}
+\end{figure}
+
+There were two cases on the $g _C$ that can happen.
+If $R$ is small, there will be a peak.
+Now, the other case is if $R$ is too large,
+then this peak disappears and the function just
+smoothly decays to $0$. \\
+
+So let's look at a few applications
+from what we just found out.
+So if we look at the graph of $g _C$,
+we see that it allows low frequencies to pass through
+while high frequencies are inhibited.
+So they tend to $0$ at high frequencies.
+This means that if you want to build something like a speaker
+and you measure the voltage drop across the capacitor,
+then you would have low frequencies passing through
+and that would be equivalent to a woofer speaker that
+has strong bass and low treble.
+The opposite is true for $g _L$.
+If you pick the voltage drop across the inductor
+as your system response, you would not allow low frequencies
+to pass through.
+But you would allow high frequencies to pass through.
+And that would be something like a tweeter speaker, which
+has high treble and low bass, so high frequencies pass through.
+All right.
+So these are some applications for using an RLC circuit
+for building speakers.
+We can also build a very primitive AM radio
+using an RLC circuit, but in that case
+measuring the voltage drop across the resistor
+as our system response.
+So if we look here, the gain, $g _R$,
+obtains a maximum for a specific value of $\omega$.
+So this means if I'm trying to pick a station,
+I would have best reception if the frequency of my input
+is near this resonant peak.
+But note, that this peak is pretty wide.
+So this radio wouldn't be the best radio in the world.
+We would pick quite a large band of frequencies.
+So in order to make a better radio
+and in order to make better electronics in general,
+you need to combine a lot of these circuits.
+And when you do that, you can amplify your response the way
+that you want.
+\clearpage
+
+\begin{exercise}
+  Compute the gain for the voltage drop across the capacitor 
+\end{exercise}
+
+You have previously found the complex gain $G _C(\omega)$
+for the system response $V _C$. \\
+Now find the square of the gain $\displaystyle \, g_ C^2(\omega )\, = \left|G_ C(\omega )\right|^2\,$
+for the system response $V _C$. \\
+(Enter in terms of $\, L,\, C,\, R,\,$  and the input angular frequency $\omega$.)\\
+
+The complex gain $G _C (\omega)$ is 
+\begin{equation*}
+  G _C{\omega} = \frac{1/C}{(1/C - L\omega ^2) + iR \omega}.  
+\end{equation*}
+And the magnitude of $| G_ C(\omega ) |$ is
+\begin{equation*}
+  \frac{1/C}{\sqrt{(1/C - L\omega ^2) ^2 + R^2 \omega ^2}}.  
+\end{equation*}
+So, the square of gain $g_ C^2(\omega )$ is
+\begin{equation*}
+  \frac{(1/C)^2}{(1/C - L\omega ^2) ^2 + R^2 \omega ^2}
+\end{equation*}
+
+\begin{exercise}
+  Resonant peak for the voltage drop across the capacitor
+\end{exercise}
+Find a value of the resistance $R$ such that below this value,
+the gain of the voltage drop across the capacitor always has a resonant peak
+at a positive input frequency,
+but above this value, the gain attains its maximum at zero frequency.
+In other words, find $R$ such that $\, g_ C(\omega )\,$
+attains a maximum at a positive value of $\omega$. \\
+(Hint: Start by looking for $\omega$ at which $\, \displaystyle \frac{1}{g_ C^2(\omega )}\,$
+is minimum.)  \footnote{
+  To get minimum of $ \frac{1}{g_ C^2(\omega )}\,$ the denominator of  $g_ C^2(\omega )$ should be minimum. 
+  \begin{equation*}
+    \text{Denominator of } g_ C^2(\omega ) = (1/C - L\omega ^2) ^2 + R^2 \omega ^2. 
+  \end{equation*}
+  To find minimum, let $\omega ^2$ as $\alpha$ and set
+  \begin{align*}
+    &\frac{d}{d \alpha} \left( (1/C - L \alpha) ^2 + R^2 \alpha \right) = 
+    2(1/C - L\alpha)(-L) + R^2 = \frac{-2L}{C} + 2L^2 \alpha + R^2 = 0\\
+    &\alpha = \frac{2(L/C) -R^2}{2L^2} \\
+    &\omega ^2 = \frac{2(L/C) -R^2}{2L^2} \quad \text{where } \alpha = \omega ^2\\
+    &\omega = \pm \sqrt{\frac{2(L/C) -R^2}{2L^2}}
+  \end{align*}
+  Look for positive $\omega$, So
+  \begin{align*}
+    &\sqrt{\frac{2(L/C) -R^2}{2L^2}} > 0 \\
+    &\frac{2(L/C) -R^2}{2L^2} > 0 \quad \text{ Where } R,\, L,\, C\, > 0 \\
+    &-R ^2 > \frac{-2L}{C} \\
+    &R < \sqrt{\frac{2L}{C}}
+  \end{align*}
+} \\
+
+Since $g _C$ attains a maximum when $\, \displaystyle \frac{1}{g_ C^2}\,$,
+we look for the local minima of
+\begin{equation*}
+  \displaystyle  \displaystyle \frac{1}{g_ C^2(\omega )}
+  \displaystyle =
+  \displaystyle \frac{\left(\frac{1}{C}-L\omega ^2\right)^2+R^2\omega ^2}{\frac{1}{C^2}}.
+\end{equation*}
+The right hand side is a quadratic function of $\omega ^2$, so completing the square, we have
+\begin{equation*}
+  \displaystyle  \displaystyle \frac{1}{g_ C^2(\omega )}
+  \displaystyle =
+  \displaystyle (LC)^2
+  \left( \omega ^2+\left(\frac{R^2}{2L^2}- \frac{1}{LC}\right)\right)^2
+  + \left(1- (LC)^2\left( \frac{R^2}{2L^2}- \frac{1}{LC}\right)^2\right).
+\end{equation*}
+Since the coefficient of $\, \left(\omega ^2\right)^2\,$
+is positive, the minimum of $\, 1/g_ C^2\,$ happens at
+\begin{equation*}
+  \displaystyle \displaystyle \omega ^2
+  \displaystyle =
+  \displaystyle  \left(\frac{1}{LC}-\frac{R^2}{2L^2}\right).
+\end{equation*}
+This gives a real number for $\omega$ only if $\, \displaystyle R^2<\frac{2L}{C}.\, \,$
+This is the angular frequency at which the resonant peak for $V _C$ is located.
+Note that the maximum value of the gain is
+\begin{equation*}
+  \frac{1}{\sqrt {1- (LC)^2\left( \frac{R^2}{2L^2}- \frac{1}{LC}\right)^2}},
+\end{equation*}
+
+which is greater than $1$ (since the denominator above is smaller than $1$).\\
+In the other case when $\, \displaystyle R^2>\frac{2L}{C},\,$
+we can either graph $1/g_ C^2$ as a function of $\omega$,
+or use calculus to show that the minimum of $g _C (\omega)$ happens at $\omega=0$. \\
+
+Below is a mathlet that shows the input voltage $V$, as well as $V _R,\, V_L,\,$
+and $V_C$ in a series RLC circuit.
+The different responses are hidden or displayed in different colors when you click on their respective boxes. You can adjust the values of the resistor, the inductor, and the capacitor
+using the $R,\,L\,$ and $C$ sliders respectively. You can determined the amplitude $V _0$ and the angular frequency $\omega$ of the input voltage using the respective sliders. \\
+
+Using this Mathlet, you can simulate the experiment we did in the lab and others! Here are the values of resistance, capacitance, and inductance values we used:
+\begin{itemize}
+\item $V _R$ responses:
+  \begin{enumerate}
+  \item $\,  R = 510\Omega ,\, \, L=47 mH,\, \, C= .33\mu F\,$
+  \item $\,  R = 1000\Omega ,\, \, L=47 mH,\, \, C= .33\mu F\,$
+  \item $\,  R = 1000\Omega ,\, \, L=47 mH,\, \, C= .033\mu F\,$
+  \end{enumerate}
+\item $V _C$ responses:
+  \begin{enumerate}
+  \item $\,  R = 510\Omega ,\, \, L=47 mH,\, \, C= .033\mu F\,$
+  \item $\,  R = 10000\Omega ,\, \, L=47 mH,\, \, C= .033\mu F\,$   
+  \end{enumerate}
+\item $V _L$ responses:
+  \begin{enumerate}
+  \item $\,  R = 510\Omega ,\, \, L=47 mH,\, \, C= .033\mu F\,$
+  \end{enumerate}
+\end{itemize}
+
+\href{http://mathlets.org/mathlets/series-rlc-circuit/}
+{SERIES RLC CIRCUIT}
+\clearpage
+
+\subsubsection{ Worked example: a parallel RL circuit}
+
+\begin{example}
+  A resistor of resistance $R$ and an inductor of inductance $L$ are attached in parallel.
+  A voltage source provides the combination with AC voltage of angular frequency $\omega$.
+  Find the gain and phase lag of the resistor current relative to the total current
+  (through the voltage source).
+\end{example}
+
+\Solution
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-RL_parallel_circuit}
+  \caption{Figure of a parallel RL circuit}
+\end{figure}
+
+Let $V(t)$ be the sinusoidal voltage provided. \\
+
+\textbf{\color{blue} Unknown functions:}
+Let $I _1$ be the resistor current. Let $I _2$ be the inductor current. Let $I$ be the total current. \\
+\textbf{\color{blue} Equations:} Physics says
+\begin{eqnarray*}
+  V &=& R I _1 \\
+  V &=& L \dot I _1 \\
+  I &=&  I _1 + I _2. 
+\end{eqnarray*}
+
+The same relationships hold between the complex replacements:
+\begin{eqnarray*}
+  \widetilde{V} &=& R \widetilde{I} _1 \\
+  \widetilde{V} &=& L \dot{\widetilde{I}}_2 \\
+  \widetilde{I} &=&  \widetilde{I} _1 + \widetilde{I} _2. 
+\end{eqnarray*}
+(because taking real parts is compatible with real scalar multiplication
+and with taking derivatives).\\
+
+Suppose that $\widetilde{V} = e^{i \omega t}$.
+(In general, $\widetilde{V} = \gamma e^{i \omega t}$ for some $\gamma \in \mathbb {C}$,
+but then everything will be multiplied by $\gamma$, so when we take a ratio to get complex gain,
+$\gamma$ will disappear.) How do we solve for the other three functions
+$\widetilde{I_1},\, \widetilde{I_2},\, \widetilde{I}$. \\
+In the steady-state solution,
+\begin{eqnarray*}
+  \widetilde{I_1}  &=& \alpha _1 e^{i \omega t} \\
+  \widetilde{I_2}  &=& \alpha _2 e^{i \omega t} \\
+  \widetilde{I} &=&  \beta e^{i \omega t}
+\end{eqnarray*}
+for some unknown complex numbers $\alpha _1,\alpha _2,\beta$.
+To find $\alpha _1,\alpha _2,\beta,\,$ substitute into the three complex replacement equations:
+\begin{eqnarray*}
+  e^{i\omega t}  &=& R \alpha _1 e^{i \omega t} \\
+  e^{i\omega t}  &=& L \alpha _2 e^{i \omega t} i \omega \\
+  \beta e^{i\omega t}  &=&  \alpha _1 e^{i \omega t} + \alpha _2 e^{i \omega t}
+\end{eqnarray*}
+
+This simplifies to
+\begin{eqnarray*}
+  1  &=& R \alpha _1 \\
+  1  &=& L \alpha _2 i \omega \\
+  \beta  &=&  \alpha _1  + \alpha _2 
+\end{eqnarray*}
+
+So $\alpha _1 = 1/R,\, \alpha _2 = 1/(L i \omega ),\, \beta = 1/R + 1/(L i \omega )$.
+The complex gain of $I _1$ relative to $I$ is the complex constant
+\begin{equation*}
+  G = \frac{\alpha _1}{\beta } = \frac{1/R}{1/R + 1/(L i \omega )}.
+\end{equation*}
+
+The gain is $|G|$, and the phase lag is $-\arg G$.
+
+\clearpage
+\subsubsection{Review: worked examples on finding resonant solutions}
+
+\begin{example}
+  Find a particular solution to the equation
+  \begin{equation*}
+    \displaystyle  \ddot x + 8\dot x + 15 x = e^{-5t}
+  \end{equation*}
+\end{example}
+
+The characteristic polynomial is $P(r) = r^2 + 8r + 15$.
+Since $P(-5) = 0$ we need to use the generalized ERF. Computing we see that
+$P'(r) = 2r + 8$, which implies $P'(-5) = -2$.
+Therefore the generalized ERF gives
+\begin{equation*}
+  x_ p = \frac{te^{-5t}}{P'(-5)} = -\frac{te^{-5t}}{2}.
+\end{equation*}
+
+\begin{example}
+  Find a particular solution to
+  \begin{equation*}
+    \ddot x + 2\dot x + 2x = e^{-t}\cos t.
+  \end{equation*}
+\end{example}
+
+First we complexify the equation
+\begin{equation*}
+  \ddot z + 2\dot z + 2z = e^{(-1+i)t},
+  \qquad \text {where} \qquad x = \mathrm{Re\, }z.
+\end{equation*}
+
+The characteristic polynomial is $P(r) = r^2 + 2r +2$.
+Computing we see that,
+\begin{equation*}
+  P(-1+i) = (-1+i)^2 + 2(-1+i) + 2 = 0,
+  \quad P'(r) = 2r + 2,
+  \quad P'(-1+i) = 2i.
+\end{equation*}
+
+Finally we take the real part to get
+\begin{equation*}
+  x_ p = \mathrm{Re\, }z_ p = \frac{te^{-t}\sin t}{2}.
+\end{equation*}
+\clearpage
+
+\subsection{Recitation}
+
+\subsubsection{Real life application: driving on washboard roads}
+
+\begin{problem}
+  Preparation: vertical spring-mass system
+\end{problem}
+
+A mass $m\,(kg)$ is supported by a spring attached to the floor
+which is in a tube so that its motion is vertical only.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-vertical_spring_mass}
+  \caption{Vertical spring-mass system}
+\end{figure}
+
+Suppose the relaxed length of the spring with spring constant $k$ is $L$ (meters),
+and the mass is in equilibrium position when the spring is at $x _0$ (meters) from the floor.
+Let $x(t)$ (meters) be the displacement of the mass from the equilibrium position
+at time $t$ (seconds). We will choose $x>0$ if the mass is above the $x _0$.
+\begin{enumerate}
+\item Use Newton's second law to write the weight of the mass $mg$ in terms of
+  $k,\, x0,\,L.$\\
+  At equilibrium position, the spring force $F_s$ and
+  the gravitational force $F_g$ balance each other:
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image-vertical_spring_mass_equilibrium}
+    \caption{Vertical Spring-mass at equilibrium}
+  \end{figure}
+
+  \begin{align*}
+    -mg  -k(x_0 -L) &= 0\\
+    mg = -k(x_0 -L)
+  \end{align*}
+\clearpage
+\item Now use Newton's second law to write a DE for the displacement $x(t)$ of the mass
+  from the equilibrium position $x_0$ in terms of only $k,\, x,\, x_0,\,L$.\\
+
+  When the mass is at $x$ (meters) above $x_0$,
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image-vertical_spring_mass_not_equilibrium}
+    \caption{Vertical Spring-mass at non equilibrium}
+  \end{figure}
+
+  Newton's second law gives
+  \begin{equation*}
+    \displaystyle m \ddot x
+    \displaystyle = 
+    \displaystyle \left( -k(x_0+x-L)\right) -mg \qquad (k,m>0).
+  \end{equation*}
+  Substituting $\, mg=-k(x_0-L),\,$ we get
+  \begin{align*}
+    \displaystyle m\ddot{x}
+    \displaystyle &= \displaystyle -k(x_0+x-L)+ k(x_0-L) \\
+    \displaystyle \Longrightarrow
+    \displaystyle m \ddot x
+    \displaystyle &= -kx.  
+  \end{align*}
+
+  This is the same DE that describing a spring mass system with no gravity.
+  \textbf{Note:} As long as we let $x(t)$ be the displacement from the equilibrium position,
+  where the force of gravity and the spring force balance each other,
+  the effect of gravity will not show up explicitly further computations.
+
+\end{enumerate}
+
+\paragraph{Modeling a suspension system}
+This is what a typical suspension system in a car looks like.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-car_suspension}
+  \caption{Car Suspension System}
+\end{figure}
+
+Each of the car's wheels is attached to the car's body
+by a spring that is coiled around a damper.
+When modeling a system,a good first step is to state any simplifying assumptions
+and to draw a diagram that only contains the key elements of the model.\\
+For example, in our model, we will only
+consider the vertical motion of the car's body and wheels.
+We will also just consider a single wheel.
+This means that we will only be able to describe
+the vertical position of the car's body above this wheel.
+Later, however, if we wanted to determine the entire motion
+of the car's body, we could apply our model
+to each of the four wheels and combine the results.\\
+
+For our schematic diagram, we'll represent the body of the car
+by a mass $m$. Because we are only modeling a single wheel,
+it is reasonable to assume that the mass $m$ is equal to a quarter of
+the total mass of the car's body.
+We then know that the car's body is
+connected to the wheel with a spring and a damper.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-diagram_car_suspension}
+  \caption{Diagram Car Suspension}
+\end{figure}
+
+The spring has a spring constant that we'll call $k$.
+And the damper has a damping constant that we'll call $b$.
+In our model, we're going to assume that the forces produced
+by the spring and the damper can always
+be modeled using \emph{linear theory}.
+This assumption is valid as long as the deformations--
+or as long as the compressions and elongations of the spring
+are small and as long as the relative velocity
+between the car's body and wheel is small.
+So now, how do we add the wheel to our schematic diagram?
+Well, we know that as the wheel goes over bumps in the road,
+because it is pressurized with air,
+it will deform as it goes over these bumps.
+Therefore, the wheel itself will act like a spring and also
+will dissipate energy.
+So in a more detailed model, we would have to connect this spring and damper
+to another mass representing the wheel, which would then
+be connected to another spring and another damper, which
+would be connected to the road.
+In our model, however, we will assume
+that the deformations of the wheel are small compared to the deformations of the spring
+in the suspension system.
+Therefore, in our model, we will assume that the wheel is a rigid cylinder.
+We will also assume that the wheel is always
+in \emph{contact with the road}.\\
+
+With these assumptions, the changes in the vertical position of the wheel
+will be identical to the changes in the height of the road directly beneath the wheel.
+Therefore, in our schematic diagram, we can attach this spring and this damper
+directly to the surface of the road.\\
+
+Remember that this \emph{line represents} the height of the road directly beneath the wheel.
+Also note that we have drawn the spring and damper
+in this parallel configuration for clarity.
+However, recall that the horizontal placement of the components in this diagram
+has no significance since we are only modeling vertical motion.
+The next step in the modeling process is to assign coordinates to all of the objects that
+can move independently and to specify which will be the input
+and which will be the output.
+Because we are interested in how the body of the car responds to bumps in the road,
+we will choose the input of our model to be the height of the surface of the bumpy road
+directly beneath the surface of the wheel.\\
+
+We will denote the input by the $y(t)$.
+And as we said, this will be the input for our system. 
+We will then choose the vertical position
+of a car to be the output.
+And we will denote it by the function $x(t)$.
+In both cases, we will use the convention
+that both $x$ and $y$ increase in the upward direction.
+
+The system will be in vertical equilibrium
+when the spring has compressed slightly
+so that the upward spring force acting on the mass
+balances the force of gravity pulling the mass downwards.
+With this in mind, we will then define our coordinate system
+so that $x - y = 0$ when the system is in this vertical equilibrium.
+With this choice of coordinates, $x - y$ now represents the amount by which
+the spring has stretched or compressed away from this equilibrium position.
+Further, with this choice of coordinates, we can now ignore the effect of gravity
+in all future calculations. \\
+
+
+The next step in the modeling process
+is to write down the equation of motion describing the vertical position of the mass $m$.
+
+We know that the motion of the mass $m$
+is governed by Newton's second law, which
+\begin{equation*}
+  m \ddot x = \sum F
+\end{equation*}
+As we can see from our diagram, there
+are two forces acting on the mass, one from the spring
+and one from the damper.
+Recall that, based on this choice
+of our coordinate system, we have already accounted
+for the force of gravity.\\
+
+Let's first deal with the spring force.
+The magnitude of the spring force
+is equal to $-k(x - y)$
+Observe that when $x - y > 0$ the spring is stretched.
+And so it will be pulling downwards on the mass.
+And so we need to add a \textit{negative sign}
+to indicate that the spring will pull down on the mass when it's stretched.\\
+What about the damping force?
+Well, the magnitude of the damping force
+is equal to $b(\dot x - \dot y)$ times the relative velocities between the body
+of the car and the surface of the road. 
+Again, you can see that when $(\dot x - \dot y) > 0$, that damper will
+be getting longer and longer.
+And it will resist this elongation by pulling down on the mass.
+So again, we need to add a \textit{negative sign} to indicate that when the damper is getting longer,
+it will pull down on the mass.
+Now that we have derived our equation of motion,
+
+\begin{equation*}
+  m \ddot x = \underbrace{-k(x - y)}_{\text{Force of spring}}
+  - \underbrace{b(\dot x - \dot y)}_{\text{Force of Damping}}
+\end{equation*}
+
+it is convenient to put it in standard form.
+The standard form for this equation of motion
+is $P(D)x = Q(D)y$, where $D$ is the differential operator. 
+In this form, all of the inputs are on the right-hand side
+of the equation, and all of the outputs are on the left-hand side.
+If we put this equation of motion in the standard form,
+we get
+\begin{equation*}
+  m \ddot x + b \dot x + kx = b \dot y + k y
+\end{equation*}
+In this form, we can now see that the body of the car
+behaves like a damped harmonic oscillator that
+is being driven by this forcing term on the right-hand side.
+Note that this forcing term is governed
+by the function $y(t)$, which depends on the pattern of bumps
+in the road and on how fast the car is driving over them.\\
+
+Let's consider the forcing function $y(t) = A \cos \omega t$, which would
+represent a road containing a sinusoidal pattern of bumps.
+Although this seems like an arbitrary choice that might not
+be representative of the pattern of bumps in most roads,
+it is actually a very useful choice for two reasons.\\
+
+Firstly, gravel roads actually do develop a sinusoidal pattern of bumps
+and are referred to as washboard roads.\\
+
+Secondly, as you will learn later in the course,
+an arbitrary periodic function $y(t)$ can always be decomposed into a sum of sines and cosines
+by using a Fourier series.
+Because this equation is linear, if we are able to solve this equation for a single sinusoidal input
+with a general angular frequency $\omega$, then we will easily be able to write down
+the solution for any linear combination of sines
+and cosines.\\
+
+Recall that when a damped harmonic oscillator is driven
+by a periodic driving force, the steady state response will also
+be periodic.
+However, the steady state response will have a different amplitude and phase
+compared to the input signal.\\
+So the \emph{important characteristics} of the steady state output
+$x(t)$ are the gain, which we'll call $g$,
+which describes the ratio between the input and output--
+or between the output and input-- amplitudes
+and the phase lag $\phi$, which describes
+the phase difference between the input and output signals.\\
+When understanding a car's suspension system,
+the gain is the most important property to consider.
+And you want to design it so that it's as small as possible.
+If the gain is a lot less than $1$,
+it means that the amplitude of the car's body will be very small even if there are a lot of bumps in the road.
+And it means that the suspension system will
+be effectively absorbing bumps.\\
+On the other hand, if the gain is greater than $1$,
+the suspension system will have the opposite effect
+and will actually amplify the effect of bumps in the road.
+For a suspension system, the phase lag is not usually of interest, because the occupants
+of the car can only feel the amplitude of the car's oscillations and will be oblivious to any phase
+lag between the oscillations of the road and the oscillations of the car's body.
+We have now finished our modeling process of a suspension system in a car.
+\clearpage
+
+\begin{problem}
+  The complex gain
+\end{problem}
+
+Recall the DE derived in the video describing the vertical position $x(t)$ (meters)
+of the car's body:
+
+\begin{equation*}
+  \displaystyle  \displaystyle m\ddot{x}+b\dot{x}+kx=b\dot{y}+ky\qquad
+  y=A \cos \left(\omega t\right)
+\end{equation*}
+where the input $y(t)$ (meters) is the height of the road directly beneath the wheel at time $t$ (seconds)
+and depends the bumps on the road and how fast the car is driving over them.\\
+
+Find the complex gain $G(\omega)$ for the car suspension system,
+in terms of the system parameters $m\, (kg),\,  k\, (N/m),\, b\, (Ns/m),\,$
+and $\omega\,$ (rad/s). \\
+
+The complex gain is $G(\omega) = \frac{Q(i \omega)}{P(i \omega)}$.
+So the characteristics polynomial for input and output signal are
+\begin{equation*}
+  P(D) = m \ddot D + b \dot D + k. \qquad Q(D) = b \dot D + k.  
+\end{equation*}
+The complexify of $\cos (\omega t)$ is $e^{i \omega t}$.\\
+So the complex gain of system is
+\begin{align*}
+  G(i \omega)
+  &= \frac{Q(i \omega)}{P(i \omega)} = \frac{bi \omega + k}{m(i \omega)^2 + bi \omega + k} \\
+  &= \frac{bi \omega + k}{-m \omega ^2 + bi \omega + k}
+\end{align*}
+By the linearity, we simply add $A$ on the gain above, then
+\begin{equation*}
+  G(i \omega) = A \frac{bi \omega + k}{-m \omega ^2 + bi \omega + k}
+\end{equation*}
+
+\subsubsection{Drive fast or slow on a washboard road?}
+
+We will finish our analysis of a car's suspension system by investigating how the gain depends on the system parameters.
+Remember that the gain is THE property that determines how well the suspension absorbs the bumps in the road.
+We will investigate this using the Mathlet below. \\
+
+On the left is the \emph{schematic drawing} of a car's suspension.
+The \emph{\color{orange} body of the car} is represented by the top orange block,
+which is coupled, by a spring and a damper, to the \emph{\color{blue}surface of the road} ,
+the blue bottom block here.
+As the car moves, it experiences the sinusoidal pattern of bumps of the road.
+Click on the play button $>>$ below the graph to see the animation.\\
+
+The \emph{equation of motion} is equivalent to the equation of motion we derived in the previous video.
+Recall $y$ is the sinusoidal driving function resulting from the car moving on the bumps,
+the input of the system, and $x$ is the vertical position of the car, the response.
+Note that here in the mathet, the mass m of the car's body is normalized to be $1$
+and the amplitude of $y$ is also normalized to be 1. \\
+
+\href{http://mathlets.org/mathlets/amplitude-and-phase-2nd-order-iii/}
+{AMPLITUDE AND PHASE: SECOND ORDER III}
+
+
+The graphs of both the input and the response plotted as functions of time.
+The blue curve is input graph $y(t)$, the height of the road at time $t$,
+and the orange curve is the graph of response $x(t)$,
+the vertical position of the car at time $t$.
+You can click on the play button to restart the animation. \\
+
+We are interested in the gain $g(\omega)$ of the system,
+whose behavior over different frequencies of the input is shown by the Bode plots .
+Remember the gain is the ratio of the amplitudes of the response to the amplitude of the input.
+The graph of the phase lag $\phi (\omega)$ is also shown, but we are not interested in it in for the car's suspension system.\\
+
+(Also take a look at the \emph{\color{blue}Nyquist plot} , a plot of the trajectory of the complex gain $G$ as $\omega$ varies.)\\
+
+We can now determine how changing system parameters like $b,\, k$ and $\omega$ will affect the gain.
+
+\begin{problem}
+  Driving very slow
+\end{problem}
+
+Let us study the effect of changing the driving frequency $\omega$.
+This will tell us how a car would respond if it drove very slowly over a series of bumps,
+compared to if it drove very fast over the bumps.
+You can adjust the value of $\omega$ using the slider on the right under the Bode plots
+and see how the curves of the input and the response vary with $\omega$.
+
+\href{http://mathlets.org/mathlets/amplitude-and-phase-2nd-order-iii/}
+{AMPLITUDE AND PHASE: SECOND ORDER III}
+
+From the Bode plot in the mathlet, what is $\displaystyle \lim _{\omega \to 0} g(\omega )\,$
+for different values of the damping constant $b$ and spring constant $k$?\\
+
+On Mathlet, we set the $\omega$ to zero, the gain on the Bode plot is $1$
+whatever the constant $k,\, b$. \\
+
+Is this consistent with what your expect from the complex gain formula?
+
+\begin{equation*}
+  G(i \omega) = \frac{bi \omega + k}{-m \omega ^2 + bi \omega + k}, 
+\end{equation*}
+the $\omega$ goes to zero, the complex gain goes to $\frac{k}{k} = 1$ \\
+
+Yes it is.\\
+
+\emph{Note:} The limit of the \emph{complex gain} implies not only that $\, \lim _{\omega \to 0} g(\omega )\, =\, 1,\,$
+but also that the input and response functions are “in phase," and so are almost perfectly superimposed when $\omega \to 0.\, \,$
+This means that if you drive very slowly over a series of bumps,
+the suspension system acts as if it were rigid and the car just moves up and down in the same way as the road beneath it.
+
+\begin{problem}
+  Driving very fast
+\end{problem}
+
+\href{http://mathlets.org/mathlets/amplitude-and-phase-2nd-order-iii/}
+{AMPLITUDE AND PHASE: SECOND ORDER III}
+
+Find $\, \lim _{\omega \to 0} g(\omega )\, =\, 1,\,$ using the complex gain (which you found in a previous problem).
+Verify the result by looking at the Bode plot on the mathlet at different values of $b$ and $k$.
+
+The $\omega$ goes to $\infty$, the dominant terms is $\omega ^2$ on the denominator.
+So the complex gain goes to zero.
+
+\clearpage
+
+\subsection{Resonance}
+
+\begin{problem}
+  Driving in resonance with bumps
+\end{problem}
+
+\href{http://mathlets.org/mathlets/amplitude-and-phase-2nd-order-iii/}
+{AMPLITUDE AND PHASE: SECOND ORDER III}
+
+Fix the damping and spring constants $b = 1$ and $k = 2$. \\
+
+From the Bode plot, what is the frequency $\omega _r$ at which the gain is maximum and what is the value of the
+maximum gain $g_{max}$?\\
+(Enter $omega_ r$ to the accuracy of $0.05$ and $g_ {max}$ to the accuracy of $0.01$.)\\
+
+On Bode plot, the pick point of $omega$ is $1.25$ and $g_ {max} = 1.78$. \\
+\emph{Note:} It is clear that a suspension system must be designed to avoid
+achieving resonance with bumps in the road or the ride will be extremely bouncy.
+
+\begin{problem}
+  Effect of damping on resonance
+\end{problem}
+\begin{enumerate}
+\item Fix $k$, slowly vary $b$, and look at how the resonance peak on the Bode plot changes.\\
+  How does increasing the damping constant $b$ affect the resonance peak?\\
+
+  As $b$ increasing, It significantly decreases the height of the resonant peak and less narrow its
+  peck. 
+
+\item If the suspension system does not have a dashpot,
+  what would the resonant angular frequency?
+  In other words, find the angular frequency $\omega_ r$ at which $g(\omega)$ is maximum when $b=0$.
+  Use the complex gain formula that you have previously found and answer in terms of $k$ and $m$.\\
+
+  To attains the maximum value of gain the denominator $k - m \omega^2 \approx 0$  when $b = 0$.
+  \begin{align*}
+    k - m \omega ^2 &= 0 \\
+    \omega ^2 &= \frac{k}{m} \\
+    \omega &= \sqrt{k / m} \qquad \omega > 0
+  \end{align*}
+
+\item Now what is the value of $\omega _r$ when $k=2,\, m=1$ and $b=0$? \\
+
+  Th $\omega _r$ is $ \sqrt{k / m} = \sqrt{2}$.
+
+\item Compare this resonant frequency with no damping with the value of
+  $\omega _r$ you read from mathlet for $k=2,\, b=1$ (and $m=1$) in the previous problem.
+  Is the resonant frequency with no damping a good approximation to the resonant frequency with damping?\\
+
+  In particular, for $k=2,\, b=0, \,$ and $m=1,\, \omega_ r=2.\,$
+  This approximates the value of $\omega_r$ when $b=1$ to within $10\, \%$ accuracy.
+
+  \emph{Note :} Using the mathlet, you can verify that in general,
+  even with damping, the location of the resonance is still well approximated
+  by the formula  $\omega _r = \sqrt{k/m}$!  
+\end{enumerate}
+
+\begin{problem}
+  Effect of the spring on resonance
+\end{problem}
+
+Now fix $b$, slowly vary $k$, and again look at how the resonance peak on the Bode plot changes. \\
+How does increasing the spring constant $k$ affect the resonance peak?
+
+It significantly increases the height of the resonant peak and the frequency at which resonance happens.
+
+\begin{problem}
+  Minimum comfortable speed
+\end{problem}
+
+Set $k=2$ and $b=1$. Use the mathlet to figure out the minimum value of
+$\omega_{min}$ so that $g<1$.
+\begin{enumerate}
+\item This would allow you to determine the minimum speed at which you should drive over
+  a series of bumps to ensure a comfortable ride.\\
+
+  The minimum speed $\omega$ that $g < 1$ is $2.05$.
+
+\item Now, slowly vary $b$ while still fixing $k=2$.
+  How does increasing the damping constant $b$ change $\omega_ {min}$?\\
+
+  $\omega_ {min}$ does not change, but the shape of peak change. 
+\end{enumerate}
+
+When designing a suspension system, engineers typically fix the value of
+$\omega$ at a value that reflects the typical road conditions that the car will encounter.
+The engineers then choose the parameters $k$ and $b$ to ensure
+that the vehicle will not be in resonance with bumps in the road under normal conditions.
+For example, if $\omega$ is fixed at $2$,
+it is obvious that choosing $k=4$ and $b=1$ would be a bad choice
+as the car would be in resonance under these conditions.\\
+
+We have only touched upon a few of the interesting properties of the response of this driven oscillator. Continue playing with the mathlet so that you fully understand the behavior of the system.\\
+
+For example, can you find the values of $b,\,k,\,$ and
+$\omega$ that produce the largest possible gain in this mathlet? 
+\clearpage
+
+
 \clearpage
 
 %%% Local Variables:

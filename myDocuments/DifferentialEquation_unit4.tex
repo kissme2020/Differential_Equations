@@ -5957,7 +5957,193 @@ by direct substitution in the expression of $P(r)$.
  \begin{equation*}
    \frac{-\sin (t)}{4}-\frac{\cos (t)}{4}+\frac{t^3e^{-t}}{6}.
  \end{equation*}
- 
+
+\clearpage
+
+\subsection{Part B Homework}
+
+\subsubsection{Find the steady state solution}
+
+Consider the following DE describing a damped spring-mass-dashpot system driven
+by a force $F$ on the mass:
+
+\begin{equation*}
+  P(D)x=F(t)\, \text {where}\,  P(D)=D^2+2D+2.
+\end{equation*}
+
+\begin{enumerate}
+\item First, Is this system stable?\\
+
+  The characteristic polynomial is $P(r) = r^2 + 2r + 2$ and the roots of
+  $P(r)$ are $-1 \pm i$. \\
+  The condition for stability for complex root is the real part of root have to
+  greater than zero. So $-1 < 0$ then the system is stable.
+
+\item Now, for the different forcing functions F below,
+  write down the particular solutions $x_p(t)$ given by the ERF or ERF'.
+  \begin{enumerate}[label=(\alph*)]
+  \item For $F = e^{-2t}$\\
+    $P(-2) = 4 -4 +2 = 2$. So the particular solutions is
+    \begin{equation*}
+      x_p(t) = \frac{1}{P(-2)} e^{-2t} = \frac{1}{2} e^{-2t} 
+    \end{equation*}
+    
+  \item $F = \sin (\omega t)$\\
+    Complex replacement of $ \sin (\omega t) = \mathrm{Im\, } e^{i \omega t}$. \\
+    Complexify the equation,
+    \begin{equation*}
+      \ddot z + 2 \dot z + 2 = e^{i \omega t}. 
+    \end{equation*}
+    The $P(i \omega) = 2 - \omega ^2 +  i 2 \omega$. Using ERF
+    \begin{equation*}
+      z _p = \frac{1}{P(i \omega)} e^{i \omega t} =  \frac{1}{2 - \omega ^2 +  i2 \omega} e^{i \omega t}
+    \end{equation*}
+    Take imaginary part of $z _p$ is
+    \begin{align*}
+      x_p = \mathrm{Im\, } \left( z _p \right)
+      &= \mathrm{Im\, } \left( \frac{1}{2 - \omega ^2 +  i2 \omega} e^{i \omega t} \right) \\
+      &= \mathrm{Im\, } \left( \frac{2 - \omega^2 - i2 \omega}
+        {(2 - \omega ^2)^2 + 4 \omega^2 }
+        \left( \cos (\omega t) + i \sin (\omega t)  \right) \right) \\
+      &= \mathrm{Im\, } \left( \frac{1}{(2 - \omega ^2)^2 + 4 \omega^2 }
+        \left( (2 - \omega^2) - i2 \omega \right)
+        \left( \cos (\omega t) + i \sin (\omega t) \right)\right) \\
+      &= \mathrm{Im\, } \left( \frac{1}{(2 - \omega ^2)^2 + 4 \omega^2 }
+        \left(-i 2 \omega \cos (\omega t) + i(2 - \omega^2) \sin (\omega t) \dots \right)\right)\\
+      &= \frac{1}{(2 - \omega ^2)^2 + 4 \omega^2 }
+        \left(-2 \omega \cos (\omega t) + (2 - \omega^2) \sin (\omega t) \right)
+    \end{align*}
+  \item For $F=e^{-t}\cos (t),\,$\\
+    Complex replacement of
+    \begin{equation*}
+      e^{-t}\cos (t) = e^{-t} e^{it} = e^{(-1 + i)t}
+    \end{equation*}
+    The $P(-1 + i) = (-1 + i)^2 + 2(-1 + i) + 2 = -2i -2 + 2i + 2 = 0$. \\
+    So, using ERF' $P^{\prime}(-1 + i) = 2(-1 + i) + 2 = 2i$ \\
+    The $z _p$ is
+    \begin{equation*}
+      \frac{1}{P^{\prime}(-1 + i)}e^{(-1 + i)t} = \frac{te^{-t}}{2i} e^{it}
+    \end{equation*}
+    Take real part of $z _p$ is
+    \begin{align*}
+      x _p = \mathrm{Re\, }(z_p)
+      &= \mathrm{Re\, } \left( \frac{te^{-t}}{2i} e^{it} \right) \\
+      &= \mathrm{Re\, } \left( \frac{te^{-t}}{-2} (i)
+        \left( \cos t + i \sin t \right) \right) \\
+      &= \mathrm{Re\, } \left( \frac{te^{-t}}{-2}
+         \left( i \cos t - \sin t \right) \right) \\
+      &= \frac{te^{-t}}{-2} \left( - \sin t \right) \\
+      &= \frac{te^{-t}}{2} \sin t 
+    \end{align*}
+  \item For $F=e^{-t}\cos (2t+\pi /3),\,$\\
+    Complex replacement of
+    \begin{equation*}
+      e^{-t}\cos (2t+ \pi /3) = e^{-t} e^{i \pi /3} e^{2it}
+      = e^{i \pi /3} e^{-t} e^{2it} = e^{i \pi /3} e^{(-1 + 2i)t}
+    \end{equation*}
+    The $P(-1 + 2i) = (-1 + 2i)^2 + 2(-1 + 2i) + 2 = -3$. \\
+    The $z _p$ is
+    \begin{equation*}
+      \frac{1}{P(-1 + 2i)}e^{i \pi /3}e^{(-1 + 2i)t} = \frac{e^{-t}}{-3} e^{i \pi /3}e^{2it}
+    \end{equation*}
+    Take real part of $z _p$ is
+    \begin{align*}
+      x _p = \mathrm{Re\, }(z_p)
+      &= \mathrm{Re\, }
+        \left( \frac{-e^{-t}}{3} e^{i \pi /3}e^{2it} \right)  =
+      \mathrm{Re\, } \left( \frac{-e^{-t}}{3} e^{i(2t + \pi /3)} \right)\\
+      &= \mathrm{Re\, }
+        \left( \frac{-e^{-t}}{3} 
+        \left( \cos (2t + \pi /3) + i \sin (2t + \pi /3) \right) \right) \\
+      &= \frac{-e^{-t}}{3}  \cos (2t  + \pi /3)        
+    \end{align*}
+    \emph{Alternative solution using time invariance:}\\
+    We see that
+    \begin{equation*}
+      \displaystyle  \displaystyle P(D) \left( \frac{e^{-t} \cos (2t)}{-3}\right)
+      \displaystyle =
+      \displaystyle e^{-t}\cos (2t)
+    \end{equation*}
+    By time invariance,
+    \begin{equation*}
+      \displaystyle  \displaystyle P(D) \left( \frac{e^{-(t+\pi /6)} \cos (2(t+\pi /6))}{-3}\right)
+      \displaystyle =
+      \displaystyle e^{-(t+\pi /6)} \cos (2(t+\pi /6)).
+    \end{equation*}
+    Eliminating the factor $e^{-\pi / 3}$ from both sides, we have
+    \begin{equation*}
+      \displaystyle  \displaystyle P(D) \left( \frac{e^{-t} \cos (2(t+\pi /6))}{-3}\right)
+      \displaystyle =
+      \displaystyle e^{-t} \cos (2(t+\pi /6))\, =\, e^{-t} \cos (2t+\pi /3).
+    \end{equation*}
+    
+  \item Finally, for $F=10 e^{-2t}- 7e^{-t}\cos (t),\,$\\
+    Let particular solution of part (a) and (c) as $x_1$ and $x_2$. \\
+    Using linearity and superposition, the particular solutions
+    of $10 e^{-2t}- 7e^{-t}\cos (t)$ is
+    \begin{equation*}
+      x_ p = 10 x_1 + -7 x_2
+      =  \frac{10}{2} e^{-2t} -  \frac{7te^{-t}}{2} \sin t
+    \end{equation*}    
+  \end{enumerate}
+\end{enumerate}
+\clearpage
+
+\subsubsection{Resonant frequency for a spring-mass dashpot system}
+
+Consider the spring-mass-dashpot system driven by a sinusoidal force on the mass:
+\begin{equation*}
+  \left(mD^2+bD+k\right) x= F\, \qquad \text {where }\,  F=\sin (\omega t) .
+\end{equation*}
+
+Recall that for the unforced underdamped oscillator $\, (b^2<4km, \, F=0),\,$
+the value of the natural damped frequency
+$\, \displaystyle \omega _ d= \sqrt {\frac{k}{m}-\frac{b^2}{4m^2}}.$\\
+
+\begin{enumerate}
+\item Find the resonant (angular) frequency $\omega_ r$.\\
+  That is, find the angular frequency at which the gain of the response attains its maximum. \\
+  (This resonant frequency will be in the form $\sqrt{G}$
+  for some expression $G$. Assume $G>0$ when finding $\omega _r$. )\\
+  The Complex gain $G(\omega)$ is
+  \begin{equation*}
+    \frac{Q(i \omega)}{P(i \omega)}
+    = \frac{1}{m (i \omega)^2 + b i \omega + k}
+    = \frac{1}{(k - m \omega ^2) + b \omega i}
+  \end{equation*}
+  To get maximum gain the absolute value of denominator have to get minimum. \\
+  The absolute value of denominator is
+  \begin{equation*}
+    \sqrt{(k - m \omega ^2)^2 + b^2 \omega^2}
+  \end{equation*}
+  Let $\omega ^2$ as $\alpha$, then derivative by $\alpha$ and set it zero to find minimum value of $\alpha$
+  \begin{align*}
+    \frac{d}{d \alpha} \left( (k - m \alpha)^2 + b^2 \alpha \right) &= 0 \\
+    -2m(k - m \alpha) + b^2 &= 0 \\
+    2m^2 \alpha - 2mk + b^2 &= 0 \\
+    2m^2 \alpha &= 2mk - b^2\\
+    \alpha &= \frac{2mk - b^2}{2m^2} \\
+    \omega ^2 &= \frac{2mk - b^2}{2m^2} \qquad \text{ where } \omega ^2 = \alpha. \\
+    \omega &= \pm \sqrt{\frac{2mk - b^2}{2m^2}}
+  \end{align*}
+  The $\omega > 0$, so $\omega = \sqrt{\frac{2mk - b^2}{2m^2}}$
+
+\item Which of the following is true about $\omega_ r$ and $\omega_ d$?\\
+
+  The denominator of the negative terms of $\omega _r$ is smaller than $\omega _d$,
+  So, $\omega _ r < \omega _ d$
+
+\item Finally, what happens if the expression $G$ is negative or zero?
+  Find the angular frequency $\omega$ at which the gain attains
+  its maximum for the case when $G≤0$.\\
+
+  For $G≤0$,
+  Let 
+
+\end{enumerate}
+
+
+
 \clearpage
 
 %%% Local Variables:

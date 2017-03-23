@@ -1,4 +1,3 @@
-
 \section{UNIT4}
 \clearpage
 
@@ -5805,8 +5804,160 @@ We have only touched upon a few of the interesting properties of the response of
 For example, can you find the values of $b,\,k,\,$ and
 $\omega$ that produce the largest possible gain in this mathlet? 
 \clearpage
+\subsection{Part A Homework}
 
+\begin{problem}
+  If $y(t)=t^2$ and $D$ is the differential operator $\frac{d}{dt}$, then what function is $(4D^3 +3D^2−3D)y$?
+\end{problem}
 
+Apply operator on $y(t)$,
+\begin{equation*}
+  4 \frac{d^3}{dt^3} t^2 + 3 \frac{d^2}{dt^2} t^2  - 3 \frac{d}{dt} t^2
+  = 4 \cdot 0 + 3 \cdot 2 - 3\cdot 2t = -6t + 6 
+\end{equation*}
+
+\begin{problem}
+  Consider the differential equation $\ddot x + x = q(t)$ for a nonzero function $q(t)$.
+  For which of the following inputs $e^{at}$ does the differential equation NOT have a solution of the form $Ae^{at}$? 
+\end{problem}
+
+\begin{enumerate}
+\item $e^t$
+\item $e^{-t}$
+\item $e^{it}$
+\item $e^{-it}$
+\item $e^{2t}$
+\item $e^{3t}$
+\item $1$
+\end{enumerate}
+
+The characteristic polynomial of the ODE is $p(r)=r^2+1$.
+This polynomial is zero when $r= \pm i$.
+The differential equation fails to have a solution of the form $Ae^{at}$ if and only if a is a root of the characteristic polynomial; i.e., $a=\pm i$. So the problematic inputs in the list are $e^{it}$ and $e^{−it}$.
+
+\begin{problem}
+  For which of the following values a does the differential equation $\frac{d^n y}{dt^n}−y = e^{at}$
+  not have a solution of the form $ce^{at}$ for some number $c$?
+\end{problem}
+
+\begin{enumerate}
+\item 1
+\item $\frac{2i\pi }{n}$
+\item $\frac{4i\pi }{n}$
+\item $\frac{6i\pi }{n}$
+\item $e^{\frac{2i\pi }{n}}$
+\item $e^{\frac{7i\pi }{n}}$
+\end{enumerate}
+
+The characteristic polynomial is $r^n − 1$, whose roots are
+$1,\,  e^{2 \pi / n},\,e^{2 \pi / n},\, \dots , \, e^{(n-1) 2\pi i/n}$.
+When a is one of these values, substituting $y=ce^{at}$ into the left hand side of
+the differential equation gives $0$, not $e^{at}$.
+Thus, of the values shown, the answers are $1$ and $e^{\frac{2i\pi }{n}}$.
+
+\begin{problem}
+  Consider the differential equation $\ddot x + 4x=q(t)$ for a nonzero function $q(t)$.
+  For which of the following sinusoidal inputs $\cos⁡ (\omega t)$ does the differential equation
+  NOT have a solution of the form $A \cos⁡(\omega t − \phi)$?
+\end{problem}
+
+\begin{enumerate}
+\item $\cos (t)$
+\item $\cos (2t)$
+\item $\cos (3t)$
+\item $\cos (4t)$
+\item $\cos (\pi t)$
+\item $\cos (e^2 t)$
+\end{enumerate}
+
+The answer is $\cos⁡ (2t)$.
+The characteristic polynomial of the ODE is $p(r)=r^2+4$.
+This polynomial is zero when $r= \pm 2i$.
+Thus any sinusoid of the form $A \cos⁡ (2t− \phi)$ would be a solution to
+$\ddot x + 4x=0$ instead of a solution to $\ddot x+ 4x = q(t)$.
+
+\begin{problem}
+  Consider the equation
+  \begin{equation*}
+    \ddot x + b\dot x + 2x = \cos (t).
+  \end{equation*}
+  If the damping constant $b$ starts at $1$ and is increased, what happens to the phase lag?
+\end{problem}  
+
+The phase lag increases: \\
+The phase lag is the argument of $p(i)=i^2+bi+2=1+bi$. As $b$ increases the argument increases.
+
+\begin{problem}
+  Consider the equation
+  \begin{equation*}
+    \ddot x + b\dot x + 2x = \cos (t).
+  \end{equation*}
+  If the damping constant $b$ starts at $1$ and is increased,
+  what happens to the amplitude of the solution?
+\end{problem}
+
+The amplitude decreases.
+The amplitude of the solution is $\frac{1}{|p(i)|}$, where $p(r)=r^2+br+2$.
+As b increases, the value of $|p(i)|=|1+bi|$ increases,
+so the amplitude $\frac{1}{|p(i)|}$ decreases.
+
+\begin{problem}
+  Given that the ODE $\ddot y+ b \dot y + ky=0$ has
+  some nonzero solutions grow unbounded as $t \to \infty$,
+  and change signs infinitely many times while doing so,
+  which of the following must be true of $b$ and $k$?
+\end{problem}
+$b < 0,\, k>0,\,$  and $b^2−4k<0$. 
+Such solutions exist if and only if the characteristic polynomial $r^2+br+k$ has complex conjugate roots with positive real part.
+This is only possible when $b^2−4k<0$ and $b<0$. 
+If $k$ were negative or zero, then $b^2−4k$ could not possibly be negative,
+so we also necessarily have $k>0$.
+
+\begin{problem}
+  Consider the differential equation
+  \begin{equation*}
+    \displaystyle  y^{\prime \prime \prime } +5y^{\prime \prime } + 8y^{\prime } +6y = f(x).
+  \end{equation*}
+  For which of the following input signals $f(x)$ is the response resonant?
+\end{problem}
+
+$e^{-x}\cos (x),\, e^{-x}\sin (x)\, $ and $e^{-3x}$ give rise to resonant system responses.
+The characteristic polynomial factors as $P(r)=r^3+5r^2+8r+6=(r+3)(r+1−i)(r+1+i)$.
+We can also see that $P(r)=0$ for $r=−3$ and $r=−1 \pm i$
+by direct substitution in the expression of $P(r)$.
+
+\begin{problem}
+  Which of the following are particular solutions to
+  \begin{equation*}
+    \displaystyle  \left(\frac{d}{dt} + 1\right)^3x = \sin (t) + e^{-t}
+  \end{equation*}
+ \end{problem}
+
+ We apply superposition to each summand in the input signal.
+ \begin{eqnarray*}
+   P(r) &=& (r+1)^3 \\
+   P(-1) &=& 0 \\
+   P'(-1) &=& 0 \\
+   P^{\prime \prime}(-1) &=&  0 \\
+   P^{\prime \prime \prime}(-1) = 6 \\
+   P(i) &=& -2 + 2i
+ \end{eqnarray*}
+ The ERF for the input signal $e^{it}$ gives
+ \begin{equation*}
+   \displaystyle  \displaystyle \mathrm{Im\, }\left(\frac{e^{it}}{-2+2i}\right)
+   \displaystyle =
+   \displaystyle  \frac{-\sin (t)}{4}-\frac{\cos (t)}{4}
+ \end{equation*}
+ The generalized ERF applied to the input signal $e^{−t}$ gives
+ \begin{equation*}
+   \displaystyle  \displaystyle \frac{t^3e^{-t}}{6}
+ \end{equation*}
+ We can add to this any linear combination of the basis of solutions to the homogenous equation $e^{−t},\, te^{-t},\,$ and $t^2e^{-t},\,$
+ but only the option available that is a particular solution is
+ \begin{equation*}
+   \frac{-\sin (t)}{4}-\frac{\cos (t)}{4}+\frac{t^3e^{-t}}{6}.
+ \end{equation*}
+ 
 \clearpage
 
 %%% Local Variables:

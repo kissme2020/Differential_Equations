@@ -6141,7 +6141,178 @@ $\, \displaystyle \omega _ d= \sqrt {\frac{k}{m}-\frac{b^2}{4m^2}}.$\\
   Let 
 
 \end{enumerate}
+\clearpage
 
+\subsubsection{Method of undetermined coefficients}
+
+Consider again (as in the first problem) the following DE
+\begin{equation*}
+  P(D)x=F(t)\,  \qquad \text {where}\,  \qquad P(D)=D^2+2D+2.
+\end{equation*}
+
+For some classes of functions $F$, we can guess an expression for a particular solution.
+For example, if $F = \sin⁡(t)$, since the derivatives of $\sin⁡(t)$ are always
+either $\pm \cos⁡ (t)$ or $\pm \sin⁡ (t)$,
+it is reasonable to guess a particular solution of the form
+\begin{equation*}
+  \displaystyle  \displaystyle x_ p(t)=A\sin (t)+B\cos (t)
+\end{equation*}
+Then, to determine the coefficients $A$ and $B$, we plug $x _p(t)$ into the DE:
+\begin{align*}
+  \displaystyle \displaystyle P(D) x_p
+  \displaystyle
+  &= \displaystyle \left(D^2+2D+2\right)\left( A\sin (t)+B\cos (t)\right) \\
+  \displaystyle
+  &= \displaystyle A\left(-\sin (t)+2\cos (t)+2\sin (t)\right)
+    +B \left( -\cos (t)-2\sin (t)+2\cos (t) \right) \\
+  \displaystyle
+  &= \displaystyle \sin (t) \left( A -2B\right) +\cos (t) \left(2A+B\right)\,
+\end{align*}
+
+Setting $P(D)x_ p= F$, we get
+\begin{equation*}
+  \sin (t) \left( A -2B\right) +\cos (t) \left(2A+B\right)\,  = \sin (t).
+\end{equation*}
+
+Because the functions $\sin⁡ (t)$ and $\cos⁡ (t)$ are linearly independent,
+matching coefficients we have two linear equations with two unknowns:
+\begin{eqnarray*}
+  A - 2B &=& 1 \\
+  2A + B &=& 0 
+\end{eqnarray*}
+
+Solving these two equations give $\, A=1/5,\,$ and $\, B=-2/5,\,$
+and therefore $x_ p\, =\,  \sin (t)/5-2\cos (t)/5$.\\
+
+This is an example of the \emph{\color{blue}method of undetermined coefficients}.
+We will revisit this method again once we have learned
+a systematic way of solving systems of linear equations.
+
+\begin{problem}
+  Method of undetermined coefficients
+\end{problem}
+
+As above, consider the DE
+\begin{equation*}
+  P(D)x=F(t)\,  \qquad \text {where}\,  \qquad P(D)=D^2+2D+2.
+\end{equation*}
+
+Use the method of undetermined coefficient to find a particular to the DE
+for the different functions $F$ below.
+
+\begin{enumerate}
+\item For $F=\cos (t),$ \\
+  The derivatives of $\cos (t)$ always $\sin⁡(t)$ are always
+  either $\pm \cos⁡ (t)$ or $\pm \sin⁡ (t)$,
+  So the guess of $x_p$ will be forms of 
+  \begin{equation*}
+    A \cos (t) + B \sin (t) 
+  \end{equation*}
+  Setting $P(D)x_ p= F$, we get
+  \begin{align*}
+    P(D)x_p
+    &= (D^2+2D+2) \left( A \cos (t) + B \sin (t) \right) \\
+    &= A \left(- \cos (t) -2 \sin(t) + 2 \cos (t) \right)
+      + B \left(- \sin (t) +2 \cos(t) + 2 \sin (t) \right) \\
+    &= (A + 2B) \cos (t) + (-2A + B) \sin (t) \\    
+  \end{align*}
+  Because the functions $\sin⁡ (t)$ and $\cos⁡ (t)$ are linearly independent,
+  matching coefficients we have two linear equations with two unknowns:
+  \[
+    \begin{bmatrix}
+      1 & 2 \\
+      -2 & 1
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+      A \\
+      B
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      1 \\
+      0
+    \end{bmatrix}
+  \]
+  Solving it give $A = 1/5$ and $B = 2/5$, and therefore
+  \begin{equation*}
+    x _p = \frac{1}{5} \cos (t) + \frac{2}{5} \sin(t) 
+  \end{equation*}
+
+\item For $F=\sin (2t),$ \\
+    The derivatives of $\cos (2t)$ always $\sin⁡(2t)$ are always
+    either $\pm c \cos⁡ (2t)$ or $\pm c \sin⁡ (2t)$,
+    So the guess of $x_p$ will be forms of 
+    \begin{equation*}
+      A \cos (2t) + B \sin (2t) 
+    \end{equation*}
+    Setting $P(D)x_ p= F$, we get
+    \begin{align*}
+      P(D)x_p
+      &= (D^2+2D+2)\left( A \cos (2t) + B \sin (2t) \right) \\
+      &= A \left(- 4 \cos (t) -4 \sin(t) + 2 \cos (t) \right)
+        + B \left(- 4\sin (t) +4 \cos(t) + 2 \sin (t) \right) \\
+      &= (-2A + 4B) \cos (t) + (-4A - 2B) \sin (t) \\    
+    \end{align*}
+    Because the functions $\sin⁡ (t)$ and $\cos⁡ (t)$ are linearly independent,
+    matching coefficients we have two linear equations with two unknowns:
+    \[
+      \begin{bmatrix}
+        -2 & 4 \\
+        -4 & -2
+      \end{bmatrix}
+      \cdot
+      \begin{bmatrix}
+        A \\
+        B
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        0 \\
+        1
+      \end{bmatrix}
+    \]   
+    Solving it give $A = -1/5$ and $B = -1/10$, and therefore
+    \begin{equation*}
+      x _p = \frac{-1}{5} \cos (2t) + \frac{-1}{10} \sin(2t) 
+    \end{equation*}
+
+  \item For $F=t^2,$ \\
+    (Look for a particular solution of the form $\, At^2+Bt+C\,$.)\\
+
+    Setting $P(D)x_ p= F$,
+    \begin{align*}
+      P(D)(At^2+Bt+C)
+      &= D^2(At^2+Bt+C) + 2D(At^2+Bt+C) + 2(At^2+Bt+C) \\
+      &= 2A + 4At + 2B + 2At^2 + 2Bt + 2C \\
+      &= 2At^2 + (4A + 2B)t + (2A + 2C)                        
+    \end{align*}
+    Because the functions $t^2,\, t,\, $ and $1$ are linearly independent,
+    matching coefficients we have three linear equations with three unknowns:
+    \[
+      \begin{bmatrix}
+        2 & 0 & 0 \\
+        4 & 2 & 0 \\
+        2 & 0 & 2 \\
+      \end{bmatrix}
+      \cdot
+      \begin{bmatrix}
+        A \\
+        B \\
+        C \\
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        1 \\
+        0 \\
+        0 \\
+      \end{bmatrix}
+    \]   
+    Solving it give $A = 1/2$ and $B = -1$, and $C = -1/2 \,$ therefore
+    \begin{equation*}
+      x _p = \frac{1}{2} t^2  - t -\frac{1}{2}
+    \end{equation*}
+\end{enumerate}
 
 
 \clearpage

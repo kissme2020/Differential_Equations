@@ -6132,15 +6132,25 @@ $\, \displaystyle \omega _ d= \sqrt {\frac{k}{m}-\frac{b^2}{4m^2}}.$\\
 
   The denominator of the negative terms of $\omega _r$ is smaller than $\omega _d$,
   So, $\omega _ r < \omega _ d$
-
+  \clearpage
+  
 \item Finally, what happens if the expression $G$ is negative or zero?
   Find the angular frequency $\omega$ at which the gain attains
   its maximum for the case when $G≤0$.\\
 
-  For $G≤0$,
-  Let 
+  What happens if the expression $\, \displaystyle \frac{k}{m}-\frac{b^2}{2m^2}\,$
+  inside the square root defining $\omega _r$ is negative or zero?
+  In this case, $1/g^2$ has only 1 critical point at $\omega=0$,
+  and it is a minimum. This means that the gain g attains its maximum only at $\omega=0$. \\
 
+  \emph{Remark:} For the spring-mass-dashpot system on the previous page,
+  $\, m=1,\, b=2,\, k=2.\,$
+  Therefore, $\, \displaystyle \frac{k}{m}-\frac{b^2}{2m^2}\,
+  =\, \frac{2}{1}-\frac{2^2}{2}\, =\, 0,\,$
+  and so the gain for a sinusoidal force on the mass is maximized when
+  $\, \omega =0$.  
 \end{enumerate}
+
 \clearpage
 
 \subsubsection{Method of undetermined coefficients}
@@ -6250,9 +6260,9 @@ for the different functions $F$ below.
     \begin{align*}
       P(D)x_p
       &= (D^2+2D+2)\left( A \cos (2t) + B \sin (2t) \right) \\
-      &= A \left(- 4 \cos (t) -4 \sin(t) + 2 \cos (t) \right)
+      &= A \left(- 4 \cos (2t) -4 \sin(2t) + 2 \cos (2t) \right)
         + B \left(- 4\sin (t) +4 \cos(t) + 2 \sin (t) \right) \\
-      &= (-2A + 4B) \cos (t) + (-4A - 2B) \sin (t) \\    
+      &= (-2A + 4B) \cos (2t) + (-4A - 2B) \sin (2t) \\    
     \end{align*}
     Because the functions $\sin⁡ (t)$ and $\cos⁡ (t)$ are linearly independent,
     matching coefficients we have two linear equations with two unknowns:
@@ -6285,7 +6295,7 @@ for the different functions $F$ below.
       P(D)(At^2+Bt+C)
       &= D^2(At^2+Bt+C) + 2D(At^2+Bt+C) + 2(At^2+Bt+C) \\
       &= 2A + 4At + 2B + 2At^2 + 2Bt + 2C \\
-      &= 2At^2 + (4A + 2B)t + (2A + 2C)                        
+      &= 2At^2 + (4A + 2B)t + (2A + 2B + 2C)                        
     \end{align*}
     Because the functions $t^2,\, t,\, $ and $1$ are linearly independent,
     matching coefficients we have three linear equations with three unknowns:
@@ -6293,7 +6303,7 @@ for the different functions $F$ below.
       \begin{bmatrix}
         2 & 0 & 0 \\
         4 & 2 & 0 \\
-        2 & 0 & 2 \\
+        2 & 2 & 2 \\
       \end{bmatrix}
       \cdot
       \begin{bmatrix}
@@ -6308,12 +6318,236 @@ for the different functions $F$ below.
         0 \\
       \end{bmatrix}
     \]   
-    Solving it give $A = 1/2$ and $B = -1$, and $C = -1/2 \,$ therefore
+    Solving it give $A = 1/2$ and $B = -1$, and $C =-1/2 \,$ therefore
     \begin{equation*}
-      x _p = \frac{1}{2} t^2  - t -\frac{1}{2}
+      x _p = \frac{1}{2} t^2  - t + \frac{1}{2}  
     \end{equation*}
 \end{enumerate}
 
+\clearpage
+\subsubsection{Linear time invariant operators}
+
+\begin{problem}
+  LTI
+\end{problem}
+
+Consider a homogeneous differential equation
+\begin{equation*}
+  L x = 0
+\end{equation*}
+
+for an LTI operator $L\,$.
+Note that $L\,$ may not necessarily be of the form $P(D)\,$
+for some polynomial $P$ with constant coefficients.\\
+
+As an example, define a new operator $T_h, \,$ called a \emph{\color{blue}shift operator },
+that acts on a function $x(t)$ as follows:
+\begin{equation*}
+  T_ h x(t)= x(t+h).
+\end{equation*}
+
+An LTI operator can be then be defined as a linear operator $L$ such that
+\begin{equation*}
+  L T_ h=T_ h L.
+\end{equation*}
+
+That is, $L T_ h x= T_ h L x\,$ for all function $x$.
+In particular, $T_ h$ itself is an LTI operator, and it is not form
+$P(D)$ for some polynomial $P$ with constant coefficients. \\
+
+We will see more LTI operators in \textit{Transfer function and Laplace transform.}\\
+
+Suppose $x(t) = \cos (t)$ is a solution of the equation $Lx = 0,\,$
+then which of the following function are also solutions?
+\begin{enumerate}
+\item $-\sin (t)$
+\item $e^{-t}\sin (t)$
+\item $\sin (t+\pi /15)$
+\item $3\sin (t)-5\cos (t+1)$
+\item $\cos (2t)$
+\end{enumerate}
+
+
+Since $L$ is an LTI operator, if $x(t)$ is a solution, then $x(t−c)$ is also solution.
+Since $\sin⁡ (t) = \cos⁡ (t−\pi/2)$, it is a solution to the DE if $\cos⁡ (t)$ is. \\
+
+In the context of differential equations,
+the relevant LTI operators are the ones that also behave well with respect to differentiation.
+In other words, not only does $LT_h=T_h L$, but also
+\begin{equation*}
+  LD=DL.
+\end{equation*}
+
+(That is, $LD x=DL x$ for all functions $x(t)$.)
+
+Recall the definition of the derivative:
+\begin{equation*}
+  \displaystyle \lim _{h\to 0} \frac{T_ h x-x}{h}.
+\end{equation*}
+
+To see if $LD=DL$ for an LTI operator $L$, let us compute $DL x$:
+\begin{align*}
+  \displaystyle  \displaystyle DLx
+  \displaystyle
+  &= \displaystyle \lim _{h\to 0} \frac{T_ h Lx-Lx}{h} \\
+  \displaystyle
+  &= \displaystyle \lim _{h\to 0} \frac{L \left(T_ h x-x\right)}{h} \\
+  \displaystyle
+  &= \displaystyle \lim _{h\to 0} L \frac{T_ h x-x}{h}.                  
+\end{align*}
+
+Therefore, provided the extra condition that $L$ is compatible with limits,
+that is, if
+\begin{equation*}
+  \displaystyle  \displaystyle \lim _{h\to 0} L \frac{T_ h x-x}{h}
+  \displaystyle =
+  \displaystyle L \lim _{h\to 0} \frac{T_ h x-x}{h},
+\end{equation*}
+
+then $DL = LD$.
+
+\begin{problem}
+  Derivatives of homogeneous solutions
+\end{problem}
+
+\begin{enumerate}
+\item An LTI operator L satisfies $LD=DL$.
+  If $x(t)$ is a solution to the homogeneous differential equation
+  \begin{equation*}
+    L x = 0,
+  \end{equation*}
+  must $x′(t)$ also be a solution?\\
+
+  If $x(t)$ is a solution,
+  then $Lx=0$. Since $LD=DL$, then $Lx′=LDx=DLx=D(0)=0$. 
+  This means $x′(t)$ is also a solution.
+\item Suppose that $x(t)=t^2e^t$ is a solution of the homogeneous equation above,
+  then which of the following functions must also be solutions?
+  \begin{itemize}
+  \item $(t+1)^2 e^{t+1}$
+  \item $te^t$
+  \item $e^t$
+  \item $-2te^t + e^t$
+  \end{itemize}
+
+  If $x(t)=t^2e^{t},\,$ is a solution,
+  then $x(t+1)=(t+1)^2 e^{t+1}\,$ is also a solution.
+  Secondly, $x(t)$ being a solution also implies $x′(t) = 2te^t + t^2e^t\,$ is a solution.
+  Hence the \emph{linear combination} $x′(t) − x(t) =te^t\,$ is also a solution.
+  This means that $(te^t)′,= e^t+te^t\,$ is a solution;
+  and this in turn implies $(te^t)′− te^t=e^t$ is also a solution.\\
+
+  \textbf{Remark:} By similar arguments, if $t^n e^t$
+  is a solution to $Lx=0,\,$ then $t^me^t\,$ for any integer $0\leq m<n$ is also a solution.
+
+\end{enumerate}
+
+\clearpage
+\subsubsection{Building an AM radio}
+
+\begin{problem}
+  Building an AM radio
+\end{problem}
+You are building a simple passive AM radio using a series RLC circuit
+with an voltage source of $V \sin⁡(\omega t)$
+and the voltage drop $V_R\,$ across the resistor as the system response.\\
+
+You would like to know the relations between the values of $R,\,L,\,$ and $C$
+in order to tune to a station at $\, \nu =950$kHz and with good enough reception.
+The bandwidth of the AM radio station is about $10$kHz.
+By good enough reception, you mean that the gain of $V_R$ should drop to a small fraction,
+say $1/10$, of the maximum gain at the two boundary frequencies $\nu _ 1$kHz and $\nu_ 2$kHz.
+See figure below.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_psBu1c4_radiostations_tuned}
+  \caption{Frequency AM radio}
+\end{figure}
+
+\begin{enumerate}
+\item Find $C$ (with units $\mu$F) in terms of $L$ (with units H) and $\, \nu =950,000$Hz.
+  (Remember $\omega$ has units rad/s, which are equivalent to units of $1/(2\pi)$Hz.)\\
+
+  (Substitute $\nu=950,000$Hz, enter in terms of $L$.)\\
+
+  The maximum gain of series RLC circuit is
+  \begin{equation*}
+    \omega = \frac{1}{\sqrt{LC}}
+  \end{equation*}
+
+  The $\omega = 2 \pi \nu  = 1900000 \pi$.\\
+  Solve $ \omega = \frac{1}{\sqrt{LC}} $ in terms $L$
+  \begin{align*}
+    \frac{1}{\sqrt{LC}} &= \omega  \\
+    \sqrt{LC} &= \frac{1}{\omega} \\
+    LC &= \frac{1}{\omega^2} \\
+    C &= \frac{1}{\omega^2 L} \\
+  \end{align*}
+  So, $C = \frac{2.80668098732e-14}{L} = \frac{2.80668098732e-08}{L}$ microFarads.
+
+\item Find $R$ (with units of kiloOhms) in terms of $L$ (with units H) and $\nu=950$kHz. \\
+
+  At the two frequencies on the boundary of the bandwidth, the gain $g(\omega)$ drops to
+  $1/10$ of the maximum gain.
+  Since the maximum gain is $1$, let us find the angular frequencies where$g=1/10$:
+  \begin{equation*}
+    \displaystyle g^2(\omega )\, =
+    \, \frac{R^2\omega ^2}{\left(\frac{1}{C}-L\omega ^2\right)^2+R^2\omega ^2}
+    \displaystyle = \displaystyle \frac{1}{100}  
+  \end{equation*}
+  \begin{align*}
+    &\displaystyle \Longrightarrow &100R^2 \omega^2
+                                     \displaystyle
+    &=
+      \displaystyle \left(\frac{1}{C}-L\omega ^2\right)^2+R^2\omega ^2 \\
+    &\displaystyle \Longrightarrow &99R^2 \omega^2
+                                     \displaystyle
+    &=
+      \displaystyle \pm \left(\frac{1}{C}-L\omega ^2\right) \\
+    &\displaystyle \Longrightarrow &\sqrt {99} R\omega
+                                     \displaystyle
+    &=
+      \displaystyle \pm \left(\frac{1}{C}-L\omega ^2\right)  \\
+    &\displaystyle \Longrightarrow &0 
+                                     \displaystyle
+    &=
+      \displaystyle  L\omega ^2\pm \sqrt {99} R\omega -\frac{1}{C} \\
+    &\displaystyle \Longrightarrow &\omega 
+                                     \displaystyle
+    &=
+      \displaystyle  \displaystyle \frac{-\sqrt {99}R\pm \sqrt { 99R^2+4L/C}}{ 2L}\\
+    & &\displaystyle \text {or }\, \omega
+        \displaystyle
+    &= \displaystyle \frac{\sqrt {99}R\pm \sqrt { 99R^2+4L/C}}{ 2L}.\\
+  \end{align*}
+  We choose the positive two of these solutions
+  \begin{eqnarray*}
+    \displaystyle  \displaystyle \omega _1
+    \displaystyle
+    &=& \displaystyle \frac{-\sqrt {99}R+ \sqrt { 99R^2+4L/C}}{ 2L} \\
+    \displaystyle  \displaystyle \omega _1
+    \displaystyle
+    &=& \displaystyle \frac{\sqrt {99}R+ \sqrt { 99R^2+4L/C}}{ 2L}.
+  \end{eqnarray*}
+  Finally, these two angular frequencies lie on the boundaries of the bandwidth, so
+  \begin{equation*}
+    \displaystyle \frac{|\omega _1-\omega _2|}{2\pi }
+    \displaystyle =
+    \displaystyle 10,000\text {Hz}
+  \end{equation*}
+  \begin{align*}
+    \displaystyle \Longrightarrow
+    \displaystyle &\frac{\sqrt {99}R}{L}
+                    \displaystyle  = \displaystyle 10,000(2\pi ) \\
+    \displaystyle \Longrightarrow
+    \displaystyle &R
+                    \displaystyle =
+                    \displaystyle \frac{20,000\pi L}{\sqrt {99}} \Omega \\
+    \displaystyle &=
+                    \displaystyle  \frac{20\pi L}{\sqrt {99}} \text {k}\Omega
+  \end{align*}
+\end{enumerate}
 
 \clearpage
 

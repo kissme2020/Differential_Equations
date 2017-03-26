@@ -2400,6 +2400,8 @@ Thus $y = t^9 + 2 e ^{−5t}$. Hence $y(−1) = (−1) ^9 + 2 e ^5 = 2 e ^5 - 1$
 \clearpage
 
 \subsection{Part B Homework}
+\subsubsection{Find the differential equations}
+
 \begin{homework}
   Find a first order differential equation
 \end{homework}
@@ -2410,6 +2412,102 @@ Write the DE in standard linear form:
   \dot{y} + p(t) y = 0
 \end{equation*}
 for a specific function $p(t)$.\\
+(Hint: If $y = a\sin ⁡(2t)$ for some $a$,
+write down $\dot{y}$, and try to eliminate $a$ to find a relation between $y$ and $\dot y$.)\\
+
+Plug in $a \sin (2t)$ on the ODE,
+\begin{align*}
+  \frac{d}{dt} a\sin ⁡(2t) + p(t) a \sin ⁡(2t) &= 0\\
+  2a \cos (2t) + p(t) a \sin ⁡(2t) &= 0 \\
+  p(t) = \frac{-2a \cos (2t)}{a \sin ⁡(2t)} \\
+  p(t) = \frac{-2 \cos (2t)}{\sin ⁡(2t)}
+\end{align*}
+In standard linear form, this is
+\begin{equation*}
+  \displaystyle  \dot{y}-2\cot (2t) y=0.
+\end{equation*}
+
+\emph{Note: } The DE is not defined where $\cot (2t)\,$ is not defined, i.e.
+at $\, 2t=0,\pi , 2\pi \ldots .\, \,$ But this is alright
+because  we are only considering solutions on the open interval $( 0, \frac{\pi}{2})$.
+On the other hand, you any have first found the DE
+\begin{equation*}
+  \displaystyle  \displaystyle \sin (2t)\dot{y}-2\cos (2t) y=0
+\end{equation*}
+
+and then put it in standard form as required. In fact, this DE above is better because it is defined everywhere. It also has the functions $y= a\sin ⁡(2t)$ with domain all real numbers $t$ as solutions.
+
+\clearpage
+
+\subsubsection{Modelling a mass attached to two springs}
+
+\begin{homework}
+  Mass on two springs
+\end{homework}
+
+A mass $m$, measured in $kg$, is attached by two springs,
+one on the left and one on the right, to the walls.
+The mass sits on an air table and moves horizontally with no friction.
+The setup is shown in the diagram below:
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_psBu1c1_masson2springs}
+  \caption{System Mass on Two Springs 1}
+\end{figure}
+
+Assume the springs obey Hooke's Law with $k_ 1$ the spring constant
+for the left spring and $k_2$ the spring constant for the right spring.\\
+
+Let $x$ be the displacement of the mass from the equilibrium position
+and choose $x>0$ if the mass is to the right of the equilibrium position.
+Use Newton's second law to write down a differential equation for $x(t)$
+in terms of the two spring constants $k_ 1$ and $k_ 2$. \\
+
+There are two forces acting on the mass: the force $F_ L$
+from the spring on the left $F_ R$ and the force on the right.
+Both springs are relaxed when the mass is at $x=0$, so the magnitudes of $F_ L$ and $F_ R$ are proportional to the displacement $|x|$:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_psBu1c1_masson2springswithforce}
+  \caption{System Mass on Two Spring 2}
+\end{figure}
+
+To figure out the direction of each of these forces,
+consider first the case when $x>0$, as in the diagram above.
+
+\begin{itemize}
+\item The left spring is stretched and pulls the mass to the left, in the $(-x)$-direction,
+  so $\, F_ L<0$.
+\item The right spring is compressed and pushes the mass also to the left,
+  in the $(-x)$-direction, so $\, F_ L<0$. 
+\end{itemize}
+
+Therefore
+\begin{equation*}
+  \displaystyle  \displaystyle F_ L=-k_1 x \qquad \displaystyle  F_ R=-k_2 x.
+\end{equation*}
+The sum of two force is $\sum F_L + F_R = -k_ 1 x - k_ 2 x$.
+By Newton's second law
+\begin{equation*}
+  F = ma = m \ddot{x} = -k_ 1 x - k_ 2 x = -(k _1 + k _2)x . 
+\end{equation*}
+
+\emph{Amazing: } This is the same DE that models the motion of a mass attached
+to a single spring with spring constant $k_1 + k_ 2$.
+\clearpage
+
+\subsubsection{Heating a house}
+
+\begin{homework}
+  Temperature of an unheated house
+\end{homework}
+
+The temperature of a certain deserted,
+unheated house is $T=T(t),\,$ in degrees Fahrenheit at time $t$ in hours.
+If the outside temperature is $\, 40 ^{\circ }\,$ (about the average autumn temperature in the Boston area),
+and it takes 24 hours for the temperature of the house to drop from $\, 70 ^{\circ }\,$ to $\, 55 ^{\circ }\,$,
+use Newton's law of cooling to write down a differential equation for the temperature of the house.\\
 
 
 

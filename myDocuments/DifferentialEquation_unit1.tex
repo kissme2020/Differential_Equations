@@ -2509,7 +2509,101 @@ If the outside temperature is $\, 40 ^{\circ }\,$ (about the average autumn temp
 and it takes 24 hours for the temperature of the house to drop from $\, 70 ^{\circ }\,$ to $\, 55 ^{\circ }\,$,
 use Newton's law of cooling to write down a differential equation for the temperature of the house.\\
 
+Newton's law of cooling says that
+\begin{equation*}
+  \dot T = k(40 - T)
+\end{equation*}
 
+for some positive constant $k$.
+It remains to find $k$, and we start by solving the DE.
+\begin{align*}
+  \dot T &= k(40 - T) \\
+  \dot T + kT &= 40k, \\
+  \dot T e^{kt} + k e^{kt}T  &= 40k e^{kt} \qquad \text{Multiply integer factor both side } \\
+  \int \left( T e^{kt} \right)^{\prime} dt  &= 40k \int e^{kt} dt \\
+  T e^{kt} &= 40k(\frac{1}{k} e^{kt} + c_1) \\
+  T = 40 + c e^{-kt}. 
+\end{align*}
+
+Apply initial condition,
+\begin{equation*}
+  T(0) = 40 +  c e^{-k(0)} = 40 + c = 70 \quad \Longrightarrow c = 30 \\
+\end{equation*}
+To find positive constant $k$
+\begin{align*}
+  T(24) &= 55  = 40 + 30e^{-k(24)} \\
+        &55 - 40 = 30e^{-k(24)} \\
+        &15 = e^{-k(24)} \\
+        &\frac{1}{2} = e^{-k(24)} \\
+        &2 = e^{k(24)} \\
+        &\ln (2) = \ln e^{k(24)} \\
+        &k = \frac{\ln (2)}{24} 
+\end{align*}
+So, the ODE is 
+\begin{equation*}
+  \dot T = k(40 - T) = \frac{\ln (2)}{24} \left(40 - T \right)
+\end{equation*}
+
+\begin{homework}
+  Temperature of a heated house
+\end{homework}
+
+A family then bought the deserted house and turned on the heater.
+The heater warms the house by a constant $q$ degrees Fahrenheit per hour.
+The equation for the temperature $T(t)$ of the house with the furnace on is
+\begin{equation*}
+  \dot T = k(40 -T) + q 
+\end{equation*}
+
+Find the long-time or steady state temperature, $\displaystyle \lim _{t\to \infty } T(t),\,$
+as a function of $k$ and $q$.\\
+
+Solving the DE by integer factor method,
+\begin{align*}
+  \dot T &= k(40 -T) + q \\
+  \dot T + kT &= 40k + q \\
+  e^{kt} \dot T +  k e^{kt} T &= \left( 40k + q \right) e^{kt} \\
+  \int \left(e^{kt} \dot T \right)^{\prime} dt &= ( 40k + q ) \left( \int e^{kt} dt \right) \\
+  e^{kt} T + c _1 &= ( 40k + q ) (\frac{1}{k} e^{kt} + c_2) \\
+  e^{kt} T + c _1 &= 40e^{kt} + \frac{q}{k} e^{kt} + c_3 \\
+  e^{kt} T  &= 40e^{kt} + \frac{q}{k} e^{kt} + c \\
+  T  &= 40 + \frac{q}{k} + c e^{kt}          
+\end{align*}
+
+For long-time or steady state temperature is 
+\begin{equation*}
+  \displaystyle \lim _{t\to \infty } T(t) = \displaystyle 40 + \frac{q}{k} + c e^{kt}
+  = \displaystyle 40 + \frac{q}{k}. 
+\end{equation*}
+
+\begin{homework}
+  Energy efficiency
+\end{homework}
+
+Find the ratio of the energy (the values of q) required to maintain a temperature of
+$\, 70^{\circ }\,$ versus $\, 55^{\circ }.$ \\
+
+In other words, find $\, \displaystyle \frac{q_{70}}{q_{55}},\,$
+where $\, q_{70}\,$ is the number of degrees per hour required to maintain a temperature of
+$\, 70^{\circ },\,$ and similarly $q_{55}$ is the the number of degrees per hour required
+to maintain a temperature of $\, 55^{\circ }$. \\
+
+In steady steady temperature
+\begin{align*}
+  70 = 40 + \frac{q_{70}}{k} &\Longrightarrow q_{70} = (70 - 40)k = 30k \\
+  55 = 40 + \frac{q_{55}}{k} &\Longrightarrow q_{55} = (70 - 55)k = 15k 
+\end{align*}
+The ratio is
+\begin{equation*}
+  \frac{q_{70}}{q_{55}} = \frac{30k}{15k} = 2. 
+\end{equation*}
+
+\emph{Note:} The parameter $q$ is roughly proportional to the power consumed in heating the house,
+and thus to the cost per hour.
+So pushing the steady state temperature from $\, 55^{\circ }$ to $\, 70^{\circ },\,$ doubles the cost per hour.
+This is not so surprising, since the difference in temperature from the outside is doubled.
+Maybe more surprising is that this ratio is independent of the constant $k$, which reflects the insulating properties of the house.
+But the absolute costs do depend linearly on $k$!
 
 \clearpage
 %%% Local Variables:

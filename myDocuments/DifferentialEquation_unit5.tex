@@ -1,0 +1,131 @@
+\section{UNIT5}
+
+\clearpage
+
+\subsection{Nonlinear DEs: Graphical methods }
+
+\subsubsection{Nonlinear differential equations: Graphical Methods}
+
+\emph{Objectives}
+\begin{itemize}
+\item Use \emph{\color{blue} slope fields} and \emph{\color{blue}isoclines}
+  to aid in the drawing of solution curves for \emph{\color{blue}first order ODEs}.
+
+\item Draw \emph{\color{blue}integral curves} aided by existence and uniqueness theorems, and assess long term behavior of solutions.
+\end{itemize}
+
+\subsubsection{Introduction}
+
+\begin{exercise}
+  Review: Linear vs. nonlinear DEs
+\end{exercise}
+\begin{align*}
+  y'=y(1-y) &\qquad y' = xy \\
+  y'= x-2y &\qquad y' = -x/y \\
+  y'= y^2- x^2 &\qquad y' = y/x \\
+  y'= y^3 -3y -x &\qquad yy' = x^3 -y
+\end{align*}
+
+\emph{Linear equations:} The following DEs are linear because they can be written in the form
+$\, y'+p(x)y=q(x)\,$.
+In this form,
+\begin{itemize}
+\item $y = xy\,$ becomes $y' - xy = 0\, $.
+\item $y = x - 2y\,$ becomes $y' + 2y = x\, $.
+\item $y = y/x,$ becomes $y' - \frac{1}{x}y = 0\, $. 
+\end{itemize}
+
+\emph{Nonlinear equations:} he rest of the DEs are nonlinear because they cannot be written in the form
+$\, y'+p(x)y=q(x)\,$ mentioned above. They failed for the reason below:
+\begin{itemize}
+\item $y' = y(1-y),\,$ rewritten as $y' = y - y^2,\,$ contains a $y^2$ term.
+\item $y' = y^2 - x^2\,$ contains $y^2$ term.(The $x^2$ term does not contribute to the classification.)
+\item $y' = y^3 -3y -x\,$ contains a $y^3$ term.
+\item $y' = -x/y\,$ contains a term with $y$ od degree $-1$.
+\item $yy' = x^3 -y\,$ contains the term $yy'$ in which the total degree of $y$ and its derivative is $2$. 
+\end{itemize}
+
+\paragraph{Introduction}
+First order ODE, ODE, I'll only use three, two acronyms.
+ODE is ordinary differential equations.
+I think all of MIT knows that whether they've been taking a course or not.\\
+
+So we're talking about first order ODEs, which
+in standard form are written, you isolate the derivative of $y$
+with respect to $x$, let's say on the left hand side.
+And on the right hand side, you write everything else.
+\begin{equation*}
+  y' = f(x, y)
+\end{equation*}
+You can't always do this very well,
+but for today, I'm going to assume that it has been done and it's doable.
+So for example,
+\begin{equation*}
+  y' = x/y, \quad y' = x - y^2, \quad y' = y - x^2 
+\end{equation*}
+
+Now you look at this.
+This $\, y' = x/y,\,$ of course, you can solve by \textit{separating variables}.
+So this is solvable.
+This one $\, y' = y - x^2\, $ is, in neither of these can you separate variables
+and they look extremely similar, but they are extremely dissimilar.
+The most dissimilar about them is
+that this one $\, y' = y - x^2\, $ is easily solvable and you'll
+learn if you don't know already next time, next Friday, how to solve this one.
+This one $\, y' = x - y^2 ,\,$ which looks almost the same, is unsolvable in a certain sense.
+Namely, there are no elementary functions,
+which you can write down which will
+give a solution of that differential equation.\\
+
+So right away, one confronts the most significant fact
+that even for the simplest possible differential
+equations,
+\begin{equation*}
+  \boxed{y' = x - y^2}
+\end{equation*}
+those which only involve the first derivative,
+it's possible to write down extremely simple guys.
+I mean not really bad but recalcitrant.
+It's not solvable in the ordinary sense in which you
+think an equation is solvable.
+And since those equations are the rule rather than
+the exception, I'm going to devote this first day
+to not solving a single differential equation,
+but indicating to you what you do
+when you meet a boxed equation like that,
+what do you do with it.
+So this first day is going to be devoted
+to geometric ways of looking at differential equations
+and numerical.
+At the very end, I'll talk a little bit about numerical.\\
+
+First order (nonlinear) equations can be written in the \emph{\color{blue} standard form}:
+
+\begin{equation*}
+  y' = f(x,y)
+\end{equation*}
+
+where $f(x, y)$ is a function of the variables $x$ and $y$. \\
+
+Notice we now have two standard forms for first order differential equations.
+Recall first order \emph{\color{blue}linear} equations
+can also be written in the standard form for linear equations:
+
+\begin{equation*}
+  y'+p(x)y=q(x).
+\end{equation*}
+
+
+This unit is concerned with first order nonlinear differential equations, such as the one boxed
+
+\begin{equation*}
+  \boxed{y' = x - y^2}
+\end{equation*}
+
+The sad fact is that we can hardly ever find formulas for the solutions to nonlinear DEs.
+Instead we try to understand the qualitative behavior of solutions using geometric methods or approximations.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "NoteForDifferentialEquation"
+%%% End:

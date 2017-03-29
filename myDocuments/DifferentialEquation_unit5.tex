@@ -124,6 +124,147 @@ This unit is concerned with first order nonlinear differential equations, such a
 
 The sad fact is that we can hardly ever find formulas for the solutions to nonlinear DEs.
 Instead we try to understand the qualitative behavior of solutions using geometric methods or approximations.
+\clearpage
+
+\subsubsection{Geometric view of DEs}
+
+\paragraph{The geometry}
+What's our geometric view of differential equations?
+
+Well, it's something that's contrasted
+with the usual procedures by which you solve things and find
+elementary functions which solve them.
+I'll call that the \textit{analytic method}.
+So on the one hand, we have the analytic ideas
+in which you write down explicitly the equation
+\begin{equation*}
+  y' = f(x, y). 
+\end{equation*}
+And you look for certain functions, which are called solutions.
+So there's the ODE.
+And $y_1(x)$, notice I don't use a separate letter.
+I don't use $g$ or $h$ or something like that for the solution
+because the letters multiply so quickly,
+multiply in the sense of rabbits that after a while, if you keep
+using different letters for each new idea
+you can't figure out what you're talking about.
+So I'll use $y_1$ means it's a solution of this differential
+equation.
+Of course, the differential equation
+has many solutions containing an arbitrary constant.
+So we'll call this the solution.\\
+
+
+Now \textit{the geometric view}.
+The geometric guy that corresponds to this version of writing the equation
+is something called a \textit{direction field}.
+And the solution is from the geometric point of view,
+something called an \textit{integral curve}.
+\begin{align*}
+  \text{Analytic}  &\qquad  \text{Geometric} \\
+  y' = f(x,y) &\Longleftrightarrow \text{Direction Field} \\
+  y_1 x &\Longleftrightarrow \text{Integral Curve}
+\end{align*}
+
+
+So let me explain if you don't know what the direction field is.
+So what's a direction field?
+Well, a direction field is you take the plane.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-direction_field}
+  \caption{Direction Field}
+\end{figure}
+
+And at each point of the plane-- of course, that's an impossibility.
+But you pick some points of the plane.
+You draw what's called a little line element.
+So there is a point.
+It's a little line.
+And the only thing which distinguishes it outside of its position in the plane--
+so here's the point $x$, $y$ at which we're drawing this line element is its slope.
+What is its slope?
+Its slope is to be $f(x,y)$.
+And now you fill up the plane with these things until you're tired of putting them in.
+So I'm going to get tired pretty quickly.
+So I don't know.
+Let's not make them all go the same way.
+There's a few randomly chosen line elements that I put in.
+And I put in the slopes at random since I didn't have any particular differential
+equation in mind.\\
+
+Now the integral curves.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-integral_curves}
+  \caption{Integral Curves}
+\end{figure}
+
+Those are the line elements.
+And the integral curve is a curve which goes through the plane and at every point
+is tangent to the line element there.
+So this is the integral curve.
+Hey, wait a minute.
+That's not tangent to the line element there.
+It didn't even touch it.
+Well, I can't fill up the plane with line elements.
+Here at this point, there was a line element which I didn't bother drawing in.
+And it was tangent to that.
+Same thing over here.
+If I drew the line element here, I would find that the curve had exactly the right slope there. \\
+
+So the point is what distinguishes
+the integral curve is that everywhere it
+has the direction-- that's the way I'll indicate that it's tangent--
+has the direction of the field everywhere at all points, at all points on the curve, of course.
+Where it doesn't go, it doesn't have any mission to fulfill.
+Now I say that this integral curve
+is the graph of the solution to the differential equation.
+In other words, writing down analytically a differential equation is the same geometrically
+as drawing this direction field.
+And solving analytically for a solution to the differential
+equation is the same thing as geometrically drawing an integral curve.
+
+\clearpage
+
+The figure below is the geometric picture of the differential equation
+$y' = f(x, y).\,$
+in previous paragraph this sketch is called a direction field.
+In these notes, we will call it a \emph{slope field} instead.
+We reserve the word direction field for diagrams whose line elements have arrows.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s1_slopefield}
+  \caption{The line element at$(x,y)$ has slop $f(x,y)$}
+\end{figure}
+
+\begin{definition}
+  For a differential equation $\, y'=f(x,y),\,$ a \emph{\color{blue}slop field} is
+  a diagram is a diagram which includes at each point $(x, y)$ a short line
+  element (or line segment) whose is the \emph{value} $f(x,y)$. 
+\end{definition}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s1_slopefieldsolutioncurve}
+  \caption{A solution curve (blue) is tangent to each line segment that it touches.}
+\end{figure}
+
+The graph of a solution $y_1 (x)$ to the DE in the $xy$-plane is called a
+\emph{\color{blue} solution curve} or an \emph{\color{blue} integral curve}. \\
+An integral curve must be tangent to the slope field at every point:
+$\displaystyle \, y_1'(x)=f\left(x, y_1(x)\right).$
+\clearpage
+
+\subsubsection{Slope field}
+
+\begin{example}
+  Sketch the slope field for $y'=y^2-x$
+\end{example}
+
 
 %%% Local Variables:
 %%% mode: latex

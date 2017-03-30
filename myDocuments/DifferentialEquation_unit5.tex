@@ -262,8 +262,71 @@ $\displaystyle \, y_1'(x)=f\left(x, y_1(x)\right).$
 \subsubsection{Slope field}
 
 \begin{example}
-  Sketch the slope field for $y'=y^2-x$
+  Sketch the slope field for $y'= y^2 - x$
 \end{example}
+
+\Solution Let $f(x,y):=y^2 - x$. Then
+
+\begin{align*}
+  f(1,2)=3. &\qquad \text{so at $(1,2)$ draw a short segment of slope $3$}; \\
+  f(0,0)=0. &\qquad \text{so at $(0,0)$ draw a short segment of slope $0$}; \\
+  f(1,0)=-1. &\qquad \text{so at $(1,0)$ draw a short segment of slope $-1$}; \\
+  f(1,2)=3. &\qquad \text{so at $(1,2)$ draw a short segment of slope $3$}; \\
+  f(1,0)=1. &\qquad \text{so at $(1,0)$ draw a short segment of slope $1$};\\
+            & \vdots
+\end{align*}
+
+The diagram of all these short segments is the slope field.
+You can see how tedious this process is; a computer will sketch the slope field much more quickly.
+You can see the slope field for this example in the Mathlet below by choosing the right function and parameter.\\
+
+\href{http://mathlets.org/mathlets/isoclines/}
+{ISOCLINES}
+
+\emph{\color{blue}Slope Fields} The mathlet above shows many slope fields for various functions.
+You can click on points to see the solution curve through that point. \\
+Why draw a slope field?
+The ODE is telling us that the slope of the solution curve at each point is the value of
+$f(x,y)$, so the short segment is, to first approximation,
+a little piece of the solution curve.
+To get an entire solution curve, follow the segments! \\
+We will get practice thinking about slope field and solution curves next.
+
+\clearpage
+
+\subsubsection{First exercises}
+
+\begin{exercise}
+  Identify the slope field
+\end{exercise}
+
+Which of the following is the slope field for $\displaystyle \frac{dy}{dx} = x + y$ ?\\
+Take some point and calculate the function's slop
+
+\begin{align*}
+  f(-4,0)=-4. &\qquad \text{so at $(-4,0)$ draw a short segment of slope $-4$}; \\
+  f(-3,0)=-3. &\qquad \text{so at $(-3,0)$ draw a short segment of slope $-3$}; \\
+  f(-2,0)=-2. &\qquad \text{so at $(-2,0)$ draw a short segment of slope $-2$}; \\
+  f(-1,0)=-1. &\qquad \text{so at $(-1,0)$ draw a short segment of slope $-1$}; \\
+  f(0,0)=0. &\qquad \text{so at $(0,0)$ draw a short segment of slope $0$}; \\
+  f(1,0)=1. &\qquad \text{so at $(1,0)$ draw a short segment of slope $1$}; \\
+  f(2,0)=2. &\qquad \text{so at $(2,0)$ draw a short segment of slope $2$}; \\
+  f(3,0)=3. &\qquad \text{so at $(3,0)$ draw a short segment of slope $3$}; \\
+  f(4,0)=4. &\qquad \text{so at $(4,0)$ draw a short segment of slope $4$};\\
+            & \vdots
+\end{align*}
+
+And if sing of $x$ and $y$ is opposite, the slop is zero.\\
+So the slope field is
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u5s3_slopeplot2}
+  \caption{Slope Field $y' = x + y$}
+\end{figure}
+
+
+
 
 
 %%% Local Variables:

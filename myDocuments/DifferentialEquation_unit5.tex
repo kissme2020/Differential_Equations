@@ -361,7 +361,1119 @@ What happens to the given solution curve as $x$ tends towards infinity? \\
   \caption{Identify The Solution Curves}
 \end{figure}
 
+\clearpage
 
+\begin{exercise}
+  Identify the solution curve 2
+\end{exercise}
+
+Use the dropdown menu in the mathlet above to find the slope field for the differential equation
+$y' = y/x$. \\
+
+Click on the point $(1,1)$ to see the solution curve through that point.
+Which choice best describes the solution curve?\\
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-exercise_solution_curve2}
+  \caption{Exercise Soluation Curve 2}
+\end{figure}
+
+The curve through the given initial condition is a ray emanating out of
+the origin along the line $y = x$.
+Note that infinitely many solutions emanate out of the origin,
+and this is a point where the slope field is undefined!
+This tells us in particular that there is no unique solution given the initial condition $y(0) = 0$.
+
+\clearpage
+
+\subsubsection{Isoclines}
+
+\paragraph{How to draw slope fields}
+Well, this leaves us the interesting question is, how
+do you draw a direction field?
+Well, this being 2003, mostly computers draw them for you.
+Nonetheless, you do have to know a certain amount.
+I've given you a couple of exercises,
+where you have to draw the direction field yourself.
+This is so you get a feeling for it
+and also, because humans don't draw direction fields
+the same way computers do.\\
+
+let's first of all, how to \textit{computers} do it?
+They are very stupid. There's no problem.
+Since they go very fast and have unlimited amounts of energy
+to waste, the computer method is the naive one.
+\begin{enumerate}
+\item Pick the point $(x, y)$, they are usually are equally spaced.
+\item And at each point, it computes $f(x, y)$ at that point.\\
+  Finds means it computes the value of $f(x, y)$ that function.
+  And the next thing is on the screen it draws at $x,\, y$ the little line element having this,
+  having slope $x, \,y.$.
+\end{enumerate}
+
+In other words, it does what the differential equation tells it to do.
+And the only thing that it does is you can--
+if you're telling the thing to draw the direction field,
+about the only option you have is telling
+what the spacing should be.
+And sometimes people don't like to see a whole line.
+They only like to see a little bit of a half line.
+And you can sometimes tell, according to the program,
+tell the computer how long you want that line to be,
+if you want a teeny or a little bigger.
+Once in a while you want an arrow on it, but not right now.
+OK, that's what a computer does.\\
+
+
+Now what does a human do?
+This is what it means to be human.
+You use your intelligence.
+From the human point of view, this stuff has been done in the wrong order.
+And the reason it has been done in the wrong order,
+because for each new point it requires a recalculation of $f(x,y)$.
+That is horrible.
+The computer doesn't mind, but a human does.
+\begin{enumerate}
+\item Picking the slope that you would like to see.\\
+  Pick the slope $C$,  So you pick a number; $C$ is $2$.
+  I want to see where are all the points in the plane where
+  the slope of that line element would be $2$.
+  Well, they will satisfy an equation.
+\item The equation is $f(x, y)$, in general, it will be $C$.
+  So what you do is plot this, plot the equation. \\
+  Notice, it's not the differential equation.
+  You can't exactly plot a differential equation.
+  It's a curve, an ordinary curve.  But which curve will depend?
+  It's, in fact, from the 18.02 point of view,  it's a level curve of
+  $f(x y)$ corresponding to the level of value $C$.
+  But we're not going to call it that, because this is not 18.02.
+  Instead, we're going to call it a \textit{isocline}.
+  And then you plot.
+\item Well, you've done it. So you've got this isocline.\\
+  Except, I'm going to use solution solid lines only
+  for integral curves, or when we do plot isoclines to indicate
+  that they're not solutions, we'll use dashed lines for doing them.
+  One of the computer things does, and the other one doesn't.
+  But it won't. They use different colors also.
+  There are different ways of telling you what's an isocline
+  and what's a solution curve.
+  So and what do you do?
+  So these are all the points where the slope is going to be $C$. And now
+  what you do is draw in as many as you want of line elements having slope $C$.
+  Notice how efficient that is. If you want 50 million of them and have the time
+  draw in 50 million.
+  If two or three are enough, draw in two or three.
+  You'll look be looking at the picture.
+  You'll see what the curve looks like.
+  And that will give you your judgment as to how to do that.
+
+\end{enumerate}
+
+So in general, a picture drawn that way,
+you'll have a, so let's say, an isocline corresponded to $C$ equals $0$.
+And the line elements along it--
+I think for an isocline, for the purposes of this lecture,
+it would be a good idea to put isoclines--
+OK, so I'm going to put some solution curves in pink or whatever this color is.
+And isoclines are going to be in orange, I guess.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-isoline}
+  \caption{Isocline}
+\end{figure}
+
+So I use isocline represented by a dash line.
+And now you'll put in the line elements.
+We'll need lots of chalk for that.
+So I'll use white chalk. Why horizontal?
+Well, because according to this, the slope
+is supposed to be $0$ there.
+And in the same way, how about an isocline
+where the slope is $C = -1$?
+Let's suppose here $C$ is equal to negative $1$, OK,
+then it will look like this.
+These are supposed to be lines of slope $-1$.
+Don't shoot me if they're not.
+So that's the principal.
+So this is how you'll fill up the plane
+to draw a direction field, by plotting the isoclines first.
+And then once you have the isoclines there,
+you'll have line elements and you can draw a direction field. \\
+
+
+OK, so for the next few minutes, I'd like to work a couple of examples for you
+to show how this works out in practice.\\
+
+So the first equation is going to be
+\begin{equation*}
+  y' = -x/y
+\end{equation*}
+
+OK, first thing, what are the isoclines?
+The isoclines are going to be,
+
+\begin{align*}
+  \frac{-x}{y} &= C \\
+  y &= \frac{-1}{C} x
+\end{align*}
+
+So there's our isocline, since-- why don't I put that up
+in orange, since it's going to be--
+that's the way the color I'll draw it in also.
+In other words, for different values of $C$,
+now this thing is a line.
+It's a line, in fact, through the origin.
+This looks pretty simple, OK.
+So here's our plane.
+The isoclines are going to be lines through the origin.
+And now let's put them in-- suppose, for example, $C = 1$,  
+, then it's the line $y = - x$.
+So it's this is the isocline. I'll put down here $C = 1$
+So it should be little line segments of slope $1$ will be the line elements, things of slope $1$. \\
+OK, now about $C$ equals negative $-1$?
+If $C = -1$, then it's the line $y = x$.
+And so that's the isocline.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-example1-isocline}
+  \caption{Example Isoclines}
+\end{figure}
+
+Notice it's still dash, because these are isoclines.\\
+And so the slope elements look like this. Notice they're perpendicular.
+Now notice that they are always going to be perpendicular,
+because--
+to the line-- because the slope of this line is $-1/C$,
+but the slope of the line element is going to be $C$.
+Those numbers $-1/C$ and $C$ are negative reciprocals.
+And you know the two lines whose slopes are negative reciprocals are perpendicular.
+So the line elements are always going to be perpendicular to these.
+And therefore, I'd hardly even have to bother calculating doing any more calculation.
+Here's going to be--
+well, how about this one?
+Here's a controversial isocline.
+Is that an isocline?
+Well, wait a minute.
+That doesn't correspond to anything looking like this.
+Aha, but it would if I put $C$, multiplied through by $C$.
+And then it would correspond to $C$ being $0$.
+In other words, don't write it like this.
+Multiply through by $C$. It will read $Cy = - x$.
+And then when $C$ is $0$, I'll have $x$ equals $0$, which is exactly the $y$-axis.
+So that really is included.
+How about the $x$-axis?
+Well, the $x$-axis is not included.
+However, most people include anyway.
+This is very common to be a sort of sloppy and bending the edges of corners a little bit, you know,
+and hoping nobody will notice.
+We'll say that corresponds to $C$ equals $\infty$.
+I hope nobody wants to fight about that.
+If you do, go fight with somebody else.
+So if $C$ is $\infty$, that means the line, little line segment,
+should have infinite slope.
+And by common consent, that means it should be vertical.
+And so we can even count this as sort of an isocline.
+And I'll make the dashes smaller to indicate it has
+a lower status than the others.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-example1-isocline1}
+  \caption{Example Isoclines}
+\end{figure}
+
+And I'll put this in--
+do this weaselly thing of putting it in quotation marks
+to indicate that I'm not responsible for it.
+
+\clearpage
+
+\begin{definition}
+  For a number $C$, the \emph{\color{blue}$C$-isocline} is the set of points
+  in the $(x,y)$-plane such that the solution curve through that point has slope $C$.
+  (Isocline means “same incline", or “same slope".)
+\end{definition}
+
+\begin{question}
+  What is the equation for the $C$-isocline?
+\end{question}
+
+\Answer The ODE says that the slope of the solution curve through a point
+$(x, y)$ is $f(x,y)$, so the \emph{\color{blue}equation of the $C$-isocline} is
+\begin{equation*}
+  \displaystyle  \displaystyle f(x,y) \qquad \displaystyle = \qquad \displaystyle C
+\end{equation*}
+
+\begin{exercise}
+  Distinguishing Isoclines and Solution curves
+\end{exercise}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s1_isoclinessolution}
+  \caption{Exercise Distinguishing Isoclines and Solution curves}
+\end{figure}
+
+On the slope field below you can see two curves.
+Identify which of them is an isocline and which one is a solution curve.\\
+
+The blue curve is a solution curve since it is tangent to all line segments on the slope field. 
+\emph{Note:} The domain of the blue curve is at the maximum possible
+since the curve cannot be extended any further while remaining both tangent
+to the slope field and the graph of a function.\\
+The orange line is an isocline, since all line segments on it have the same slope. 
+\emph{Note:} In general an isocline does not have to be a line.
+
+\begin{exercise}
+  Equation of an Isocline
+\end{exercise}
+
+The slope field shown in the problem above is for the DE $y' = - \frac{x}{y}$.
+Find the equation of the $2$-isocline.\\
+
+The 2-isocline is the set of all points where $\displaystyle \, f(x,y)=-\frac{x}{y}=2.\, \,$
+Solving for $y,\,$ we get $\, y= -\frac{1}{2}x\,$
+which is the equation of the orange line in the figure in the previous problem.
+
+\begin{exercise}
+  Equation of Solution Curve
+\end{exercise}
+
+As above, consider the differential equation $y' = - \frac{x}{y}$. \\
+Use separation of variables to solve the DE,
+and find the equation for the solution curve that goes through
+$(x,y)=(0,2).\, \,$
+Note that the solution curve shown in the figure above is exactly for this initial condition.) \\
+
+\begin{align*}
+  y' &= - \frac{x}{y} \\
+  \frac{d}{dy} y  &=  -x dt\\
+  \int y dy   &=  \int -x dt \\
+  \frac{1}{2} y^2 + c_1 &= \frac{-1}{2} x^2 + c_2 \\
+  y^2 &= -x^2 + C  \\
+  y &= \pm sqrt{-x^2 + C}
+\end{align*}
+
+Apply initial condition $(x,y)=(0,2)$ on $y^2 = -x^2 + C\, $
+\begin{align*}
+  2^2 &= 0^2 + C \\
+  C &= 4 
+\end{align*}
+
+So, the solution for DE is
+\begin{equation*}
+  y = \pm sqrt{-x^2 + 4}
+\end{equation*}
+
+This is indeed the equation of the semi-circle shown in the figure above.
+Notice that the domain of this semi-circular solution curve is $(−2,2)$. \\
+\emph{Food for thought:} Why are the solution curves not a full circle? 
+
+\clearpage
+
+\subsubsection{Zero Isoclines}
+
+Isoclines organize the slope field.
+The $0$-isocline, also called the \emph{\color{blue}nullcline}, is especially helpful.
+The critical points of all solutions to the DE lie on the $0$-isocline.\\
+
+\begin{example}
+  For $y'=y^2-x$, what is the $0$-isocline?
+\end{example}
+
+\Solution Here $f(x, y):= y^2 - x$, so the $0$-isocline is the curve $y^2 - x = 0$,
+which is a parabola concave to the right. At every point of this parabola,
+the slope of the solution curve is $0$.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s1_0isocline}
+  \caption{$0$-Isocline}
+\end{figure}
+
+\clearpage
+
+\begin{example}
+  For $y′=y2−x$, where are the points at which the slope of the solution curve is positive?
+\end{example}
+
+\Solution This will be the region in which $f(x,y)>0$.
+The $0$-Isocline $f(x,y)=0$ divides the plane into regions, and $f(x,y)$ has constant sign on each region.
+To test the sign, check one point in each region.
+Recall $f(x,y) = y^2-x.\, \,$ Since $\, f(-1,0)=0^2-(-1)>0,\,$, by continuity it follows that
+$f(x,y)>0\,$ in entire rerion to the left of the parabola.
+Similarly, since $\, f(1,0)=0^2-(1)<0,\,$ it follows that $f(x,y)<0\,$
+in the region to the right of the parabola.
+Therefore, the answer is that the slope of the solution curve is negative in the region to the right of the parabola, and the slope of the solution is positive in the region to the left.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s1_0isoclineshaded}
+  \caption{$0$-Isocline and Slope Region}
+\end{figure}
+
+\clearpage
+
+\subsubsection{Another worked example}
+
+\paragraph{Example}
+A slightly more complicated example
+is going to be,
+
+\begin{equation*}
+  y' = 1 + x -y
+\end{equation*}
+
+It's not a lot more complicated.
+And as a computer exercise, you'll work with still more complicated ones.
+But here, the isoclines would be what?
+Well, I set that equal to $C$.
+\begin{equation*}
+  y = 1 + x - C = x + (1 - C)
+\end{equation*}
+
+So there is the equation of the isocline.
+Let's quickly draw the direction field and see what--
+notice, by the way, it's a simple equation but you \textit{cannot} separate variables.
+So I will not, today at any rate, be able to check the answer.
+I will not be able to get an analytic answer.
+All we'll be able to do now is get a geometric answer.
+But notice how relatively quickly one can get it.
+So I'm feeling for how the solutions behave to this equation.\\
+
+All right, let's see. What should we plot first?
+Let's do $C = 0$ first.
+That's the line. $y = x + 1$.
+So all isoclines are in orange.
+If so, when $C = 0,\,$ and $y = x +  1$.
+So let's say it's this curve.\\
+How about $C = -1$?
+Then it's y equals x plus 2. It's this curve.
+Let's label it down here $C = -1$.
+$C = -2$ would be $y = x + 2$. \\
+Well, how about the other side? If $C = 1$, well, then it's going to go through the origin.
+Looks like a little more room down here.
+That one must-- so if this is going to be $C = 1$,
+then I sort of get the idea. $C = 2$ will look like this. \\
+They're all going to be parallel lines
+because all that's changing is the $y$-intercept as I do this thing.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-example_isoclines}
+  \caption{Isoclines}
+\end{figure}
+
+\clearpage
+
+All right, let's put in the line elements.
+All right, $C = -1$. These will be perpendicular.
+$C = 0$, like this. $C = 1$-- oh, this is interesting.
+I can't even draw in the line elements because they seem to coincide with the curve itself,
+with the line itself.
+They lie along the line, and that makes it hard to draw them in.
+How about $C = 2$?
+Well here, the line elements will be slanty.
+They'll have slope $2$, so pretty slanty up.
+And I can see for $C = 3$, in the same, way they're going to be even more slantier up.
+And here, they're going to be even more slanty down.
+This is not very scientific terminology or mathematical, but you get the idea.
+OK, so there's our quick version of the direction field.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-example_direction_field}
+  \caption{Direction Field}
+\end{figure}
+
+All we have to do is put in some integral curves now.
+Well, looks like it's doing this. It gets less slanty. Here, it levels out, has slope $0$.
+And now in this part of the plane, the slope seems to be rising, so it must do something like that.
+This guy must do something like this.
+I'm a little doubtful of what I should be doing here $C = 1$.
+How about going from the other side?
+Well, it rises, gets a little-- should it cross this?
+What should I do?
+Well, there's one integral curve which is easy to see.
+It's this one.\\
+This line, $C = 1$is both an isocline and an integral curve.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-example_integral_curve}
+  \caption{Direction Field}
+\end{figure}
+
+It's everything except drawable.
+So OK, you understand this is the same line.
+It's both orange and pink at the same time,
+but I don't know what combination color
+that would make.
+It doesn't look like a line, but you know.
+
+\clearpage
+
+Now the question is what's happening in this corridor?
+In the corridor-- that's not a mathematical word either--
+between the isoclines for, well, what are they?
+They're the isocline for $C =  2$ and $C = 0$.\\
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-integral_curve_corridor}
+  \caption{Integral Curve on the Corridor}
+\end{wrapfigure}
+
+How does that corridor look? Well, it's something like this.
+Over here, the lines are all look like that. And here, they all look like this.
+The slope is $2$. And a hapless solution gets in there.
+What's it to do?\\
+Well, do you see that if a solution gets in that corridor,
+an integral curve gets in that corridor, no escape is possible?
+It's like a lobster trap. You know, the lobster can walk in, but it cannot walk out
+because the things are always going in. How could it escape?
+Well, it would have to double back somehow.
+And remember, to escape on the left side, it must be going horizontally.
+But how could it do that without doubling back first and having the wrong slope?
+The slope of everything in this corridor is positive,
+and to double back and escape it would, at some point, have to have negative slope.
+It can't do that. Well, could it escape on the right hand side?
+No, because at the moment when it wants to cross, it will have to have a slope less than this line,
+but all these spiky guys are pointing up. It can't escape that way either.
+So no escape is possible. It has to continue on there. But more than that is true.\\
+\emph{So solution can't escape}.
+Once it's in there, it can't escape. \\
+
+\emph{\color{orange}Note on previous paragraph: }
+In previous paragraph, all solutions are eventually trapped between the isoclines
+$C = 0$ and $C = 2$.
+These isoclines are sometimes called \emph{\color{blue}fences}.
+Once solutions are trapped inside of the fence, they do not escape.
+
+\clearpage
+
+\subsubsection{Existence and uniqueness revisited}
+\paragraph{Principles of existence and uniqueness}
+And because there are two principles involved here
+that you should know, that help a lot at drawing these pictures.
+\emph{Principle number one} is that two integral curves cannot cross at an angle.
+Two integral curves can't cross, I mean by crossing at an angle like that.
+I'll indicate what I mean by a picture like that.
+Now, why not?\\
+
+This is an important principle.
+They can't cross, because if two integral curves
+are trying to cross, because it's an integral curve,
+because it has this slope.
+And the other integral curve has this slope.
+And now they fight with each other.
+What is the true slope at that point?
+Well, the direction field only allows you to have one slope.
+If there's a line element at that point,
+it has a definite slope. And therefore, it cannot have both this slope and that one.
+It's as simple as that.
+So the reason is \emph{you can't have two slopes}.
+The direction field doesn't allow it.
+Well, that's a big, big help, because if I know here's
+an integral curve and if I know that none of these other pink integral curves are allowed to cross it,
+how else can I do-- well, they can't escape. They can't cross.
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-existence_uniqueness}
+  \caption{Integral Curves}
+\end{wrapfigure}
+
+It's sort of clear that they must get closer and closer to it.
+I'd have to work a little to justify that, but I think nobody would have any doubt of it who
+did a little experimentation.
+In other words, all these curves join that little tube
+and get closer and closer to this line, $y = x$.
+And therefore, without solving the differential equation,
+it's clear that all of these solutions, how do they behave?
+As $x$ goes to $\infty$, they become asymptotic to--they become closer and closer to--
+the solution $x$.
+Is $x$ a solution?
+Yeah, because $y = x$ is an integral curve.
+Is $x$ a solution?
+Yeah, because if I plug in $y = x$, I get what?
+\begin{align*}
+  y' &= 1 + x - y \\
+  x' & = 1 + x - x \\
+  1 & = 1  
+\end{align*}
+So this is a solution.
+Let's indicate that it's a solution. 
+So analytically, we've discovered an analytic solution
+to the differential equation, namely $y = x$, just by this geometric process. 
+
+\clearpage
+
+Now, there's \emph{one more principal} like that,
+which is less obvious, which is less obvious, but you do have to know it.
+And so they're not allowed to cross. That's clear.
+But it's much, much, much less obvious that \emph{two integral curves cannot touch}.
+That is, they cannot even be tangent. Two integral curves cannot be tangent.
+I'll indicate that by the word touch, which is what a lot of people say.
+In other words, if this is illegal, so is this.
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-existence_uniqueness2}
+  \caption{Two integral curves cannot touch}
+\end{wrapfigure}
+
+Can't have it.
+Without that, for example, I might feel that there would be nothing in this to prevent
+those curves from joining.
+Why couldn't these pink curves join the line $y  = x$?
+It's a solution.
+They just hitch a ride, as it were.
+The answer is they cannot do that, because they have to just get asymptotic to it ever,
+ever closer.
+They can't join $y = x$, because at the point where they joined, you'd have that situation.
+Now, why can't you have this?
+That's much more sophisticated than this.\\
+
+And the reason is because of something called the \emph{\color{blue}existence and uniqueness theorem}.
+Existence and uniqueness theorem, which says through a point $(x_0,\, y_0),\,$
+that $y' =  f(x, y)$ has only one and only one solution.
+One has one solution-- in mathematics speak, that means at least one solution.
+It doesn't mean it has just one solution, OK?
+That's mathematical convention.
+It has one solution-- at least one solution.
+But the killer is only one solution.
+That's what you have to say in mathematics if you
+want just one-- one and only one solution through the point $(x_0, y_0)$.\\
+So the fact that it has one, that's the existence part.
+The fact that it has only one is the uniqueness part of the theorem.
+Now, like all good mathematical theorems,
+this one does have hypotheses.
+So this is not going to be a course--
+I warn you, those of you with theoretically inclined--
+very rich in hypotheses, but you do have to-- the hypotheses
+for this one are that $f(x, y)$ should be a \emph{continuous function}.
+Now, you know polynomial, sines, stuff like--
+should be continuous in the vicinity of that point.
+That guarantees existence.
+And what guarantees uniqueness is the hypothesis that you
+would not guess by yourself.
+Neither would I. What guarantees the uniqueness is that also its partial derivative with respect
+to $f_y(x, y)$ should be continuous near $(x_0, y_0)$.
+
+\clearpage
+
+We have already discussed the existence and uniqueness theorem for linear ODEs.
+Here is a version of the theorem that also works for first order nonlinear ODEs. \\
+
+\begin{theorem}
+  Existence and uniqueness theorem for a first order (linear or nonlinear) ODE Consider a first order ODE
+  \begin{equation*}
+    y' = f(x,y)
+  \end{equation*}
+\end{theorem}
+
+For any point $\, (x_0, y_0),\,$ if $\, f(x,y)\,$ and $\, \frac{\partial f}{\partial y}\,$
+are continuous $\, (x_0,y_0),\,$ then there is a unique solution to the first order DE through the point
+$\, (x_0, y_0).\,$\\
+
+As a consequence of uniqueness, we have the following two geometric features:
+\begin{enumerate}
+\item Solutions curves cannot cross.
+\item Solutions curves cannot become tangent to one another; that is, they cannot touch.
+\end{enumerate}
+
+Use the Mathlet below to investigate the behavior of solution curves.\\
+
+This is a game to find a solution curve through a specific point called the target.
+If you click on the target itself, the mathlet will draw the solution curve through it.
+When you click on another point, the mathlet will draw the solution curve through that point.
+You can try to aim for the solution through the target by clicking on other points than the target.\\
+
+You may notice in some examples, the consequences of uniqueness seem to fail. Why is that the case?
+
+\href{http://mathlets.org/mathlets/solution-targets/}
+{SOLUTION TARGETS}
+
+\clearpage
+
+\subsubsection{When Existence and Uniqueness fails}
+
+\begin{problem}
+  Find the general solution to the ODE
+  \begin{equation*}
+    xy' = y -1
+  \end{equation*}
+\end{problem}
+
+\begin{align*}
+  x \frac{dy}{dx} &= y-1 \\
+  \frac{dy}{y - 1} &= \frac{dx}{x} \\
+  \ln |y - 1| &= \ln |x| + c \\
+  |y - 1| &= C|x| \qquad (C > 0) \\
+  y - 1= \pm Cx \qquad (C > 0) \\
+  y = 1 + Cx \qquad (c \neq 0). 
+\end{align*}
+
+To bring back the solution $y=1,\,$ we allow $C = 0\,$ as well.\\
+Below paragraph will plot the solution to the DE $xy' = y -1$. 
+
+\paragraph{When existence and uniqueness fail}
+Let's write this in a more human form.
+
+\begin{equation*}
+  y = 1 + Cx
+\end{equation*}
+
+All right, let's just plot those.
+So these are the solutions.
+Pretty easy equation, pretty easy solution method.
+Just separation of variables.
+What do they look like?
+Well, these are all lines whose intercept is at $1$.
+And they have any slope whatsoever.
+So these are the lines that look like that.\\
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-function_graph}
+  \caption{Graph of $y = 1 + Cx$}
+\end{wrapfigure}
+
+OK, now let me ask-- existence and uniqueness.
+\emph{Existence}-- through which points of the plane
+does the solution go?
+Answer-- through every point of the plane, through any point
+$y < 1$, I can find one and only one of those lines,
+except for these stupid guys here on the stalk of the flower.
+Here, for each of these points, there is no \emph{existence}.
+There is no solution to this differential equation, which
+goes through any of these wiggly points on the y-axis,
+with one exception.
+This point ,$y = 1,\,$is oversupplied.
+At this point, it's not existence that fails.
+Its \emph{uniqueness} that fails. No uniqueness.
+
+There are lots of things which go through here.
+Now, is that a violation of \emph{the existence and uniqueness theorem}?
+It cannot be a violation, because a \emph{theorem has no exceptions}.
+Otherwise, it wouldn't be a theorem.
+So let's take a look.
+What's wrong? We thought we solved it, modulo putting the absolute value
+signs on the log.
+What's wrong with the answer?
+What's wrong is to use the theorem,
+you must write the differential equation in standard form,
+
+\begin{equation*}
+  y' = f(x, y)
+\end{equation*}
+
+Let's write the differential equation the way
+we were supposed to.
+\begin{equation*}
+  \frac{dy}{dx} = \frac{1 - y}{x}
+\end{equation*}
+And now I see the right hand side is not \emph{continuous}.
+In fact, not even defined when $x = 0$, along the $y$-axis.
+And therefore, the existence and uniqueness is not guaranteed along the line $x$ equals $0$,
+the $y$-axis.
+And in fact, we see that it failed.
+Now, as a practical matter, the way existence and uniqueness
+fails in all ordinary life work with differential equations
+is not through sophisticated examples
+that mathematicians can construct,
+but normally because $f(x,y)$ fail to be defined somewhere.
+And those will be the bad points.\\
+
+\textbf{\color{orange}Note on previous Paragraph} 
+The DE on the paragraph was $xy′=1−y,\,$
+but the intended one is $xy′=y−1,\,$ which you just solved in the problem above.
+Although the two equations are different,
+both of them have difficulty of existence and uniqueness at $x=0\,$
+because the denominator of the right hand side of each ODE in standard form is $0$ at $x=0$.\\
+
+At the points where the hypotheses of the existence and uniqueness theorem fail,
+the conclusion of the theorem may also fail. Here is another example demonstrating this. \\
+
+\begin{example}
+  Draw the solution curves for $y' = \frac{2y}{x}$. 
+\end{example}
+
+\Solution Here $f(x, y) = \frac{2y}{x},\,$ which is undefined when $x = 0,\,$
+so things might go wrong along the $y$-axis, and in fact they \emph{do} go wrong. \\
+
+Solve the ODE by separation of variables:
+
+\begin{align*}
+  \frac{dy}{dx} &= \frac{2y}{x} \qquad (x \neq 0) \\
+  \frac{dy}{y} &= 2 \frac{dx}{x} \qquad (\text{assuming also that}\, y \neq 0) \\
+  \int \frac{dy}{y} &= 2 \int \frac{dx}{x} \\
+  \ln |y| &= 2 \ln |x| + C \quad (\text{for some constant}\, C) \\
+  y &= \pm e^{2 \ln |x| + C} \\
+  y &= \pm |x|^2 e^C \\
+  y &= c x^2 \qquad (x \neq 0),                       
+\end{align*}
+
+\clearpage
+where $\, c\,  \colon =\pm e^ C,\,$ which can be any nonzero real number.
+To bring back the solution $y=0,\,$ we allow $c=0\,$ as well.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s1_halfparabolas}
+  \caption{Several half parabolas as solution curves to $y' = \frac{2y}{x}$}
+\end{figure}
+
+Weird behavior happens along $x = 0\,$ where $y' = \frac{2y}{x}\,$ is not even defined:
+
+\begin{itemize}
+\item Through any point $\, (0,b)\,$ on the $y$-axis, there is \emph{no} solution curve.
+  the existence theorem does not apply.
+\item Geometrically, the parabolas become tangent at the origin.
+  This would be ruled out by uniqueness if the uniqueness theorem applied.
+  The full parabolas are not solutions;
+  the solution curves are half parabolas defined for either all $\, x<0\,$ or all
+  $\, x>0$. 
+\end{itemize}
+
+Both existence and uniqueness apply to every point outside the $y$-axis.
+The rest of the plane (outside the $y$-axis) is covered with good solution curves,
+one through each point, none touching or crossing the others.
+
+\clearpage
+
+\subsubsection{Interval of validity}
+
+The characteristics of solution curves
+that we have been discussing are true for both linear and nonlinear equations.
+But there is often a big difference
+between the domain of definition of solutions to linear and nonlinear DEs. \\
+
+For first order \emph{linear DEs} of the form
+
+\begin{equation*}
+  \displaystyle  \displaystyle y'=f(x,y)
+  \qquad \text {where}\, f(x,y)=q(x)-p(x)y,
+\end{equation*}
+
+recall that any solution defined at $\, x = a \,$ is defined on the \emph{entire interval}
+which contains $a$ and on which $p(x)$ and $q(x)$ are continuous.
+(Note that $p$ and $q$ being continuous is equivalent
+to the hypothesis of the general existence/uniqueness theorem presented
+in this lecture, namely, that $f$ and $\, \frac{\partial f}{\partial y}\,$ are continuous.)\\
+
+For \emph{nonlinear DEs,} solutions do not have to be defined on the entire interval
+on which $f$ and $\, \frac{\partial f}{\partial y}\,$ are continuous.
+Consider the following examples. \\
+
+\begin{example}
+  Draw the solution curve to $y'=y^2\,$ that satisfies the condition $\, y(0)=1\,$.
+  What is the domain of definition of this solution curve?
+\end{example}
+
+\Solution This DE is nonlinear, so our methods of solving linear DEs do no apply.
+We solve it by separation of variables:
+
+\begin{align*}
+  \frac{dy}{dx} &= y^2 \\
+  y^{-2} dy &= dx \qquad (y \neq 0) \\
+  \int y^{-2} dy &= \int dx \\
+  \frac{-1}{y^{-1}} &= x + C \qquad (\text{for some constant\,} X)
+\end{align*}
+
+The condition $\, y(0) = 1\,$ leads to
+
+\begin{equation*}
+  1 = \frac{-1}{0 + C} \quad \Longrightarrow \quad C = -1, 
+\end{equation*}
+
+which gives the solution
+
+\begin{equation*}
+  y = \frac{-1}{x -1} = \frac{1}{1 - x} \qquad \text{where} \, -\infty <x<1.
+\end{equation*}
+
+\clearpage
+
+Therefore, here is the solution curve:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s1_halfhyperbola}
+  \caption{Solution Curve $y' = y^2$}
+\end{figure}
+
+The solution approaches $\infty$ as $x\rightarrow 1^-$.
+We say that the solution \emph{\color{blue} blows up} at $x=1.\,$
+The domain of definition of the solution is $-\infty <x<1$.
+It is called the \emph{\color{blue} interval of validity} of the solution.
+The \emph{\color{blue} interval of validity} of a solution is the largest interval
+on which it can be defined. \\
+
+The graph if $\, y = \frac{1}{1-x}\,$ consists of both branches of the hyperbola.
+But \emph{\color{orange} be careful}, the full hyperbola is not a solution;
+only the branch through the point $\, (x,y)=(0,1)\,$ is. \\
+
+For nonlinear DEs, the interval of validity of a solution cannot be read off from the equation.
+It can be much smaller than the domain on which the equation is defined.\\
+
+\begin{exercise}
+  Interval of validity
+\end{exercise}
+
+Let $y(x)$ be the solution to $\dot y = x y^4$ with initial condition $y(0) = 1$.
+Find the interval of validity $\, a<x<b\,$ of $y(x)$.
+
+The DE is nonlinear, solve it by separation of variable:
+
+\begin{align*}
+  \frac{dy}{dt} &= x y^4 \\
+  y^{-4} dy &= x dt \qquad (y \neq 0) \\
+  \int y^{-4} dy &= \int x dt \\
+  \frac{-1}{3} y^{-3}  &= \frac{1}{2} x^2 + C \quad (\text{for some constant}\, C) \\
+  y^{-3} &= \frac{-3}{2} ( x^2 + C ) \\
+  y^{3} & = \frac{-2}{3} \frac{1}{( x^2 + C )}
+\end{align*}
+
+\clearpage
+
+\begin{align*}
+  y &=  \left( \frac{-2}{3} \frac{1}{\left( x^2 + C \right)} \right)^{1/3}
+\end{align*}
+
+The condition $\, y(0) = 1\,$ leads to
+
+\begin{equation*}
+  1 = \left( \frac{-2}{3} \frac{1}{\left( 0^2 + C \right)} \right)^{1/3}
+  \Longrightarrow C = \frac{-2}{3}, 
+\end{equation*}
+
+which gives the solution
+
+\begin{equation*}
+  y = \left( \frac{-2}{3} \frac{1}{( x^2 - 2/3)} \right)^{1/3}
+  \quad \text{where\,} -\sqrt {\frac{2}{3}}<x<\sqrt {\frac{2}{3}}. 
+\end{equation*}
+
+In fact, $y\rightarrow \pm \infty$ as $x\rightarrow \pm \sqrt {2/3};\, \,$
+that is the solution blows up at $x=\pm \sqrt {2/3}$
+
+\clearpage
+
+\subsubsection{Review}
+
+\paragraph{Worked example: Slope fields, isoclines, and solution curves}
+So today, I'd like to tackle a problem on direction fields.\\
+So given a differential equation,
+
+\begin{equation*}
+  y' = \frac{-y}{x^2 + y^2}
+\end{equation*}
+We're asked to
+
+\begin{enumerate}
+\item Sketch the direction field. \\
+  So to start off this problem, we're
+  asked to sketch the direction field.
+  Now, when asked to sketch a direction field,
+  the first thing to do is to look at a couple isoclines.\\
+  So what is an isocline?
+  Well, it's a curve where the derivative y
+  prime $,\,y' = m, \,$which $m$ is some constant.\\
+  So what are the isoclines for this differential equation?
+  
+  \begin{equation*}
+    \frac{-y}{x^2 + y^2} = m 
+  \end{equation*}
+
+  Now, of particular interest, there's
+  a very special isocline, which is usually the easiest to plot,
+  and that's a \emph{nullcline}.
+  And this is just the special case where $\, m = 0$.\\
+  So what's the nullcline claim for this ODE?
+  Well, when $\, m = 0, \,$ the only way that $\,y' = 0 \,$
+  is when $\,y  = 0$.\\
+  So the nullcline for this ODE is $\,y = 0$. \\
+  Now, for more generalized isoclines,
+  we're left with this relation between $x$ and $y$.
+  And we can massage this expression to see exactly what the isoclines are.\\
+  So specifically, I'm going to multiply through
+  by $\, x^2 + y^2\,$.
+  And I'm going to divide by $m$.
+  
+  \begin{equation*}
+    -\frac{1}{m}y = x^2 + y^2
+  \end{equation*}
+  
+  And we see that we have a quadratic in $x$ and $y$, and we have one linear term.
+  So whenever we have a relation like this
+  and we want to understand what it looks like,
+  typically, the approach is just to complete the square.
+  So I'm going to bring the $1/m y$ to the other side of the equation.
+
+  \begin{equation*}
+    x^2 + \underbrace{y^2 + \frac{1}{m} y}_{\text{complete square}} = 0
+  \end{equation*}
+  
+  And I'm going to combine it with $\,y \,$ squared to complete the square.
+  And when we do this, we obtain the following equation.
+
+  \begin{equation*}
+    x^2 + (y^2 + \frac{1}{2m})^2 = \frac{1}{4m^2}
+  \end{equation*}
+  
+  And we recognize this equation as the equation for a circle.\\
+  Specifically, it's a circle that's
+  centered at $\, x = 0, \, $ and $\, y = \frac{-1}{2m}\, $.
+  And in addition, the circle has a radius
+  $\, r^2  = \frac{1}{4m^2},\, $ which  means its radius is
+  $\, \frac{1}{2 |m|}\, $.\\
+  
+  So why don't we take a look and plot a couple of isoclines?
+  So as I mentioned before, typically, the first isocline   that we should plot is the nullcline,
+  which is $\, m = 0\, $.
+  And we know that this is $\, y = 0 \, $.
+  So all along the line $y$ is equal to $0$.
+  I'm just going to draw dashes that correspond to a slope of $y$ is equal to $0$.
+  For the other isoclines, we just have to pick some values of $m$ and start plotting.\\
+  So I'll take the value $m$ is equal to $-1$.
+  And when $\, m  = -1,\, $ we have a circle which is centered at $0$ and $1/2,\,$
+  with radius $1/2$.
+  And at every point along this circle,
+  we just draw a little slope of $-1$. So at every point along this curve,
+  the solution has slope $-1$.\\
+  Now, in addition, we can also get another circle, which
+  is centered at $- 1/2$.
+  And this corresponds to the isocline of $\, m = 1\,$. 
+  And every point on this circle has slope $1$.
+  Those should all be the same.\\
+  And now we can pick some other values of $m$.
+  So for example, $\, m = 2\, $.
+  If $m$ is equal to $2$, then we have a circle
+  which is centered at $- 1/4$ and radius $1/4$.
+  So it might look something like this.
+  And $m$ is equal to $-2$ might look something like this.
+  So this is $m$ is equal to $- 2$.
+  And this is $m$ is equal to $2$.
+  And the slope on this curve is going to be steeper.
+  It's going to be $-2$.
+  And the same goes for this circle.
+  And then lastly, I can draw a sketch of $\, m = -3/4 ,\,$ which would go up something like this.
+  And that would have a slightly weaker slope, like this.
+
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image-review_direction_field}
+    \caption{Direction Field of $y' = \frac{-y}{x^2 + y^2}$}
+  \end{figure}
+
+  So notice how the collection of isoclines are a family of circles that all are tangent to the origin.
+  And in fact, if we think about it, the nullcline,
+  the $m$ equals $0$ line, is, actually, in some sense, a limit circle where we take the radius
+  and the center going to infinity.
+  So as the circles become larger and larger, they tend to approach this line, $\, y = 0\,$.
+
+  \clearpage
+
+\item For solution through $\, y(0) =1$\\
+
+  So I'll just sketch what this solution curve might look like.
+  And it's going to start off at a slope of $-1$,
+  and then it's going to hit these circles, which have a steeper slope.
+  And then, eventually, it's going to go   through the circles with the steeper slope
+  and come back to the circle that has slope $-1\, ,$  and eventually decay outwards.\\
+  So this is what the solution curve might look like.
+
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image-review_solution_curve}
+    \caption{Solution Curve $y' = \frac{-y}{x^2 + y^2}$}
+  \end{figure}
+
+  \begin{itemize}
+  \item Why is $\,y(x) > 0 \,$ for $x > 0$? \\
+    Well, we see that this solution curve stays in the upper half plane.
+    And we note that $\, y = 0 \,$, which is the nullcline, is actually a very special curve.
+    Not only is it the nullcline, but it's actually a solution  to the differential equation.
+    So if we look back at the differential equation,
+    we see that $\, y = 0 \,$ has $0$ derivative and the right-hand side of the differential equation
+    is also $0$.\\
+    So this is not only a nullcline, but it's a solution to the differential equation.
+    Note that this is extremely special.
+    In no way does every nullcline have  to be a solution to a differential equation.
+    But in this case, we get lucky.
+    Now, we know from the theory of ODEs that solution curves can't cross.
+    So A solution curve that starts in the upper half plane
+    can't cross another solution, which in this case is the $\, y = 0 \,$ curve.
+    Hence, it must be bounded in the upper half plane for all $\, x < 0\, $.
+
+  \item Why is $y(x)\,$ decreasing for $x > 0$?  \\
+    Well, what we have to look at  the sign of y prime.
+    
+    \begin{equation*}
+      y' = \frac{-y}{x^2 + y^2}
+    \end{equation*}
+    
+    So as I've just argued, a solution  that starts in the upper half plane
+    and goes through the point $\, y(0) = 1 \,$ stays in the upper half
+    plane for all $\, x > 0 \, $.\\
+    What this means is that the solution curve has $y$ bigger than $0$ for all $x$ bigger than $0$.\\
+    So that means the numerator is always positive.
+    The denominator is also always positive.
+    So we have negative a positive number divided by a positive number.
+    And so this quantity is always going to be less than $0$.\\
+    So for $\, x > 0 \,$, then $\, y' <  0\, $.
+    Hence, the solution that starts at $\, y(0) = 1\, $ is going to monotonically decay it
+    to $\, y = 0 \, $.
+  \end{itemize}
+  So this concludes the problem. \\    
+  Now, just to recap.
+  We were given an ODE.
+  The standard approach when sketching direction fields is to pick a few nullclines or
+  to pick a few isoclines,  and specifically pick the nullcline, sketch the isoclines. \\
+  And then if you're asked to plot any integral curves
+  or solutions to the differential equation,  you just simply connect the dots.
+\end{enumerate}
+
+\clearpage
+
+\subsubsection{Optional}
+
+\begin{exercise}
+  Change of variables
+\end{exercise}
+
+Consider the nonlinear ODE:
+
+\begin{equation*}
+  \dot{y}+y^2\, t-y =0.
+\end{equation*}
+
+This is known as the \emph{Bernoulli equation}.
+Make the change of variable  $\, y = \frac{1}{u} \,$
+and write the DE in terms of $u$. \\
+Enter the equation in the form $\, \dot{u}= f(u,t)$.
+
+if $\, y = \frac{1}{u},\,$ then $\, \dot y = - \frac{\dot u}{u^2}\, $
+by chain rule.
+Therefore, the DE in terms of $u$ is :
+\begin{equation*}
+  -\frac{\dot u}{u^2} + \frac{1}{u^2} t - \frac{1}{u} = 0
+\end{equation*}
+
+Multiplying by $\, u^2, \,$ we have
+
+\begin{equation*}
+  - \dot u + t - u = 0
+\end{equation*}
+
+Putting it in the requested form:
+
+\begin{equation*}
+  \dot u = t - u 
+\end{equation*}
+
+Notice that this equation linear.
 
 %%% Local Variables:
 %%% mode: latex

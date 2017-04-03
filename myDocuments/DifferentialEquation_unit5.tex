@@ -1475,6 +1475,155 @@ Putting it in the requested form:
 
 Notice that this equation linear.
 
+\clearpage
+
+\subsection{Recitation }
+
+\subsubsection{Mathlet Activity}
+
+\emph{\color{blue} Practice with isoclines, slope fields, and solution Curves} \\
+
+Consider the ODE
+
+\begin{equation*}
+  \displaystyle \frac{dy}{dx} = x-2y
+\end{equation*}
+
+On a piece of paper, draw by hand a big axis system and plot some isoclines, especially the nullcline.
+Use them to illustrate the slope field.
+Using the slope field, plot a few solutions.
+Then, to verify your drawing, choose the ODE from the dropdown menu in the mathlet below.\\
+
+\href{http://mathlets.org/mathlets/isoclines/}
+{ISOCLINES}
+
+\begin{question}
+  For a general differential equation $\displaystyle \frac{dy}{dx} = f(x, y),\,$
+  if a straight line is an integral curve, how is it related to the isoclines of the equation?
+\end{question}
+
+If there is a straight line solution $\, y=mx+b\,$ , then $\, y'(x)=m,\,$
+and the straight line solution curve is (part of) the $m$-isocline.
+
+\begin{problem}
+  Straight line integral curves
+\end{problem}
+
+For the ODE
+
+\begin{equation*}
+  \displaystyle \frac{dy}{dx} = x-2y
+\end{equation*}
+
+one of the integral curves seems to be a straight line.
+What straight line is it? In other words, for what $m$ and $b$ is $\, y = mx + b\,$
+a solution to the given DE?\\
+
+The straight line solution is form of $\, y=mx+b\,$ and the slop of solution is $m$.
+Plug in a solution $\, y=mx+b\,$ to DE
+
+\begin{align*}
+  (mx + b)' &= x -2(mx + b) \\
+  m &= x - 2mx - 2b \\
+  m &= (1- 2m)x - 2b. 
+\end{align*}
+
+The coefficient of $x$ is zero, so
+\begin{equation*}
+  1 - 2m = 0 \qquad \Longrightarrow m = \frac{1}{2}. 
+\end{equation*}
+
+The $\, m = -2b \,$, substitute $\frac{1}{2}$ on $m$
+
+\begin{equation*}
+  \frac{1}{2} = -2b \qquad \Longrightarrow n = - \frac{1}{4}. 
+\end{equation*}
+
+So, the straight line solution is
+
+\begin{equation*}
+  y = \frac{1}{2} x - \frac{1}{4}
+\end{equation*}
+
+\begin{question}
+  It seems that all the solutions become asymptotic to each other as $x \rightarrow \infty$.
+  Explain why solutions get trapped between parallel lines of some fixed slope.  
+\end{question}
+
+All isoclines have the form $\, c= x-2y$, rearranging to $y = x/2 - c/2,\,$
+his tells us that every isocline has slope $\frac{1}{2}$.
+Thus the isoclines are all parallel lines. \\
+
+The $\, c>1/2\,$ isoclines are the parallel lines below our straight line integral curve
+$\, y=x/2 - 1/4.\, \,$
+The slope is positive and greater than the slope of the isoclines themselves,
+which means that every integral curve that starts below the $\, c=1/2\,$
+integral curves moves upwards across the isoclines $\, c>1/2$. \\
+
+The $\, c<1/2\,$ isoclines are the parallel lines above our straight line integral curve
+$y=x/2 - 1/4.\, \,$
+Any integral curve through this region must pass through the isocline
+since the slope of a solution curve through the isocline is always less than the slope of the isocline.
+
+\begin{problem}
+  Critical Points
+\end{problem}
+\begin{enumerate}
+\item Where are the critical points of the solutions of $\frac{dy}{dx}=x-2y$?
+  In other words, for what values of $y_0$ does the solution $y$
+  with $y(0)=y_0$ have a critical point? \\
+
+  To find general solution using integral factor $e^{2x}$
+  
+  \begin{align*}
+    e^{2x} y' + 2 e^{2x} y &=  e^{2x} x \\
+    \int (e^{2x} y) ' dx &= \int e^{2x} x dx \\
+    e^{2x} y &= \frac{1}{2} e^{2x} x  - \frac{1}{4} e^{2x} + c  \footnotemark \\
+    y &= \frac{1}{2} x  - \frac{1}{4} + c e^{2x} \\
+  \end{align*} \footnotetext{
+    Integration by Parts \\
+    From $(fg)' = f'g + fg'$, integrate both side
+    $\int (fg)' = \int f'g dx + \int fg' dx$.
+    Rewrite it as
+    \begin{equation*}
+      \int fg' dx = fg - \int f'g dx  
+    \end{equation*}
+    Let's do a couple of substitute
+    \begin{align*}
+      u = f(x) &\qquad v = g(x) \\
+      du = f'(x) dx &\qquad dv = g'(x)dx
+    \end{align*}
+    This substitutions gives
+    \begin{equation*}
+      \int u dv = uv - \int v du 
+    \end{equation*}
+  }
+
+  Apply condition $y(0)=y_0$,
+
+  \begin{equation*}
+    y _0 = - \frac{1}{4} + c. 
+  \end{equation*}
+
+  So, $ y _0 > - \frac{1}{4}.$
+\item The critical point is a
+  $y _0 = - \frac{1}{4} + c\,$, therefore $\, -\frac{1}{4} \,$ is minimum.  
+\end{enumerate}
+
+\begin{problem}
+  How many critical points? 
+\end{problem}
+
+What is the maximum number of critical points a single solution can have? \\
+
+The derivative of the general solution is
+
+\begin{equation*}
+  y' = 2 c e^{2x} - \frac{1}{2},  
+\end{equation*}
+
+so there is one critail solution. 
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

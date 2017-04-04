@@ -1622,7 +1622,119 @@ The derivative of the general solution is
   y' = 2 c e^{2x} - \frac{1}{2},  
 \end{equation*}
 
-so there is one critail solution. 
+so there is one critail solution.
+
+\clearpage
+
+\subsection{Autonomous equations }
+
+\subsubsection{Autonomous Equations}
+
+\emph{Objectives}
+\begin{itemize}
+\item Identify  \textbf{\color{blue} autonomous} ODEs.
+\item Use the \textbf{\color{blue}phase line} to determine \textbf{\color{stability}} of solutions to autonomous ODEs.
+\item Model population growth with the \textbf{\color{blue}logistic equation}
+  and find qualitative behavior of solutions.
+\item Determine how varying parameters in a system can change behavior of solutions using a
+  \textbf{\color{blue} bifurcation diagram }.
+\end{itemize}
+
+\clearpage
+
+\subsubsection{Definition}
+
+\paragraph{Definition}
+The topic is a special kind of differential equation which occurs a lot.
+It's one in which the right-hand side doesn't have
+any independent variable in it.
+Now since I'm going to use as the independent variable $t$
+for time, maybe it would be better to write the left-hand
+side to let you know that since you won't be able to figure out
+any other way what it is,
+
+\begin{equation*}
+  \frac{dy}{dt} = f(y)
+\end{equation*}
+
+and the point is that there is no t on the right-hand side.
+So there's no $t$.\\
+Well, there's a name for such an equation.
+Now some people call it time-independent.
+The only problem with that is that sometimes the independent variable isn't time.
+It's something else.
+We need a generic word for there being no independent variable
+on the right-hand side.
+So the word that's used for that is \emph{autonomous}.\\
+So that means no independent variable on the right-hand side.
+It's a function of $y$ alone, the dependent variable.\\
+Now your first reaction should be, oh, well, big deal.
+If there's no $t$ on the right-hand side,
+then we can solve this by separating variables.
+So why is he even talking about it in the first place?
+So I admit that.
+We can separate variables.
+And what I'm going to talk about today is how to get critical--
+how to get useful information out
+of the equation above how its solutions look
+without solving the equation. \\
+The reason for wanting to do that is, A, it's fast.
+It gives you a lot of insight.
+And the actual solution --I'll illustrate one or two-- may, first place,
+take you quite a while.
+You may not be able, actually, to do the integrations to get an--
+required in separation of variables to get an explicit solution.
+Or it might simply not be worth the effort
+of doing if you only want certain kinds of information
+about the solution.\\
+So the thing is, the problem is, therefore,
+to get qualitative information about the solutions without actually having to solve the equation.\\
+
+An \emph{\color{blue}autonomous} ODE is a differential equation
+that does not explicitly depend on the independent variable.
+If time is the independent variable, this means that the ODE is time-invariant.
+We will use time as the independent variable in this lecture.\\
+
+The standard form for a first order autonomous equation is
+
+\begin{equation*}
+  \displaystyle  \displaystyle \frac{dy}{dt} = f(y)
+  \qquad (\text {instead of }\, f(t,y))
+\end{equation*}
+
+where the right hand side does not depend on $t$.
+As usual, we write $\displaystyle \dot{y}=\frac{dy}{dt}$. \\
+
+For example, the (nonlinear) equation
+
+\begin{equation*}
+  \displaystyle  \displaystyle \dot{y}=y-3y^2
+\end{equation*}
+
+is autonomous. We will find out later that this DE models population growth in an environment with limited resources. It is called a \textit{logistic equation}.\\
+
+\textbf{Why is this called autonomous?} In ordinary English,
+a machine or robot is called autonomous if it operates without human input.
+A differential equation is called autonomous if its coefficients are not changed over time,
+such as might happen if a human adjusted a dial on a machine and let it run.
+
+\begin{exercise}
+  Quiz
+\end{exercise}
+
+Which of the following are autonomous differential equations?
+
+\begin{itemize}
+\item $\dot{y}=t-y^2$
+\item $\dot{x}=2x-5x^2$
+\item $\displaystyle \dot{y}=\frac{3}{y}$
+\item $\displaystyle \dot{x}=\frac{2x}{t}$
+\item $\dot{y}=\cos y$
+\end{itemize}
+
+The right hand sides of $\, \dot{x}=2x-5x^2,\, \, \dot{y}=\frac{3}{y},\,\, \dot{y}=\cos y\,$
+do not depend on the independent variable $t$.
+The remaining DEs are not autonomous because their right hand sides explicitly include $t$.
 
 %%% Local Variables:
 %%% mode: latex

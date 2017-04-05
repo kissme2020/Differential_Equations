@@ -1633,7 +1633,7 @@ so there is one critail solution.
 \emph{Objectives}
 \begin{itemize}
 \item Identify  \textbf{\color{blue} autonomous} ODEs.
-\item Use the \textbf{\color{blue}phase line} to determine \textbf{\color{stability}} of solutions to autonomous ODEs.
+\item Use the \textbf{\color{blue}phase line} to determine \textbf{\color{blue}stability} of solutions to autonomous ODEs.
 \item Model population growth with the \textbf{\color{blue}logistic equation}
   and find qualitative behavior of solutions.
 \item Determine how varying parameters in a system can change behavior of solutions using a
@@ -1735,6 +1735,65 @@ Which of the following are autonomous differential equations?
 The right hand sides of $\, \dot{x}=2x-5x^2,\, \, \dot{y}=\frac{3}{y},\,\, \dot{y}=\cos y\,$
 do not depend on the independent variable $t$.
 The remaining DEs are not autonomous because their right hand sides explicitly include $t$.
+
+\clearpage
+
+\subsection{First properties}
+
+Here are two consequences of the time invariance of an autonomous equation:
+
+\begin{itemize}
+\item Each isocline (in the $(t,y)$-plane) consists of one or more horizontal lines.
+\item Solution curves (in the $(t,y)$-plane) are horizontal translations of one another.
+  That is , it $y(t)$ is a solution, then so is $\, y(t - a) \,$ for any $a$. 
+\end{itemize}
+
+
+For example, here is the slope field for $\, \dot{y}=y(1-y)\,$ with the $(-1)$-isocline
+and a few solution curves:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_autonomousproperties2_newcolors}
+  \caption{The $(−1)$-isocline (orange) consists of 2 horizontal lines;
+Solution curves (blue) are horizontal translations of one another.}
+\end{figure}
+
+\textbf{Why are all translates of solutions also solutions? a non-geometric argument} \\
+
+Let $y(t)$ be a solution to $\, \dot y = f(y) \,$.
+Let $\, u = t - a, \,$ then
+\begin{align*}
+  \displaystyle  \displaystyle \frac{d}{dt} y(t-a)\, =\, \frac{d}{dt}y(u(t))
+  \displaystyle = 
+  \displaystyle \frac{dy}{du}\, \frac{du}{dt} \qquad (\text {chain rule}) \\
+  \displaystyle \, f\left(y(u)\right) (1)\, =\, f\left(y(t-a)\right).
+\end{align*}
+
+Therefor $\, y(t -a)\,$ is also a solution. 
+
+
+\begin{exercise}
+  Horizontal isoclines
+\end{exercise}
+
+Find the $(-1)$-isocline for the DE $\, \dot y = y(y-1)\,$.
+Answer by giving the equation of the lines that the isocline consists of.\\
+
+The equation for $(-1)$-isocline is
+
+\begin{align*}
+  & \qquad \displaystyle y(1-y)\, =\, -y^2+y \\
+  & \Rightarrow \qquad y^2 - y + c = 0 \\
+  & \Rightarrow \qquad y = \frac{1 \pm \sqrt{1 - 4c}}{2}
+\end{align*}
+
+For $\, c<1/4,\,$ the $c$-isocline consists of the two horizontal lines
+$\, y= (1\pm \sqrt {1-4c})/2.\, \,$
+As expected, the isocline are horizontal for this autonomous equation. \\
+\textbf{Note:} $(1/4)$-isocline consists of the single horizontal line
+$\, y=1/2\,$ and there are no isoclines for
+$c>1/4$. 
 
 %%% Local Variables:
 %%% mode: latex

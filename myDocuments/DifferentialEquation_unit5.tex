@@ -1070,9 +1070,11 @@ you must write the differential equation in standard form,
 
 Let's write the differential equation the way
 we were supposed to.
+
 \begin{equation*}
   \frac{dy}{dx} = \frac{1 - y}{x}
 \end{equation*}
+
 And now I see the right hand side is not \emph{continuous}.
 In fact, not even defined when $x = 0$, along the $y$-axis.
 And therefore, the existence and uniqueness is not guaranteed along the line $x$ equals $0$,
@@ -1845,6 +1847,269 @@ We will use these steps in the next two examples.
 \subsubsection{First example}
 
 \paragraph{Critical points and qualitative behavior of solutions}
+All right, so let's do our bank account.
+So $y$ is money in the bank, in the account, in the bank account.
+$r$ is the interest rate.
+Let's assume it's a continuous interest rate.
+All banks nowadays pay interest continuously.
+The continuous interest rate.
+
+\begin{align*}
+  &y = \text{Money in the bank} \\
+  &r = \text{Continuous interest rate}
+\end{align*}
+
+So if that's all there is and money is growing at that-- the differential equation says
+that the rate at which it grows is equal to $r$,
+the interest rate, times the principal, the amount that's in the bank at that time.
+
+\begin{equation*}
+  \frac{dy}{dt} = ry 
+\end{equation*}
+
+So that's the differential equation that governs that.
+Now, that's, of course, just the next solution is simply an exponential curve.
+There's nothing more to say about it. Now, let's make it more interesting. \\
+
+Let's suppose there's a shifty teller in the bank.
+And your money is being embezzled from your accountat a constant rate.\\
+So let's let w equal $w$ is the rate of embezzlement, thought of as continuous.
+So every day, a little bit of money is sneaked out of your account, because you're not
+paying any attention to it. You're off skiing somewhere and not
+noticing what's happening to your bank account.
+
+\begin{equation*}
+  \frac{dy}{dt} = ry - w
+\end{equation*}
+So since $w$ is the rate--
+it's the time rate of embezzlement-- I simply subtract it from this.
+It's not $w$ times $y$, because the embezzler
+isn't stealing a certain fraction of your account.
+It's simply stealing a certain number of dollars every day,
+the same number of dollars being withdrawn from the accountant.\\
+
+
+OK, now of course, you could solve this.
+This separates variables immediately.
+You get the answer and there's no problem with that.
+But let's analyze the behavior of the solutions
+without solving the equation by using these two points.
+So I want to analyze this equation using the method of \emph{critical points}.\\
+
+So the first thing I should do is-- so here's
+
+\begin{equation*}
+  \frac{dy}{dt} = ry - w, 
+\end{equation*}
+
+our equation-- is find the critical points.
+Notice it's an autonomous equation, all right,
+because there's no $t$ on the right hand side.
+OK, so the critical points--
+well, that's where
+
+\begin{equation*}
+  ry - w = 0.
+\end{equation*}
+
+In other words, there's only one critical point.
+And it occurs when $\, y =  w/r\,$.
+So that's the only critical point.\\
+Now, I want to know what's happening to the solution.
+So in other words, if I plot, I can right away,
+of course, negative values aren't particularly interesting here.
+There is definitely a horizontal solution.
+And it has the value--it's at the height $\, w/r \,$.\\
+That's a solution.
+Question is, what do the other solutions look like?
+Now, watch how I make the analysis, because I'm going to use two now.
+So if to find critical point was step one, then step two--
+what do I do?
+Well, I'm going to graph $\, f(y)$.
+Well, $\, f(y) =  ry - w\, $.
+What does that look like?
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-autonomous_example1_graph}
+  \caption{Graph of $\frac{dy}{dt} = ry - w$}
+\end{wrapfigure}
+
+OK, so here is the $y$-axis.
+Notice the $y$-axis is going horizontally,
+because what I'm interested in is the graph of this function.
+So that function-- what do I call the other axis?
+I'm going to use the same terminology that's
+used on the little visual that describes this.
+And that's $\, dy \,$.
+You could call it the $\, dy/dt$-axis, because it's, so
+to speak, the other variable.
+That's not great either.
+But worst of all would be introducing yet another letter for which that we
+would have no use whatever.
+So let's think of it--
+we're plotting now the graph of $f(y)$.
+The $f(y)$ is this function $\, ry - w \,$.
+Well that's a line.
+Its intercept is down here at $w$.
+And so the graph looks something like this.
+It's a line. This is the line $\, ry - w\,$. It has slope $r$.
+Well, what am I going to get out of that line?
+Just exactly this.
+What am I interested in about that line?
+Nothing other than where is it above the axis
+and where is it below.
+This function is positive over here.
+And therefore, I'm going to indicate that symbolically,
+by putting an arrow here.
+The meaning of this arrow is that $\,y (t) \,$ is increasing.
+See where it's the right-hand side of that last board?
+$y(t)$ is increasing when $f(y)$ of y is positive. 
+And therefore, to the right of this point, it's increasing.
+Here, to the left of it, $f(y)$ negative.
+And therefore, over here, it's going to be decreasing.
+What point is this, in fact?
+Well, that's where it crosses the axis.
+That's exactly the critical point, $w/r$.
+Therefore, what this says is that a solution,
+once it's bigger than $y/r$, it increases.
+And it increases faster and faster because this function is higher and higher.
+And that represents the rate of change.
+So in other words, once a solution--
+let's say a solution starts over here at time $0$.
+So this is the $t$-axis and here is the $y$-axis.
+So now I'm plotting solutions.
+If it starts at t equals $0$, above this line, that
+is starts with the value $w/r$, which is bigger than $0$,
+the value bigger than $w/r$, then it increases and increases
+faster and faster.\\
+If it starts below that, it decreases and decreases
+faster and faster.
+Now, in fact, I only have to draw two of those.
+Because what do all others look like ?
+They're \emph{translations}.
+All the other curves look exactly like those.
+They're just translations of them.
+This guy, if I start closer, it's still going to decrease. \\
+
+\textbf{Phase line} \\
+We repeat the example in the previous paragraph to introduce phase lines explicitly.\\
+Recall the first order autonomous DE in the video:
+
+\begin{equation*}
+  \dot y = f(t) = ry - w \qquad (r, w > 0). 
+\end{equation*}
+
+The variable $y$ models the amount of money (in dollars) in a saving accout;
+$r$ is the interest rate (in units of $\text{year}^{-1}$); and $w$ (in dollars per yaer)
+is the rate of money being stolen out of accout. \\
+To find qualitative behavior of the solution, we follow the two steps described before.
+
+\begin{enumerate}
+\item Find the critical points.
+
+  \begin{equation*}
+    f(y) = ry - w = 0 \quad \Rightarrow \quad y = \frac{w}{y}
+  \end{equation*}
+
+  So, $\, y = w/r\, $ is the constant solution.
+
+\item Determine the intervals of $y$ in which $\, f(y) > 0 \,$ and in which $\, f(y) < 0 \,$.
+  One way to do this by graphing $f(y)$.
+
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images_autonomouslinear}
+    \caption{Graph of $f(y)$}
+  \end{figure}
+
+  For $\, y > w/r,\, f(y) > 0\,$ and any solution $y(t)$ is increasing;
+  for $\, y < w/r\, , f(y) < 0 $ and any solution $y(t)$ is decreasing. \\
+  
+\end{enumerate}
+
+We can summarize the above information by adding arrows on the (horizontal)
+$y$-axis as in the previous paragraph. The critical poimts divides the $y$-axis
+into intervals.
+We place a right arrow (int the $+y$ direction) to each interval of $y$ where
+$\, f(y) > 0 \,$ and and any solution $y(t)$ is increasing.
+Similarly, we place a left arrow (in the $−y$ direction) to each interval
+where $\, f(y)<0 \,$ and solutions are decreasing.
+The $y$-axis with this extra information is called a phase line.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_horizontalphaseline1}
+  \caption{Phase line of $\dot y = ry - w\, (r,w > 0)$}
+\end{figure}
+
+\clearpage
+
+If the phase line is drawn vertically, the qualitative behaviour of solution curves can be read directly from it, as you see in the diagram below.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_autonomousphaselinesolutioncurves2}
+  \caption{Vertical phase line (left); Solution curves on the $ty$-plane (right)}
+\end{figure}
+
+\begin{example}
+  Use the phase line above to determine what happens to solutions
+  with different initial conditions as time passes.
+\end{example}
+
+\Solution \\
+
+\begin{itemize}
+\item If $\, y(0) = w/r,\,$ which is the critical point,
+  then the solution will be $\, y(t)=w/r\,$ for all $t$.
+  This corresponds to the constant solution shown on $(t,y)$-plane in the figure above.
+\item If $\, y(0)>w/r,\, $ then the up arrow (in the positive $y$ direction) on the phase line
+  tells us that as t increases, $y(t)$ increases and will tend to $+ \infty$.
+  This corresponds to a solution curve above the horizontal solution,
+  such as the one shown on the $(t,y)$-plane above.
+\item If $\, y(0)<w/r, \,$ then the down arrow (in the negative $y$ direction)
+  on the phase line says that as $t$ increases, $y(t)$ decreases and
+  will tend to $- \infty$.
+  This corresponds to a solution curve below the horizontal solution,
+  such as the one shown on the $(t,y)$-plane above.
+\end{itemize}
+
+\begin{exercise}
+  Maximum rate of embezzlement
+\end{exercise}
+
+Consider the same example as above:
+
+\begin{equation*}
+  \dot y = f(t) = ry - w \qquad (r, w > 0). 
+\end{equation*}
+
+where $y$ models the amount of money (in dollars) in a savings account;
+$r$ is the interest rate (in $\text{year}^{-1}$); and $w$ (in dollars per year) is
+the rate of money being stolen out of the account.\\
+
+Suppose that the current amount in an account is \$ 10000,
+and the annual interest rate is 2\% (so r=0.02).
+What is maximum amount of money that can be stolen from the account per year so that the amount of money in the account remains increasing and the account owner will likely not notice? \\
+
+For amount of money $y(t)$ to be increasing,
+the solution has to satisfy $\, y(0) = 10000 > w/r, \,$
+where the interest rate is given as $r = 0.02$.
+This gives $\, w = 10000r =200\,$.
+So the maximum amount of money stolen per year has to be less than \$ 200.
+
+\begin{exercise}
+  Phase line concept check
+\end{exercise}
+
+As in the above example, consider $\, \dot y = ry - w\,$. \\
+If $\, y(0) < \frac{w}{r},\,$ what is $\, \lim_{t \to - \infty} y(t)$? \\
+
+Since $\, y(0) < w/r, \,$ the solution curve is below the horizontal solution.
+We see from the figure above that as $\, t \to −\infty,\, y(t) \to w/r$.\\
+We can also use the phase line to find the answer.
+To run time backwards, reverse the arrows in the phase line.
+As $\, t \to − \infty,\,$ we have $\, y(t) \to w/r$.
 
 
 %%% Local Variables:

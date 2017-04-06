@@ -2182,9 +2182,252 @@ and we know the solutions to be $\, y(t) = Ce^{kt}$.
 
 \clearpage
 
+\subsubsection{Qualitative behavior}
+
+\paragraph{Qualitative behavior of the solutions to the logistic equation}
+
+\begin{equation*}
+  \frac{dy}{dt} = (a - by)y = ay -by^2
+\end{equation*}
+
+Now, those of you who've solved it, actually solved it,
+know that the solution, the explicit solution,
+involves-- well, you separate variables.
+But you'll have to--
+you'll have to use partial fractions.
+I hope you love partial fractions.
+You're going to need them later in the term,
+but I can avoid them now by not solving
+the equation explicitly.
+And anyway, you get a solution, which
+I was going to write on the board for you,
+but you can look it up in your book.
+It's unpleasant enough looking to make
+you feel that there must be an easier way, at least to get
+the basic information out. \\
+Let's see if we can get the basic information out.
+What are the \emph{critical points}?\\
+Well, this is pretty easy.
+a, I want to set the right hand side equal to $0$,
+
+\begin{equation*}
+  y(a -by) = 0
+\end{equation*}
+
+And therefore the critical points are where $\, y = 0 ,\,$, that's one.
+And the other factor is when $\, a - by\, $ factor is $0$.
+And that happens when $\, y = b/a\,$. \\
+So there are my two critical points.
+What does-- let's start drawing pictures of solutions.
+Let's put in those right away.
+The critical point, $0$, gives me a solution
+that looks like this.
+And the critical point $a/b$, those are positive numbers, so that's somewhere up here.
+So those are two solutions, constant solutions.
+In other words, if the population by dumb luck started at $0$, it would stay at $0$ for all time.
+That's not terribly surprising.
+But it's a little less obvious that if it starts
+at that magic number $a/b$, it will also stay at that magic number for all time, without moving up
+or down or away from it.\\
+Now the question is therefore, what happens in-between.
+So for the in-between, I'm going to make that same analysis
+that I made before.
+And it's really not very hard.
+Look.
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-logistic_equation_graph1}
+  \caption{Graph of $\frac{dy}{dt} = ry - w$}
+\end{wrapfigure}
+
+So here is my $(dy,\, dt)$-axis, I'll call that $y'$, OK?
+And here's the $y$-axis. 
+The function that I want to graph is this $,\, ay - by^2, \,$ or in factored form
+$,\, y(a - by)\,$. 
+Now this function we know has a $0$.
+It has a $0$ here.
+And it has a $0$ at the point $a/b$.
+At these two critical points, it has a $0$.
+What's it's doing-- what is it doing in between?
+Well, in between it's a parabola.
+It's a quadratic function.
+It's a parabola.
+Does it go up or does it go down?
+Well, when $y$ is very large, it's very negative.
+That means it must be a downward opening parabola.
+And therefore this curve looks like this.\\
+So I'm interested in knowing where is it positive
+and where is it negative.
+Well, it's positive here, for this range of values of $y$.
+Since it's positive there, it will be increasing there.
+Here it's negative, and therefore will be decreasing.
+Here it's negative, and therefore $\frac{dy}{dt}$ will be negative also.
+And therefore the function $y$ will be decreasing here.\\
+
+So how do these other solutions look?
+Well, we can put them in.
+I'll put them in in white, OK?
+Cause I think this has got to last till the end of the term.
+So how are they doing?
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-logistic_equation_graph2}
+  \caption{Graph of $\frac{dy}{dt} = ry - w$}
+\end{wrapfigure}
+
+They're increasing in between the two curves.
+They're not allowed to cross either of these yellow curves.
+But they're always increasing.
+Well, if they're always increasing, they must-- well,
+it starts here and increases, it must--
+and I'm not allowed to cross.
+It must do something like that.
+This must be a translation of it.
+In other words, the curves must look like that.
+Those are supposed to be translations of each other.
+I know they aren't, but use your imaginations.\\
+What's happening above?
+So in other words, if I start with a population anywhere
+bigger than $0$ but less than $a/b, \,$ it increases to asymptotically to the level $a/b$. \\
+What happens if I start above that?
+Well, then it decreases to it because this way,
+for values of $y$ bigger than $a/b,\,$ it decreases as time increases.
+So these guys up here are doing this.
+And how about the ones below the axis?
+Well, they have no physical significance.
+But let's put them in any way.
+What are they doing?
+They are decreasing away from $0$.
+So these guys don't mean anything physically,
+but mathematically they exist as solutions.
+They're going down like that.
+
+\begin{example}
+  Describe qualitatively the solutions to $\, \dot y = 3y - y^2\,$.
+  (This is a special case of the logistic equation
+  $\, \dot y = ay - by^2\,$)
+\end{example}
+
+\Solution \\
+To find qualitative behavior of the solutions, we follow the two steps described before:
+
+\begin{enumerate}
+\item Find the critical points by solving $\, f(y) = 0 \,$.
+  \begin{equation*}
+    \displaystyle  \displaystyle f(y)=3y-y^2=0
+    \quad \Rightarrow
+    \quad \displaystyle  y=0\, \, \, \text {or} \, \, \, y=3.
+  \end{equation*}
+  So the constant solutions are $\, y(t) = 0\,$ an $\, y(t) = 3$.
+\item Determine the intervals of $y$
+  in which $\, f(y) > 0 \,$ and in which $\, f(y) < 0\,$.
+  To do this, we can graph the function $f(y)$ as in the previous paragraph,
+  or simply test one point in each region.
+  \begin{itemize}
+  \item Since $\, f(−1)<0,\,$ the region $y < 0$ is a down region.
+  \item Since $\, f(1)>0,\,$ the region $0< y < 3$ is a down region.
+  \item Since $\, f(4)<0,\,$ the region $y > 3$ is a down region.
+  \end{itemize}
+\end{enumerate}
+
+\clearpage
+
+We can summarize the above information by a phase line:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_horizontalphaseline2}
+  \caption{Phase line of $\dot y = 3y - y^2$}
+\end{figure}
+
+\begin{example}
+  Sketch some solutions to the equation $\, \dot y = 3y - y^2\,$.
+  Make sure you include at least one of each type.
+\end{example}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_logisticsolutions}
+  \caption{Phase line drawn vertically (left); Sample solution curves on $(t,y)$-plane (right)}
+\end{figure}
+
+There are five fundamental solutions, depending on the initial conditions:
+
+\begin{itemize}
+\item If $\,y(0)=0,\,$ the solution will be $y(t)=0$ for all $t$.
+\item If $\,y(0)=3,\,$ the solution will be $y(t)=3$ for all $t$.
+\item If $\ 0< y(0) <3 \,$ will increase as $t$ increases.
+  It tends to $3$ as $\, t \to + \infty \, $ and tends to $0$ as $\, t \to −\infty$.
+\item If $\, y(0)>3,\,$ then $y(t)$ decreases as $t$ increases, tending to $3$ without reaching $3$.
+\item If $\, y(0)<0,\,$ then $y(t)$ decreases, and $\, y(t) \to −\infty\,$ as $t$ grows.
+\end{itemize}
+
+\textbf{\color{orange} Food for thought: }
+For a solution $y(t)$ with $\, 0<y(t)<3,\,$
+is it possible that $y(t)$ tends to a limit less than $3$? \\
+
+No. If $y(t)$ tends to any number a between $0$ and $3$,
+then as the solution curve levels off while approaching $\,a, \, \dot y (t)\,$ must tend to $0$.
+But we know that $\, f(y)>0 \,$ for all $\, 0<a<3,\,$ so this is impossible.
+
+\begin{exercise}
+  Interval of validity of a solution
+\end{exercise}
+
+By separable of variables, the general solution to $\, \dot y = 3y -y^2\,$ is
+
+\begin{equation*}
+  \displaystyle \displaystyle y(t) = 0 \displaystyle \text {or}
+  \displaystyle \frac{3}{1+c e^{-3t}}\qquad (c \, \, \text {a constant}).
+\end{equation*}
+
+Find the interval of validity of the solution satisfying $\, y(0)=6$.\\
+(Use the interval notation in your answer.
+That is, find $a$ and $b$ such that the solution is valid on the interval
+$\, a<t<b$.)
 
 
 
+\begin{exercise}
+  Determine the model
+\end{exercise}
+
+In an environment without constraints, the population of a species of frogs is described by the DE
+
+\begin{equation*}
+  \dot y = 3y, 
+\end{equation*}
+
+where the constant $3$ is the natural birth rate minus the natural death rate
+(in $\text{month}^{-1}$). \\
+
+The same species of frogs living in a pond grows according to the logistic equation.
+The population eventually reaches an equilibrium of 6000 frogs.
+Find $f(y)$ such that differential equation $\, \dot y = f(y) \,$ models the population of frogs in a pond, measured in kilofrogs.\\
+
+The logistic equation has growth rate $\, k(y)=a−by\,$.
+The constant a is the constant growth rate of the frogs in an environment without constraints,
+given to be $3$. So the logistic equation that models the frog population is
+
+\begin{equation*}
+  \dot y = (3−by)y
+\end{equation*}
+
+for some constant $\, b>0\,$.
+Since the population settles at $\,y=6\,$ (six thousand frogs),
+$\, \dot y = (3−by)y=0 \,$ at $\,y=6\,$; thus $\,b=3/6=1/2\,$.\\
+\textbf{Remark: rewriting the logistic equation. } \\
+Note that $\, b=a/y_0,\,$ where $y_0$ is the non-zero equilibrium population.
+Renaming $a$ to $k_0,\,$ the natural growth constant if the environment is unconstrained,
+the growth rate in the logistic equation can be rewritten as:
+
+\begin{equation*}
+  \displaystyle  \displaystyle k(y)=k_0\left(1-\frac{y}{y_0}\right).
+\end{equation*}
+
+The unit $k_0$ is $\text{month}^{-1},\,$ and the unit of $y_0$ is kilofrog. 
+
+\clearpage
 
 %%% Local Variables:
 %%% mode: latex

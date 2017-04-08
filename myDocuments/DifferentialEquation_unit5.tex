@@ -2384,9 +2384,64 @@ By separable of variables, the general solution to $\, \dot y = 3y -y^2\,$ is
 Find the interval of validity of the solution satisfying $\, y(0)=6$.\\
 (Use the interval notation in your answer.
 That is, find $a$ and $b$ such that the solution is valid on the interval
-$\, a<t<b$.)
+$\, a<t<b$.) \\
 
+To satisfy the initial condition $\,y(0) = 6,\, c = -1/2\,.$
+Now, Now, we find $t$ when the denominator is undefined:
 
+\begin{equation*}
+  \displaystyle  \displaystyle 1- (1/2) e^{-3t}\, =\,  0
+  \displaystyle \Longrightarrow
+  \displaystyle  t=-\frac{\ln (2)}{3}.
+\end{equation*}
+
+The solution is defined at $\, t = 0,\,$
+where the condition $\, y(0)=6 \,$ is defined,
+so the interval of validity of this solution the largest interval
+on which the solution is defined: $\, (− \ln⁡(2)/3\, ,+\infty)\,$.
+Below is the graph of the solution curve:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_logisticintervalofvalidity}
+  \caption{Graph of $\dot y = 3y - y^2$}
+\end{figure}
+
+(Check also that since $\, e^{-3t} \to 0\,$ as
+$\,t \to \infty, \, y(t)= \frac{3}{1−(1/2)e^{−3t}} \to 3\,$ as expected.)
+
+\textbf{Remark:}\\
+Let us verify the given solution by separation of variables:
+
+\begin{align*}
+  \dot y &= 3y - y^2 \\
+  \Longrightarrow \int \frac{dy}{y(3-y)} &= \int dt \qquad (y \neq 0,\,3)
+\end{align*}
+
+We evaluate the integral on the left using partial fraction (omitting the constant of integration):
+
+\begin{align*}
+  \int \frac{dy}{y(3-y)} &= \int \left( \frac{1/3}{y} + \frac{1/3}{3 -y} \right) \\
+                         &= \frac{1}{3}(\ln |y| - \ln |3 - y|) \\
+                         &= \frac{1}{3}\ln \left| \frac{y}{3-y} \right|.  \\
+\end{align*}
+
+Therefore, we have
+
+\begin{align*}
+  \displaystyle \frac{1}{3}\ln \left|\frac{y}{3-y}\right|
+  \displaystyle &= \displaystyle t + C \\
+  \displaystyle \Longrightarrow
+  \displaystyle  \left|\frac{y}{3-y}\right|
+  \displaystyle &= \displaystyle  c_1 e^{3t}\qquad (c_1>0)\\
+  \displaystyle \Longrightarrow
+  \displaystyle  \frac{y}{3-y}
+  \displaystyle &= \displaystyle  c_1 e^{3t}\qquad (c_1\neq 0) \\
+  \displaystyle \Longrightarrow y 
+  \displaystyle \frac{3}{1+ce^{-3t}}\qquad (c \neq 0)
+\end{align*}
+
+To bring back the solution $\,y=3,\,$ we allow $\,c=0.$
 
 \begin{exercise}
   Determine the model
@@ -2428,6 +2483,392 @@ the growth rate in the logistic equation can be rewritten as:
 The unit $k_0$ is $\text{month}^{-1},\,$ and the unit of $y_0$ is kilofrog. 
 
 \clearpage
+
+\subsubsection{Stability of critical points}
+
+\paragraph{Stability of critical points using logistic equation}
+
+Now you notice from this picture that there are--
+that even though both of these are constant solutions,
+they have dramatically different behavior.
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-logistic_equation_graph2}
+  \caption{Graph of $\frac{dy}{dt} = ry - w$}
+\end{wrapfigure}
+
+This one $,\, a/b\,$ this solution is the one
+that all other solutions try to get-- approach as time goes to infinity.
+This one, the solution $0$, is repulsive
+as it were, Any solution that starts near $0$--
+if it starts at 0, of course, it stays there for all time--
+but if it starts just a little bit above $0$, it increases to $\,a/b$. \\
+This is $,\, a/b ,\,$ called a \emph{stable solution} because everybody tries
+to get closer and closer to it. \\
+This is called-- it's an $0$ is also a constant solution, but this
+is an \emph{unstable solution}.
+And now usually, solution is too general a word.
+I think it's better to call it a \emph{stable critical point},
+and an \emph{unstable critical point}.
+But of course, it also corresponds to a solution.\\
+
+So critical points are not all the same.
+Some are stable and some are unstable.
+And you can see which is which just
+by looking at this picture.
+
+\begin{figure}[ht!]
+  \centering
+    \includegraphics[width=5.5cm]{image-logistic_equation_graph3}
+  \caption{Graph of $\frac{dy}{dt} = ry - w$}
+\end{figure}
+
+If the arrows point toward them, you've got a stable critical point.
+If the arrows point away from them, you've got an unstable critical point.\\
+
+\clearpage
+
+Now there is a third possibility.
+What if-- I think we better address it,
+because otherwise you're going to sit there wondering, hey,
+what did he mean by that?
+It could look like-- suppose it looked like this.
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-logistic_equation_graph4}
+  \caption{Graph of Third Possibility}
+\end{wrapfigure}
+
+Suppose it were just tangent.
+So, well, this is the picture of that curve, the pink curve.
+What would the arrows look like then?
+Well, what would the arrows look like then?
+Well, since they're positive--
+it's always positive, the arrow goes like this.
+And then on this side it also goes in the same direction.
+So is this critical point stable or unstable?
+It's stable if you approach it from the left.
+So how do the-- in fact do the curves--
+how would the corresponding curves look?
+Well, there's our long term solution that corresponds--
+this corresponds to that point.
+Let's call this a and then this will be the value a.
+If I start below it. I rise to it.
+If I start above it, I leave it. I increase.
+So if I start above it, I do this.
+Well now that's stable on one side, and unstable on the other.
+And that's indicated by saying it's semistable.
+Wonder how long it took to think that one up.
+Semistable critical point.
+Stable on one side, unstable on the other depending
+whether you start below it or-- and of course, it could be reversed.
+If I'd drawn the picture the other way,
+could have approached it from the top and left it from below.
+You get the idea of the behavior.\\
+
+A critical point $\,x=a \,$ is called
+
+\begin{itemize}
+\item \emph{\color{blue} stable} if solutions starting near it move towards it,
+
+  \includegraphics[width=0.5\textwidth]{images_u2s2_stablecp}
+  
+\item \emph{\color{orange} unstable} if solutions starting near it move away from it,
+
+  \includegraphics[width=0.5\textwidth]{images_u2s2_unstablecp}
+
+\item \emph{semistable} if the behavior depends on \emph{which side} of
+  the critical point the solution starts.
+  
+  \includegraphics[width=0.3\textwidth]{images_u2s2_semistabler}
+  \quad or \quad  \includegraphics[width=0.3\textwidth]{images_u2s2_semistabler1}
+
+\end{itemize}
+
+\begin{example}
+  $\dot y = 3y - y^2 $
+\end{example}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_logisticsolutions_colored}
+  \caption{Phase line (left) and solutions curves (right) of $\, \dot y = 3y - y^2$}
+\end{figure}
+
+In the previous example of $\, \dot y = 3y−y^22,\,$, the critical points are $0$ and $3$.
+The phase line shows that $0$ is unstable, and $3$ is stable.
+Solutions move away from the unstable critical point $0$
+and approach the stable critical point $3$ as $t$ increases, as shown in the figure above.\\
+
+\begin{remark}
+  A solution corresponding to an unstable critical point is an example of a separatrix
+  because it separates solutions having very different fates.
+  In the example above, $\, y = 0\,$ is a separatrix.
+  A solution starting just below $0$ tends to $− \infty$,
+  while a solution starting just above $0$ tends to $3$: very different fates!
+\end{remark}
+
+\textbf{\color{blue} Summary: steps for understanding solutions
+  to $\dot y = f(y)$ qualitatively.}
+
+\begin{enumerate}
+\item Find the critical points by solving $\,f(y) = 0\,$.
+  These divide the $y$-axis into open intervals.
+\item Determine the intervals of $y$
+  in which $\, f(y)>0 \, $ and $\, f(y)<0,\,$ by either graphing $f(y)$
+  or evaluating $f(y)$ at one point in each interval.
+\item Draw the phase line,
+  which consists of a line marked with $−\infty,\,$ the critical points,
+  $+ \infty,\,$ and arrows between these.
+\item Solutions starting at a critical point are constant.
+\item Other solutions tend to the limit that the arrow points to as $t$ increases.
+  As $t$ decreases, solutions tend to the limit that the arrow originates from.
+\end{enumerate}
+
+\clearpage
+
+\subsubsection{Worked Example}
+
+\paragraph{Worked example: autonomous equations and phase lines}
+
+OK, so in this problem, I'd like to take
+a look at autonomous equations and phase lines.
+And specifically we're going to take a look
+at this simple equation
+
+\begin{equation*}
+  \dot x = ax + 1, 
+\end{equation*}
+
+ models births and death rates, and a fixed replenishment rate for a population.
+So in this case, the variable $a$ represents births minus deaths in a population,
+and $1$ represents the constant input of new creatures.
+
+\begin{enumerate}
+\item we're asked to find intervals of the variable $a$,
+  which determine the longtime stability of the population. \\
+
+  \begin{equation*}
+    \dot x = ax + 1
+  \end{equation*}
+
+  And as mentioned in the title of the problem,
+  this is an autonomous equation, which means that the right hand
+  side is not a function of time.
+  The right hand side only depends on $x$.
+  And for these types of problems, the critical points or the place
+  that the points at which the right hand side vanish tend to determine
+  the longtime characteristics of the solution.
+  So we can get a handle on what intervals of a
+  determine the longtime stability by sketching what
+  $\dot x$  versus $x$ might look like. \\
+  
+  See that if $a$ is positive,
+
+  \begin{figure}[ht!]
+    \centering
+      \includegraphics[width=0.5\textwidth]{image_autonomous_working_example1}
+    \caption{Graph of $\dot x = ax -1 \quad (a > 0)$}
+  \end{figure}
+
+  this represents a line with a positive slope $a$.
+  So on the right hand side of the intercept with the $x$-axis,
+  $\dot x$ is positive, which means that when the line goes
+  through the point x dot equals zero, the term $\, ax + 1\,$ is going to be positive.
+  I'll just point out that this point right here
+  is when $\, \dot x = 0 \,$ is equal to zero.
+  And this happens when $\, x = 1/a \,$.
+  So this point right here is $-1/a$. 
+  And when $\, x < -1 / a$,  $\dot x$ is negative, which means that solutions
+  will want to move away from the point $1/a$. \\
+
+  What other qualitative behavior could we have?
+  Well, when $\, a < 0,\,$  the slope of this curve is going to be negative.
+  So I'll plot again, $\dot x$ versus $x$.
+
+  \begin{figure}[ht!]
+    \centering
+      \includegraphics[width=0.5\textwidth]{image_autonomous_working_example2}
+    \caption{Graph of $\dot x = ax -1 \quad (a < 0)$}
+  \end{figure}
+  
+  And again, the intercept is going to be at $-1/a$. 
+  However, when $x$ is above the critical point, $\dot x$  is negative.
+  So solutions will want to tend to move back towards $-1/a$.
+  And when $x$ is below the critical point, we see that $\dot x$ is in the upper plane, which
+  means it's positive. So solutions will want to grow.
+  So we have two cases right now. 
+  One is when $\, a > 0\,$ is , one is when $\, a < 0 \,$.\\
+
+  And then, of course, there's going to be an intermediate point,
+  which is when $\, a = 0 \,$.
+
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image_autonomous_working_example3}
+    \caption{Graph of $\dot x = ax -1 \quad (a = 0)$}
+  \end{figure}
+  
+  And in this case, the curve $\dot x$ versus $x$ is just going to
+  be a straight line that goes through $1$. \\
+
+  So this gives us three regions that will determine the long time behavior.
+  So the three regions are $\, a = 0,\,  a < 0, \,$ and $\, a > 0\,$. 
+
+\item For each typical case of $a$ in the part 1 of the problem,
+  we're asked to sketch a phase line and then also to sketch the solution $x(t)$ versus $t$.\\
+  
+  So for part 2, let's take a look at the case when $\,  a > 0\, $ first.
+  And I'm just going to pick one value of $a$.
+  I'll just pick $\,a = 1 \,$ to work things out concretely.
+  And we're asked to sketch a phase line, so I'll plot the phase line $x$.
+
+  And we know from the ODE that the critical point occurs at $-1/a$.
+  So in this case, there's going to be one critical point,
+  and it's going to be at $-1$.
+  So when $\, x  > -1 \,$, in this region,  $\dot x$ positive.
+  So above negative $1$, $\dot x$ is positive,
+  which means that if a solution starts at a point above
+  $-1$, it's going to constantly increase forever.\\ 
+  And likewise, if it's below $-1$, it's going to decrease forever.
+  So this is $\dot x$ is negative in this region.
+  And of course, $\dot x$ is zero at the critical point, which
+  means if we start at the critical point, we stay there for all time. \\
+  So let's sketch some solutions.
+
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image_autonomous_working_example4}
+    \caption{Graph of Phase Line and Solution $\dot x = ax -1 \quad (a > 0)$}
+  \end{figure}
+
+  So whenever I have to sketch solutions for a phase line,
+  the first solution I always plot is going to be the critical point.
+  So note that $\, x = -1\,$ solves the differential equation.
+  So $x$ equals a critical point always solves the differential  equation.
+  So that means when $\, x = -1,\,$ we solve the differential equation.
+  When $\, x > -1, \,$ we obtain exponential growth.
+  And when $\, x > -1, \,$ we have exponential growth in the opposite direction.
+  So this is sometimes said to be an unstable critical point,
+  because any small perturbation away from $-1$ will make the solution diverge.
+  Also note that each one of these curves--
+  or once I have one of these curves, I can generate all the others by just picking it up and shifting
+  it over.
+  And the reason this works is because the original equation is autonomous,
+  meaning that the right hand side didn't depend on time.
+  So whenever you have an autonomous equation, when you sketch one solution,
+  you can always get a family of others
+  by picking up that solution and just shifting it to the right and to the left.\\
+
+  Now, when $\, a < 0,\,$, I'll just pick the value of $\,a = -1$.
+  We have a critical point at $1$.
+  And in this case, the arrows are going to point towards 1 like this.
+  And again, I can sketch some curves.
+  So I'll first draw the solution when $\,x = 1$.
+
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image_autonomous_working_example5}
+    \caption{Graph of Phase Line and Solution $\dot x = ax -1 \quad (a < 0)$}
+  \end{figure}
+  
+  And in this case, solutions are going to converge towards the critical point.
+  We say that the critical point $\, x = 1\,$  is stable.
+  And that's because any small perturbation makes the solution come back--
+  any small perturbation in the solution will eventually just come back 
+  to the critical point at $\, x = 1$. \\
+
+  
+  And now lastly, we have the third case, which is when $\, a = 0$.
+  And in this case, there are no critical points.
+  In fact, $\, \dot x  = 1$.
+  So $\dot x$ is positive for all values of $x$.
+  So our phase line is just a line with arrows.
+  And in this case, if I were to sketch some solutions $x(t)$
+  there are no critical points.  The $x$ is just increasing.
+  So the solutions are going to look something like this.
+
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image_autonomous_working_example6}
+    \caption{Graph of Phase Line and Solution $\dot x = ax -1 \quad (a = 0)$}
+  \end{figure}
+
+  They're just going to be straight lines,
+  a family of straight lines. \\
+
+  So we've just sketched some phase lines,
+  and we sketched several solutions for each phase line.
+  We've seen how the critical points and the arrows
+  around the critical points affect the longtime behavior of the solutions.
+  And this is typically the process that you go through when looking at autonomous equations.
+  You always first, a-- find the critical points, then b--
+  find the regions between the critical points,
+  and figure out if $\dot x$ is either positive or negative.
+  And then that automatically gives you the phase line.
+  Once you have the phase line, you can always just sketch a family of solutions.
+\end{enumerate}
+
+Using the analysis from the previous paragraph,
+we can predict the effect of immigration on the population of a country.
+
+\begin{example}
+  The population of a wealthy and sparsely populated country is currently at
+  $7$ million and is declining from low birth rate.
+  The natural growth rate is $\, a=−0.01\,$ (in $\text{year}^{−1}$).
+  What will be the effect on the population If the country admits $10,000$ immigrants per year? 
+\end{example}
+
+\textbf{Solution }\\
+Let $\, x(t) \,$ (in ten thousands) be the population at time $t$ (in years).
+Since the country is sparsely populated and wealthy, we can assume resources are unlimited.
+In other words, the quadratic term in the logistic equation is negligible.
+Therefore, without immigration, the population can be modeled by
+
+\begin{equation*}
+  \dot x = ax = \frac{-1}{100} x. 
+\end{equation*}
+
+With immigration, the rate of change of population $\dot x$ must include an additional term:
+
+where $1$ (in ten thousand immigrants per year) is the immigration rate.
+This DE is the same as in the previous paragraph with $\, a=−1/100\,$.
+Therefore, as in the paragraph, the phase line is
+
+\centering{
+\includegraphics[width=0.5\textwidth]{images_u2s2_populationphaseline}
+}
+
+This means that no matter what the initial population is,
+the population will approach the equilibrium of $\displaystyle -\frac{1}{a} = 100$ (in ten thousands),
+that is, $1$ million people.
+The current population of the country is $7$ million;
+so the population will be decreasing while tending to $1$ million. 
+
+\begin{exercise}
+  Maintaining population
+\end{exercise}
+
+In the example problem above, what rate of immigration is needed for
+the country to maintain its population?\\
+
+To maintain a population of $7$ million (or 700 ten thousands), we solve the differential equation
+
+\begin{equation*}
+  \dot x = - \frac{1}{100}x + a
+\end{equation*}
+
+for $a$.  At steady state, we want
+
+\begin{equation*}
+  0 = -\frac{1}{100} 700 + a
+\end{equation*}
+
+Thus to maintain the population, the immigration rate must be
+$\, a = 7\,$ ten thousands of immigrants per year.
+
+\clearpage
+
 
 %%% Local Variables:
 %%% mode: latex

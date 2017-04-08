@@ -2595,7 +2595,7 @@ A critical point $\,x=a \,$ is called
   \caption{Phase line (left) and solutions curves (right) of $\, \dot y = 3y - y^2$}
 \end{figure}
 
-In the previous example of $\, \dot y = 3y−y^22,\,$, the critical points are $0$ and $3$.
+In the previous example of $\, \dot y = 3y − y^2,\,$, the critical points are $0$ and $3$.
 The phase line shows that $0$ is unstable, and $3$ is stable.
 Solutions move away from the unstable critical point $0$
 and approach the stable critical point $3$ as $t$ increases, as shown in the figure above.\\
@@ -2835,9 +2835,7 @@ where $1$ (in ten thousand immigrants per year) is the immigration rate.
 This DE is the same as in the previous paragraph with $\, a=−1/100\,$.
 Therefore, as in the paragraph, the phase line is
 
-\centering{
 \includegraphics[width=0.5\textwidth]{images_u2s2_populationphaseline}
-}
 
 This means that no matter what the initial population is,
 the population will approach the equilibrium of $\displaystyle -\frac{1}{a} = 100$ (in ten thousands),
@@ -2869,6 +2867,140 @@ $\, a = 7\,$ ten thousands of immigrants per year.
 
 \clearpage
 
+\subsubsection{Phase line concept problems}
+
+\begin{exercise}
+  Phase line from DE
+\end{exercise}
+
+Find the critical points and draw a phase line for the autonomous ODE:
+$\, \dot y = y^2 + 2y \,$\\
+
+
+The critical values are the zeros of $\, y^2 + 2y = y (y+2),\,$
+which are $−2$ and $0$. We see that
+
+\begin{align*}
+  \displaystyle  \displaystyle & \dot{y}>0 \quad
+                                 \displaystyle  \text {for}\, \,  y<-2 \, \text {and}\, \,  y>0; \\
+  \displaystyle & \dot{y}<0 \quad
+  \displaystyle \text {for}\, \,  -2<y<0.
+\end{align*}
+
+Therefore, the phase line is:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_phsln1}
+\end{figure}
+  
+\clearpage
+
+\begin{exercise}
+  Phase line from slope field
+\end{exercise}
+
+Draw the phase line for the differential equation associated with the following slope field.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_slopefieldtophaseline}
+  \caption{A slope field of an autonomouse equation}
+\end{figure}
+
+The answer is
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_phsln2}
+  \caption{A slope field of an autonomouse equation}
+\end{figure}
+
+\clearpage
+
+\begin{exercise}
+  Graph from slope field
+\end{exercise}
+
+Consider the same slope field as above.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_slopefieldtophaseline}
+  \caption{A slope field of an autonomouse equation}
+\end{figure}
+
+Graph $\, f(y) \,$ from the slope field.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_function}
+  \caption{A slope field of an autonomouse equation}
+\end{figure}
+
+\clearpage
+
+\subsubsection{Concept challenge}
+
+\begin{exercise}
+  Critical points
+\end{exercise}
+
+In the autonomous equation $\, \dot y=f(y), \,$, where $f(y)$ has the graph shown,
+describe stability of the rightmost critical point. \\
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_autonomousfunctiona}
+  \caption{A slope field of an autonomouse equation}
+\end{figure}
+
+Labelling the $3$ critical points as $\,a,\, b,\, c,\,$ (as in the figure above), the phase line is:
+
+\begin{equation*}
+  -\infty \quad \longleftarrow \quad a \quad \longrightarrow
+  \quad b \quad \longleftarrow \quad c \quad \longrightarrow \quad \infty .
+\end{equation*}
+
+The phase line shows that the right most critical point at $\, y=c \,$ is unstable.
+
+\begin{exercise}
+  Local maxima
+\end{exercise}
+
+Consider the autonomous equation $\, \dot y = f(y) \,$ where $f(y)$ and $f'(y)$ are continuous everywhere.
+Can non-constant solutions to this equation have a local maximum? \\
+
+For a solution to have local maxima we know that it has to contain points
+where $\, \dot y = 0$.
+But all points where $\, \dot y=0 \,$ lie on the $0$-isocline,
+which we know are the constant solutions to the autonomous DE.
+Then by the existence and uniqueness theorem,
+other solution curves cannot contain points where $\, \dot y=0$.
+Therefore, no non-constant solutions can have a local maximum (or local minimum).
+Geometrically, non-constant solution curves cannot intersect the $0$-isoclines.
+
+\begin{exercise}
+  Inflection points
+\end{exercise}
+
+When do non-constant solutions of the autonomous ODE $\, \dot y=f(y)\,$
+have inflection points?\\
+
+By the chain rule
+
+\begin{equation*}
+  \frac{dy}{dt} = f(y) \quad
+  \implies \quad \frac{d^2y}{dt^2} = f'(y)\frac{dy}{dt}.
+\end{equation*}
+
+An inflection point is one where $\displaystyle {\frac{d^2y}{dt^2} = 0}$.
+By the above formula this occurs when either $\, f'(y)=0 \,$ or $\dot y = 0$.
+Since $\, \dot y=0\,$ only on constant solutions,
+which have no inflection points, all that's left is $\, f'(y)=0$. 
+Note: For this reason, an inflection point never has $\, y'=0$. 
+
+\clearpage
 
 %%% Local Variables:
 %%% mode: latex

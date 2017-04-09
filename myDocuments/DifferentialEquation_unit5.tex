@@ -3555,7 +3555,411 @@ A phase line makes sense only if the DE is autonomous!
 
 \clearpage
 
+\subsubsection{Application: Bead on wire}
 
+\paragraph{Bead on wire: Finding the equilibria}
+We'll consider a physical system
+and draw the bifurcation diagram based on how it behaves.
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-bead_wire}
+  \caption{Figure of bead and wire}
+\end{wrapfigure}
+
+Then we'll write down a mathematical model
+for the system that would give us quantitative insight if we
+later decided to put it into Matlab or Mathematica.
+So let's get started.
+Our system is made up of a bead that
+has a horizontal wire running through it.
+This wire is attached to the walls on either end,
+and there's also a spring attached to the bead.
+The spring is fixed on the ground here,
+and we're going to assume that
+the height of the bead and the wire is given by $h$, 
+and that $x$ is the displacement of the bead from the center,
+or the displacement of the bead from where the spring is fixed.
+
+\begin{align*}
+  h &= \text{Height of wire} \\
+  x &= \text{Displacement of bead from center}
+\end{align*}
+
+So our question is, what are the equilibrium positions
+of the bead? \\
+And we'd also like to know, what are the stability
+of those equilibrium positions? \\
+So let's suppose that we can change
+the position of the wire, either up or down, so that we can change $h$.
+And the equilibrium positions will
+be dependent upon the relationship between $h$ and the relaxed length of the spring.
+The relaxed length of the spring is just
+the length at which the spring is being neither stretched nor compressed.
+So since we want to think about equilibrium positions
+as a function of some parameter, we're going to be drawing a \emph{bifurcation diagram}.
+And this will be given in the $(h,\,x)$-plane, where
+$h$ is on the horizontal axis and $x$ is on the vertical axis.
+So it may seem a little bit strange to have $x$ on the vertical axis, but the reason for that
+is that $h$ is actually the parameter here that we're varying.
+So it's more of an independent variable, and we want to see how that affects $x$.
+So like I said, this is going to depend
+on the relationship between $h$ and the relaxed length of the spring.
+So let's give that length a name and call it $L$.
+\begin{equation*}
+  L = \text{Relaxed of spring}
+\end{equation*}
+In this case, we're only considering positive values of $h$.
+So I'm only in the right half plane. And let's say $L$ is somewhere here.
+
+\clearpage
+
+Now, if $\, h > L,\,$ that means we're stretching the spring
+because we're moving it beyond its relaxed length.
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-bead_wire1}
+  \caption{Figure of bead and wire $h > L$}
+\end{wrapfigure}
+
+And that would look something like this.
+We have a tall wire, and the bead is at the center,
+and the spring is being stretched.
+So this is $h$ greater than $L$.
+If we tried to nudge this bead in either direction, the tension in the spring would cause the bead
+to remain at the position $\, x  = 0 \,$.
+So that means that $x$ equals $0$ is a stable equilibrium position.
+So let's draw a phase line for what this might look like.
+We're choosing an $h$ that's greater than $L$.
+And we said that $x$ equals $0$ is a stable equilibrium position,
+so our phase line would look like this. 
+If I drew all the phase lines for values of $h$ that are greater than $L$, that is,
+all the phase lines in which we're stretching the spring,
+we'd have a solid line of stable equilibria position here at $x$ equals $0$.\\
+
+But what happens when $\, h < L\,$?
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-bead_wire2}
+  \caption{Figure of bead and wire $h < L$}
+\end{wrapfigure}
+
+Well, when that happens we are actually
+compressing the spring like this.
+So this is $h$ less than $L$. If we do this carefully,
+we can keep the bead at $\,x  = 0\,$ here.
+But if we nudge the bead in either direction, it's going to move along the wire in the direction
+that we nudge it.
+So if we nudge it to the right, it would end up here, or to the left, it would end up here.
+And it will move until the spring has reached
+its relaxed length, so there's no more outward spring
+force being applied.
+So if we draw phase line for this scenario,
+we're choosing an $\, h <  L\,$. And $\, x = 0 \, $ has now become an unstable equilibrium position
+because any perturbation causes the bead to move away from that position.
+So here, the arrows would be pointing away.
+But we've also gained two other possible stable equilibrium
+positions, namely, $1$ for positive $x$ and 1 for $- x$, so this would be the phase line
+for this particular $h$ value.
+
+Now, I want to think about drawing all of the phase
+lines for h being less than $L$. And notice that if I decrease $h$ even more,
+the bead will have to move farther along the wire in order for the spring
+to reach its relaxed length.
+So as I decrease $h,\, x$ is either becoming more positive--
+so you have a curve like this-- or more negative.
+So drawing all the phase lines for $h$ being less than $L$,
+I recover this branch of stable equilibria, this branch of stable equilibria,
+and a branch of unstable equilibria at $\, x = 0 \,$. \\
+
+Now, we can actually write down what
+this curve is mathematically by considering the system when the bead is at equilibrium.
+
+\begin{wrapfigure}{r}{4cm}
+  \includegraphics[width=4cm]{image-bead_wire3}
+  \caption{Figure of bead and wire Pythagorean theorem}
+\end{wrapfigure}
+
+So that would form a triangle with a height of $h$.
+The bead is here, so this side has a length of $x$.
+And the spring at equilibrium is at its relaxed length, $L$.
+
+So using the Pythagorean theorem, we can write down that $x$ is given
+
+\begin{equation*}
+  x = \pm \sqrt{L^2 - h^2 }
+\end{equation*}
+
+And that determines this curve here, where $x$ is now on the vertical axis.
+And we have this sideways parabola, or you can think of it as a semi-circle,
+given by this equation, where the positive is the top branch
+and the negative is the bottom branch of equilibria.
+
+\clearpage
+
+Now, when you draw bifurcation diagram,
+you won't include all of the phase lines for each value of $h$.
+Instead, you can notice that the bifurcation diagram
+is divided into regions based on the equilibrium branches.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-bead_wire4}
+  \caption{Bifurcation Diagram of bead and wire system}
+\end{figure}
+
+So we have a region here, here, here, and here.
+In this region, all of the phase lines will be pointing downwards,
+and so we replace this portion of the phase lines by a downwards arrow.
+Similarly, in this region, all of the phase lines will be pointing upwards,
+so we have an upwards arrow.
+In this region, they'll be pointing downwards.
+We have a downwards arrow.
+And in this region, they'll be pointing upwards.
+
+So a bifurcation diagram gives us all the possible equilibrium positions and their stability.
+So we have curves of equilibria and arrows depicting their stability.
+Now, this system was somewhat simple as a physical system, as well as geometrically.
+So we were able to draw this just by reasoning through it.
+Typically, you'll need to write down the equations of motion
+and find the equilibria by setting the derivative equal to $0$.
+So we'll continue going through that in the next paragraph.
+
+\clearpage 
+
+\paragraph{Bead on wire: Setting up the DE}
+Now we're going to write down a differential equation that
+models the horizontal motion of the bead
+by considering the forces that are acting on the bead.
+Then we'll rederive the bifurcation diagram.
+
+\begin{wrapfigure}{r}{4cm}
+  \includegraphics[width=4cm]{image-bead_wire5}
+  \caption{Diagram of bead and wire}
+\end{wrapfigure}
+
+There are two forces that are acting on the bead.
+The first is a \emph{friction force}.
+And this is due to the bead sliding along the wire
+and feeling friction from the wire.
+I'm going to denote this force by lowercase $f$.
+And it's proportional to the velocity of the bead $\dot x$.
+
+\begin{equation*}
+  f = -b \dot x \qquad (b > 0)
+\end{equation*}
+
+There's a negative sign because friction acts against this bead's motion.
+And $b$ is called the friction coefficient and is greater than $0$.
+The second force acting on the bead is the \emph{force due to the spring}.
+I'll call this force $F_ s$.
+Now we're only interested in the horizontal motion of the bead,
+and so we're only interested in the horizontal component
+of this force.
+For the horizontal component, I'll denote this $F_x$.
+\begin{exercise}
+  Find the spring force on the bead
+\end{exercise}
+
+What is the horizontal component $F_x$ of the spring force acting on the bead?
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_beadsystem}
+  \caption{Diagram of bead and wire}
+\end{figure}
+
+A bead is threaded to a wire and the wire is attached horizontally to a box.
+The bead can only slide horizontally along the wire.
+The bead is then attached to a spring, whose other end is pinned to the center of the bottom of the box.\\
+
+We have the following parameters and variables:
+
+\begin{align*}
+  &k \quad \text{the spring constant} \\
+  &L \quad \text{the relaxed length of the spring} \\
+  &h \quad \text{the height of the wire from the bottom of the box} \\
+  &x \quad \text{the horizontal displacement of the bead from the center of the wire}
+\end{align*}
+
+Find the horizontal component $F_x$ of the spring force on the bead in terms
+of $\,k,\, L,\, h\,$ and $x$.
+
+\clearpage
+
+First, consider the case in which the spring is stretched.
+In this case, the spring force is a vector pointing
+from the bead towards the center of bottom of the box as shown below:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_beadsystemforce}
+  \caption{Diagram of bead and wire2}
+\end{figure}
+
+The vector $\, \overrightarrow {F}_ s\,$ has magnitude
+
+\begin{equation*}
+  \displaystyle  \displaystyle |\overrightarrow {F_ s}|
+  \displaystyle =
+  \displaystyle  k|d|
+\end{equation*}
+
+where
+
+\begin{equation*}
+  \displaystyle d
+  \displaystyle =
+  \displaystyle  \sqrt {x^2+h^2}-L
+\end{equation*}
+
+is the difference between the stretched length and relax length of the spring.
+To find the horizontal component,
+we multiply by the sine of the angle between the spring and the dotted vertical line in the image.
+This quantity is given by $\displaystyle \frac{x}{\sqrt {x^2+h^2}}$.
+This implies the magnitude of the horizontal component $F_x$ of the spring force is
+
+\begin{align*}
+  \displaystyle  \displaystyle |F_ x|
+  \displaystyle &=  \displaystyle  \left(\frac{|x|}{\sqrt {x^2+h^2}}\right)
+                  \left|\overrightarrow {F}_ s\right| \\
+  \displaystyle &= \displaystyle  k \frac{|x|\, |d|}{\sqrt {x^2+h^2}}.                  
+\end{align*}
+
+Let us now figure out the direction of $F_x$.
+\begin{itemize}
+\item If the bead is to the right of the center $\,(x>0)\,$
+  and the spring is stretched $\,(d>0),\,$ then $F_x$ pulls the bead towards the center of the wire,
+  which is in the $- x$ direction.
+\item If the bead is to the right of the center $\,(x>0)\,$
+  but the spring is compressed $\, (d<0),\,$
+  then $F_x$ pushes the bead away the center of the wire, which is in the $+ x$ direction.
+\end{itemize}
+
+Therefore,
+
+\begin{equation*}
+  \displaystyle \displaystyle F_x
+  \displaystyle =
+  \displaystyle -k\frac{xd}{\sqrt {x^2+h^2}}.
+\end{equation*}
+
+This means in the stretched case, $\,x>0,\, d>0,\, F_x < 0\,$;
+and in the compressed case, $\,x>0,\, d<0,\, F_x > 0$.
+Check that this formula also has the correct sign when the bead is to the left of the center $\,(x<0)\,$.
+Finally, plugging in $d$, we have
+
+\begin{align*}
+  \displaystyle F_x
+  \displaystyle &= \displaystyle - k \frac{x\left(\sqrt {x^2+h^2}-L\right)}{\sqrt {x^2+h^2}} \\
+  \displaystyle &= \displaystyle -kx \left(1-\frac{L}{\sqrt {x^2+h^2}}\right).
+\end{align*}
+
+\paragraph{Bead on wire: Bifurcation diagram from the DE}
+Now that we have our two forces, the \emph{friction force}, which
+the horizontal component of the \emph{spring force}, which you just calculated,
+
+\begin{align*}
+  f &= -b \dot x, \qquad (b > 0) \\
+  F_x &= -kx \left(1-\frac{L}{\sqrt {x^2+h^2}}\right).
+\end{align*}
+
+We can use Newton's second law to write down a differential equation for the system. \\
+Newton's second law says that the mass times the acceleration
+is equal to the sum of the forces acting on our bead.
+In mathematical terms,
+
+\begin{equation*}
+  m \ddot x = -b \dot x -kx \left(1-\frac{L}{\sqrt {x^2+h^2}}\right).
+\end{equation*}
+
+Now, we're going to make the simplifying assumption that we're considering a very, very light bead,
+and that the mass can be approximated by $0$.
+So we're going to assume, $\, m =  0\,$.
+That means that this term $\, \ddot mx = 0,\,$ and we can then solve for $\dot x$.
+Doing this gives that
+
+\begin{equation*}
+  \dot x = \frac{k}{b} x \left(\frac{L}{\sqrt {x^2+h^2}} - 1 \right).
+\end{equation*}
+
+Where are these terms have been switched due to distributing the negative sign.
+Now this is the differential equation that describes the horizontal motion of the bead. \\
+So we could plug this equation into an ODE solver,
+like Matlab or Mathematica, to see the quantitative behavior
+of the solutions.
+But right now, we're just interested in the equilibrium,
+and the stability of those equilibria.
+So to describe this we need to draw a bifurcation diagram.\\
+
+To do that, we first need to find the equilibria.
+Equilibria occur when $\, \dot x  = 0\,$. 
+We know that $k$ and $b$ are both positive quantities.
+So $k/b$ is positive.
+Now, we can say that the terms that would cause $\, \dot x = 0\,$
+are $x$ and this factor $\displaystyle \left(\frac{L}{\sqrt {x^2+h^2}} - 1 \right)$.
+So if $\, x = 0, \, \dot x = 0,\,$
+meaning that I'm going to call this equilibrium $\, x_0 ^{*} = 0 \,$  one equilibrium position.
+And now if we set this term $\, \displaystyle \left(\frac{L}{\sqrt {x^2+h^2}} - 1 \right) = 0 \, $
+and solve for $x$, we get two equilibrium positions which I will
+call $\, x_{\pm} ^{*}\,$.
+And those are equal to $\, \pm \sqrt{L^2 - h^2} \,$. \\
+
+So now we're going to plot these equilibrium positions
+in the $(h,\,x)$ plane, where we have $x$ on the vertical axis
+and $h$ on the horizontal axis.
+Now, the equilibrium position $\,x = 0 \,$ just gives us the axis.
+$\, x_{\pm} ^{*}\,$ gives us a semicircle with a radius $L$ and centered at the origin.
+So now we're going to determine the sign of $\dot x$ in each of these four regions
+that are bounded by the equilibrium branches.
+
+\begin{wrapfigure}{r}{4cm}
+  \includegraphics[width=4cm]{image-bead_wire6}
+  \caption{Bifurcation diagram of bead and wire}
+\end{wrapfigure}
+
+And this will tell us more about the long-term behavior of the solutions.
+So in this region we know that $x$ is positive, because we're in the upper half plane.
+And we have that the $\, \sqrt {x^2+h^2} \,$ is larger than the radius, $L$.
+So quantity $\, \displaystyle (\frac{L}{\sqrt {x^2+h^2}} - 1) < 1 , \,$ and subtracting $1$
+makes this factor negative.
+
+\begin{equation*}
+  \dot x = \frac{k}{b} \underbrace{x}_{+}
+  \underbrace{\left(\frac{L}{\sqrt {x^2+h^2}} - 1 \right)}_{-}.
+\end{equation*}
+
+So a positive times a negative gives us a negative,
+and so we have a downwards arrow in this region.
+Inside the semicircle, we have that the $\, \sqrt {x^2+h^2} \,$ less than the radius,
+because we're inside the semicircle.
+So it's less than L. This quantity $\, \displaystyle (\frac{L}{\sqrt {x^2+h^2}} - 1) > 1 , \,$
+and subtracting $1$ gives us a positive quantity here.
+The $x$ is still positive, because we're in the upper half plane.
+
+\begin{equation*}
+  \dot x = \frac{k}{b} \underbrace{x}_{+}
+  \underbrace{\left(\frac{L}{\sqrt {x^2+h^2}} - 1 \right)}_{+}.
+\end{equation*}
+
+So a positive times a positive gives us that $\dot x$ is positive, and we denote just
+by an upwards arrow.
+You can continue these arguments for the other two regions,
+and you'll see that we'll get an upwards arrow here and a downwards arrow here.
+These arrows will help us determine the stability of the branches.
+Branches that have arrows pointing towards them are stable.
+So that would be the semicircle and this part of the $h$ axis.
+Branches that have arrows pointing away from them
+are unstable equilibria. So that you denotes this area here. \\
+
+So now we have the bifurcation diagram that describes the equilibrium positions,
+and we found this by using Newton's second law, writing down our differential equation,
+and setting $\dot x$ equal to 0.
+
+\begin{remark}
+  The arrows in a bifurcation diagram often switch directions across adjacent regions.
+  However, always double check using the differential equation.
+\end{remark}
+
+\clearpage
 
 
 %%% Local Variables:

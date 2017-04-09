@@ -3371,9 +3371,166 @@ If we draw phase lines at all $h$-values, we get a diagram on the right below.
   \end{subfigure}
 \end{figure}
 
+The diagram on the right is called a \emph{\color{blue}bifurcation diagram}.\\
 
+\begin{definition}
+  A \emph{\color{blue} bifurcation diagram} of a family of autonomous equations
+  depending on a parameter $h$ is a plot of the values of the critical points as functions of $h$,
+  along with one arrow in each region in the $\, (h, \, y)$-plane defined by the curve,
+  indicating whether solutions are increasing or decreasing in that region.
+\end{definition}
 
+As usual, the arrows tell us the stability of the critical points.
+In the diagram, we have also explicitly indicated the stability of the critical points by colors:
+\emph{\color{blue}stable} , \emph{\color{orange}unstable}, and \emph{semistable}.
 
+\begin{question}
+  What is the shape of the curve on the bifurcation diagram for $\dot y = 3y - y^2 - h\,$?
+\end{question}
+
+The curve on this bifurcation diagram is a parabola.
+It is defined by $\, 3y - y^2 - h = 0,\,$ or equivalently
+
+\begin{equation*}
+  h = 3y - y^2
+\end{equation*}
+
+a sideways parabola. \\
+
+\textbf{Remark:} The shape of the curve on the bifurcation diagram depends on the differential equation,
+and so there are many possibilities.
+We will see bifurcation diagrams with other curves in the mathlet and paragraph that follows.
+
+\begin{question}
+  How do we find the direction of the arrows (and stability of critical points)
+  on the bifurcation diagram above without drawing many phase lines?
+\end{question}
+
+To get the arrow on the bifurcation diagram directly,
+check the sign of $\, \dot y = f(y)\,$ of one point in each region defined by the graph on the diagram. \\
+In our example of $\, \dot y = 3y - y^2 -h,\,$ check one point inside the parabola,
+such as $\, (h,\, y) = (0,\,1) ,\,$ where $\, \dot y = 3y - y^2 -h\,$.
+This gives an up arrow for the entire region inside the parabola.
+Similarly check one point outside the parabola, such as $\, (h,\, y) = (1,\, 0),\,$
+where $\, \dot y = 3y - y^2 -h < 0\,$.
+This gives an up arrow for the entire region outside the parabola.\\
+Therefore, the upper branch of the parabola consists of \emph{\color{blue}stable} critical points,
+and the lower branch consists of \emph{\color{orange}unstable} critical points,
+when $\,9 - 4h<0,\,$ When $\, 9 - 4h = 0,\,$ the critical point is \emph{semistable}.\\
+
+Let us now use the bifurcation diagram to answer an important question about harvesting frogs.
+
+\begin{example}
+  What is the maximum sustainable harvest rate?
+\end{example}
+
+(\emph{Sustainable} means that the harvesting does not cause the population to crash to $0$,
+but that instead $\, \displaystyle \lim_{t \to + \infty} y(t) \,$ is positive,
+so that the harvesting can continue indefinitely.) \\
+
+\textbf{\color{blue}Solution:}
+The maximum sustainable harvesting rate is $\, h = 9/4,\,$ i.e., $2250$ frogs/month. \\
+\textbf{Why?}
+\begin{itemize}
+\item For $\, h < 9/4,\,$ the phase line is
+  
+  \includegraphics[width=0.5\textwidth]{images_u2s2_harvestproblemphaseline2withnumbers}
+
+  Recall the starting population of frogs is $3000$. So we have the initial condition is
+  $\, y(0) = 3,\,$ which is above the top (blue) branch of the parabola.
+  Let the top branch of the parabola be called $y_{top} (h)$.
+  Then for each value of $\, h < 9/4,\, y(t) \to y_{top}(h)\,$ as $t$ increases.
+\item For $\ h = 9/4 \,$ the phase line is
+
+  \includegraphics[width=0.5\textwidth]{images_u2s2_harvestproblemphaselinesswithnumbers}
+
+  Since $\, y(0) = 3 > 3/2,\,  y(t) \to 3/2,\,$ as $t$ increases.
+\item For $\, h > 9/4,\,$ the phase line is
+
+  \includegraphics[width=0.5\textwidth]{images_u2s2_harvestproblemphaselinenocrit}
+
+  In this case, no matter what the starting population is,
+  $y(t)$ will reach $0$ in finite time and a population crash is inevitable (overharvesting).    
+\end{itemize}
+
+\begin{remark}
+  Harvesting at exactly the maximum rate is a little dangerous,
+  however, because if after a while $y$ becomes very close to $\,3/2,\,$
+  and a little kid comes along and takes a few more frogs out of the pond
+  so that the population is just below $\, 3/2,\,$ the whole frog population will crash!
+\end{remark}
+
+\begin{exercise}
+  Avoiding population crash
+\end{exercise}
+
+Recall the bifurcation diagram for the harvesting problem above.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_bifurcation1}
+  \caption{Bifurcation diagram for $\, \dot y = 3y - y^2 - h\,$}
+\end{figure}
+
+A farmer would like to harvest $2000$ frogs per month.
+What is the minimum starting population $y_{min}$ needed in order to avoid a population crash? \\
+(Enter your answer in kilofrogs.) \\
+
+From the phase line at $\, h=2, \,$ as shown in the diagram above,
+any starting population above and at the critical point is safe from population crash,
+while any population below the critical point will experience a crash.\\
+The critical point at $\, h = 2\,$ is
+the smaller root of $\, 3y - y^2 - 2=0\,$. Factoring the quadratic equation, we find:
+
+\begin{equation*}
+  \displaystyle  -y^2+3y-2=(-y+2)(y-1)=0
+  \displaystyle \Longrightarrow y=1, 2.
+\end{equation*}
+
+Therefore, the minimum starting population needed
+for harvesting at a rate of $2000$ frogs per month is $1000$ frogs. \\
+\textbf{Remark:}\\
+Alternatively, we can use the quadratic formula to solve $\, -y^2 + 3y -2 = 0 \,$:
+
+\begin{equation*}
+  \displaystyle  y = \frac{3 \pm \sqrt {9 - 4(2)}}{2}\, =\, 1\, \text {or}\,  2.
+\end{equation*}
+
+\begin{exercise}
+  Minimum population for different harvesting rates
+\end{exercise}
+
+Consider the same frog harvesting problem as above, and recall its bifurcation diagram:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_bifurcation1}
+  \caption{Bifurcation diagram for $\, \dot y = 3y - y^2 - h\,$}
+\end{figure}
+
+Give a formula for the minimum starting population $y_{min} (h)$
+of frogs required for a farmer to harvest at a rate of $h$ (kilofrogs per month)
+without crashing the population. Assume $\, h < 9/4 \,$.
+(Your answer should be in terms of $h$.)\\
+
+For any harvest rate $\, h < 9/4,\,$
+the minimum starting population of frogs is the value of the lower branch of the parabola at $h$,
+which is the smaller root of $\, 3y - y^2 - h = 0$.
+Solving for $y$ in terms of $h$ by the quadratic formula, we have
+
+\begin{equation*}
+  \displaystyle  \frac{3 \pm \sqrt {9 - 4h}}{2}.
+\end{equation*}
+
+Therefore,
+
+\begin{equation*}
+  \displaystyle \displaystyle y_{min}
+  \displaystyle =
+  \displaystyle  \frac{3 - \sqrt {9 - 4h}}{2}, \qquad \left(h>\frac{9}{4}\right).  
+\end{equation*}
+
+\clearpage
 
 %%% Local Variables:
 %%% mode: latex

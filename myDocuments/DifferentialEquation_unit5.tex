@@ -3002,6 +3002,379 @@ Note: For this reason, an inflection point never has $\, y'=0$.
 
 \clearpage
 
+\subsubsection{Harvesting models}
+
+\paragraph{Logistic equation with harvesting}
+I'm going to soup up this \emph{logistic equation} just a little bit more.
+So let's talk about the logistic equation,
+but I'm going to add to it with \emph{harvesting}.
+So this is a very late 20th century concept.
+
+So we imagine, for example, a bunch of formerly free range
+Atlantic salmon penned in a large--
+one of these huge factory farms off the coast of Maine or someplace.
+They've made salmon very much cheaper than it used to be,
+but at a certain cost to the salmon and possibly to our environment.
+So what happens?
+Well, the salmon grow and grow, and do what salmon do, and they
+are harvested. \\
+So what's the equation?
+I'm going to assume that the \emph{harvest is at a constant time rate}.
+That corresponds to, in other words,
+it's not a certain fraction of all the salmon that are being
+caught each day, and canned.
+It's a certain-- the factory has a certain capacity.
+So 400 pounds of salmon each day are pulled out and canned.
+So it's a time-- constant time rate.
+That means that the equation is
+
+\begin{equation*}
+  \frac{dy}{dt} = ay - by^2 - \underbrace{h}_{\text{Constant harvesting}}
+\end{equation*}
+Not h times y.
+Then I would be harvesting a certain fraction
+of all the salmon there, which is not what I'm doing. \\
+Now, I want to analyze what the critical points of this look
+like.
+Now this a little more subtle, because there's now
+a new parameter there.
+And what I want to see is how that
+varies with the new parameter.
+The best thing to do is--
+I mean, the thing not to do is make this equal to $0$,
+fiddle around with the quadratic formula,
+get some massive expression, and then spend the next half
+hour scratching your head trying to figure out what it means,
+or what information you're supposed to be getting out of it.\\
+Draw pictures instead.
+If $\, h = 0 \,$ that's the smallest harvesting rate I could have.
+The picture looks like our old one.
+So if $\,h = 0\,$ , the picture looks like--
+what color did I? Purple.
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-harvesting}
+  \caption{Graph of $\frac{dy}{dt} = ay - by^2 - h$}
+\end{wrapfigure}
+
+So this is the one-- original one corresponding to $\,h = 0 \,$.
+Or in other words, it's the equation $\, ay^2 - by \,$.
+Now if I want to find--
+I now want to increase the value of $h$, as I increase the value of $h$,
+in other words, harvest more and more, what's happening?
+Well, I simply lower this function by $h$.
+Now, so for example, if I lower h somewhat, it will come to here.
+So this is some value ay minus by squared minus $h_1$. 
+If I lower it a lot, it'll look like this, so $\, ay - by^2 - h_{2}\,$.
+Now obviously, there's one interesting value to lower it by.
+It's the value which would lower it exactly by this amount.
+Let me put that in special.
+If I lower it by just that amount, the curve always looks the same.
+It's just been lowered. I'm going to say this one is--
+so this one is the same thing, except that I've subtracted $h_m$.
+Where is $h_m$ on the picture?
+Well, I lowered it by this amount. So this height is $h_m$.
+In other words, if I find the maximum height here--
+which is easy to do because it's a parabola-- and lower it by exactly that amount,
+I will have lowered it to this point. 
+This will be the \emph{critical point}. \\
+Now the question is, what's happened to the critical points
+as I did this?
+I started with the critical points here and here.
+As I lower $h$, the critical point changed to this and that.
+And now it changed to this one, when I got to the purple line.
+And as I went still further down, there were no critical points.
+So this curve has no critical points attached to it.\\
+
+What are the corresponding pictures?
+The corresponding pictures, well, we've already drawn--
+the picture for $\, h = 0 \,$.
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-harvesting1}
+  \caption{Graph of solutions curve of $\frac{dy}{dt} = ay - by^2 - h$}
+\end{wrapfigure}
+
+How would the solution look like for this one, for $h_1$?
+For $h_1$ the solutions look like, here is $a/b$.
+Here is $a / b,\,$ but the critical points aren't at $0$ and $a/b$ anymore.
+They've moved in a little bit. So they are here and here.
+So otherwise the solutions look just like they did before,
+and the analysis is the same.
+And similarly, if $h_2$ goes very far, if $h_2$ is very large,
+there are no critical points.
+Are the solutions decreasing all the time, or increasing?
+Well, they're always \emph{decreasing}, because the function is always negative.
+Solutions always go down, always.
+The interesting one is this last one, where I've decreased it just to $h_m$.
+And what happens there is, there is this certain magic critical point,
+whose value we could calculate.
+There's one constant solution.
+So this is one that has the value $y$ and $t$ here.
+So here it's the value $,\, h_m,\,$ is the value by which it has been lowered.
+So this is the picture for $h_m$.
+And how do the solutions look?
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-harvesting2}
+  \caption{Graph of Maximum harvesting rate of $\frac{dy}{dt} = ay - by^2 - h$}
+\end{wrapfigure}
+
+Well, to the right of that, they are decreasing.
+And to the left, they're also decreasing,
+because this function is always negative.
+So the solutions look like this If you start above.
+And if you start below, they decrease.
+And of course, they can't get lower than $0$,
+because these are salmon.
+What is the significance of $h_m$?
+The $h_m$ is the \emph{maximum} rate of harvesting.
+It's an extremely important number for this industry.
+It's the maximum rate-- time rate
+at which you can pull the salmon daily out of the water
+and can them without what happening?
+Without the salmon going to $0$.
+As long as you start above, and don't harvest it more
+than this rate, you'll be following these curves.
+You'll be following these curves.
+And you'll still have salmon.
+If you harvest just a little bit more
+you'll be on this curve, that has no critical points.
+And the salmon in the tank will decrease to 0. \\
+
+Recall that a population $y(t)$ in an environment
+with limited resources is described by the logistic equation,
+
+\begin{equation*}
+  \dot y = ay - by^2 \qquad (a,\, b > 0) \qquad (\text{no harvesting}). 
+\end{equation*}
+
+If this population is also harvested at a constant rate,
+we add a term to the logistic equation to include the effect of harvesting:
+
+\begin{equation*}
+  \dot y = ay - by^2  - h \qquad (a,\, b > 0,\, h \geq 0) \quad (\text{with harvesting}). 
+\end{equation*}
+
+where $h$ is the harvesting rate (in number of animals per time).
+
+This is an \emph{infinite family} of autonomous equations,
+one for each value of $h$, and each has its own phase line.
+We will explore how the phase line changes with $h$ in the example and problems below.
+
+\begin{example}
+  Frogs grow in a pond according to the logistic equation
+  with natural growth constant $3$ (in $\text{month}^{−1}$),
+  and eventually the population reaches an equilibrium of $3000$ frogs.
+  Then the frogs are harvested at a constant rate. Model the population of frogs.
+\end{example}
+
+\textbf{\color{blue} Variables and functions:}
+
+\begin{align*}
+  t &\qquad \text{time}\, \text{(month)} \\
+  y(t) &\qquad \text{size of population (kilofrogs) at time $t$} \\
+  h &\qquad \text{harvest rate (kilofrogs per month)}
+\end{align*}
+
+\textbf{\color{blue} Differential equation:} \\
+\textbf{Without harvesting:} \\
+We have modeled the frog population in a pond without harvesting in a previous problem.
+We learned then that the logistic equation can also be written as
+
+\begin{equation*}
+  \dot y = k_0 \left( 1 - \frac{y}{y_0} \right) y. 
+\end{equation*}
+
+where $k_0$ is the natural growth constant
+if the environment is unconstrained, and $y_0$ is the non-zero equilibrium population.
+In our example, $\,k_0 = 3,\,$ and $\, y_0 = 3\,$ (kilofrogs); therefore the DE is
+
+\begin{equation*}
+  \dot y = 3 \left( 1 - \frac{y}{3} \right) y = 3y - y^2. 
+\end{equation*}
+
+\emph{With harvesting: } We add the term $\,−h\,$ to the DE above to account for the harvesting:
+
+\begin{equation*}
+  \dot y = 3y - y^2 -h
+\end{equation*}
+
+for a harvesting rate $h$.
+Since the population has reached the equilibrium of $3$ (kilofrogs) when harvesting starts,
+we use the initial condition $\, y(0)=3 \,$.
+
+\clearpage
+
+\begin{exercise}
+  Draw the phase lines for two different harvesting rates
+\end{exercise}
+
+As in the example above, consider the DE
+
+\begin{equation*}
+  \dot y = 3y - y^2 - h \qquad (h > 0). 
+\end{equation*}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_harvestingproblem}
+  \caption{Graph of $\, \dot y=3y - y^2 - h\,$
+    for $\, h = h_1\,$ (green) and $\,h = h_m\,$ (black)}
+\end{figure}
+
+Use the graphs above to draw the phase line of $\, \dot y=3y − by^2 −h \,$ for $\, h=h_1 \,$.
+The exact location of each critical point is not required.
+
+For $\, h = h_1 \,$
+
+\includegraphics[width=0.7\textwidth]{images_u2s2_harvestproblemphaseline1}
+
+\begin{exercise}
+  Draw the phase lines for two different harvesting rates
+\end{exercise}
+
+As in the problem above,
+
+\begin{equation*}
+  \dot y = 3y - y^2 - h \qquad (h > 0). 
+\end{equation*}
+
+Use the graphs in the previous problem to draw
+the phase line of $\, y˙= 3y − y^2 − h \,$ for $\, h = h_m$.
+The exact location of each critical point is not required. \\
+
+For $\, h = h_m \,$
+
+\includegraphics[width=0.7\textwidth]{images_u2s2_harvestproblemphaseline2}
+
+\clearpage
+
+\begin{exercise}
+  population evolution from phase line
+\end{exercise}
+
+As above, let $h_m$ be the value of $h$ such that
+the graph of $\, f(y) = 3y − y^2 − h_m\,$ is as in the previous problem:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_harvestingproblemhm}
+  \caption{Graph of $\, f(y) = 3y - y^2 - h_m \,$}
+\end{figure}
+
+Let $y(t)$ be a solution to the DE $\, \dot y = 3y − y^2 −h_m$.
+According to the phase line at $\, h = h_m\,$ that you drew in the previous problem,
+can $y(t)$ go all the way from $ + \infty$ to $ + \infty$ as $t$ increases? \\
+
+There are three types of solutions: one to the left of the critical point,
+one at the critical point, and one to the right of the critical point.
+Let $y_0$ be the critical point.
+The three types of solutions correspond to the three possible evolutions,
+which depend on the initial conditions.
+
+\begin{itemize}
+\item If $\, y(0)> y_0\,$, then $\, y(t) \to y_0 \,$ as $\, t \to + \infty \,$.
+\item If $\, y(0) =  y_0\,$, then $\, y(t) =  y_0 \,$ for all $t$.
+\item If $\, y(0) < y_0\,$, then $y(t)$ tends to $- \infty$.
+  (We interpret this as a population crash : the frog population reaches $0$ in finite time;
+  the part of the trajectory with $\, y<0 \,$ is not part of the population model).
+\end{itemize}
+
+\clearpage
+
+\begin{exercise}
+  Phase lines for different harvesting rates
+\end{exercise}
+
+As above, consider the DE
+
+\begin{equation*}
+  \dot y = 3y - y^2 - h \qquad (h > 0). 
+\end{equation*}
+
+The 4 phase lines given below are for 4 different values of
+$\, h: h=a,\, h=b, \, h=c,\,$ and $h=d$.
+Order $\,a,\, b,\, c,\, d\, $ in increasing order.
+
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u2s2_4phaselines_a}
+  \caption{Graph of phase lines}
+\end{figure}
+
+Solution is $\, b < a < d < c \,$.\\
+This be because as $h$ increases, the graph of $\, f(y) = 3y − y^2 − h\,$
+(shown in the previous problem) is translated vertically downwards,
+and therefore the distance between two critical points shrinks,
+until eventually there is only one critical point, and then none.
+
+\begin{exercise}
+  Number of critical points
+\end{exercise}
+
+As above, consider the DE
+
+\begin{equation*}
+  \dot y = 3y - y^2 - h \qquad (h \geq 0). 
+\end{equation*}
+
+Let $h_m$ be the value of h for which the DE has exactly $1$ critical point,
+and let $y_0$ be the value of that critical point. Find $h_m$ and $y_0$. \\
+The quantities $h_m$ and $y_0$ are of physical importance;
+they correspond to the maximal harvesting rate
+and the equilibrium population at the maximum harvesting rate respectively.
+We will come back to this shortly.\\
+
+The critical points are the real roots of $\, 3y − y^2 − h\,$.
+Using the quadratic formula, we get
+
+\begin{equation*}
+  \displaystyle \displaystyle y_0(h) = \frac{3 \pm \sqrt{9 - 4h}}{2}. 
+\end{equation*}
+
+Therefore, the DE has exactly $1$ critical point $\, y_0 = 3/2\,$ when $\, 9 − 4h = 0\,$.
+(The DE has $2$ critical points when $\, 9 − 4h > 0,\,$
+and no critical point when $\, 9 − 4h < 0\,$.)
+
+\clearpage
+
+\subsubsection{Bifurcation diagrams}
+
+Let us continue with our previous example of frogs being harvested from a pond.
+Their population is modeled by
+
+\begin{equation*}
+  \dot y = 3y - y^2 - h \qquad (h \geq 0). 
+\end{equation*}
+
+You have just seen that the phase lines corresponding to different values of $h$,
+can be very different, and they tell us how the frog population evolves for different harvesting rate.
+Our goal now is to summarize all this information in a single diagram.\\
+
+If we draw phase lines vertically at several $h$-values in the $(h,\,y)$-plane,
+we get a diagram on the left below.
+If we draw phase lines at all $h$-values, we get a diagram on the right below.
+
+\begin{figure}[ht!]
+  \centering
+  \begin{subfigure}[b]{.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images_bifurcation4a}
+    \caption{Vertical phase lines of $\, \dot y = 3y - y^2 - h\,$ at discrete values of $h$}
+  \end{subfigure}
+  \begin{subfigure}[b]{.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images_bifurcation1}
+    \caption{Bifurcation diagram for $\, \dot y = 3y - y^2 - h\,$}
+  \end{subfigure}
+\end{figure}
+
+
+
+
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

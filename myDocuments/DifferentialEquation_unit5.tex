@@ -4137,6 +4137,392 @@ Put the  $\, y_{min} = 0.5 \,$ in the equation
 
 \clearpage
 
+\subsubsection{Euler's method}
+
+Consider an ODE $\, \dot y = f(t,y)\,$.
+It specifies a slope field in the $\,(t,\,y)\,$-plane, and solution curves follow the slope field. \\
+
+Suppose that we are given a starting point $\,(t0,\,y0),\,$
+and that we are trying to approximate the solution curve through it.
+
+\begin{question}
+  Where, approximately,
+  will be the point on the solution curve at a time $h$ seconds later?
+\end{question}
+
+We have $\,y(t_0) = y_0,\,$ and $\,y'(t_0) = f(t_0,\,y_0)$.
+Using linear approximation, we get
+
+\begin{equation*}
+  y(t_0+h)=y_0+hf(t_0, y_0).
+\end{equation*}
+
+The geometrical picture as follows:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u1c5s3_Euler1step}
+\end{figure}
+
+\begin{equation*}
+  {\color{orange}{ y_1-y_0\, = \, h y'(t_0)\, =\, hf(t_0,y_0)}}
+\end{equation*}
+
+\paragraph{Euler's method}
+I think it's a good idea-- since in real life,
+most of the differential equations are solved by numerical methods--
+to introduce you to those right away.
+Even when you see where you saw the computer screen,
+the solutions being drawn, of course what really was happening is that the computer
+was calculating the solutions numerically and plotting the points.
+So this is the main way. \\
+Numerically is the main way differential equations
+are actually solved if they have any complexity at all.
+Now, so the problem is that initial value problem--
+let's write a first-order problem the way
+
+\begin{equation*}
+  y' = f(x, y). 
+\end{equation*}
+
+And now I'll specifically add to that the starting point
+that you used when you did the computer experiments.
+And I'll write the starting point this way.
+
+\begin{equation*}
+  y(x_0) = y_0. 
+\end{equation*}
+
+So this is the initial condition,
+and this is the first-order differential equation.
+And as you know, the two of them together are called an \emph{IVP},
+an initial value problem, which means two things--
+the differential equation and the initial value that you want to start the solution at. \\
+
+Now the method we're going to talk about,the basic method, of which many others
+are merely refinements in one way or another, is called \emph{Euler's method}. \\
+Euler, who did of course everything in analysis,
+as far as I know, didn't actually use it to compute solutions of differential equations.
+His interest was theoretical.
+He used it as a method of proving the existence theorem,
+proving that solutions existed.
+But nowadays, it's used to calculate the solutions numerically. \\
+
+And the method is very simple to describe.
+It's so naive you probably think that if you had been living
+300 years ago, you would have discovered it and covered yourself with glory for all eternity.\\
+
+So here is our starting point, $x_0,\, y_0$.
+
+
+
+Now, what information do we have?
+At that point, all we have is the little line element whose
+slope is given by $f(x, \, y)$.
+So if I start the solution, the only way the solution could possibly go would
+be to start off in that direction, since I have no other information.
+At least it has the correct direction at $x_0, \, y_0,\,$
+but of course, it's not likely to have the correct direction
+anywhere else.
+Now, what you do then is choose a step size.
+I'll draw just a few, two steps of the method, and that's, I think, good enough.
+You choose a uniform step size, which is usually called $h$,
+and you continue that solution until you get to the next point,
+which will be $\, x0 +  h,\,$ as I've drawn it on the picture.
+So we get to here. We stop at that point.
+And now you recalculate what the line element is here.
+Suppose here, the line element now through this point
+goes like that.
+Well, then that's the new direction that you should start out with, going from here.
+And so the next step of the process will carry you to here.
+That's two steps of Euler's method.
+Notice it produces a broken line approximation to the solution,
+but in fact you only see that broken line
+if you're at a computer, if you're looking at the computer
+visual, for example, whose purpose is to illustrate
+for you Euler's method.
+In actual practice, what you see is just the computer is simply calculating
+this point, that point, that point, and the succession of points.
+And many programs will just automatically connect
+those points by a smooth-looking curve, if that's what you prefer to see.
+Well, that's all there is to the method. \\
+
+What we have to do now is derive the equations for the method.
+Now, how are we going to do that?
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-method_Eulers_formular}
+  \caption{Method of Euler's Formula}
+\end{wrapfigure}
+
+Well, the essence of it is how to get from the $n$ th step to the $n$ plus first step.
+So I'm going to draw a picture just to illustrate that.
+So now we're not at $x_0$, but let's say we've already gotten to $x_n, \, y_n$.
+How do I take the next step?
+Well, I take the line element and it goes up like that,
+let's say, because the slope is this.
+I'm going to call that slope $A_n$.
+Of course, $A_n$ is the value of the right hand side
+at the point $\, x_n,\, y_n, \,$ and we'll need that in the equation.
+But I think it will be a little clearer if I just give it a capital letter at this point.
+Now, this is the new point, and all I want to know is, what are its coordinates?
+Well, the $\, x_n + 1 \, $ is there. The $\, y_n + 1 \,$ is here.
+Clearly I should draw this triangle, complete the triangle.
+This side of the triangle, the hypotenuse, has slope $A_n$.
+This side of the triangle has length $h$. The $h$ is the step size.
+Perhaps I'd better indicate that, actually put that up,
+so that you know the word. Step size.
+It means how-- it's the step size on the $x$-axis, how far you have to go to get
+from each $x$ to the next one.
+What's this? Well, if that slope has the slope $A_n, \,$ this is $h, \,$
+then this must be $\, h A_n, \,$ the length of that side,
+right, in order that the ratio of the height to this width should be $A_n$.
+And that gives us the method. \\
+How do I get from--
+clearly, to get from $x_n$ to $x _{n+1}, \,$ I simply add $h$.
+So that's the trivial part of it.
+The interesting thing is, how do I get the new $\, y_{n+1}\,$?
+And so the best way to write it as that
+
+\begin{equation*}
+  y _{n+1} - y_n = h A_n 
+\end{equation*}
+
+So that's the way to write it.
+Or, since the computer is interested in calculating
+$y_{n+1}$ itself, put this on the other side.
+You take the old $y_n, \,$ the previous one, and to it you add $h A_n $.
+
+\begin{equation*}
+  y_{n+1} = y_n + h A_n
+\end{equation*}
+
+And what, pray tell, is $A_n$?
+Well, the computer has to be told that An is the value of $f(x, \, y)$.
+So now, with that, let's actually write the Euler program.
+Not the program, but the Euler method equations.
+Let's just call it the Euler equations.
+What will they be?
+
+\begin{align*}
+  x_{n + 1} &= x_n + h \\
+  y_{n+1} &= y_n + h A_n \\
+  A_n = f(x_n, \, y_n)
+\end{align*}
+
+So it's these three equations which define Euler's method.
+And these are the equations.
+These would be the recursive equations that you would put in to do that. \\
+
+\textbf{\color{orange}Note on the previous paragraph:}
+In the above paragraph $x$ uses instead of $t$, as the independent variable. \\
+
+Consider again the ODE $\, \dot y = f(t,y) \,$ and the starting point $(t_0 , y_0)$.
+We try to approximate the solution curve through it.
+
+\begin{question}
+  Where, approximately, will be the point on the solution curve at
+  time $\, t_0 + 3h \,$?
+\end{question}
+
+The crude answer would be to take $3$ steps each using the initial slope
+$\, f(t_0, y_0) \,$ (or equivalently, one big step of width $3h$).
+
+Geometrically:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u1c5s3_crude3step}
+\end{figure}
+
+The more refined answer is called \emph{\color{blue}Euler's method} :
+take $3$ steps, \emph{but reassess the slope after each step, using the slope field at each successive position} :
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u1c5s3_Euler3stepsnew}
+\end{figure}
+
+\begin{align*}
+  t_1 = t_0 + h & \qquad y_1 = y_0 + f(t_0, y_0)h \\
+  t_2 = t_1 + h & \qquad y_1 = y_1 + f(t_1, y_1)h \\
+  t_3 = t_2 + h & \qquad y_3 = y_2 + f(t_2, y_2)h 
+\end{align*}
+
+The sequence of line segments from
+$(t_0 , y_0)$ to $(t_1 , y_1)$ to $(t_2 , y_2)$ to $(t_3 , y_3)$ is
+a piecewise linear approximation to the solution curve.
+The more refined answer to the question is $(t_3 , y_3)$. \\
+
+\textbf{Euler's Method:} \\
+Given an initial value problem
+
+\begin{equation*}
+  y' = f(t, x) \qquad y(t_0) = y_0, 
+\end{equation*}
+
+and a choice of step size $h$ (in seconds if time is the independent variable),
+the Euler method gives an approximation to the solution curve between
+$\, t = t_0 \,$ and $\, t = t_0 + (n + 1)h , \,$ by a sequence of
+line segments connecting the points
+$ \,  (t_0,y_0),\, (t_1,y_1),\, \ldots \, (t_ n,y_ n), \, (t_{n+1},y_{n+1}),\,$
+where for each $0\leq k\leq n,\,$
+
+\begin{align*}
+  t_{k+1} &= t_k + h \\
+  y_{k+1} &= y+k + hf(t_k , y_k).
+\end{align*}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u1c5s3_Eulernsteps}
+\end{figure}
+
+\begin{equation*}
+  {\color{orange}{y_{k+1}-y_ k\, = \, h y'(t_ k)\, =\, f(t_ k,y_ k)}}
+\end{equation*}
+
+These calculations are usually done by computer, and there are round-off errors in calculations.
+But even if there are no round-off errors, Euler's method hardly ever gives the exact answer.
+The problem is that the actual solution is rarely a straight line.  \\
+
+\paragraph{Worked example}
+Let's try an example then.
+
+\begin{align*}
+  x_{n + 1} &= x_n + h \\
+  y_{n+1} &= y_n + h A_n \\
+  A_n = f(x_n , \, y_n)
+\end{align*}
+
+So let's calculate.
+I'll use a simple example, but it's not entirely trivial.
+My example is going to be the equation
+
+\begin{align*}
+  y' &= x^2 - y^2 \\
+  y(0) &= 1 \\
+  h &= 0.1 \\ 
+\end{align*}
+
+And so this is my initial value problem.
+That pair of equations, and I have to specify a step size.
+So let's take the step size to be $0.1$.
+You choose the step size, or the computer does,
+we'll have to talk about that in a few minutes.
+Now, what do you do?\\
+Well, I say this is a non-trivial equation,
+because this equation, as far as I know,
+cannot be solved in terms of elementary functions.
+So this equation will be, in fact, a very good candidate for a numerical method like Euler's.
+And you had to use it-- or maybe it was the other way around.
+You drew a picture of the direction, field,
+and answered some questions about the isoclines, how the solutions behave.
+All right now, the main thing I want you to get,
+this is not just for Euler's, talking about Euler's equations, but in general,
+for the calculations you have to do in this course,
+it's extremely important to be \emph{systematic}.
+Because if you are not systematic,
+if you just scribble, scribble, scribble, scribble,
+you can do the work, but it becomes impossible to find mistakes.
+You must do the work in a form in which it
+can be checked, which you can look over it and find and try
+to see where the mistakes are, if in fact there are any.
+So I strongly suggest that you make a little table to do Euler's method by hand.
+I'd only ask you for a step or two,
+since I'm just trying to make sure you have some idea of these equations
+and where they come from.
+So first the value of $n$, then the value of $x_n,\,$
+then the value of the $y_n$.
+And then a couple of more columns which tells you how to do the calculation.
+You're going to need the value of the slope $,\, A_n \,$
+and it's probably a good idea, also--
+because otherwise, you'll forget it--
+to put in $h A_n,\,$ because that occurs in the formula.
+All right, let's start doing it. \\
+
+Well, the first value of $n$ is $0$.
+That's the starting point.
+At the starting $x_0,\,  y_0,\,$  $x$ has the value $0,\,$
+and $y$ has the value $1$.
+In other words, I'm carrying out exactly what
+I drew pictorially, only now I'm doing it arithmetically using
+a table and substituting into the formulas.
+OK, the next thing we have to calculate is $A_n$.
+Well, since An is the value of the right hand
+side$,\, x^2 - y^2, \,$ at the point $\, 0, \, 1,\,$ you have to plug that in.
+The value of the slope there is $-1$.
+Now, I have to multiply that by $h$.
+$h$ is $-0.1$. 
+
+\begin{table}[]
+  \centering
+  \begin{tabular}{lllll}
+    $n$ & $x_n$ & $y_n$ & $A_n$ & $h A_n$ \\
+    0  & 0     & 1     &  -1   &  -0.1    \\
+    1  & 0.1   & 0.9   & -0.80 &  -0.08   \\
+    2  & 0.2   & 0.82  & 0.6324&  0.06324 \\ 
+  \end{tabular}
+\end{table}
+
+What's the value of $x _n$?
+Well, to the old $1$, I add one tenth.
+What's the value of $y$?
+Well, at this point, you have to do the calculation.
+It's the old value of $y$--
+to get this new value, it's the old value plus $-0.1$.
+Well, that's $\,y_{1} = y_{0} + h A_n  = 1 - 0.1 = 0.9 \,$.
+An, now I have to calculate the new slope at this point.
+OK, that is $\, 0.1^2 - 0.9^2 = -0.80 \,$. 
+I now multiply that by $h$, and which
+means it's going to be $- 0.08$, perhaps, with a $0$ after.
+I didn't tell you how many decimal places.
+Let's carry it out to two decimal places.
+I think that will be good enough.
+
+And finally the last step, $2$ here,
+add $1$, add another one tenth, so the value of $x$ is now two tenths.
+And finally, what's the value of $y$?
+Well, I didn't tell you where to stop.
+Let's stop at $y$ of $0.2,\,$ because there's no more room on the blackboard.
+Seems like an excellent--
+about approximately how big is that, in other words.
+Then, this is going to be this, the old $y$,
+plus this number, which seems to be $0.82$ to me.
+So the answer is, the new value is $0.82$.
+
+\begin{exercise}
+  Practice
+\end{exercise}
+
+Continue with the example from the above paragraph
+and use Euler method with time step $\, h=0.1, \,$ to approximate the solution
+to the initial value problem
+
+\begin{equation*}
+  y'\, =\, f(x,y)\, =\, x^2-y^2, \qquad y(0)=1
+\end{equation*}
+
+at $\, x = 0.3 $.
+
+\begin{table}[]
+  \centering
+  \begin{tabular}{lllll}
+    $n$ & $x_n$ & $y_n$ & $A_n$ & $h A_n$ \\
+    0  & 0     & 1     &  -1   &  -0.1    \\
+    1  & 0.1   & 0.9   & -0.80 &  -0.08   \\
+    2  & 0.2   & 0.82  & -0.6324&  -0.06324 \\
+    3  & 0.3   & 0.75676  &  &   
+  \end{tabular}
+\end{table}
+
+So,
+
+\begin{equation*}
+  y(0.3) \approx \quad 0.76
+\end{equation*}
+
+\clearpage
 
 
 %%% Local Variables:

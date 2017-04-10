@@ -3961,6 +3961,91 @@ and setting $\dot x$ equal to 0.
 
 \clearpage
 
+\subsection{Recitation}
+
+\subsubsection{Phase lines}
+
+Horseshoe crab blood (which is bright blue since it is based on copper rather than iron)
+contains cells that respond to bacteria at about one part in a trillion.
+Starting in 1970 it has been used to detect bacterial infections in humans.
+A start-up in Maryland is considering creating a horseshoe crab farm,
+and seeks advice about how large a herd they should create
+in order to sustain the level of harvesting that would make a profit, namely, 250 crabs per month.\\
+
+Here's a model. The unknown $a$ is proportional to the size of the farm.
+This proportionality constant is the maximum population in the absence of harvesting
+(measured in kilocrabs).
+The larger the farm, the larger the maximum population with no harvesting.
+Crabs multiply fast in an unconstrained environment, at the rate of $1 \text{month}^{−1}$.
+So the logistic growth rate is $\, (1−y/a),\,$ and the logistic equation is
+
+\begin{equation*}
+  \dot y = \left( 1 - (y/a) \right)y = y - y^2/a.  
+\end{equation*}
+
+If we now include the desired harvest rate we get
+
+\begin{equation*}
+  \dot y = -\frac{1}{4} + y - \frac{y^2}{a}. 
+\end{equation*}
+
+Our job is to determine the behavior of the crab population for various values of $a$.
+
+\begin{problem}
+  Phase line for particular value of $a$
+\end{problem}
+
+Just as an experiment, sketch the phase line for $\,a=2.$
+Be sure to include all critical points; say whether they are stable or unstable
+(or neither), and include the direction of travel of solutions. \\
+
+The DE is
+
+\begin{equation*}
+  \dot y = -\frac{1}{4} + y - \frac{y^2}{2}.
+\end{equation*}
+
+To find critical point set $\, dot y = 0\,$
+
+\begin{align*}
+  -\frac{1}{4} + y - \frac{y^2}{2} &= 0 \\
+  y^2 -2y + \frac{1}{4} &= 0 \\
+  y = 1 + \pm \sqrt{2}
+\end{align*}
+
+\begin{itemize}
+\item $\, y < 1 - \sqrt{2}\,$ then, $\dot y$ is decrease.
+\item $\, 1 - \sqrt{2} < y < 1 + \sqrt{2}\, $ then $\dot y$ is increases.
+\item $\, y > 1 + \sqrt{2}\,$ then, $\dot y$ is decrease.
+\end{itemize}
+
+The phase line is
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-recitation_phase_line}
+  \caption{Phase line of $\, \dot y = -\frac{1}{4} + y - \frac{y^2}{2} $}
+\end{figure}
+
+\clearpage
+
+\begin{problem}
+  Sketch solutions
+\end{problem}
+
+Again for $\,a = 2,\,$ sketch representative graphs of the population evolution,
+one of each type of solution.
+
+The solution curves is
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-recitation_soluation_curve}
+  \caption{Solution Curve of $\, \dot y = -\frac{1}{4} + y - \frac{y^2}{2} $}
+\end{figure}
+
+\clearpage
+
 
 %%% Local Variables:
 %%% mode: latex

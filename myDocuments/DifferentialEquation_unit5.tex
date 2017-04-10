@@ -4734,6 +4734,150 @@ $\, t_0,\, y(t_0),\,$ as well as $\, \dot y(t_0) = f(t_0,y_0)$.
 
 \clearpage
 
+\subsubsection{Error and step size}
+
+\paragraph{Error and step size}
+The question, then, is naturally this is not the world's best method.
+It's not as bad as it seems.
+It's not the world's best method because that convexity
+and concavity means that you're automatically introducing a \emph{systematic error}.
+If you can predict which way the error is
+going to be by just knowing whether the curve is convex or concave, then it's not what you want.
+You want to at least have a chance of getting
+the right answer, whereas this is telling you you're definitely going to get the wrong answer.
+All it tells you is--
+and it's telling you your answer's going to be too high or too low.
+We'd like a better chance of getting the right answer.
+So the question is, how do you get a better method? \\
+
+The search is for a \emph{better method}.
+Now, the first method--
+which will occur I'm sure to anyone
+who looks at that picture--
+is look, if you want this yellow line to follow the white one--
+the white solution-- more accurately, for heaven's sake,
+don't take such big steps.
+Take small steps, and then it will follow better.
+All right, let's draw a picture. \\
+
+So, use a \emph{smaller step size}.
+And the picture roughly-- which is
+going to justify that-- it will look like this.
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-Error_Euler_method}
+  \caption{Error of Euler's Method}
+\end{wrapfigure}
+
+If the solution curve looks like this, then
+with a big step size, I'm liable to have
+something that looks like that.
+But if I take a smaller step-- so I suppose I halve the step
+size--
+how is it going to look then?
+Well, I better switch to a different color.
+If I halve the step size I'll get a littler--
+goes like that-- and now it's following closer.
+Of course, I'm stacking the deck,
+but see how close it follows?
+No, I'm definitely not to be trusted on this, but--
+OK, let's do the opposite and make really big steps.
+Suppose instead of the yellow one
+I use the green one of double step size.
+What would have happened then?
+Well I've started out, but now I've
+gone all the way to there, and now on my way up-- of course,
+it has a little further to go-- but if for some reason
+I stopped there, you can see I would be still lower.
+In other words, the bigger the step size, the more the error.
+And where are the errors that we're talking about?
+Well, the way to think of the errors--
+this is the error--
+that number of the error.
+You can make it a positive, negative,
+or just put it automatically an absolute value sign around it.
+That's not so important.
+So in other words, the conclusion
+is that the error $e$--
+the difference between the true value that I should have gotten
+and the Euler value that the calculation produced--
+\emph{the error $e$ depends on the step size}. \\
+Now, how does it depend on the step size?
+Well, it's impossible to give an exact formula,
+but there's an approximate answer,
+which is by and large true.
+And the answer is--
+so $e$ is going to be a function of $h$.
+What function?
+Well, asymptotically-- which is another way of putting
+quotation marks around what I say--
+it's going to be a constant-- some constant--
+times $h$.
+
+\begin{equation*}
+  e \sim c_1 h 
+\end{equation*}
+
+It looks like this.
+And for this reason, it's called a first order--
+the Euler is a \emph{first order method}.
+And now, first order does not refer to the first order of the differential equation.
+It's not that use of the word first.
+It's not the first order because it's $\, \dot y = f(x, y)$. 
+The first order means the fact that $h$ occurs to the first power.
+The way people usually say this is, since the normal way
+of decreasing the step size--
+as you'll see as soon as you try to use a computer visual that
+deals with Euler method-- which I highly recommend by the way--
+so highly recommended that you have to do it--
+is that, the way to say it--
+since you-- each new step halves the step size--
+that's the usual way to do it.
+If you halve the step size--
+since this is a constant, if I halve the step size,
+I halve the error, approximately.
+Halve the step size, halve the error.
+That tells you how the error varies with step size for Euler's method. \\
+
+To improve the approximation by the Euler method, we can use a smaller step size $h$,
+so that the slopes of the line segments are reassessed more frequently. \\
+
+The cost of this, however, is that to increase $t$ by a fixed amount, more steps will be needed. \\
+
+Under reasonable hypotheses on $f$ – the right hand side of the DE $\, \dot y= f(t,y) \,$
+– one can prove that in the limit as $\, h \to 0,\,$ this process converges and produces
+an exact solution curve.
+This is one way to prove that the solution to the initial value problem exists.
+In fact, this is the way Euler proved it.\\
+
+\textbf{Error of approximation:}\\
+Let $\, \bar{y}(t)\,$ be the approximate solution given by Euler's method with step size $h$.\\
+Let the \emph{\color{blue} error of approximation} $e$
+over the interval $\, [a,b] \,$ be
+
+\begin{equation*}
+  e\, = \max _{a\leq t\leq b} \left|y(t)-\bar{y}(t)\right|.
+\end{equation*}
+
+That is, $e$ is the maximum absolute difference between the actual solution
+$y(t)$ and $\bar{y} (t)$. The error $e$ is bounded above by a \emph{linear} function of $h$
+
+\begin{equation*}
+  e\leq C h
+\end{equation*}
+
+where $C$ is a constant depending on $f$.
+Because $h$ occurs as a first power above, not $\, h^{1/2}\,$ or $\, h^2,\,$
+Euler's method is called a \emph{\color{blue}first order method}.
+
+\clearpage
+
+
+
+
+
+
+
 
 %%% Local Variables:
 %%% mode: latex

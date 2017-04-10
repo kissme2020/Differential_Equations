@@ -4019,6 +4019,8 @@ To find critical point set $\, dot y = 0\,$
 \item $\, y > 1 + \sqrt{2}\,$ then, $\dot y$ is decrease.
 \end{itemize}
 
+\clearpage
+
 The phase line is
 
 \begin{figure}[ht!]
@@ -4026,8 +4028,6 @@ The phase line is
   \includegraphics[width=0.5\textwidth]{image-recitation_phase_line}
   \caption{Phase line of $\, \dot y = -\frac{1}{4} + y - \frac{y^2}{2} $}
 \end{figure}
-
-\clearpage
 
 \begin{problem}
   Sketch solutions
@@ -4307,7 +4307,7 @@ What will they be?
 \begin{align*}
   x_{n + 1} &= x_n + h \\
   y_{n+1} &= y_n + h A_n \\
-  A_n = f(x_n, \, y_n)
+  A_n &= f(x_n, \, y_n)
 \end{align*}
 
 So it's these three equations which define Euler's method.
@@ -4327,6 +4327,8 @@ We try to approximate the solution curve through it.
 
 The crude answer would be to take $3$ steps each using the initial slope
 $\, f(t_0, y_0) \,$ (or equivalently, one big step of width $3h$).
+
+\clearpage
 
 Geometrically:
 
@@ -4455,7 +4457,7 @@ The value of the slope there is $-1$.
 Now, I have to multiply that by $h$.
 $h$ is $-0.1$. 
 
-\begin{table}[]
+\begin{table}[ht!]
   \centering
   \begin{tabular}{lllll}
     $n$ & $x_n$ & $y_n$ & $A_n$ & $h A_n$ \\
@@ -4491,6 +4493,8 @@ Then, this is going to be this, the old $y$,
 plus this number, which seems to be $0.82$ to me.
 So the answer is, the new value is $0.82$.
 
+\clearpage
+
 \begin{exercise}
   Practice
 \end{exercise}
@@ -4505,7 +4509,7 @@ to the initial value problem
 
 at $\, x = 0.3 $.
 
-\begin{table}[]
+\begin{table}[ht!]
   \centering
   \begin{tabular}{lllll}
     $n$ & $x_n$ & $y_n$ & $A_n$ & $h A_n$ \\
@@ -4521,6 +4525,212 @@ So,
 \begin{equation*}
   y(0.3) \approx \quad 0.76
 \end{equation*}
+
+\clearpage
+
+\subsubsection{Overestimate, underestimate and concavity}
+
+\paragraph{Overestimate, underestimate and concavity}
+Well, now let's ask a few questions.
+One of the first, most basic thing
+is, you know,
+
+\begin{table}[ht!]
+  \centering
+  \begin{tabular}{lllll}
+    $n$ & $x_n$ & $y_n$ & $A_n$ & $h A_n$ \\
+    0  & 0     & 1     &  -1   &  -0.1    \\
+    1  & 0.1   & 0.9   & -0.80 &  -0.08   \\
+    2  & 0.2   & 0.82  & -0.6324&  -0.06324 
+  \end{tabular}
+\end{table}
+
+\begin{equation*}
+  y(0.2) \approx 0.82
+\end{equation*}
+
+how right is this?\\
+
+How can I answer such a question if I have no explicit formula
+for that solution?
+That's the basic problem with numerical calculation.
+In other words, I have to wander around
+in the dark to some extent, and yet
+have some idea when I've arrived at the place that I want to go. \\
+Well, the first question I'd like to answer,
+question is, is this too high or too low?
+Is Euler-- sorry, he will forgive me in heaven.
+I will use him.
+By this, I mean, is the result--
+well, let me say something first, and then I'll criticize it.
+Is Euler too high or too low? \\
+In other words, is the result of using Euler's method, i.e.
+is this number too high or too low?
+Is it higher than the right answer, what it should be?
+Or is it lower than the right answer?
+Or, god forbid, is it exactly right?
+It's almost never exactly right.
+That's not an option.
+
+Now, how will we answer that question?
+Well, let's answer it geometrically.
+Basically, if the solution were a line, were a straight line,
+then the Euler method would be exactly right all the time.\\
+But it's not a line.
+It's a curve.
+Well, the critical question is, is it curved-- is the solution-- so here's the solution.
+Let's call it $y_1 (x)$.
+And let's say here was the starting point.
+
+\begin{wrapfigure}{r}{5.5cm}
+  \includegraphics[width=5.5cm]{image-Euler_convex_concave}
+  \caption{Convex and Concave on Euler's formula}
+\end{wrapfigure}
+
+Here, the solution is \emph{convex}.
+And here, the solution is \emph{concave}.
+Right, a concave up, a concave down. 
+If you learned those words, but I think those have, by now, pretty--
+I hope pretty well disappeared from the curriculum.
+Call it-- if you haven't up till now--
+what mathematicians call it, convex is that, and the other one is concave.
+Well, how do the Euler solutions look?
+Well, I'll just sketch--
+I think from this you can see already, when you start out
+on the Euler solution, it's going to go like that.
+Now you're too low.
+Well, let's suppose after that the line element here is approximately the same as what it is there,
+you know, roughly parallel.
+After all, they're not too far apart.
+And the direction field is continuous.
+That is, the directions don't change drastically from one point to another.
+Well, then it'll sort of-- but now you see it's still too low.
+It's even lower.
+As it pathetically tries to follow, it's losing territory.
+And that's basically because the curve is convex.
+Exactly the opposite would happen \emph{if the curve were concave}, if the solution curve
+were concave.
+Now it's \emph{too high}, and it's not going to be able to correct that as long as the solution
+curve stays concave.
+Well, that's probably too optimistic.
+It's probably more like this.
+So in other words, in this case, \emph{if the curve is convex}, Euler is going to be \emph{too low}.
+Let's put $E$ for Euler.
+How about that?
+Euler is too low.
+If it's concave, then Euler is too high.
+There's just one little problem left, namely,
+if we don't have a formula for the solution,
+and we don't have a computer that's
+busy drawing the picture for us, in which case
+we wouldn't need any of this anyway, how are we supposed to tell if it's convex or concave? \\
+
+Ah, back to calculus.
+Calculus to the rescue.
+When is a curve convex? \\
+A curve is convex if its second derivative $\, y'' > 0,\, $
+because the first-- to be convex means the first derivative is increasing
+all the time, and therefore the second derivative,
+which is the derivative of the first derivative, should be positive.
+Just the opposite here-- the curve,
+the slope is, the first derivative is decreasing all the time, and therefore the second derivative is $\, y'' < 0 \,$. 
+So all we have to do is decide what the first and second--
+what the derivative, the second derivative of this solution is.
+We should probably call it a solution.
+$y(x)$ is a little too vague.
+$y_1$ means the solution that started at this point.
+So in fact, probably it would have
+been better from the beginning to call that $\, y_1, \,$ except there's no room.
+y1, let's say.
+That means the solution which started out at the point $(0, 1)$.
+So I'm still talking about a solution like that.
+All right.
+So I want to know, if this is positive,
+the second derivative is positive at the starting point
+$0$, or it's negative.
+Now, again, how do you calculate the second derivative if you don't know what the solution is explicitly?
+And the answer is, you can do it from the differential equation itself.
+
+How do I do that?
+Well, easy.
+
+\begin{equation*}
+  y' = x^2 - y^2
+\end{equation*}
+
+OK, that tells me how to calculate $y'$
+if I know the value of $x$ and $y,\,$ in other words, the point $(0,\, 1)$.
+What would be the value of $y''$?
+Well, differentiate the equation.
+
+\begin{equation*}
+  y'' = 2x - 2yy' 
+\end{equation*}
+
+Don't forget to use the chain rule.
+So if I want to calculate at $(0, 1),\,$ in other words, at my starting point,
+is that curve convex or concave?\\
+Well, let's calculate.
+
+\begin{align*}
+  y(0) &= 1 \\
+  y'(0) & = -1 \\
+  y''(0) & = 2 \cdot 0 - 2 \cdot 1 \cdot -1 = 2. 
+\end{align*}
+
+I've calculated-- without having the foggiest idea of what the solution is or how it looks, I've
+calculated that its second derivative
+at the starting point is $2$.
+Therefore, my solution is convex at the starting point.
+And therefore this Euler approximation,
+if I don't carry it out too far, will be too low.
+So it's convex, Euler, too low.
+
+\clearpage
+
+One of the first questions to ask about the Euler method is
+whether the approximation it gives is too high or too low.
+This is in general difficult to decide,
+but when the actual solution is known to be either concave or convex, we do know the answer. \\
+
+Recall in Euler's method, we start with the initial value problem
+
+\begin{equation*}
+  y' = f(t,y), \qquad y(t_0) = y_0. 
+\end{equation*}
+
+Let $y(t)$ be the actual solution and let $\, \bar{y}(t)\,$
+be the approximate solution given by Euler's method with stepsize $h$.
+As before, $\, t_n = t_0 + nh \,$ is the time after $n$ steps.
+\begin{itemize}
+\item If $y(t)$ is \emph{convex} (or \emph{concave up}), that is,
+  if $\, \ddot y > 0,\,$ in the interval $[t_0 , t_n],$ then
+  $\, \bar{y}(t_ n)< y(t_ n)$.
+
+  \includegraphics[width=0.5\textwidth]{images_u1c5s3_convex}
+
+\item If $y(t)$ is \emph{concave} (or \emph{concave down}), that is,
+  if $\, \ddot y < 0,\,$ in the interval $[t_0 , t_n],$ then
+  $\, \bar{y}(t_ n) > y(t_ n)$.
+
+  \includegraphics[width=0.5\textwidth]{images_u1c5s3_concave}
+  
+\end{itemize}
+
+Often we do not know whether the actual solution $y(t)$ is convex or concave
+in an entire interval.
+What we are able to compute without knowledge of the solution is the value of $\ddot y$
+at the starting point $t_0$.
+This is still useful because this means that as long as we carry out Euler's method
+for a short enough time interval,
+we can still predict whether the Euler approximation overshoots or undershoots. \\
+
+To find $\ddot y$ at the starting point $t_0,\,$
+we differentiate the DE $\, \dot y = f(t,y)$ to find $\ddot y$.
+The differentiation is often called implicit because the variable $y$ depends on $t$.
+This gives us a formula for $\ddot y$ in terms of $\, t,\, y, \,$ and $\dot y$.
+To evaluate $\ddot y(t_0),\,$ plug in the initial condition
+$\, t_0,\, y(t_0),\,$ as well as $\, \dot y(t_0) = f(t_0,y_0)$.
 
 \clearpage
 

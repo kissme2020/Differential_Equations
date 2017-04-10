@@ -4872,10 +4872,63 @@ Euler's method is called a \emph{\color{blue}first order method}.
 
 \clearpage
 
+\subsubsection{Euler's Method mathlet}
 
+\href{http://mathlets.org/mathlets/eulers-method/}
+{EULER'S METHOD}
 
+\begin{exercise}
+  Convex Function Example
+\end{exercise}
 
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-euler_method_mathlet}
+  \caption{Euler's Method $\, y' = 0.5y + 1$}
+\end{figure}
 
+In the Euler's method mathlet above, choose the ODE $\, y' = 0.5y+1$. \\
+Use the initial point $\,(−2, \, −1)\,$. Construct and
+compare Euler solutions using step size $\, h= 0.5,\, 0.25,\, 0.125\,$.
+Then compare to the actual solution. \\
+
+Which is the best approximation? \\
+The smaller the step size, the smaller the error.
+Thus the best choice is the smallest step size $\, h =.125 \,$.
+
+\begin{exercise}
+  Error accumulation at each step
+\end{exercise}
+
+With the same ODE $\, y' = 0.5y+1 \,$ and initial point $\, (−2,\, −1)\,$.
+Compare Euler solutions using step size $\, h = 1.0,\, 0.5,\, 0.25,\, 0.125\, $ to the actual solution.\\
+
+At each step, is the approximation overshooting or undershooting the actual function? \\
+The smaller the step size, the more accurate the approximation.
+We see that each approximation is undershooting the actual value of the function.
+This makes sense because the solution function $y$ is convex,
+so the solution function curves upwards at every point, away from the tangent line approximation.
+
+\clearpage
+
+\begin{exercise}
+  Concave Function and Error
+\end{exercise}
+
+Consider the ODE $\, y' = y^2 - 2y +1\,$. Make a prediction before using the mathlet.
+From the initial point $\, (−1,  −1),\,$ will the Euler approximation be overshooting or undershooting?\\
+
+The solution function is concave, and thus is curving downwards,
+below the tangent line approximation everywhere.
+The Euler approximation is everywhere overshooting.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-euler_method_mathlet1}
+  \caption{Euler's Method $\, y' = y^2 - 2y +1\,$}
+\end{figure}
+
+\clearpage
 
 
 

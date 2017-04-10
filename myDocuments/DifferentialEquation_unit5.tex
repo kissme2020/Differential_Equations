@@ -4046,6 +4046,78 @@ The solution curves is
 
 \clearpage
 
+\subsubsection{Horseshoe crab farm continued}
+
+Our model for a profitable horseshoe crab farm with
+harvest rate $250$ crabs per month is given by
+
+\begin{equation*}
+  \dot y = -\frac{1}{4} + y - \frac{y^2}{2}.
+\end{equation*}
+
+where $y$ is has units of kilocrabs.
+
+\begin{problem}
+  Invoking the mathlet
+\end{problem}
+
+It looks as if the farm could be made smaller and still produce the desired harvest.
+To see how small a can be made, it will be useful for you invoke the Phase Lines Mathlet.
+Select the appropriate autonomous equation from it, and set $\, a=2$.
+You can create solutions by clicking on the graphing window,
+and visualize the phase line by selecting the [Phase Line] button.\\
+
+\href{http://mathlets.org/mathlets/phase-lines/}
+{Phase Lines}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image-mathlet_Bifurcation_Diagram}
+  \caption{Mathlet of $\, \dot y = -\frac{1}{4} + y - \frac{y^2}{2} \,$}
+\end{figure}
+
+The \emph{\color{blue} blue} is used to denote stable equilibria and
+the \emph{\color{orange} orange} is used to denote unstable equilibria.
+
+\begin{problem}
+  Vary the parameter
+\end{problem}
+
+Now vary $a$ on the tool.
+What seems to be the minimum value of a resulting in a stable positive population of crabs? \\
+
+When vary $a$ the minimum of $\, a  = 1\,$ and $\, y_{min} = 0.5 \,$.
+
+\begin{problem}
+  Bifurcation diagram
+\end{problem}
+
+You can visualize all these phase lines simultaneously using the [Bifurcation diagram] option.
+Select it, and then vary $a$.
+You can see the various phase lines being formed and changing as $a$ varies.
+The pair of critical points for large $a$ merge at a certain value of $a$;
+and for smaller values of $a$ the population crashes. \\
+
+What is the relation between $a$ and $y$ describing
+the curve you see on the bifurcation diagram?
+Write it in the form (an implicit function of $a$ and $y$) $\,=0 \,$. \\
+
+The function is
+
+\begin{equation*}
+  0 = -\frac{1}{4} + y - \frac{y^2}{a} 
+\end{equation*}
+
+Finally, determine by computation the position of the semi-stable critical point
+and compare your answers with what you measured earlier and with what you see on the Mathlet. \\
+
+Put the  $\, y_{min} = 0.5 \,$ in the equation
+
+\begin{equation*}
+  -\frac{1}{4} + \frac{1}{2} - \frac{(1/2)^2}{a}  = 0
+  \qquad \Rightarrow a = 1. 
+\end{equation*}
+
 
 %%% Local Variables:
 %%% mode: latex

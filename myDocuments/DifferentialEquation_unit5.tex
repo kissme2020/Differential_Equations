@@ -4933,6 +4933,107 @@ The Euler approximation is everywhere overshooting.
 \subsubsection{Worked example}
 
 \paragraph{Worked example: Euler's method}
+So today, I'd like to tackle a problem
+in numerical integration of ODE's, specifically on Euler's method.
+And the problem we're interested in considering today
+is,
+
+\begin{equation*}
+  y' = y^2 - xy. 
+\end{equation*}
+
+And we're interested in integrating the solution
+that starts at $\, y(0) = -1 ,\,$ using a step size of $0.5$,
+and we want to integrate it to $y(1)$.
+And then, for the second part, we're interested in if our first step of integration
+either overestimates or underestimates the exact solution. \\
+
+So as I mentioned before, this is a problem in numerics
+and specifically, whenever you're given an ODE,
+you can almost always numerically
+integrate it on a computer.
+And this is quite possibly the simplest algorithm for numerical integration.
+So specifically, what we do is, we take the left-hand side,
+the derivative $, \, y' ,\,$ and we approximate it using a very simple,
+finite difference formula. \\
+So if I take $y'$and approximate it
+
+\begin{align*}
+  y_{n + 1} &= y_n + hf(x_n , y_n) \\
+  h \qquad &text{Step size} \\
+  f(x, y) = y^2 - xy \\
+  x_{n + 1} = x_n + h. 
+\end{align*}
+
+And we see that $\, y_{n + 1} = y_n + hf(x_n , y_n) \,$
+is an approximation to $y'$.
+And I'm using subscripts $n$ here just to denote the step of the algorithm.
+So for part A, we're asked to integrate the solution
+that starts at $\, y(0) = -1\,$ to $y(1)$.
+So what this means, for part A, is we want $x_0$  to be $0$
+and we want $\, y_0 = -1 \,$. 
+Now to further integrate this equation, the quickest way
+to do it, especially if you're in a test scenario, is to build a table.
+
+\begin{table}[ht!]
+  \centering
+  \begin{tabular}{lllll}
+    $n$ & $x_n$ & $y_n$ & $f_n = f(x_n, y_n)$ & $ h f_n$ \\
+    0  & 0     & -1     &  1   &  0.5    \\
+    1  & 0.5   & -0.5   & 0.5 &  0.25   \\
+    2  & 1   & -0.25  & &  
+  \end{tabular}
+\end{table}
+
+And we know that this is the answer we're looking for.
+So just to conclude,
+
+\begin{equation*}
+  y_2 \approx y(1) = 0.25. 
+\end{equation*}
+
+So for part B, we're asked, does our approximation,
+$, \, -0.25 , \,$  overestimate or underestimate the actual exact solution of the ODE?
+Now in general, what you want to do is, you want to take the second derivative.
+However, for this problem, we're only going to consider the first step.
+So our first step, does it overestimate or underestimate the exact solution?
+And to do this, what we want to do
+is, we want to take a look at the concavity.
+So we want to look at $y^{\prime \prime}$.
+
+\begin{equation*}
+  y^{\prime \prime} = \frac{d}{dx} \left( y^2 - xy \right) = 2yy' -y - xy' |_{x = 0\, y =-1}
+\end{equation*}
+
+So this is the first step.
+So at $\, x = 0 ,\, y = -1 \,$. 
+This is going to give us $\, y^{\prime \prime} = -1\,$. 
+And we note that this is less than $0$.
+We've just shown that the concavity
+at our starting point $\, , x = 0,\,  y = -1,\,$ is less than $0$.
+So what this means is that our initial approximation is going
+to overestimate the solution.
+We can see that it's going to overestimate it just
+by a quick sketch.
+
+\begin{wrapfigure}{r}{4cm}
+  \includegraphics[width=4cm]{image_eulers_method_working_example}
+\end{wrapfigure}
+
+For example, if I were to plot $y$ and $x$,
+we're starting off at this point $x$ is equal to $0$,
+$y$ is equal to $-1$.
+We know the solution, the exact solution, is increasing
+and it's concave down because the second derivative is $-1$. 
+And, by Euler's formula, what we're doing is,
+we're approximating the solution using a tangent line at this point.
+So we can see that our approximate solution, when
+we take one step to go from here to here--
+$x_0$ to $x_1$--
+our solution, which is now going to be $y_1$, is going to overestimate the curve.
+And the reason it overestimates it, I'll just reiterate again,
+is because our solution is concave down.
+
 
 
 %%% Local Variables:

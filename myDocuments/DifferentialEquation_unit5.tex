@@ -5418,6 +5418,82 @@ the best possible results.
 
 \clearpage
 
+\subsection{Recitation}
+
+\subsubsection{Euler's method}
+
+\textbf{Euler's Method:}
+Numerical method to compute $y(x)$ of $\, y' = f(x,y) \,$ with initial condition
+$\, y(x_0) =y_0\,$. \\
+
+This is the only numerical method you are responsible for. (Memorize it.)
+The idea is to follow the direction field at a fixed step size
+$\, h > 0$.
+Start at $P_0=(x_0,y_0)$ and the iterative formulas are given by
+
+\begin{equation*}
+  x_{n+1} = x_ n + h; \quad y_{n+1} = y_ n + h\,  f(x_ n,y_ n)
+\end{equation*}
+
+\textbf{Error Estimates:} $E = y_{\textrm{approx}} - y_{\textrm{exact}}$
+
+\begin{equation*}
+  |E|\le Ch
+\end{equation*}
+
+where $C$ is on the order of $|f| + |\partial f/\partial x| + |\partial f/\partial y|$.
+
+\textbf{Remark.} If $y^{\prime \prime }<0$  in a region (concave down), then $E>0$.
+(The approximation is bigger than the actual answer.)
+Similarly, If $y^{\prime \prime } > 0$, then $E>0$.
+(The approximation is smaller than the actual answer.)
+
+\begin{problem}
+  Task 1
+\end{problem}
+
+Use Euler's method to estimate the value at $\, x=1.5 \,$ of the solution of
+$\, y' = y^2 − x^2 = F(x,y)\,$  at $y(0)=−1$. Use $h=0.5$.\\
+Recall the notation
+
+\begin{align*}
+  x_0 &= 0 \\
+  y_0 &= -1, \\
+  x_{n+1} &= x_n + h,  \\
+  y_{n+1} &= y_n + F(x_n, y_n)h, 
+\end{align*}
+
+
+Enter the values in a table with columns
+$n, x_ n, y_ n, F(x_ n,y_ n) , F(x_ n,y_ n)h$.
+
+\begin{table}[ht!]
+  \centering
+  \begin{tabular}{ccccc}
+    $n$ & $x_n$ & $y_n$ & $F(x_n, y_n)$ & $h F(x_n, y_n)$ \\
+    0  & 0     & -1     &  1   &  0.5    \\
+    1  & 0.5   & -0.5   & 0 &  0   \\
+    2  & 1   &  -0.5  & 0 &  0 \\
+    3  & 1.5   & -0.875 & &   
+  \end{tabular}
+\end{table}
+
+\begin{problem}
+  Task 2
+\end{problem}
+
+Is the estimate from task 1. likely to be too large or too small? \\
+
+Check $y^{\prime \prime}$ at start point for checking concavity
+
+\begin{align*}
+  y^{\prime \prime} = 2 y y' - 2 x = 2(-1)(1)  -2(0) = - 2 
+\end{align*}
+
+$\, y^{\prime \prime} = -2 < 0 \,$ (concave down) then over estimated.
+
+\clearpage
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

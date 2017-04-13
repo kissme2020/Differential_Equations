@@ -5099,6 +5099,34 @@ However, nearby points, such as $(−1, 0)$ and $(−1, −0.1)$ lead to differe
 so this is not stable.
 
 \clearpage
+
+\subsubsection{Change of variable}
+
+Euler's method generally can't be trusted to give reasonable values when $(t,y)$ strays very far from the starting point.
+In particular, the solutions it produces usually deviate from the truth as $\, t \to  \pm \infty ,\,$ or
+in situations in which $\, y \to \pm \infty$ in finite time.
+Anything that goes off the screen can't be trusted.
+
+\begin{example}
+  The solution to $\, \dot y = y^2 - t\,$ starting at $(−2,0)$ seems to go to $+ \infty$ in finite time.
+  But Euler's method never produces a value of $+ \infty$.
+\end{example}
+
+To see what is really happening in this example, try the \emph{\color{blue} change of variable}
+$\, u = 1/y \,$.
+To rewrite the DE in terms of $u, \,$ substitute $\, y = 1/u \,$ and $\dot y = - \dot u / u^2\,$:
+
+\begin{align*}
+  - \frac{\dot u}{u^2} &= \frac{1}{u^2} - t \\
+  \dot u &= -1 + tu^2 
+\end{align*}
+
+This is equivalent to the original DE, but now,
+when $y$ is large, $u$ is small,
+and Euler's method can be used to find the time when $u$ crosses $0$,
+which is when $y$ blows up.
+
+\clearpage
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

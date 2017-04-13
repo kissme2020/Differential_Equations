@@ -4960,9 +4960,9 @@ So if I take $y'$and approximate it
 
 \begin{align*}
   y_{n + 1} &= y_n + hf(x_n , y_n) \\
-  h \qquad &text{Step size} \\
-  f(x, y) = y^2 - xy \\
-  x_{n + 1} = x_n + h. 
+  h \qquad &\text{Step size} \\
+  f(x, y) &= y^2 - xy \\
+  x_{n + 1} &= x_n + h. 
 \end{align*}
 
 And we see that $\, y_{n + 1} = y_n + hf(x_n , y_n) \,$
@@ -5034,8 +5034,71 @@ our solution, which is now going to be $y_1$, is going to overestimate the curve
 And the reason it overestimates it, I'll just reiterate again,
 is because our solution is concave down.
 
+\clearpage
 
+\subsubsection{Reliability}
 
+\begin{question}
+  How can we decide whether answers obtained numerically can be trusted?
+\end{question}
+
+Here are some heuristic tests.
+(“Heuristic" means that loosely speaking, these tests work in practice,
+but they are not proved to work always.)
+
+\begin{itemize}
+\item \textbf{\color{blue}Self-consistency:} Solution curves should not cross!
+  If numerically computed solution curves cross, a smaller step size is needed.
+  (E.g., try the mathlet “Euler's Method" with $\, \dot y = y^2 -  x ,\,$ step size $1$,
+  and starting points $(0,0)$ and $(0,1/2)$.)
+\item \textbf{\color{blue}Convergence as $h \to 0$:} The estimate for $y(t)$ at a fixed later time $t$
+  should converge to the true value as $\, h \to 0$.
+  If shrinking $h$ causes the estimate to change a lot, then $h$ is probably not small enough yet.
+  (E.g., try the mathlet “Euler's Method" with $\, \dot y = y^2 - x\,$ with starting point
+  $(0,0)$ and various step sizes.)
+\item \textbf{\color{blue}Structural stability:}Small changes in the DE's parameters should not change the outcome completely.
+  If small changes in the parameters drastically change the outcome, the answer should not be trusted.
+\item \textbf{\color{blue}Stability:}Small changes in the DE's initial conditions do not change the outcome much.
+  One reason for instability could be a separatrix,
+  a curve such that nearby starting points on different sides lead to qualitatively different outcomes;
+  this is not a fault of the numerical method, but rather an instability in the answer.
+\end{itemize}
+
+\href{http://mathlets.org/mathlets/eulers-method/}
+{EULER'S METHOD}
+
+\begin{exercise}
+  Concept check for self consistency
+\end{exercise}
+
+Choose the ODE $y' = y^2 - x$ on the mathlet.
+From the mathlet, for which of the following sizes does Euler's method mathlet
+show solutions that cross?
+
+\begin{itemize}
+\item Failure of self-consistency with step size $1.0$ can be seen by plotting the Euler solutions curves
+  with initial points $(0,0)$ and $(0,.5)$.
+\item Failure of self-consistency with step size $.5$ can be seen by plotting to Euler solution curves
+  with initial points $(0,0)$ and $(0,−3)$.
+\item Failure of self-consistency with step size $.25$ can be seen by plotting to Euler solution curves
+  with initial points $(0,−2.4)$ and $(0,−3)$.
+\item From the mathlet only, step size $0.125$ doesn't seem to cause any consistency issues.
+\end{itemize}
+
+\begin{exercise}
+  Concept check for reliability
+\end{exercise}
+
+Choose the ODE $\, y' = y^2 - x\,$.
+Use the initial point $(−0.98,0)$.
+Compare the step size $h=0.5$ to the actual solution. Which of the reliability tests fail?\\
+
+As the step size decreases,
+the solution does converge to the actual solution.
+However, nearby points, such as $(−1, 0)$ and $(−1, −0.1)$ lead to different qualitative behavior,
+so this is not stable.
+
+\clearpage
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

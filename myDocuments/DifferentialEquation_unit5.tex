@@ -4863,7 +4863,7 @@ That is, $e$ is the maximum absolute difference between the actual solution
 $y(t)$ and $\bar{y} (t)$. The error $e$ is bounded above by a \emph{linear} function of $h$
 
 \begin{equation*}
-  e\leq C h
+  e \leq C h
 \end{equation*}
 
 where $C$ is a constant depending on $f$.
@@ -5127,6 +5127,297 @@ and Euler's method can be used to find the time when $u$ crosses $0$,
 which is when $y$ blows up.
 
 \clearpage
+
+\subsubsection{Runge–Kutta methods}
+
+When computing $\, \int_a ^b f(t) dt \,$ numerically,
+the most primitive method is to use the left Riemann sum:
+divide the range of integration into subintervals of width $h$,
+and estimate the value of $f(t)$ for each t on the subinterval by the value at the left endpoint.
+More sophisticated methods are the trapezoid rule and Simpson's rule , which have smaller errors.\\
+
+There are analogous improvements to Euler's method.
+
+\begin{table}[ht!]
+  \centering
+  \begin{tabular}{ccc}
+    \emph{\color{blue} Integration} & \emph{\color{blue} Differential equation} & \emph{\color{blue} Error} \\
+    left Riemann sum   & Euler's method     & $\mathcal{O}(h)$ \\
+    trapezoid rule & second-order Runge–Kutta method (RK2) & $\mathcal{O}(h^2)$ \\
+    Simpson's rule & fourth-order Runge–Kutta method (RK4) & $\mathcal{O}(h^4)$
+  \end{tabular}
+\end{table}
+
+The \emph{\color{blue} big $\mathcal{O}$ notation} $\, \mathcal{O}(h^4) \,$ 
+means that there is a constant $C$(depending on the differential equation but not on $h$)
+such that the error is at most $\, Ch^4,\,$ assuming that $h$ is small.
+The error estimates in the table are valid for reasonable differential equations.
+
+\textbf{\color{blue}Better methods:}\\
+
+The Runge–Kutta methods evaluate at more points on the interval $[t_0,t_0 + h]$
+to get a better estimate of what happens to the slope over the course of that interval.\\
+Below is an example of a \emph{\color{blue}second-order Runge–Kutta method (RK2)}.
+It is also called the \emph{\color{blue}midpoint method} or the \emph{\color{blue}modified Euler method}. 
+Here is how one step of this method goes:
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images_u1c5s3_RK2midpoint}
+\end{figure}
+
+\begin{enumerate}
+\item Starting from $(t_0,y_0),\,$ look ahead to see where one step
+  of Euler's method would land, but do not go there!
+  Call this temporary point $\, (t_1,\tilde{y}_1).$
+\item Find the \emph{midpoint} between the starting point and the temporary point:
+  $\, \left( \frac{t_0+t_1}{2}, \frac{y_0+\tilde{y}_1}{2} \right).$
+\item Use the slope at this midpoint to find $y_1$
+
+  \begin{equation*}
+    y_1\, =\,  y_0 +h f\left( \frac{t_0+t_1}{2}, \frac{y_0+\tilde{y}_1}{2} \right).
+  \end{equation*}
+
+  Repeat the steps above using $\, (t_1,y_1)\,$ as the starting point.\\
+  Here is a summary of the equations: 
+
+  \begin{align*}
+    t_1 &= t_0 + h \\
+    \tilde{y}_1 &= y_0+h f(t_0,y_0) \\
+    y_1 &= y_0+ h f\left(\frac{t_0+t_1}{2},\frac{y_0+\tilde{y}_1}{2}\right) \\
+    \left(t_0, y_0 \right) & \mapsto \left(t_1, y_1\right).
+  \end{align*}
+
+\end{enumerate}
+
+\textbf{\color{blue} Even better methods:}\\
+
+The \emph{\color{blue}fourth-order Runge–Kutta method (RK4)} is similar,
+but more elaborate, averaging several slopes.
+It is the most commonly used method for solving DEs numerically.
+Some people simply call it the Runge–Kutta method.
+The mathlets we have been playing use RK4 with a small step size to compute the ``actual'' solution to a DE.
+
+\textbf{\color{orange} Note on below paragraph:}
+In the below paragraph Prof Mattuck starts by explaining another example of
+a second order Runge–Kutta method also called \emph{\color{blue}Heun's method} and
+then comments on the error of this method.
+Even though the RK2 methods in the text above and in the paragraph are different,
+both are second order methods to which Prof Mattuck's comment on error apply.
+
+\paragraph{Heun's method, errors, and Runge–Kutta 4}
+However, there are more efficient methods which gets the result faster.
+And so if that's our good method, let's call this a still better method.
+The better methods aim at being better.
+They keep the same idea as Euler's method,
+but they say, look, let's try to improve that slope $A_n$.
+In other words, since the slope $A_N$ that we started with is guaranteed to be wrong
+if the curve is \emph{convex} or \emph{concave},
+can we somehow correct it so that for example,
+instead of immediately aiming there,
+can't we somehow aim it so that by luck, the next step just lands us back on the curve again?
+In other words, we're sort of looking for a shortcut
+path which, by good luck, will end up back on the curve again.
+And all the simple improvements on Euler's method,
+and they are the most stable in ways
+to solve differential equations numerically, aim at finding a better slope.
+So they find a better value for a \emph{better slope}.
+They find a better value than $A_n$.
+Try to improve that slope that you found.\\
+Now, once you have the idea that you should look for a better
+slope, it's not very difficult to see what in fact you should try.
+Again, I think most of you would say, hey, I would have thought of that.
+And you'd be closer in time, since these methods were only
+found about maybe 100--
+around the turn of the last century is when I place them.
+Mostly by some German mathematicians interested in solving equations numerically. \\
+All right, so what is the better method?
+Our better slope, what should we look for in our better slope?
+Well, the simplest procedure is once again,
+we're starting from there.
+
+\begin{wrapfigure}{r}{4cm}
+  \includegraphics[width=4cm]{image_RK2}
+\end{wrapfigure}
+
+And the Euler slope would be the same as the line element.
+So the line element looks like this, and our yellow slope $A_n$--
+I'll still continue to call it $A_n$-- goes like that, gets to here.
+OK, now if the curve were convex, this would be too low,
+and therefore the next step would be--
+I'm going to draw this next step in pink.
+Well, let's continue in here.
+Would be going up like that.
+I'll call this $B_n$, just because it's the next step of Euler's method.
+It could be called $A_n$ prime or something like that.
+But this will do.
+And now what you do is-- let me put an arrow on it to indicate parallelness.
+Go back to the beginning, draw this parallel to $B_n$. So here is $B_n$.
+Again, just a line of that same slope.
+And now what you should use, the simplest improvement
+on Euler's method is take the average of these two,
+because that's more likely to hit
+the curve than An will, which is sure to be too low if the curve is convex.
+In other words, use this instead.
+Use that.
+So this is our better slope.
+OK, what will we call that slope?
+We don't have to call it anything.
+What would the equations for the method be?\\
+Well,
+
+\begin{equation*}
+  x_{n+1} = x_n + h
+\end{equation*}
+
+is gotten by adding the step size.
+So here's my step size, just as it was before.
+The new thing is how to get the new value of $y$.
+So, $y_{n+1}$ should be the old $y_n$ plus  $h$ times not this crummy slope $A_n$,
+but the better, the pink slope.
+What's the formula for the pink slope?
+Well, let's do it in two steps.
+
+\begin{equation*}
+  y_{n+1} = y_n + h \left( \frac{A_n + B_n}{2} \right) 
+\end{equation*}
+
+It's the average of $A_n$ and $B_n$. \\
+Hey, but you didn't tell me or I didn't tell you would $B_n$ was.
+So you now must tell the computer, oh, yes, by the way,
+you remember that $A_n$ was what it always was.
+The interesting thing is what is $B_n$?
+Well, to get $B_n$, $B_n$ is the slope of the line element at this new point.
+Now, what am I going to call that new point?
+I don't want to call this $y$ value $y_{n+1}$,
+because it's this up here that's going to be the $y_{n+1}$.
+All this is is a temporary value used to make another calculation, which will then
+be combined with the previous calculations to get the right value.
+Therefore, give it a temporary name.
+That point, we'll call it-- it's not going to be the real $y_{n+1}$
+we'll call it $\tilde{y}_{n+1}$, $y_{n+1}$ temporary.
+And what's the formula for it?
+Well, it's just going to be what the original Euler formula is.
+It's going to be yn plus what you would have gotten
+if you had calculated--
+in other words, it's the point that the Euler method produced,
+but it's not finally the point that we want.
+
+\begin{equation*}
+  \tilde{y}_{n+1} = y_n + h A_n \\
+\end{equation*}
+
+Now, do I have to say anything else?
+Yeah, I didn't tell the computer what $B_n$ was.
+OK, $B_n$ is the slope of the direction
+field at the point $n + 1$.
+And the computer knows what that is.
+And this point $\tilde{y}_{n+1}$.
+So you make a temporary choice of this, calculate that number,
+and then go back and as it were correct that value
+to this value by using this better slope.
+
+\begin{equation*}
+  B_n = f \left(x_{n+1}, \tilde{y}_{n+1} \right)
+\end{equation*}
+
+Now, that's all there is to the method,
+except I didn't give you its name.
+Well, it has three names.
+Four names, in fact.
+Which one shall I give you?
+I don't care.
+OK, the shortest name is Heun's method.
+But nobody pronounces that correctly.
+So it's Heun's method.
+It's called also the improved Euler method.
+It's called Modified Euler, very expressive word.
+Modified Euler's method.
+And it's also called RK2.
+I'm sure you'll like that name best.
+It has a Star Wars sort of sound to it.
+RK stands for Runge--Kutta, and the reason for the 2 is not
+that it uses--
+well, it is that it uses two slopes.
+But the real reason for the 2 is that it is a \emph{second-order method}.
+So that's the most important thing to put down about it.
+It's a second-order method, whereas Euler's was only a \emph{first-order method}.
+So Heun's method, or RK2-- that's the shortest thing to write--
+is a second-order method, meaning that the error varies
+with a step size, like some constant--
+it won't be the same as the constant for Euler's method--
+times $h$ squared.
+
+\begin{equation*}
+  e \sim c_2 (h^2)
+\end{equation*}
+
+That's a big saving, because it now means that if you halve the step size,
+you're going to decrease the error by a factor of $1/4$.
+You will quarter the error.
+Now, you say hey, great. Why should anyone use anything else?
+Well, think a little second.
+The real thing which determines how slowly one of these methods
+run is you look at the hardest step of the method and ask how long does the computer take?
+How many of those hardest steps are there?
+Now the answer is, the hardest step is always
+the evaluation of the slope, the evaluation of the function,
+because the functions that are in common use are not $x^2 - y^2$.
+They take half a page and have as coefficients 10 decimal place numbers, whatever
+the engineers doing it, whatever their accuracy was.
+So the thing that controls how long a method runs is how many times the slope of the function must be evaluated.
+\emph{For Euler, I only have to evaluate it once.}
+Here, I have to evaluate it twice. Now, roughly speaking, the number
+of function evaluations will each, will give you the exponent.
+The method that's called Runge--Kutta fourth order will
+require four evaluations of slope,
+but the accuracy will be the like $h^4$. Very accurate.
+You halve the step size, and it goes down by a factor of $16$. \\
+Great. But you had to evaluate the slope four times.
+Suppose instead you had halved four times this thing.
+What would you have done?
+You would have decreased it to $1/16$ of what it was.
+You still would increase the number of functions evaluations you needed to four,
+and you would have decreased the error by $1/16$.
+So in some sense, it really doesn't matter whether you use a very fancy method which requires
+more function evaluations.
+It's true, the error goes down faster, but you're having to do more work to get it.
+So anyway, nothing is free.
+Now, there is an RK4.
+I think I'll skip that, since I wouldn't dare to ask you any questions about it.
+But let me just mention it at least, because it's the standard.
+It uses four evaluation. It's the standard method, if you don't
+want to do anything fancier.
+It's rather inefficient, but it's very accurate. Standard method, accurate.
+And you'll see when you use the programs, it's in fact the program which is drawing
+those curves, the numerical method which draws all
+those curves that you believe in on the computer screen is the RK4 method.
+I should give them their names.
+Runge--Kutta fourth-order method.
+Two mathematicians-- I believe both German mathematicians--
+around the turn of the last century.
+Runge--Kutta fourth-order method requires you to calculate four slopes.
+I won't bother telling you what you do.
+But it's just a procedure like that.
+It's just a little more elaborate.
+And you take two of these, you make up a weighted average for the super slope.
+You use weighted average.
+
+\begin{equation*}
+  \frac{A_n + 2B_n + 2C_n + D_n}{6}
+\end{equation*}
+
+What should I divide that by to get the right--?
+$6$. Why $6$?
+Well, because if all these numbers were the same,
+I'd want it to come out to be whatever that common value was.
+Therefore, in a weighted average, you must always divide by the sum of the coefficients.
+So this is the \emph{super slope}.
+And if you plug that super slope in to here, you will be using the Runge--Kutta method and get
+the best possible results.
+
+\clearpage
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

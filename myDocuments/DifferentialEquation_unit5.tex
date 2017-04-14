@@ -5494,6 +5494,194 @@ $\, y^{\prime \prime} = -2 < 0 \,$ (concave down) then over estimated.
 
 \clearpage
 
+\subsection{Part A Homework}
+
+\begin{problem}
+  Each nonempty isocline for the differential equation
+  $ \, y' = \frac{1}{x + y} \,$ consists of 
+\end{problem}
+
+Let $m$ is a slope of DE then,
+
+\begin{align*}
+  m &= \frac{1}{x + y} \\
+  \frac{1}{m} &= x + y \\
+  y &= -x + \frac{1}{m}. 
+\end{align*}
+
+So, the $m$-isoclines is a line of negative slopes.
+
+\begin{problem}
+  Which of the following are true? 
+\end{problem}
+
+\begin{itemize}
+\item There is a function $y(x)$ defined for all real numbers $x$ that
+  satisfies the differential equation $\, y' = e^xy \,$
+  and the initial condition $\, y(0)=2$. \\
+
+  By separation of variables
+
+  \begin{align*}
+    \facr{dy}{dx} &= e^x y \\
+    \frac{1}{y} dy &= e^x dx \\
+    \int \frac{1}{y} dy &= \int e^x dx \\
+    \ln |y| &=  e^x + c_1  \\
+    e^{\ln |y|} &=  e^{e^x + c_1}  \\
+    y &= Ce^{e^x} \\. 
+  \end{align*}
+
+  Apply initial condition $\, y(0)=2$.
+
+  \begin{equation*}
+    2 = Ce^{e^0} \Rightarrow C = \frac{2}{e}
+  \end{equation*}
+
+  The $\, y = \frac{2}{e} e^x \,$ is continuous all real numbers, so
+  this DE is true by the existence and uniqueness theorem for a linear ODE.
+
+\item There is a differentiable function $y(x)$ defined for all real numbers $x$
+  that satisfies the differential equation $\, y' = y^3 \,$
+  and the initial condition $\, y(0) = 2$. \\
+
+  By separation of variables
+
+  \begin{align*}
+    \frac{dy}{dx} &= y^3 \\
+    y^{-3} dy &= dx \\
+    \int y^{-3} dy &= \int dx \\
+    - \frac{1}{2} y^{-2} &= x + C \\
+  \end{align*}
+
+  Apply initial condition $\, y(0) = 2 \,$
+
+  \begin{equation*}
+    - \frac{1}{2} 2^{-2} = 0 + C \Rightarrow C = - \frac{1}{8}
+  \end{equation*}
+
+  So,
+
+  \begin{align*}
+    - \frac{1}{2} y^{-2} &= x  - \frac{1}{8} \\
+    y^{-2} &= -2x + \frac{1}{4} \\
+    y & = \left( \frac{1}{4} - 2x \right). 
+  \end{align*}
+
+  Observe that this solution tends to $ + \infty $ as $\, x \to 1/8 \, $ from the left.
+  Therefore it is not defined for all real numbers.
+\end{itemize}
+
+\begin{problem}
+  Each nonempty isocline for the differential equation $\, y' = y^2 - 4 \, $
+  consists of 
+\end{problem}
+
+To find $m$-isoclines,
+
+\begin{align*}
+  m &= y^2 - 4 \\
+  y^2 &= m + 4 \\
+  y = \pm \sqrt{m + 4}
+\end{align*}
+
+So $m$-isoclines consist two line.
+
+\begin{problem}
+  Given that $x(t)$ is a nonconstant solution to $\, x' = x^2 - 3x -4,\,$
+  which of the following are possibilities for $, \lim_{t \to + \infty} x(t)\,$?
+\end{problem}
+
+The DE has no independent variable, so it is autonomous equation.
+Find critical point by set letf hand side of equation to zero,
+
+\begin{align*}
+  & x^2 - 3x - 4 = 0 \\
+  &(x - 4)(x + 1 )= 0 \\
+  & x = 4 \, \text{or} \, x = -1.  
+\end{align*}
+
+The phase line of DE is
+
+\begin{equation*}
+  -\infty \quad \longrightarrow \quad -1 \quad
+  \longleftarrow \quad 4 \quad \longrightarrow \quad +\infty .
+\end{equation*}
+
+So, the possibilities is $\, -1 \,$ and $\, + \infty $.
+
+\begin{problem}
+  How many stable critical points does the differential equation
+  $\, \dot x =(x-1) (x-3)^2 (x-5)^3 (x-7) (x-9)^2 \,$ have?
+\end{problem}
+
+The phase line is
+
+\begin{equation*}
+  -\infty \quad \longleftarrow \quad 1 \quad \longrightarrow
+  \quad 3 \quad \longrightarrow \quad 5 \quad \longleftarrow
+  \quad 7 \quad \longrightarrow \quad 9 \quad \longrightarrow \quad +\infty .
+\end{equation*}
+
+The arrows are pointing inward only at $5$, so $5$ is the only stable critical point.
+
+\begin{problem}
+  The number $\pi$ is given by $\, \pi = y(1) \,$ where $y$ is a solution to
+  the differential equation $\, y' = \frac{4}{1+x^2}, \,  y(0) = 0$.\\
+  Approximate $\pi$ using Euler's method with $\, h=.01$.
+  Round to $3$ decimal places. (Use a computer.)
+\end{problem}
+
+\begin{lstlisting}[language=Python]
+def DiffEquation(x):
+    """ Return result of calculation of DE. """
+    return 4 / (1 + x**2)
+
+#test code
+#Step size
+h = 0.01
+#initial point
+x0 = 0; y0 = 0
+#final step
+x_f = 1.
+#set valriable
+x = x0; y = y0
+print("")
+while x <= x_f:
+    slope = DiffEquation(x)
+    delta_y = h * slope
+    y = y + delta_y
+    x = x + h 
+    print("{:.5f}, {:.5f}, {:.5f}, {:.5f}".format(x, y, slope, delta_y))
+\end{lstlisting}
+
+We get an approximation $\pi \approx 3.152$.
+
+\begin{problem}
+  Suppose there are initially $3$ bunnies $\, (t=0) \,$ near East Campus dorms at MIT
+  and the population satisfies the logistic equation:
+
+  \begin{equation*}
+    \displaystyle \dot P = .05P-.002P^2
+  \end{equation*}
+
+  (with time measured in months). \\
+  
+  Use Euler's method to approximate the number of bunnies after $10$ years using step size $1$.
+  Round to the nearest integer.
+\end{problem}
+
+We implement Euler's method here using a python script.
+We are interested in what happens in $10$ years,
+which is $120$ months. Using step size $\, h=1, \,$ we can find:
+
+\begin{lstlisting}[language=Python]
+t=0 P=3 h=1 while t<120: P=(h+.05)*P-.002*P*P t+=h print P 
+\end{lstlisting}
+
+We approximate there to be $25$ rabbits in $10$ years.
+
+\clearpage
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "NoteForDifferentialEquation"

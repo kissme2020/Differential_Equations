@@ -5523,12 +5523,12 @@ So, the $m$-isoclines is a line of negative slopes.
   By separation of variables
 
   \begin{align*}
-    \facr{dy}{dx} &= e^x y \\
-    \frac{1}{y} dy &= e^x dx \\
+    \frac{dy}{dx} &= e^x y \\
+    \frac{1}{y} dy &= e^x dx 
     \int \frac{1}{y} dy &= \int e^x dx \\
     \ln |y| &=  e^x + c_1  \\
     e^{\ln |y|} &=  e^{e^x + c_1}  \\
-    y &= Ce^{e^x} \\. 
+    y &= Ce^{e^x}. 
   \end{align*}
 
   Apply initial condition $\, y(0)=2$.
@@ -5581,7 +5581,7 @@ To find $m$-isoclines,
 \begin{align*}
   m &= y^2 - 4 \\
   y^2 &= m + 4 \\
-  y = \pm \sqrt{m + 4}
+  y &= \pm \sqrt{m + 4}
 \end{align*}
 
 So $m$-isoclines consist two line.
@@ -5632,6 +5632,7 @@ The arrows are pointing inward only at $5$, so $5$ is the only stable critical p
 \end{problem}
 
 \begin{lstlisting}[language=Python]
+
 def DiffEquation(x):
     """ Return result of calculation of DE. """
     return 4 / (1 + x**2)
@@ -5652,6 +5653,7 @@ while x <= x_f:
     y = y + delta_y
     x = x + h 
     print("{:.5f}, {:.5f}, {:.5f}, {:.5f}".format(x, y, slope, delta_y))
+
 \end{lstlisting}
 
 We get an approximation $\pi \approx 3.152$.
@@ -5723,7 +5725,7 @@ which happens when the parachute reaches terminal velocity
 (remember velocity is negative going downwards).
 The critical value $\,v = 10$ m/s is an unstable equilibrium.
 
-\includegraphics[with=0.5\textwidth]{image_unit5_homework_partB1}
+\includegraphics[width=0.5\textwidth]{image_unit5_homework_partB1}
 
 \clearpage
 
@@ -5733,10 +5735,10 @@ The critical value $\,v = 10$ m/s is an unstable equilibrium.
 
 Sketch solutions for each of the given different initial condition types.
 
-\includegraphics[with=0.5\textwidth]{image_unit5_homework_partB2}
+\includegraphics[width=0.5\textwidth]{image_unit5_homework_partB2}
+
 
 \textbf{What are g-forces?} \\
-
 Pilots, astronauts, and parachute jumpers are all concerned with the g-forces
 they experience. The g-force is a measurement of the acceleration that causes weight.
 The unit of measurement is $1$ g, the ordinary force of gravity on Earth.
@@ -5750,9 +5752,71 @@ The g-force experienced by a parachute jumper is the number of g's of accelerati
   g-force
 \end{problem}
 
-Suppose that at $\, t = 0,\, v(0)=−20$m/s.
+Suppose that at $\, t = 0,\, v(0)= - 20$m/s.
 Find the time at which the acceleration $\dot v$ is largest in absolute value.
 At that moment, what is the g-force experienced by the jumper?
+
+\clearpage
+
+\subsubsection{Nonlinear equations}
+
+\begin{problem}
+  Sketching isoclines
+\end{problem}
+
+Find the isoclines of slope $m$ for various specified values of $m$ of the differential equation
+
+\begin{equation*}
+  \frac{dy}{dx} = y^2 - x^2
+\end{equation*}
+
+\begin{itemize}
+\item Isocline $\, m = 0 \,$ \\
+
+  \begin{align*}
+    &y^2 - x^2 = 0 \\
+    &y^2 = x^2 \\
+    &y = \pm x. 
+  \end{align*}
+
+  So, $0$-isoclines is two line.
+
+\item Isocline $\, m = 2 \,$ \\
+
+  \begin{align*}
+    &y^2 - x^2 = 2 \\
+    &y^2 = x^2 + 2 \\
+    &y = \pm \sqrt{x^2 + 2}. 
+  \end{align*}
+
+  So, $0$-isoclines are both branches of a hyperbola.
+
+\item Isocline $\, m = -2 \,$ \\
+
+  \begin{align*}
+    &y^2 - x^2 = 2 \\
+    &y^2 = x^2 - 2 \\
+    &y = \pm \sqrt{x^2 - 2}. 
+  \end{align*}
+
+  So, $0$-isoclines are both branches of a hyperbola.
+\end{itemize}
+
+\begin{problem}
+  Long term behavior of solutions
+\end{problem}
+
+Set the mathlet to the DE
+
+\begin{equation*}
+  \frac{dy}{dx} = y^2 - x^2
+\end{equation*}
+
+There seem to be two different looking behaviors of solutions as $x$ increases.
+Some curves go up and some go down.
+Look for a value $A$ for which when $\, y(0)>A ,\,$ $y$ exits the frame upwards as $x$ increases,
+and for $\, y(0)<A,\,$  $y$ exits much lower. 
+
 
 %%% Local Variables:
 %%% mode: latex
